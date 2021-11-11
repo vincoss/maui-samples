@@ -1,0 +1,14 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Geolocation_Samples.MainPage"
+             Title="Geolocation_Samples">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Geolocation" FontSize="Title"/>
+            <Button Text="Show GPS Info" Clicked="Button_Clicked"/>
+            <Label x:Name="lblInfo"/>
+            <Label x:Name="lblInfoLast"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

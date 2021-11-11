@@ -1,0 +1,53 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionView_Samples.Views.CollectionViewAddView"
+              xmlns:behaviors="clr-namespace:CollectionView_Samples.Views;assembly=CollectionView_Samples"
+             x:Name="cpCollectionViewAddView"
+             Title="CollectionView with Add form">
+
+    <NavigationPage.TitleView>
+        <Label Text="Items"/>
+    </NavigationPage.TitleView>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0" x:Name="ItemsListView"
+                            HorizontalOptions="FillAndExpand"
+                            EmptyView="No cards to display"
+                            RemainingItemsThreshold="5"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                            ItemsSource="{Binding ItemsSource}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout Grid.Row="1" BackgroundColor="#DCDCDC" Padding="5">
+            <Button Text="+ ADD CARD" Command="{Binding AddCardCommand}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsEditing}" Value="True">
+                        <Setter Property="IsVisible" Value="False" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            <Entry IsTextPredictionEnabled="True" IsSpellCheckEnabled="True" IsVisible="{Binding IsEditing}"
+                   ReturnType="Next"
+                   x:Name="eNewItem" Completed="eNewItem_Completed"
+                   Placeholder="Item name">
+                <Entry.Behaviors>
+                    <behaviors:NextEntryBehavior NextEntry="{x:Reference eNewItem}" />
+                </Entry.Behaviors>
+            </Entry>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

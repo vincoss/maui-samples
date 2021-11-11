@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UiSamples.MainPage"
+             Title=".NET MAUI Samples">
+
+    <StackLayout>
+
+        <Label Text=".NET MAUI Samples" FontSize="Title" />
+
+        <CollectionView ItemsSource="{Binding ItemsSource}"
+                        SelectionChanged="ListOfPages_SelectionChanged" 
+                        EmptyView="No Items"
+                        SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" Padding="5"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+
+</ContentPage>

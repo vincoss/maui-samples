@@ -1,0 +1,19 @@
+﻿using Sqlite_EF_Samples_Library.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Sqlite_EF_Samples
+{
+    public class DbPath : IPath
+    {
+        public string GetDatabasePath(string filename)
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), filename);
+        }
+    }
+}

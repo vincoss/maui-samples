@@ -1,0 +1,24 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RefreshView_Samples.MainPage"
+             Title="RefreshView_Samples">
+
+    <StackLayout>
+        <Label Text="{Binding LastRefresh}"/>
+        <RefreshView IsRefreshing="{Binding IsBusy}" RefreshColor="Orange"
+             Command="{Binding RefreshCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView Orientation="Vertical">
+                <StackLayout Orientation="Vertical" BindableLayout.ItemsSource="{Binding Items}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Label Padding="0" Margin="0" Text="{Binding}" 
+                                    HeightRequest="80" MinimumWidthRequest="80" FontSize="Title"
+                                    HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </StackLayout>
+
+</ContentPage>

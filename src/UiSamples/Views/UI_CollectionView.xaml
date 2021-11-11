@@ -1,0 +1,91 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UiSamples.Views.UI_CollectionView"
+             xmlns:local="clr-namespace:UiSamples.Xaml;assembly=UiSamples"
+             Title="UI_CollectionView">
+
+    <ScrollView>
+        <StackLayout>
+
+            <BoxView BackgroundColor="#696969" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="CollectionView - Populate a CollectionView with data" />
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Baboon</x:String>
+                        <x:String>Capuchin Monkey</x:String>
+                        <x:String>Blue Monkey</x:String>
+                        <x:String>Squirrel Monkey</x:String>
+                        <x:String>Golden Lion Tamarin</x:String>
+                        <x:String>Howler Monkey</x:String>
+                        <x:String>Japanese Macaque</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+            </CollectionView>
+
+            <BoxView BackgroundColor="#696969" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="CollectionView - ScrollTo" />
+            <Button x:Name="addItem" Text="Add" Clicked="addItem_Clicked"/>
+            <Entry Placeholder="Scroll To" Text="{Binding SelectedItem}" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"/>
+            <CollectionView x:Name="scrolToItems" 
+                            SelectionMode="Single"
+                            ItemsSource="{Binding Items}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                            ItemsUpdatingScrollMode="KeepLastItemInView"
+                            local:CollectionViewScrollToAttached.ScrollToIndex="{Binding SelectedItem}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                           SnapPointsType="MandatorySingle"
+                           SnapPointsAlignment="Start" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" Padding="10"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <BoxView BackgroundColor="#696969" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="CollectionView - Vertical grid" />
+            <CollectionView ItemsSource="{Binding TagColors}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="6" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Text="X" BackgroundColor="{Binding}"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                    FontSize="Title"
+                                    Margin="5" BorderWidth=".5" BorderColor="#696969"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <BoxView BackgroundColor="#696969" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="CollectionView - Horizontal List - Label Shall Fill" />
+            <Button x:Name="btnAddValue" Text="Add" Clicked="btnAddValue_Clicked"/>
+            <Entry x:Name="doubleEntry" Placeholder="Enter double value" Keyboard="Numeric" />
+            <CollectionView 
+                    BackgroundColor="Pink"
+                    ItemSizingStrategy="MeasureAllItems"
+                    SelectionMode="Single"
+                    ItemsSource="{Binding Numbers}" 
+                    HeightRequest="80"
+                    Margin="0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" BackgroundColor="Red" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="NoWrap"
+                                   Margin="0" Padding="0"
+                                   FontSize="Medium"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,13 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Localization_Samples.MainPage"
+              Title="Localization-Sample">
+
+    <ScrollView>
+        <StackLayout>
+            <Label x:Name="lblWelcome" FontSize="Title"/>
+            <Label x:Name="lblTranslate" FontSize="Default"/>
+            <Label x:Name="editorCultures" Text="" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
