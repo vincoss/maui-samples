@@ -48,6 +48,7 @@ Cannot deploy android device or emulator
 
 a. Solution see Configuration Manager for the solution ensure that deploy is checked
 b. Double click on project and reorder 'TargetFrameworks' targets, make the android first.
+c. https://github.com/dotnet/maui/issues/2493
 
 ## Issue 6
 Cannot create the archive file because the copy of mdbs files failed.
