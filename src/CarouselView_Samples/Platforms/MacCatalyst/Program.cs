@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CarouselView_Samples.Platforms.MacCatalyst
+namespace CarouselView_Samples
 {
     public class Program
     {

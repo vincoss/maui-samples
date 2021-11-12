@@ -12,6 +12,7 @@ namespace CarouselView_Samples
         {
             InitializeComponent();
         }
+
         protected override Window CreateWindow(IActivationState activationState)
         {
             return new Window(new NavigationPage(new PageWithCarouselView()));
