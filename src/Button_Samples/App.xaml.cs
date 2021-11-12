@@ -11,9 +11,11 @@ namespace Button_Samples
         public App()
         {
             InitializeComponent();
+        }
 
-            MainPage = new MainPage();
-           // MainPage = new ButtonBottomRightView();
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return new Window(new NavigationPage(new MainPage())) { Title = "Button_Samples" };
         }
     }
 }

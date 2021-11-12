@@ -1,20 +1,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Button_Samples.MainPage">
+             x:Class="Button_Samples.MainPage"
+             Title="Button_Samples">
 
     <StackLayout>
         <!-- Square button-->
         <StackLayout Orientation="Horizontal">
+
             <Button Text="CA"
         x:Name="btn1" FontSize="Title"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center"
-        HeightRequest="{Binding Width, Source={x:Reference btn1}}"/>
-            <Button Text="SA"
+                    />
+            <!--HeightRequest="{Binding Width, Source={x:Reference btn1}}"/>-->
+            
+            <!--<Button Text="SA"
         x:Name="btn2" FontSize="Title"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center"
-        HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>
+        HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>-->
         </StackLayout>
     </StackLayout>
     

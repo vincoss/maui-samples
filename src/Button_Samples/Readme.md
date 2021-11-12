@@ -1,5 +1,6 @@
 ﻿
 ## Tasks
+square button binding not right height returns -1
 ButtonBottomRightView button not right
 
 
