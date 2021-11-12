@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Geolocation_Samples
+namespace Geolocation_Samples.Platforms.iOS
 {
     public class Program
     {

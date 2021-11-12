@@ -5,7 +5,7 @@ using System;
 using Microsoft.Maui.Hosting;
 
 
-namespace ViewModelIocSample
+namespace ViewModelIocSample.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

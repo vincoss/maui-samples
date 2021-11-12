@@ -3,7 +3,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
 
-namespace Sqlite_Dapper_Samples
+namespace Sqlite_Dapper_Samples.Platforms.iOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

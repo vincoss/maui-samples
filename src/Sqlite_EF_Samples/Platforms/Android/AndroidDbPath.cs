@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Sqlite_EF_Samples
+namespace Sqlite_EF_Samples.Platforms.Android
 {
     public class DbPath : IPath
     {

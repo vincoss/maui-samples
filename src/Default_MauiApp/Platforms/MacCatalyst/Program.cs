@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Default_MauiApp
+namespace Default_MauiApp.Platforms.MacCatalyst
 {
     public class Program
     {

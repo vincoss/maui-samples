@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Sqlite_Dapper_Samples
+namespace Sqlite_Dapper_Samples.Platforms.iOS
 {
     public class Program
     {

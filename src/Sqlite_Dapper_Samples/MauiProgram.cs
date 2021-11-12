@@ -7,8 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Sqlite_Dapper_Samples.Interfaces;
 using Sqlite_Dapper_Samples.Services;
-using Sqlite_Dapper_Samples;
-
+using Sqlite_Dapper_Samples.Platforms.iOS;
+using Sqlite_Dapper_Samples.Platforms.MacCatalyst;
+using Sqlite_Dapper_Samples.Platforms.Android;
 
 namespace Sqlite_Dapper_Samples
 {

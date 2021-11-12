@@ -4,7 +4,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Button_Samples
+namespace Button_Samples.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

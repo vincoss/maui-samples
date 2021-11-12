@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sqlite_EF_Samples_Library.Entities
+namespace Sqlite_EF_Samples_Library.Entities.Model
 {
     public class Item
     {
@@ -17,7 +17,7 @@ namespace Sqlite_EF_Samples_Library.Entities
         public string Priority { get; set; }
         public string Assigne { get; set; }
         public string Tags { get; set; }
-        
+
         public DateTimeOffset? DueDateUtc { get; set; }
 
         public DateTime CreatedDateTimeUtc { get; set; }

@@ -5,7 +5,7 @@ using System;
 using Microsoft.Maui.Hosting;
 
 
-namespace Sqlite_EF_Samples
+namespace Sqlite_EF_Samples.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

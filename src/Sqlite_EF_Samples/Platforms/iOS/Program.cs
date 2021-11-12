@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Sqlite_EF_Samples
+namespace Sqlite_EF_Samples.Platforms.iOS
 {
     public class Program
     {

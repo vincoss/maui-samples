@@ -1,5 +1,5 @@
 ﻿using FluentMigrator;
-using Sqlite_Dapper_Samples.Entities;
+using Sqlite_Dapper_Samples.Entities.Model;
 using System;
 
 namespace Sqlite_Dapper_Samples.Migrations

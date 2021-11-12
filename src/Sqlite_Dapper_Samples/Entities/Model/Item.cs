@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sqlite_Dapper_Samples.Entities
+namespace Sqlite_Dapper_Samples.Entities.Model
 {
     public class Item
     {

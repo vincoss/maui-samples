@@ -5,7 +5,7 @@ using System;
 using Microsoft.Maui.Hosting;
 
 
-namespace Sqlite_Dapper_Samples
+namespace Sqlite_Dapper_Samples.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

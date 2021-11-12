@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CarouselView_Samples
+namespace CarouselView_Samples.Platforms.iOS
 {
     public class Program
     {

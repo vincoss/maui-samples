@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CollectionView_Samples
+namespace CollectionView_Samples.Platforms.MacCatalyst
 {
     public class Program
     {

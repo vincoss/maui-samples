@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace ViewModelIocSample
+namespace ViewModelIocSample.Platforms.iOS
 {
     public class Program
     {

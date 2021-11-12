@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Sqlite_EF_Samples_Library.Entities.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

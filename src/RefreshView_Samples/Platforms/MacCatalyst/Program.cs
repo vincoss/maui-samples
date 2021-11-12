@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace RefreshView_Samples
+namespace RefreshView_Samples.Platforms.MacCatalyst
 {
     public class Program
     {

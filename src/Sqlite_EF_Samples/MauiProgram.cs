@@ -6,7 +6,9 @@ using Microsoft.Maui.Controls.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using Sqlite_EF_Samples_Library.Interfaces;
 using Sqlite_EF_Samples_Library.Services;
-
+using Sqlite_EF_Samples.Platforms.iOS;
+using Sqlite_EF_Samples.Platforms.Android;
+using Sqlite_EF_Samples.Platforms.MacCatalyst;
 
 namespace Sqlite_EF_Samples
 {

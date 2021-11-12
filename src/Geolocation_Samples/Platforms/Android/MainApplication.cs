@@ -5,7 +5,7 @@ using System;
 using Microsoft.Maui.Hosting;
 
 
-namespace Geolocation_Samples
+namespace Geolocation_Samples.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

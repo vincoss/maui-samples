@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Entry_Samples
+namespace Entry_Samples.Platforms.MacCatalyst
 {
     public class Program
     {

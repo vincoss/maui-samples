@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Button_Samples
+namespace Button_Samples.Platforms.MacCatalyst
 {
     public class Program
     {
