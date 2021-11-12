@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefreshView_Samples", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{7ACC20FF-CDC8-412D-A98B-A891582B4AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,11 +126,11 @@ Global
 		{7ACC20FF-CDC8-412D-A98B-A891582B4AFA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{7ACC20FF-CDC8-412D-A98B-A891582B4AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ACC20FF-CDC8-412D-A98B-A891582B4AFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D2C77D4-05B3-4C2E-93C2-96C96744C8D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39A55A0-8B33-4580-A5C7-A45DD6F3D77C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

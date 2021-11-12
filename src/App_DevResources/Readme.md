@@ -44,7 +44,7 @@ dotnet tool update -g Redth.Net.Maui.Check
 maui-check
 
 ## Issue 5
-Cannot deploy android device or emulatro
+Cannot deploy android device or emulator
 
 a. Solution see Configuration Manager for the solution ensure that deploy is checked
 b. Double click on project and reorder 'TargetFrameworks' targets, make the android first.
