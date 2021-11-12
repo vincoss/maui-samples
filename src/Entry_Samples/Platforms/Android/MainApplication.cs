@@ -4,7 +4,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Entry_Samples.Platforms.Android
+namespace Entry_Samples
 {
     [Application]
     public class MainApplication : MauiApplication

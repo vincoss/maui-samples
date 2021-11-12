@@ -6,7 +6,7 @@ using System;
 namespace Entry_Samples
 {
     public partial class MainPage : ContentPage
-    {          
+    {
         public MainPage()
         {
             InitializeComponent();

@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Entry_Samples.Platforms.iOS
+namespace Entry_Samples
 {
     public class Program
     {
