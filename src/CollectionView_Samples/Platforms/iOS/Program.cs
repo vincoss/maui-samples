@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CollectionView_Samples.Platforms.iOS
+namespace CollectionView_Samples
 {
     public class Program
     {

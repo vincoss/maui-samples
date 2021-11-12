@@ -11,8 +11,6 @@ namespace CollectionView_Samples
         public MainPage()
         {
             InitializeComponent();
-
-           
         }
 
         protected override void OnAppearing()

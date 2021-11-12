@@ -2,7 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace CollectionView_Samples.Platforms.MacCatalyst
+namespace CollectionView_Samples
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples", "src\Sq
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIocSample", "src\ViewModelIocSample\ViewModelIocSample.csproj", "{0C798BBD-A574-4426-81D7-CAC7941FB8A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{A3C8B197-3745-4414-811E-EE6FBF3CB272}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiSharedLibrary", "src\MauiSharedLibrary\MauiSharedLibrary.csproj", "{5DA3E656-3E54-40C0-9BD5-5602614807AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{1DBD2B3C-25E1-4D8E-B2D0-39AF6E22FE0B}"
@@ -36,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{9E73E4F8-3771-449C-A40D-CC4E4FD9E424}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{ABA97341-4B22-46C9-8137-34EF22D0F7C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{7269261E-7158-4AAD-8049-B9DA85E2BA1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,11 +81,6 @@ Global
 		{0C798BBD-A574-4426-81D7-CAC7941FB8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C798BBD-A574-4426-81D7-CAC7941FB8A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C798BBD-A574-4426-81D7-CAC7941FB8A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{A3C8B197-3745-4414-811E-EE6FBF3CB272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3C8B197-3745-4414-811E-EE6FBF3CB272}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3C8B197-3745-4414-811E-EE6FBF3CB272}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A3C8B197-3745-4414-811E-EE6FBF3CB272}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3C8B197-3745-4414-811E-EE6FBF3CB272}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -131,6 +126,11 @@ Global
 		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
