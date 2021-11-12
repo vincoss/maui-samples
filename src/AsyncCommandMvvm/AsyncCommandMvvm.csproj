@@ -54,7 +54,7 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.2" />
+    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.3" />
   </ItemGroup>
 
 </Project>
