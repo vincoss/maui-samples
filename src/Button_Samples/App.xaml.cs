@@ -12,7 +12,8 @@ namespace Button_Samples
         {
             InitializeComponent();
 
-            MainPage = new ButtonBottomRightView();
+            MainPage = new MainPage();
+           // MainPage = new ButtonBottomRightView();
         }
     }
 }

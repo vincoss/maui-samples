@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Button_Samples.Platforms.iOS
+namespace Button_Samples
 {
     public class Program
     {
