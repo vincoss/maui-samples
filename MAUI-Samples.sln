@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App_DevResources\App_DevResources.csproj", "{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocation_Samples", "src\Geolocation_Samples\Geolocation_Samples.csproj", "{BB83ECFE-674A-43AF-993C-71D76E93068A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization_Samples", "src\Localization_Samples\Localization_Samples.csproj", "{38060788-DD9D-4120-A902-F479B72379E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_Dapper_Samples", "src\Sqlite_Dapper_Samples\Sqlite_Dapper_Samples.csproj", "{4FE244F6-1228-4AE4-8D82-6C12748EE8F4}"
@@ -25,17 +23,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiSamples", "src\UiSamples\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefreshView_Samples", "src\RefreshView_Samples\RefreshView_Samples.csproj", "{112F014E-D597-4B5B-91D1-EF5882780F7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncCommandMvvm", "src\AsyncCommandMvvm\AsyncCommandMvvm.csproj", "{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncCommandMvvm", "src\AsyncCommandMvvm\AsyncCommandMvvm.csproj", "{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{9E73E4F8-3771-449C-A40D-CC4E4FD9E424}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{9E73E4F8-3771-449C-A40D-CC4E4FD9E424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{ABA97341-4B22-46C9-8137-34EF22D0F7C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{ABA97341-4B22-46C9-8137-34EF22D0F7C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{7269261E-7158-4AAD-8049-B9DA85E2BA1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{7269261E-7158-4AAD-8049-B9DA85E2BA1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocation_Samples", "src\Geolocation_Samples\Geolocation_Samples.csproj", "{11353AA7-62BE-4152-9167-9F991596DB7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,12 +51,6 @@ Global
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB83ECFE-674A-43AF-993C-71D76E93068A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{38060788-DD9D-4120-A902-F479B72379E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38060788-DD9D-4120-A902-F479B72379E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38060788-DD9D-4120-A902-F479B72379E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -131,6 +125,11 @@ Global
 		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{11353AA7-62BE-4152-9167-9F991596DB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11353AA7-62BE-4152-9167-9F991596DB7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

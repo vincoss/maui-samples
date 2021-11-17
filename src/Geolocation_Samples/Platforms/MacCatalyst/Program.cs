@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Geolocation_Samples.Platforms.MacCatalyst
+namespace Geolocation_Samples
 {
     public class Program
     {
