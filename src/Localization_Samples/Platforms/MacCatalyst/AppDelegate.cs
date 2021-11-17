@@ -2,8 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-
-namespace Localization_Samples.Platforms.MacCatalyst
+namespace Localization_Samples
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Localization_Samples.Platforms.MacCatalyst
+namespace Localization_Samples
 {
     public class Program
     {

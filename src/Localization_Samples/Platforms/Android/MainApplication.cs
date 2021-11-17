@@ -1,11 +1,10 @@
 ﻿using Android.App;
 using Android.Runtime;
 using Microsoft.Maui;
-using System;
 using Microsoft.Maui.Hosting;
+using System;
 
-
-namespace Localization_Samples.Platforms.Android
+namespace Localization_Samples
 {
     [Application]
     public class MainApplication : MauiApplication
