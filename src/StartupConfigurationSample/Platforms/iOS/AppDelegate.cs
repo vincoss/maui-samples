@@ -2,8 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-
-namespace StartupConfigurationSample.Platforms.iOS
+namespace StartupConfigurationSample
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

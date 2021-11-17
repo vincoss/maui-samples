@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace StartupConfigurationSample.Platforms.iOS
+namespace StartupConfigurationSample
 {
     public class Program
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using StartupConfigurationSample.Interfaces;
 using System;
 using Application = Microsoft.Maui.Controls.Application;
-
 
 namespace StartupConfigurationSample
 {

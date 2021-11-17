@@ -1,21 +1,17 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Hosting;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Controls.Xaml;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using StartupConfigurationSample.Interfaces;
-using StartupConfigurationSample.Services;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Maui.Essentials;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Maui.Controls;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Logging.Console;
-using System.Net.Http;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Hosting;
+using StartupConfigurationSample.Interfaces;
+using StartupConfigurationSample.Services;
 using System;
+using System.Net.Http;
 
 namespace StartupConfigurationSample
 {
@@ -23,11 +19,11 @@ namespace StartupConfigurationSample
     {
         public static MauiApp CreateMauiApp()
         {
-			var configuration = GetConfiguration(new string[0]);
-			var builder = MauiApp.CreateBuilder();
+            var configuration = GetConfiguration(new string[0]);
 
-			builder
-				.UseMauiApp<App>()
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -64,18 +60,18 @@ namespace StartupConfigurationSample
                 });
 
             return builder.Build();
-		}
+        }
 
-		private static IConfiguration GetConfiguration(string[] args)
-		{
-			var builder = new ConfigurationBuilder()
-						.SetBasePath(FileSystem.AppDataDirectory)
-						.AddCommandLine(new string[] { $"ContentRoot={FileSystem.AppDataDirectory}" })
-						.AddJsonFile(new EmbeddedFileProvider(typeof(MauiProgram).Assembly), "appsettings.json", false, false)
-						.AddEnvironmentVariables()
-						.AddCommandLine(args);
+        private static IConfiguration GetConfiguration(string[] args)
+        {
+            var builder = new ConfigurationBuilder()
+                        .SetBasePath(FileSystem.AppDataDirectory)
+                        .AddCommandLine(new string[] { $"ContentRoot={FileSystem.AppDataDirectory}" })
+                        .AddJsonFile(new EmbeddedFileProvider(typeof(MauiProgram).Assembly), "appsettings.json", false, false)
+                        .AddEnvironmentVariables()
+                        .AddCommandLine(args);
 
-			return builder.Build();
-		}
-	}
+            return builder.Build();
+        }
+    }
 }

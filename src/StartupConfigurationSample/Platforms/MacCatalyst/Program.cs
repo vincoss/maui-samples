@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace StartupConfigurationSample.Platforms.MacCatalyst
+namespace StartupConfigurationSample
 {
     public class Program
     {
