@@ -2,8 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-
-namespace ViewModelIocSample.Platforms.iOS
+namespace ViewModelIoc_Samples
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

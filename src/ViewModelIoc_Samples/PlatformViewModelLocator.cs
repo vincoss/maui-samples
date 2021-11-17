@@ -2,6 +2,7 @@
 using System;
 using System.Globalization;
 using System.Reflection;
+using ViewModelIoc_Samples;
 using ViewModelIocSample.ViewModels;
 
 

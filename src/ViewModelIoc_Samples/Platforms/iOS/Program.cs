@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace ViewModelIocSample.Platforms.MacCatalyst
+namespace ViewModelIoc_Samples
 {
     public class Program
     {

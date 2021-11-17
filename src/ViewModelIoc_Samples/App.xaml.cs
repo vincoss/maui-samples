@@ -1,13 +1,14 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using System;
 using ViewModelIocSample.Views;
 using Application = Microsoft.Maui.Controls.Application;
 
-namespace ViewModelIocSample
+namespace ViewModelIoc_Samples
 {
-	public partial class App : Application
-	{
+    public partial class App : Application
+    {
 		public App(IServiceProvider serviceProvider)
 		{
 			ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));

@@ -2,7 +2,7 @@
 using Microsoft.Maui.Essentials;
 using System;
 
-namespace Sqlite_Dapper_Samples
+namespace ViewModelIoc_Samples
 {
     public partial class MainPage : ContentPage
     {
@@ -11,5 +11,6 @@ namespace Sqlite_Dapper_Samples
             InitializeComponent();
         }
 
+      
     }
 }
