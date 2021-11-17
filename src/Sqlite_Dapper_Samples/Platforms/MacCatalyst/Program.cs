@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Sqlite_Dapper_Samples.Platforms.MacCatalyst
+namespace Sqlite_Dapper_Samples
 {
     public class Program
     {
