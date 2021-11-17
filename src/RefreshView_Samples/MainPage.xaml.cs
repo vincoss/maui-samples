@@ -14,7 +14,6 @@ namespace RefreshView_Samples
         public MainPage()
         {
             InitializeComponent();
-
             BindingContext = new RefreshViewSampleViewModel();
         }
 

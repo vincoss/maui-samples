@@ -2,7 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace RefreshView_Samples.Platforms.iOS
+namespace RefreshView_Samples
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

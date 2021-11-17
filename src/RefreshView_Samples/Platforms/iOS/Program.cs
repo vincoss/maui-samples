@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace RefreshView_Samples.Platforms.iOS
+namespace RefreshView_Samples
 {
     public class Program
     {

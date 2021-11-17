@@ -2,7 +2,7 @@
 using Android.Content.PM;
 using Microsoft.Maui;
 
-namespace RefreshView_Samples.Platforms.Android
+namespace RefreshView_Samples
 {
     [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : MauiAppCompatActivity

@@ -4,7 +4,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace RefreshView_Samples.Platforms.Android
+namespace RefreshView_Samples
 {
     [Application]
     public class MainApplication : MauiApplication
