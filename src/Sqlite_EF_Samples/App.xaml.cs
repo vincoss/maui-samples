@@ -5,7 +5,6 @@ using Sqlite_EF_Samples_Library.Interfaces;
 using System;
 using Application = Microsoft.Maui.Controls.Application;
 
-
 namespace Sqlite_EF_Samples
 {
     public partial class App : Application

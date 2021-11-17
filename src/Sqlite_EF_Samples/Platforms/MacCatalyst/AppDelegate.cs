@@ -2,8 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-
-namespace Sqlite_EF_Samples.Platforms.MacCatalyst
+namespace Sqlite_EF_Samples
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

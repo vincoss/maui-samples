@@ -1,14 +1,11 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Hosting;
+using Sqlite_EF_Samples.Platforms.Android;
 using Sqlite_EF_Samples_Library.Interfaces;
 using Sqlite_EF_Samples_Library.Services;
-using Sqlite_EF_Samples.Platforms.iOS;
-using Sqlite_EF_Samples.Platforms.Android;
-using Sqlite_EF_Samples.Platforms.MacCatalyst;
 
 namespace Sqlite_EF_Samples
 {
