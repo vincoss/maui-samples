@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="DBB25E66-5A42-4214-9C97-16F1A5E6F6DC"
+    Name="EFDFF5D2-7B4F-4831-8D3A-C038B35210D6"
     Publisher="CN=User Name"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>UiSamples</DisplayName>
+    <DisplayName>Ui_Samples</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
     <Logo>Assets\appiconStoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="UiSamples"
-        Description="UiSamples"
+        DisplayName="Ui_Samples"
+        Description="Ui_Samples"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\appiconMediumTile.png"
         Square44x44Logo="Assets\appiconLogo.png">
@@ -40,7 +40,7 @@
           Wide310x150Logo="Assets\appiconWideTile.png"
           Square71x71Logo="Assets\appiconSmallTile.png"
           Square310x310Logo="Assets\appiconLargeTile.png"
-          ShortName="UiSamples">
+          ShortName="Ui_Samples">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
