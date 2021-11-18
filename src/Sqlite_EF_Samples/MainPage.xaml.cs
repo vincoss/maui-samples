@@ -1,6 +1,11 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
+using Sqlite_EF_Samples_Library.Entities;
+using System.Linq;
 using System;
+using Sqlite_EF_Samples_Library.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace Sqlite_EF_Samples
 {
@@ -11,5 +16,17 @@ namespace Sqlite_EF_Samples
             InitializeComponent();
         }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            txtMessage.Text = "Loading...";
+
+            var databaseService = App.ServiceProvider.GetService<IDatabaseService>();
+            using var db = new DatabaseContext(databaseService.ConnectionString);
+            {
+                var count = await db.Items.CountAsync();
+
+                txtMessage.Text = $"Total items: {count}";
+            }
+        }
     }
 }

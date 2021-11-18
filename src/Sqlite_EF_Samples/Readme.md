@@ -1,5 +1,5 @@
 ﻿
-test each platform
+
 
 ## Migrations
 

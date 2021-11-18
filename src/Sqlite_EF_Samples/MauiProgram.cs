@@ -25,6 +25,7 @@ namespace Sqlite_EF_Samples
                     services.AddSingleton<IPath, DbPath>();
                     services.AddSingleton<IBootstrap, Bootstrap>();
                     services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
+                    services.AddSingleton<IDatabaseService, DatabaseService>();
                 });
 
             return builder.Build();
