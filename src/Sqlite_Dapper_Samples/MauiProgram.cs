@@ -5,11 +5,20 @@ using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using Sqlite_Dapper_Samples.Interfaces;
 using Sqlite_Dapper_Samples.Services;
-//using Sqlite_Dapper_Samples.Platforms.iOS;
-//using Sqlite_Dapper_Samples.Platforms.MacCatalyst;
-using Sqlite_Dapper_Samples.Platforms.Android;
-//using Sqlite_Dapper_Samples.Platforms.Windows;
 
+
+#if ANDROID
+    using Sqlite_Dapper_Samples.Platforms.Android;
+#endif
+#if WINDOWS
+    using Sqlite_Dapper_Samples.Platforms.Windows;
+#endif
+#if IOS
+    using Sqlite_Dapper_Samples.Platforms.iOS;
+#endif
+#if MACCATALYST
+   using Sqlite_Dapper_Samples.Platforms.MacCatalyst;
+#endif
 
 namespace Sqlite_Dapper_Samples
 {
@@ -29,6 +38,7 @@ namespace Sqlite_Dapper_Samples
                      services.AddSingleton<IPath, DbPath>();
                      services.AddSingleton<IBootstrap, Bootstrap>();
                      services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
+                     services.AddSingleton<IDatabaseService, DatabaseService>();
                  });
 
             return builder.Build();

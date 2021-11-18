@@ -11,17 +11,16 @@ namespace Sqlite_Dapper_Samples.Services
 {
     public class SqliteDataMigrations : IDataMigrations
     {
-        private readonly IPath _path;
+        private readonly IDatabaseService _databaseService;
 
-        public SqliteDataMigrations(IPath path)
+        public SqliteDataMigrations(IDatabaseService databaseService)
         {
-            _path = path ?? throw new ArgumentNullException(nameof(path));
+            _databaseService = databaseService ?? throw new ArgumentNullException(nameof(databaseService));
         }
 
         public void Run()
         {
-            var p = _path.GetDatabasePath($"{nameof(SqliteDataMigrations)}.db3");
-            var c = $"Data Source={p};Password=Pass@word1;";
+            var c = _databaseService.ConnectionString;
             EnsureDatabase(c);
             RunMigrations(c);
         }

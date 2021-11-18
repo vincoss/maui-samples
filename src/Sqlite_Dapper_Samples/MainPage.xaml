@@ -1,8 +1,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sqlite_Dapper_Samples.MainPage">
+             x:Class="Sqlite_Dapper_Samples.MainPage"
+             Title="Sqlite_Dapper_Samples">
 
     <ScrollView>
-        <Label Text="Content here"/>
+        <StackLayout>
+            <Button Text="Run" Clicked="Button_Clicked"/>
+            <Label x:Name="txtMessage" />
+        </StackLayout>
     </ScrollView>
 </ContentPage>

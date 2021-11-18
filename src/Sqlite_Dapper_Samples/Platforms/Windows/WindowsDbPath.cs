@@ -13,7 +13,7 @@ namespace Sqlite_Dapper_Samples.Platforms.Windows
     {
         public string GetDatabasePath(string filename)
         {
-            throw new NotImplementedException();
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename);
         }
     }
 }
