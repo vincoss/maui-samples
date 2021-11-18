@@ -12,7 +12,11 @@ namespace Entry_Samples
         {
             InitializeComponent();
 
-            MainPage = new AutoEntryCreateView();
         }
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return new Window(new NavigationPage(new MainPage())) { Title = "Geolocation_Samples" };
+        }
+
     }
 }

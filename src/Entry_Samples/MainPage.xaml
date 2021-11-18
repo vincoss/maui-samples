@@ -6,6 +6,7 @@
     <StackLayout>
         <Button x:Name="buttonNew" Text="New" Clicked="buttonNew_Clicked"/>
         <Button x:Name="buttonEdit" Text="Edit" Clicked="buttonEdit_Clicked" />
+        <Button x:Name="buttonSamples" Text="Samples" Clicked="buttonSamples_Clicked" />
     </StackLayout>
     
 </ContentPage>

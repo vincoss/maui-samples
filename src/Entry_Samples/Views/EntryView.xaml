@@ -1,0 +1,83 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Entry_Samples.Views.EntryView"
+             xmlns:xa="clr-namespace:Entry_Samples.Xaml;assembly=Entry_Samples"
+             Title="Entry Samples">
+
+    <ScrollView>
+        <StackLayout>
+            <!--Display Customization-->
+            <Label Text="Display Customization"/>
+            <Entry Text="I am an Entry" />
+            <!--Setting Placeholder Text-->
+            <Label Text="Setting Placeholder Text"/>
+            <!--Preventing Text Entry-->
+            <Label Text="Preventing Text Entry"/>
+            <Entry Text="This is a read-only Entry" IsReadOnly="true" />
+            <!--Disabled-->
+            <Label Text="Disabled"/>
+            <Entry Text="This is disabled entry" IsReadOnly="true" />
+            <!--Limiting Input Length-->
+            <Label Text="Limiting Input Length"/>
+            <Entry Text="Some short" MaxLength="5" />
+            <!--Password Fields-->
+            <Label Text="Password Fields"/>
+            <Entry IsPassword="true" />
+            <!--Setting the Cursor Position and Text Selection Length-->
+            <Label Text="Setting the Cursor Position and Text Selection Length"/>
+            <Entry Text="Cursor position set" CursorPosition="5" />
+            <Entry Text="Cursor position and selection length set" CursorPosition="2" SelectionLength="10" />
+            <!--Entry with ReturnType=Send-->
+            <Label Text="Entry with ReturnType=Send"/>
+            <Entry Text="Entry with ReturnType=Send" ReturnType="Send" />
+            <!--Displaying a Clear Button-->
+            <Label Text="Displaying a Clear Button"/>
+            <Entry Text="Xamarin.Forms" ClearButtonVisibility="WhileEditing" />
+            <!--Customizing the Keyboard-->
+            <Label Text="Customizing the Keyboard"/>
+            <Entry Keyboard="Chat" />
+            <Entry Placeholder="Enter text here">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
+            <!--Customizing the Return Key-->
+            <Label Text="Customizing the Return Key"/>
+            <Entry ReturnType="Send" />
+            <!--Enabling and Disabling Spell Checking-->
+            <Label Text="Enabling and Disabling Spell Checking"/>
+            <Entry Text="test" IsSpellCheckEnabled="false" />
+            <!--Enabling and Disabling Text Prediction-->
+            <Label Text="Enabling and Disabling Text Prediction"/>
+            <Entry Text="test.." IsTextPredictionEnabled="false" />
+            <!--Colors-->
+            <Label Text="Colors"/>
+            <Entry TextColor="Green" />
+            <Entry BackgroundColor="#2c3e50" />
+            <!--Events and Interactivity-->
+            <Label Text="Events and Interactivity - EditorCompleted"/>
+            <Entry Placeholder="Completed" Completed="EntryCompleted" ReturnType="Default" />
+            <Label Text="Interactivity - TextChanged"/>
+            <Entry Placeholder="TextChanged" TextChanged="EntryTextChanged" />
+            <Entry Placeholder="PropertyChanged" PropertyChanged="Entry_PropertyChanged" />
+            <BoxView BackgroundColor="#696969" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Numbers Only"/>
+            <Entry x:Name="AgeEntry"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Keyboard="Numeric"
+                   TextChanged="EntryTextChanged">
+                <Entry.Behaviors>
+                    <xa:NumericValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>
+            <Entry Placeholder="Focused-Unfocused" Focused="Entry_FocusedAndUnFocused" Unfocused="Entry_FocusedAndUnFocused"/>
+            <Label x:Name="labelInteractivity"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

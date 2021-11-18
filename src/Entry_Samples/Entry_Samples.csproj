@@ -48,15 +48,6 @@
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.29-preview3" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Views\AutoEntryCreateView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\EntryFocusView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
@@ -64,6 +55,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\EntryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 	
 </Project>

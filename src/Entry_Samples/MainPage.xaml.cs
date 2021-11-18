@@ -30,5 +30,12 @@ namespace Entry_Samples
 
             this.Navigation.PushAsync(view);
         }
+
+        private void buttonSamples_Clicked(object sender, EventArgs e)
+        {
+            var view = new EntryView();
+            this.Navigation.PushAsync(view);
+        }
+
     }
 }
