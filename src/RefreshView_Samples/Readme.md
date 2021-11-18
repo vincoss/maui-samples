@@ -1,6 +1,7 @@
 ﻿
 ## Issues
-NOTE: If the 'RefreshColor' is not set the app will crash
+If the 'RefreshColor' is not set the app will crash
+Crashing on Windows app
 
 
 ## Resources
