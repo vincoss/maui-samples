@@ -30,28 +30,27 @@ namespace StartupConfigurationSample
                 })
                 .Host.ConfigureServices((b, services) =>
                 {
-                    services.AddHttpClient(); // TODO: System.NullReferenceException: 'Object reference not set to an instance of an object.'
+                    services.AddHttpClient();
                     services.AddSingleton<IBootstrap, Bootstrap>();
                     services.AddSingleton<IDatabaseService, DatabaseService>();
                     services.AddSingleton<IHttpService, HttpService>();
 
-
-                    ILoggerFactory loggerFactory = new LoggerFactory();
-
+                    var loggerFactory = new LoggerFactory();
                     services.AddSingleton(loggerFactory);
                     services.AddLogging();
 
-                    var httpClientHandler = new SocketsHttpHandler()
-                    {
-                        PooledConnectionLifetime = TimeSpan.FromMinutes(1)
-                    };
-                    services.AddSingleton(httpClientHandler);
+                    // Other sample
+                    //var httpClientHandler = new SocketsHttpHandler()
+                    //{
+                    //    PooledConnectionLifetime = TimeSpan.FromMinutes(1)
+                    //};
+                    //services.AddSingleton(httpClientHandler);
 
-                    services.AddTransient<HttpClient>((p) =>
-                    {
-                        var handler = p.GetService<SocketsHttpHandler>();
-                        return new HttpClient(handler, false);
-                    });
+                    //services.AddTransient<HttpClient>((p) =>
+                    //{
+                    //    var handler = p.GetService<SocketsHttpHandler>();
+                    //    return new HttpClient(handler, false);
+                    //});
 
                 })
                 .ConfigureLogging((hostingContext, logging) =>

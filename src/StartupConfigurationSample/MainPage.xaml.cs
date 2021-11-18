@@ -1,5 +1,7 @@
-﻿using Microsoft.Maui.Controls;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
+using StartupConfigurationSample.Interfaces;
 using System;
 
 namespace StartupConfigurationSample
@@ -9,6 +11,16 @@ namespace StartupConfigurationSample
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            txtMessage.Text = "Loading...";
+
+            var service = App.ServiceProvider.GetService<IHttpService>();
+            var result = await service.GetAsync();
+
+            txtMessage.Text = $"Status code: {result}";
         }
     }
 }

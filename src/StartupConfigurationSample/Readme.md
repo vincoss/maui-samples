@@ -1,4 +1,3 @@
 ﻿
-test on each platform																				   
-
-TODO: AddHttpClient() does not work can't resolve HttpClient, something is missing
+## Resources
+https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientfactoryservicecollectionextensions.addhttpclient?view=dotnet-plat-ext-6.0
