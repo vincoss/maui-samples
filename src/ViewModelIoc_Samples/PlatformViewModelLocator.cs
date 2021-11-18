@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls;
+﻿using MauiSharedLibrary.ViewModels;
+using Microsoft.Maui.Controls;
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -44,7 +45,7 @@ namespace ViewModelIocSample
             if (view.BindingContext == null)
             {
                 var viewType = view.GetType();
-                var viewName = viewType.FullName.Replace(".Views.", ".ViewModels."); // TODO:
+                var viewName = viewType.FullName.Replace(".Views.", ".ViewModels.");
                 var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
                 var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewName, viewAssemblyName);
 

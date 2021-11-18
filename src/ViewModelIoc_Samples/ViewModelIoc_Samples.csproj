@@ -64,5 +64,9 @@
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
+	</ItemGroup>
 	
 </Project>
