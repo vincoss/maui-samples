@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartupConfigurationSample"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{06F259AE-566B-448F-8FB8-24A7B28247BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{ABA9CB14-EE74-4E8A-9486-694024FA590B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
+		{5DA3E656-3E54-40C0-9BD5-5602614807AD} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}

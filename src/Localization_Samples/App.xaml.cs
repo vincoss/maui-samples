@@ -3,8 +3,11 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using System.Globalization;
+using System.Resources;
 using System.Threading;
 using Application = Microsoft.Maui.Controls.Application;
+
+[assembly: NeutralResourcesLanguage("en")]
 
 namespace Localization_Samples
 {

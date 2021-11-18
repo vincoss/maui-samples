@@ -1,6 +1,5 @@
 ﻿
-move other samples from Xamarin sample
-test each platform
+move other samples from Xamarin samples when required
 
 ## Ensure default assembly culture
 [assembly: NeutralResourcesLanguage("en")]
