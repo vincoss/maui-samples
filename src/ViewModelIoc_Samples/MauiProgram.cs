@@ -3,7 +3,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
-using ViewModelIocSample.ViewModels;
+using ViewModelIoc_Samples.ViewModels;
 
 namespace ViewModelIoc_Samples
 {

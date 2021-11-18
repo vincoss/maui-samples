@@ -2,7 +2,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using System;
-using ViewModelIocSample.Views;
+using ViewModelIoc_Samples.Views;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace ViewModelIoc_Samples

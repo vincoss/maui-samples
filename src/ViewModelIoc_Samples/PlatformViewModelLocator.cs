@@ -4,7 +4,7 @@ using System;
 using System.Globalization;
 using System.Reflection;
 using ViewModelIoc_Samples;
-using ViewModelIocSample.ViewModels;
+using ViewModelIoc_Samples.ViewModels;
 
 
 namespace ViewModelIocSample

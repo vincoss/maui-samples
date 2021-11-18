@@ -1,6 +1,6 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ViewModelIocSample.Views.HomeView"
+             x:Class="ViewModelIoc_Samples.Views.HomeView"
              xmlns:co="clr-namespace:ViewModelIocSample;assembly=ViewModelIoc_Samples"
              co:PlatformViewModelLocator.AutoWireViewModel="true"
              Title="{Binding Title}">
@@ -12,4 +12,5 @@
                     HorizontalOptions="CenterAndExpand" TextColor="#696969" />
         <Label Text="{Binding Title}" TextColor="#696969" />
     </StackLayout>
+    
 </ContentPage>

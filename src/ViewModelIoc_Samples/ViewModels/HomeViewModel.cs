@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ViewModelIocSample.ViewModels
+namespace ViewModelIoc_Samples.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {

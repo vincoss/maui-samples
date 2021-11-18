@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Essentials;
+using System;
 
-
-namespace ViewModelIocSample.Views
+namespace ViewModelIoc_Samples.Views
 {
     public partial class HomeView : ContentPage
     {
@@ -10,5 +10,7 @@ namespace ViewModelIocSample.Views
         {
             InitializeComponent();
         }
+
+      
     }
 }
