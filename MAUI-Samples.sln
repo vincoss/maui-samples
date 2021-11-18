@@ -21,21 +21,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionView_Samples", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocation_Samples", "src\Geolocation_Samples\Geolocation_Samples.csproj", "{11353AA7-62BE-4152-9167-9F991596DB7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocation_Samples", "src\Geolocation_Samples\Geolocation_Samples.csproj", "{11353AA7-62BE-4152-9167-9F991596DB7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization_Samples", "src\Localization_Samples\Localization_Samples.csproj", "{E38B844E-90DA-4A97-8964-1382B638AC40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization_Samples", "src\Localization_Samples\Localization_Samples.csproj", "{E38B844E-90DA-4A97-8964-1382B638AC40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefreshView_Samples", "src\RefreshView_Samples\RefreshView_Samples.csproj", "{C3BD9F45-FBCB-4385-A564-DD37A2ECEC38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefreshView_Samples", "src\RefreshView_Samples\RefreshView_Samples.csproj", "{C3BD9F45-FBCB-4385-A564-DD37A2ECEC38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqlite_Dapper_Samples", "src\Sqlite_Dapper_Samples\Sqlite_Dapper_Samples.csproj", "{5707CF2F-1FE4-4E3E-B157-A9B6013EEFEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_Dapper_Samples", "src\Sqlite_Dapper_Samples\Sqlite_Dapper_Samples.csproj", "{5707CF2F-1FE4-4E3E-B157-A9B6013EEFEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqlite_EF_Samples", "src\Sqlite_EF_Samples\Sqlite_EF_Samples.csproj", "{B42F60E3-28CB-4332-BB1B-083A6E405F68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples", "src\Sqlite_EF_Samples\Sqlite_EF_Samples.csproj", "{B42F60E3-28CB-4332-BB1B-083A6E405F68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupConfigurationSample", "src\StartupConfigurationSample\StartupConfigurationSample.csproj", "{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartupConfigurationSample", "src\StartupConfigurationSample\StartupConfigurationSample.csproj", "{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ui_Samples", "src\Ui_Samples\Ui_Samples.csproj", "{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{06F259AE-566B-448F-8FB8-24A7B28247BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{06F259AE-566B-448F-8FB8-24A7B28247BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,11 +113,6 @@ Global
 		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DCB249A-8FD8-4F1C-9CD9-BF71E629E137}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
