@@ -13,6 +13,8 @@ namespace Geolocation_Samples
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            lblInfo.Text = "Loading...";
+
             var result = await App.GeoService.Get();
             var last = await App.GeoService.Get2();
 
