@@ -74,5 +74,9 @@
 	  <None Include="Platforms\Android\AndroidDbPath.cs" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
+	</ItemGroup>
+
 
 </Project>

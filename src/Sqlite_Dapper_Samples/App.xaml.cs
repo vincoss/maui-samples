@@ -18,6 +18,7 @@ namespace Sqlite_Dapper_Samples
 
 			InitializeComponent();
 
+			SQLitePCL.Batteries_V2.Init(); // iOS system-provided SQLite is used.
 			_bootstrap.Run();
 		}
 

@@ -1,11 +1,16 @@
 ﻿using Dapper;
+using MauiSharedLibrary.ViewModels;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
+using Sqlite_Dapper_Samples.Entities.Model;
 using Sqlite_Dapper_Samples.Interfaces;
+using Sqlite_Dapper_Samples.Services;
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Sqlite_Dapper_Samples
 {
@@ -15,21 +20,83 @@ namespace Sqlite_Dapper_Samples
         {
             InitializeComponent();
         }
-        private async void Button_Clicked(object sender, EventArgs e)
+
+        protected override void OnAppearing()
         {
-            txtMessage.Text = "Loading...";
+            var viewModel = App.ServiceProvider.GetService<ProductListViewModel>();
+            BindingContext = viewModel;
+        }
 
-            var databaseService = App.ServiceProvider.GetService<IDatabaseService>();
+    }
 
-            var sql = @"SELECT COUNT(*) FROM Item";
+    public class ProductListViewModel : BaseViewModel
+    {
+        private readonly IItemService _itemService;
+        private readonly IDatabaseService _databaseService;
 
-            using (var connection = new SqliteConnection(databaseService.ConnectionString))
-            using (var multi = await connection.QueryMultipleAsync(sql))
+        public ProductListViewModel(IItemService itemService, IDatabaseService databaseService)
+        {
+            _itemService = itemService;
+            _databaseService = databaseService;
+
+            ItemsSource = new ObservableCollection<Item>();
+
+            RefreshCommand = new Command(OnRefreshCommand);
+            AddCommand = new Command(OnAddCommand);
+        }
+
+        public async void Initialize()
+        {
+            ItemsSource.Clear();
+            DatabasePath = _databaseService.ConnectionString;
+            var products = await _itemService.Get();
+
+            foreach (var p in products)
             {
-                var count = multi.Read<int>().Single();
-                txtMessage.Text = $"Total items: {count}";
+                ItemsSource.Add(p);
             }
         }
 
+        private void OnRefreshCommand()
+        {
+            Initialize();
+        }
+
+        private async void OnAddCommand()
+        {
+            if (string.IsNullOrWhiteSpace(ProductName))
+            {
+                return;
+            }
+
+            var item = Item.Create(ProductName, DateTime.Now);
+            item.JobId = 1;
+
+            await _itemService.Create(item);
+            ProductName = null;
+
+            OnRefreshCommand();
+        }
+
+        public ObservableCollection<Item> ItemsSource { get; set; }
+
+        public ICommand RefreshCommand { get; private set; }
+        public ICommand AddCommand { get; private set; }
+
+        private string _productName;
+
+        public string ProductName
+        {
+            get { return _productName; }
+            set { SetProperty(ref _productName, value); }
+        }
+
+        private string _databasePath;
+
+        public string DatabasePath
+        {
+            get { return _databasePath; }
+            set { SetProperty(ref _databasePath, value); }
+        }
     }
 }

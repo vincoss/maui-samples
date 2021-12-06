@@ -39,6 +39,9 @@ namespace Sqlite_Dapper_Samples
                      services.AddSingleton<IBootstrap, Bootstrap>();
                      services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
                      services.AddSingleton<IDatabaseService, DatabaseService>();
+                     services.AddSingleton<IItemService, ItemService>();
+
+                     services.AddTransient<ProductListViewModel>();
                  });
 
             return builder.Build();

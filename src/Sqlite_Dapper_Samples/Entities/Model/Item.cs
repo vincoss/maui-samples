@@ -41,6 +41,7 @@ namespace Sqlite_Dapper_Samples.Entities.Model
                 Name = name,
                 CreatedDateTimeUtc = createdDateUtc,
                 ModifiedDateTimeUtc = createdDateUtc,
+                CreatedDateUtc = createdDateUtc,
                 RowUuid = Guid.NewGuid()
             };
 
