@@ -104,3 +104,73 @@ public class NotificationService : IToastMessage
             Toast.MakeText(Application.Context, message, ToastLength.Long).Show();
         }
     }
+
+    # windows
+     public class NotificationService : IToastMessage
+    {
+        public void ShortAlert(string message)
+        {
+            if (string.IsNullOrWhiteSpace(message)) throw new ArgumentNullException(nameof(message));
+
+            var toast = Get(message);
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
+        public void LongAlert(string message)
+        {
+            if (string.IsNullOrWhiteSpace(message)) throw new ArgumentNullException(nameof(message));
+
+            var toast = Get(message, DateTimeOffset.Now.AddSeconds(10));
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
+        private ToastNotification Get(string message, DateTimeOffset? expire = null)
+        {
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastText01;
+
+            var toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+            var toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode(message));
+
+            ToastNotification toast = new ToastNotification(toastXml);
+            toast.ExpirationTime = expire;
+            return toast;
+        }
+    }
+
+## File picker
+
+    public async Task<string> PickFileAsync(string[] allowedTypes = null)
+        {
+            if (allowedTypes == null)
+            {
+                allowedTypes = new string[0];
+            }
+
+            var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            {
+                { DevicePlatform.Android, allowedTypes },
+                { DevicePlatform.iOS, allowedTypes },
+                { DevicePlatform.macOS, allowedTypes },
+                { DevicePlatform.tvOS, allowedTypes },
+                { DevicePlatform.Tizen, allowedTypes },
+                { DevicePlatform.UWP, allowedTypes },
+                { DevicePlatform.watchOS, allowedTypes },
+                { DevicePlatform.Unknown, allowedTypes },
+            });
+
+            var options = new PickOptions
+            {
+                PickerTitle = AppResources.PickFile,
+                FileTypes = customFileType
+            };
+
+            var result = await FilePicker.PickAsync(options);
+
+            if (result != null)
+            {
+                return result.FullPath;
+            }
+            return null;
+        }
