@@ -41,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToastNotification_Samples",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePicker_Samples", "src\FilePicker_Samples\FilePicker_Samples.csproj", "{E574625B-6AB1-41BC-B8D5-76092A4B84ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCenter_Samples", "src\AppCenter_Samples\AppCenter_Samples.csproj", "{1E88AE89-04B6-40B7-8AAC-F65D976D854C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,11 @@ Global
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
