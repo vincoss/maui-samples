@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{ABA9CB14-EE74-4E8A-9486-694024FA590B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastNotification_Samples", "src\ToastNotification_Samples\ToastNotification_Samples.csproj", "{68B8E745-E191-4672-AFD0-82FBF276F54A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,11 @@ Global
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
