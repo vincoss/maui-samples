@@ -31,8 +31,8 @@ namespace AppCenter_Samples
             Distribute.ReleaseAvailable = OnReleaseAvailable;
 
             Microsoft.AppCenter.AppCenter.Start(
-                "uwp=90d88e86-8d19-4378-93a0-bad9631a3e27;" +
-                "android=151d3d0f-5598-4f52-9ddc-9bdc2ff361b8;",
+                "uwp=;" +
+                "android=;",
                             typeof(Analytics),
                             typeof(Crashes),
                             typeof(Distribute));
