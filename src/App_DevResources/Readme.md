@@ -1,6 +1,10 @@
 
 ## Current
 
+collection view
+collection view grouping
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
+
 CarouselView_Samples
 
 ## Tasks
@@ -57,9 +61,3 @@ Original archive folder: C:\Users\user-name\AppData\Local\Xamarin\Mono for Andro
 a.	This erros might with path lenght, but the error message is not right.
 b.	Go to Tools->Options->Xamarin->Android Setting
 c.	try to change the Archives path
-
-
-## Temp
-
-app center sample
-
