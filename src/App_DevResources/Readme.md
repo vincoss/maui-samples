@@ -1,6 +1,7 @@
 
 ## Current
 
+what is it ios:Page.UseSafeArea="True"
 see pages and VerticalStackLayout in maui samples
 localization from xamarin
 collection view
