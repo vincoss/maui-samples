@@ -1,6 +1,7 @@
 
 ## Current
 
+see pages and VerticalStackLayout in maui samples
 localization from xamarin
 collection view
 collection view grouping
