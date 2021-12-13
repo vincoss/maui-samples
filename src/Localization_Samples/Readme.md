@@ -1,10 +1,13 @@
 ﻿
-move other samples from Xamarin samples when required
+See other samples from Xamarin samples if required
+	Xamarin_Localization
+	Xamarin_Localization_UsingResxLocalization
 
 ## Ensure default assembly culture
 [assembly: NeutralResourcesLanguage("en")]
 
 ## Resources
+https://docs.microsoft.com/en-us/dotnet/core/extensions/create-satellite-assemblies
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/text?tabs=windows
 https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.currentculture?view=net-6.0
 https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.defaultthreadcurrentuiculture?view=net-6.0

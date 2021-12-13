@@ -5,9 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System;
 using System.Resources;
-
+using Localization_Samples_Library;
 
 namespace Localization_Samples.Localization
 {
@@ -15,7 +14,7 @@ namespace Localization_Samples.Localization
     {
         private static readonly string ResourceId = typeof(AppResources).FullName;
         static readonly Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(
-        () => new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(ResourcesStringLocalizer)).Assembly));
+        () => new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(AppResources)).Assembly));
 
         private string Get(string key)
         {

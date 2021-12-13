@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
-using System;
 using System.Resources;
 using System.Collections;
+using Localization_Samples_Library;
 
 namespace Localization_Samples.Localization
 {
@@ -15,7 +15,7 @@ namespace Localization_Samples.Localization
         public static IEnumerable<string> GetAllKeys()
         {
             var id = typeof(AppResources).FullName;
-            var manager = new ResourceManager(id, typeof(ResourcesExtensions).Assembly);
+            var manager = new ResourceManager(id, typeof(AppResources).Assembly);
             var set = manager.GetResourceSet(CultureInfo.CurrentCulture, true, true);
 
             var resourceStrings = new List<string>();

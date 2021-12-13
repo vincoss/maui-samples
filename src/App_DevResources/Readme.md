@@ -1,9 +1,7 @@
 
-## Current
+## 
 
-what is it ios:Page.UseSafeArea="True"
 see pages and VerticalStackLayout in maui samples
-localization from xamarin
 collection view
 collection view grouping
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
