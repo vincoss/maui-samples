@@ -1,0 +1,13 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mix_Samples.Views.UserView"
+             xmlns:co="clr-namespace:Mix_Samples.Views.Components"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             Title="Component Sample">
+
+    <ScrollView BackgroundColor="AliceBlue" Padding="10">
+        <co:UserDetailView/>
+    </ScrollView>
+    
+</ContentPage>
