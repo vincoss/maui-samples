@@ -1,6 +1,7 @@
 
 ## 
 
+ <NavigationPage.TitleView> see xamarin samples
 collection view
 collection view grouping
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
