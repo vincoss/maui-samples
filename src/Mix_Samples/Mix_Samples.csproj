@@ -52,6 +52,9 @@
 	  <Compile Update="Views\Components\UserDetailView.xaml.cs">
 	    <DependentUpon>UserDetailView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\NavigationPageTitleView.xaml.cs">
+	    <DependentUpon>NavigationPageTitleView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\UserView.xaml.cs">
 	    <DependentUpon>UserView.xaml</DependentUpon>
 	  </Compile>
@@ -59,6 +62,10 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Components\UserDetailView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NavigationPageTitleView.xaml">
+	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserView.xaml">

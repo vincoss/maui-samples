@@ -11,8 +11,11 @@ namespace Mix_Samples
         public App()
         {
             InitializeComponent();
+        }
 
-            MainPage = new UserView();
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return    new Window(new NavigationPage(new NavigationPageTitleView())) { Title = "MyApp" };
         }
     }
 }
