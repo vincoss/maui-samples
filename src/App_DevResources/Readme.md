@@ -1,6 +1,12 @@
 
 ## 
 
+ <NavigationPage.TitleView> see xamarin samples
+    <Grid
+            ColumnDefinitions="*"
+            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
+            >
+ <VerticalStackLayout Spacing="8">
 collection view
 collection view grouping
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
