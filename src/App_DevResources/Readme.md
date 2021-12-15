@@ -1,7 +1,39 @@
 
 ## 
 
+https://github.com/LarsBehl?tab=repositories
  <NavigationPage.TitleView> see xamarin samples
+
+ Home
+Boards
+Folders
+My Cards
+Settings
+Help
+About
+
+## Icons
+Home
+Folder
+Board
+My Card
+Settings
+Help
+About
+
+Search
+Done
+Ellipsis Horizontal
+Ellipsis Vertical
++ Add
+Edit
+Delete
+Template Board
+Angle Left
+Close
+Clone
+Share
+
     <Grid
             ColumnDefinitions="*"
             RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
