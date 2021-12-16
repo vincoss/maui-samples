@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization_Samples_Librar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix_Samples", "src\Mix_Samples\Mix_Samples.csproj", "{ECBD1243-C189-43B0-8086-89EEA602E771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyoutPage_Samples", "src\FlyoutPage_Samples\FlyoutPage_Samples.csproj", "{6CF5E33A-190A-4A3B-A2AF-3BF750AAD8A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyoutPage_Samples", "src\FlyoutPage_Samples\FlyoutPage_Samples.csproj", "{6CF5E33A-190A-4A3B-A2AF-3BF750AAD8A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellFlyoutPage_Samples", "src\ShellFlyoutPage_Samples\ShellFlyoutPage_Samples.csproj", "{0001EDD7-D259-444B-8D75-2AA7B327090D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +164,11 @@ Global
 		{6CF5E33A-190A-4A3B-A2AF-3BF750AAD8A2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{6CF5E33A-190A-4A3B-A2AF-3BF750AAD8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CF5E33A-190A-4A3B-A2AF-3BF750AAD8A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0001EDD7-D259-444B-8D75-2AA7B327090D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0001EDD7-D259-444B-8D75-2AA7B327090D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0001EDD7-D259-444B-8D75-2AA7B327090D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0001EDD7-D259-444B-8D75-2AA7B327090D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0001EDD7-D259-444B-8D75-2AA7B327090D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

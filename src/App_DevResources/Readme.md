@@ -1,7 +1,6 @@
 
 ## 
 
-https://github.com/LarsBehl?tab=repositories
  <NavigationPage.TitleView> see xamarin samples
 
  Home

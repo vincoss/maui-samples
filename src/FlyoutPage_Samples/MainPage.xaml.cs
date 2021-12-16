@@ -12,10 +12,10 @@ namespace FlyoutPage_Samples
 
             flyoutPage.listView.ItemSelected += OnItemSelected;
 
-            if (Device.RuntimePlatform == Device.UWP)
-            {
-                FlyoutLayoutBehavior = FlyoutLayoutBehavior.Popover;
-            }
+            //if (Device.RuntimePlatform == Device.UWP)
+            //{
+            //    FlyoutLayoutBehavior = FlyoutLayoutBehavior.Popover;
+            //}
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
