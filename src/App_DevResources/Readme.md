@@ -1,6 +1,8 @@
 
 ## 
 
+edit sample Entry and Editor, times, check icons
+    
  <NavigationPage.TitleView> see xamarin samples
 
  Home
@@ -21,7 +23,8 @@ Help
 About
 
 Search
-Done
+Done, check
+Times
 Ellipsis Horizontal
 Ellipsis Vertical
 + Add
