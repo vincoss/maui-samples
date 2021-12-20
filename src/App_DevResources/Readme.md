@@ -2,8 +2,9 @@
 ## 
 
 edit sample Entry and Editor, times, check icons
-    
+see xamarin samples SwipeView
  <NavigationPage.TitleView> see xamarin samples
+    
 
  Home
 Boards
