@@ -49,8 +49,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Components\EditorEditView.xaml.cs">
+	    <DependentUpon>EditorEditView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Components\EntryEditView.xaml.cs">
+	    <DependentUpon>EntryEditView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Components\UserDetailView.xaml.cs">
 	    <DependentUpon>UserDetailView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\EditSamplesView.xaml.cs">
+	    <DependentUpon>EditSamplesView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\NavigationPageTitleView.xaml.cs">
 	    <DependentUpon>NavigationPageTitleView.xaml</DependentUpon>
@@ -61,7 +74,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Components\EditorEditView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Components\EntryEditView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Components\UserDetailView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EditSamplesView.xaml">
+	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\NavigationPageTitleView.xaml">

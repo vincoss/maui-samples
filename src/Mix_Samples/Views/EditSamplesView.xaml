@@ -1,0 +1,21 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mix_Samples.Views.EditSamplesView">
+
+    <VerticalStackLayout>
+        <Label x:Name="lblEntry" Text="Entry - Edit Value">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EntryEditCommand}" 
+                                      CommandParameter="{Binding Text, Source={x:Reference lblEntry}}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label x:Name="lblEditor" Text="Editor - Edit Value">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EditorEditCommand}" 
+                                      CommandParameter="{Binding Text, Source={x:Reference lblEditor}}"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </VerticalStackLayout>
+
+</ContentPage>

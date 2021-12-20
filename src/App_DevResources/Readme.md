@@ -1,7 +1,6 @@
 
 ## 
 
-edit sample Entry and Editor, times, check icons
     
  <NavigationPage.TitleView> see xamarin samples
 
@@ -35,6 +34,8 @@ Angle Left
 Close
 Clone
 Share
+times
+check
 
     <Grid
             ColumnDefinitions="*"
