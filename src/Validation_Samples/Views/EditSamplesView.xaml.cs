@@ -1,11 +1,11 @@
 ﻿using MauiSharedLibrary.ViewModels;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
-using Mix_Samples.Views.Components;
+using Validation_Samples.Views.Components;
 using System;
 using System.Windows.Input;
 
-namespace Mix_Samples.Views
+namespace Validation_Samples.Views
 {
     public partial class EditSamplesView : ContentPage
     {

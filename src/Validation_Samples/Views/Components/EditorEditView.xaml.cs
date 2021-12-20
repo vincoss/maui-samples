@@ -1,5 +1,5 @@
 ﻿
-namespace Mix_Samples.Views.Components;
+namespace Validation_Samples.Views.Components;
 
 public partial class EditorEditView
 {

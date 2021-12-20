@@ -2,7 +2,7 @@
 using MauiSharedLibrary.ViewModels;
 using Microsoft.Maui.Controls;
 
-namespace Mix_Samples.Views.Components;
+namespace Validation_Samples.Views.Components;
 
 public partial class EntryEditView : ContentPage
 {

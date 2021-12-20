@@ -15,7 +15,7 @@ namespace Mix_Samples
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            return    new Window(new NavigationPage(new EditSamplesView())) { Title = "MyApp" };
+            return    new Window(new NavigationPage(new NavigationPageTitleView())) { Title = "MyApp" };
         }
     }
 }
