@@ -1,10 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
-using Microsoft.Maui;
-using Microsoft.Maui.Hosting;
-using System;
 
-namespace Default_MauiApp.Platforms.Android
+namespace Default_MauiApp
 {
     [Application]
     public class MainApplication : MauiApplication

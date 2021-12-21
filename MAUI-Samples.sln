@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiSharedLibrary", "src\MauiSharedLibrary\MauiSharedLibrary.csproj", "{5DA3E656-3E54-40C0-9BD5-5602614807AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncCommandMvvm", "src\AsyncCommandMvvm\AsyncCommandMvvm.csproj", "{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{9E73E4F8-3771-449C-A40D-CC4E4FD9E424}"
@@ -51,9 +49,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyoutPage_Samples", "src\F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShellFlyoutPage_Samples", "src\ShellFlyoutPage_Samples\ShellFlyoutPage_Samples.csproj", "{0001EDD7-D259-444B-8D75-2AA7B327090D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation_Samples", "src\Validation_Samples\Validation_Samples.csproj", "{951592A8-7668-4640-9ED4-162BE00D1F60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation_Samples", "src\Validation_Samples\Validation_Samples.csproj", "{951592A8-7668-4640-9ED4-162BE00D1F60}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Default", "Default", "{392B80A3-648F-427A-8B4C-4FE12DE61D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{F3A27892-A745-4602-97BB-A1C31C9E9BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,11 +73,6 @@ Global
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B60F1D9-8D3F-4D36-AE21-EEF56FAB9A63}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -178,6 +173,12 @@ Global
 		{951592A8-7668-4640-9ED4-162BE00D1F60}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{951592A8-7668-4640-9ED4-162BE00D1F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{951592A8-7668-4640-9ED4-162BE00D1F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -185,7 +186,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
 		{5DA3E656-3E54-40C0-9BD5-5602614807AD} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
-		{DE55116F-B9DD-4386-8FBC-AFEDC6C55026} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
+		{F3A27892-A745-4602-97BB-A1C31C9E9BCC} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}

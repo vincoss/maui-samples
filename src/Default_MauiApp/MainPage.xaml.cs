@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
-using System;
-
-namespace Default_MauiApp
+﻿namespace Default_MauiApp
 {
     public partial class MainPage : ContentPage
     {

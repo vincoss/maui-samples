@@ -1,6 +1,7 @@
-﻿using UIKit;
+﻿using ObjCRuntime;
+using UIKit;
 
-namespace Default_MauiApp.Platforms.MacCatalyst
+namespace Default_MauiApp
 {
     public class Program
     {

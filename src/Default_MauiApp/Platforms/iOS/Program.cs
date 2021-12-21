@@ -1,6 +1,7 @@
-﻿using UIKit;
+﻿using ObjCRuntime;
+using UIKit;
 
-namespace Default_MauiApp.Platforms.iOS
+namespace Default_MauiApp
 {
     public class Program
     {
