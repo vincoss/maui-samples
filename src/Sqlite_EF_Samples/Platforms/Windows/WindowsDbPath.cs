@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Sqlite_EF_Samples.Platforms.Windows
+namespace Sqlite_EF_Samples.Platforms
 {
     public class DbPath : IPath
     {

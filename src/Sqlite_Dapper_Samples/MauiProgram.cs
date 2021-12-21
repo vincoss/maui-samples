@@ -4,21 +4,22 @@ using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using Sqlite_Dapper_Samples.Interfaces;
+using Sqlite_Dapper_Samples.Platforms;
 using Sqlite_Dapper_Samples.Services;
 
 
-#if ANDROID
-    using Sqlite_Dapper_Samples.Platforms.Android;
-#endif
-#if WINDOWS
-    using Sqlite_Dapper_Samples.Platforms.Windows;
-#endif
-#if IOS
-    using Sqlite_Dapper_Samples.Platforms.iOS;
-#endif
-#if MACCATALYST
-   using Sqlite_Dapper_Samples.Platforms.MacCatalyst;
-#endif
+//#if ANDROID
+//    using Sqlite_Dapper_Samples.Platforms.Android;
+//#endif
+//#if WINDOWS
+//    using Sqlite_Dapper_Samples.Platforms.Windows;
+//#endif
+//#if IOS
+//    using Sqlite_Dapper_Samples.Platforms.iOS;
+//#endif
+//#if MACCATALYST
+//   using Sqlite_Dapper_Samples.Platforms.MacCatalyst;
+//#endif
 
 namespace Sqlite_Dapper_Samples
 {
