@@ -1,8 +1,11 @@
 
 ## 
 
-    
+edit sample Entry and Editor, times, check icons
+see xamarin samples SwipeView
  <NavigationPage.TitleView> see xamarin samples
+ Shell URI navigation review with parameters
+    
 
  Home
 Boards
@@ -34,8 +37,6 @@ Angle Left
 Close
 Clone
 Share
-times
-check
 
     <Grid
             ColumnDefinitions="*"
