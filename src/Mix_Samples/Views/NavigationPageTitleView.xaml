@@ -13,11 +13,11 @@
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
-        <StackLayout>
+        <VerticalStackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        </VerticalStackLayout>
     </ContentPage.Content>
 
 </ContentPage>
