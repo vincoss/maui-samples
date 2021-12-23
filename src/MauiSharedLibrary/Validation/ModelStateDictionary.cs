@@ -120,7 +120,7 @@ namespace MauiSharedLibrary.Validation
 
         public bool IsValid
         {
-            get { return Values.Any(); }
+            get { return Values.Any() == false; }
         }
 
         public ICollection<string> Keys

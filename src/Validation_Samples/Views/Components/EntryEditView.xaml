@@ -3,10 +3,11 @@
              x:Class="Validation_Samples.Views.Components.EntryEditView">
 
     <VerticalStackLayout Spacing="10">
-        <Button x:Name="btnCancel" Text="CANCEL" Clicked="btnCancel_Clicked"/>
-        <Button x:Name="btnOk" Text="OK" Clicked="btnOk_Clicked" />
+        <Button x:Name="btnCancel" Text="CANCEL" Command="{Binding CancelCommand}"/>
+        <Button x:Name="btnOk" Text="OK" Command="{Binding OkCommand}"/>
 
-        <Entry Text="{Binding EditValue}" />
+        <Entry Text="{Binding Value}" />
+        <Label Text="{Binding [Value], Mode=OneWay}"/>
     </VerticalStackLayout>
 
 </ContentPage>

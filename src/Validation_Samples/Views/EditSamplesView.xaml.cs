@@ -4,6 +4,8 @@ using Microsoft.Maui.Essentials;
 using Validation_Samples.Views.Components;
 using System;
 using System.Windows.Input;
+using MauiSharedLibrary.Validation;
+using Validation_Samples.Validation;
 
 namespace Validation_Samples.Views
 {
@@ -39,7 +41,7 @@ namespace Validation_Samples.Views
                 var page = new EntryEditView();
                 var model = new EntryEditViewModel(new EditorService());
                 page.BindingContext = model;
-                model.EditValue = value;
+                model.Value = value;
 
                 await App.Current.MainPage.Navigation.PushModalAsync(page);
             }
@@ -80,14 +82,20 @@ namespace Validation_Samples.Views
 
         class EditorService : IEditorService
         {
-            public void Save()
+            public async void Save(string value)
             {
-                throw new NotImplementedException();
+                await App.Current.MainPage.DisplayAlert("Save", value, "OK");
             }
 
-            public void Validate()
+            public void Validate(string value, ModelStateDictionary modelState)
             {
-                throw new NotImplementedException();
+                var data = new ValidationString
+                { 
+                    Value = value
+                };
+
+                var validator = new BoardNameValidator();
+                validator.ValidateToModel(data, modelState);
             }
         }
 
