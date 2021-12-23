@@ -11,12 +11,12 @@ public partial class EntryEditView : ContentPage
         InitializeComponent();
     }
 
-    private async void Button_Clicked(object sender, System.EventArgs e)
+    private async void btnCancel_Clicked(object sender, System.EventArgs e)
     {
         await Navigation.PopModalAsync();
     }
 
-    private async void Button_Clicked_1(object sender, System.EventArgs e)
+    private async void btnOk_Clicked(object sender, System.EventArgs e)
     {
         //// service.Validate(ModelState)
 

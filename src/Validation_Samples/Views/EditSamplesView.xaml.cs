@@ -19,22 +19,34 @@ namespace Validation_Samples.Views
 
     public class EditSamplesViewModel : BaseViewModel
     {
+        public static string EditEntryName = "Name";
+        public static string EditEditorDescription = "Description";
+
         public EditSamplesViewModel()
         {
-            EntryEditCommand = new Command<string>(OnEntryEditCommand);
-            EditorEditCommand = new Command<string>(OnEditorEditCommand);
+            TextEditCommand = new Command<string>(OnTextEditCommand);
+
+            Name = "Edit value in Entry";
+            Description = "Edit value in Editor";
         }
 
         #region Command methods
         
-        private async void OnEntryEditCommand(string value)
+        private async void OnTextEditCommand(string value)
         {
-            var page = new EntryEditView();
-            var model = new EntryEditViewModel(new EditorService());
-            page.BindingContext = model;
-            model.EditValue = value;
+            if(value == EditEntryName)
+            {
+                var page = new EntryEditView();
+                var model = new EntryEditViewModel(new EditorService());
+                page.BindingContext = model;
+                model.EditValue = value;
 
-            await App.Current.MainPage.Navigation.PushModalAsync(page);
+                await App.Current.MainPage.Navigation.PushModalAsync(page);
+            }
+            if (value == EditEditorDescription)
+            {
+
+            }
         }
 
         private void OnEditorEditCommand(string value)
@@ -46,17 +58,24 @@ namespace Validation_Samples.Views
 
         #region Commands
 
-        public ICommand EntryEditCommand { get; private set; }
-        public ICommand EditorEditCommand { get; private set; } 
+        public ICommand TextEditCommand { get; private set; }
         
         #endregion
 
-        private string _entryValue;
+        private string _name;
 
-        public string EntryValue
+        public string Name
         {
-            get { return _entryValue; }
-            set { SetProperty(ref _entryValue, value); }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
+
+        private string _description;
+
+        public string Description
+        {
+            get { return _description; }
+            set { SetProperty(ref _description, value); }
         }
 
         class EditorService : IEditorService
