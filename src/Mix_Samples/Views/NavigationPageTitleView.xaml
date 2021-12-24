@@ -7,11 +7,10 @@
     -->
 
     <NavigationPage.TitleView>
-        <Grid BackgroundColor="Orange">
-            <Label Text="Hello World" />
-        </Grid>
+        <Label Text="Hello World" VerticalOptions="Start" HorizontalOptions="Center" VerticalTextAlignment="Start"
+               TextColor="Red"/>
     </NavigationPage.TitleView>
-    
+
     <ContentPage.Content>
         <VerticalStackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
