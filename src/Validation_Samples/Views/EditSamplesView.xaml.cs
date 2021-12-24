@@ -45,15 +45,11 @@ namespace Validation_Samples.Views
 
                 await App.Current.MainPage.Navigation.PushModalAsync(page);
             }
+
             if (value == EditEditorDescription)
             {
 
             }
-        }
-
-        private void OnEditorEditCommand(string value)
-        {
-
         }
 
         #endregion
@@ -98,6 +94,5 @@ namespace Validation_Samples.Views
                 validator.ValidateToModel(data, modelState);
             }
         }
-
     }
 }
