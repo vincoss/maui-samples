@@ -5,7 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="About"/>
+            <Label Text="About" FontSize="Title"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

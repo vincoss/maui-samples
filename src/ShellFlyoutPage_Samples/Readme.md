@@ -1,4 +1,5 @@
 ﻿
+NOTE: Has issues title has some big padding on top
 
 ## Resources
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/introduction

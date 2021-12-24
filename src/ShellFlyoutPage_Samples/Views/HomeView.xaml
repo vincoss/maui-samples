@@ -4,7 +4,9 @@
              Shell.NavBarIsVisible="true">
 
     <Shell.TitleView>
-        <Label Text="Home Title"/>
+        <Grid BackgroundColor="Orange" HorizontalOptions="StartAndExpand" Padding="0,-20,0,0">
+            <Label Text="Home Title" FontSize="Title"/>
+        </Grid>
     </Shell.TitleView>
 
     <ScrollView>
