@@ -1,0 +1,50 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwipeView_Samples.Views.UI_SwipeViewMenuView"
+             Title="UI_SwipeViewMenuView">
+
+    <!--
+        drawer actions view
+    -->
+
+    <SwipeView x:Name="swipeView" Margin="5" Threshold="300">
+        <SwipeView.RightItems>
+            <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                <SwipeItemView>
+                    <StackLayout>
+                        <Label Text="Task Title" FontSize="Title"/>
+                        <Label Text="Archive"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Move" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="Done >" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <Label Text="Duplicate"/>
+                        <Label Text="Block task"/>
+                        <Label Text="Delete"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Assign" HorizontalOptions="StartAndExpand"/>
+                            <Label Text=">" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Change Priority" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="Normal >" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Change Type" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="Blocked >" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </SwipeItemView>
+            </SwipeItems>
+        </SwipeView.RightItems>
+        
+        <!--Content-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Column="0" BackgroundColor="Orange">
+                <Label Text="Body..."/>
+                <Button Text="Menu" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </SwipeView>
+    
+</ContentPage>
