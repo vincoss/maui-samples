@@ -21,8 +21,8 @@ namespace Validation_Samples.Views
 
     public class EditSamplesViewModel : BaseViewModel
     {
-        public static string EditEntryName = "Name";
-        public static string EditEditorDescription = "Description";
+        public static string EditEntryName = nameof(Name);
+        public static string EditEditorDescription = nameof(Description);
 
         public EditSamplesViewModel()
         {
