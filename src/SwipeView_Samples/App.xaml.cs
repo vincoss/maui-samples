@@ -11,8 +11,12 @@ namespace SwipeView_Samples
         public App()
         {
             InitializeComponent();
-
-            MainPage = new UI_SwipeViewMenuView();
         }
+
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return new Window(new NavigationPage(new UI_SwipeViewMenuView())) { Title = "StartupConfigurationSample" };
+        }
+
     }
 }
