@@ -5,7 +5,7 @@
 
     <Grid BackgroundColor="SteelBlue">
         <Label Text="Title"
-               TextColor="White"
+               TextColor="BlueViolet"
                FontAttributes="Bold"
                FontSize="Title"
                HorizontalTextAlignment="Center"
