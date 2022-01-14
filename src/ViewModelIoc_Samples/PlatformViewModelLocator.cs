@@ -14,6 +14,10 @@ namespace ViewModelIocSample
         public static readonly BindableProperty AutoWireViewModelProperty =
             BindableProperty.CreateAttached("AutoWireViewModel", typeof(bool), typeof(PlatformViewModelLocator), default(bool), propertyChanged: OnAutoWireViewModelChanged);
 
+        public static readonly BindableProperty AutoWireViewModelTypeProperty =
+           BindableProperty.CreateAttached("AutoWireViewModelType", typeof(Type), typeof(PlatformViewModelLocator), default(Type), propertyChanged: OnAutoWireViewModelChanged);
+
+
         public static bool GetAutoWireViewModel(BindableObject bindable)
         {
             return (bool)bindable.GetValue(PlatformViewModelLocator.AutoWireViewModelProperty);
@@ -22,6 +26,16 @@ namespace ViewModelIocSample
         public static void SetAutoWireViewModel(BindableObject bindable, bool value)
         {
             bindable.SetValue(PlatformViewModelLocator.AutoWireViewModelProperty, value);
+        }
+
+        public static Type GetAutoWireViewModelType(BindableObject bindable)
+        {
+            return (Type)bindable.GetValue(PlatformViewModelLocator.AutoWireViewModelTypeProperty);
+        }
+
+        public static void SetAutoWireViewModelType(BindableObject bindable, Type value)
+        {
+            bindable.SetValue(PlatformViewModelLocator.AutoWireViewModelTypeProperty, value);
         }
 
         public static T Resolve<T>() where T : class
@@ -41,6 +55,8 @@ namespace ViewModelIocSample
             {
                 return;
             }
+
+            var type = bindable.GetValue(PlatformViewModelLocator.AutoWireViewModelTypeProperty);
 
             if (view.BindingContext == null)
             {
