@@ -1,0 +1,24 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwipeView_Samples.Views.UI_SwipeView"
+             Title="UI_SwipeView">
+
+    <VerticalStackLayout>
+        <Label Text="Basic sample" />
+
+        <SwipeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItem Text="Favorite" BackgroundColor="LightGreen" Invoked="FavoriteSwipeItem_Invoked" />
+                    <SwipeItem Text="Delete" BackgroundColor="LightPink" Invoked="DeleteSwipeItem_Invoked" />
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            
+            <!--Content-->
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="LightGray">
+                <Label Text="Swipe right" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
+        </SwipeView>
+    </VerticalStackLayout>
+
+</ContentPage>

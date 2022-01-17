@@ -3,7 +3,6 @@
 
  <NavigationPage.TitleView> see xamarin samples
  Shell URI navigation review with parameters
-see xamarin samples SwipeView
 
  Home
 Boards

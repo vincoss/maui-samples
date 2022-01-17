@@ -52,10 +52,16 @@
 	  <Compile Update="Views\Components\MenuView.xaml.cs">
 	    <DependentUpon>MenuView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\UI_SwipeView.xaml.cs">
+	    <DependentUpon>UI_SwipeView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Components\MenuView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UI_SwipeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
