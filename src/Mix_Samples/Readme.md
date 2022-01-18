@@ -1,5 +1,5 @@
 ﻿
-NavigationPageTitleView not working
+NavigationPageTitleView the 'NavigationPage.TitleView' not shown
 
 
 ## Resources

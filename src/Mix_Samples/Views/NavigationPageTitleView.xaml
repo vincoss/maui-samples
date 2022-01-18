@@ -7,8 +7,11 @@
     -->
 
     <NavigationPage.TitleView>
-        <Label Text="Hello World" VerticalOptions="Start" HorizontalOptions="Center" VerticalTextAlignment="Start"
-               TextColor="Red"/>
+        <HorizontalStackLayout BackgroundColor="Transparent" Padding="0" Margin="0">
+            <Label Grid.Column="0" Text="Create Group" FontSize="Large" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" LineBreakMode="NoWrap"/>
+            <Button Grid.Column="1" Text="CLOSE" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+            <Button Grid.Column="2" Text="SAVE" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+        </HorizontalStackLayout>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>

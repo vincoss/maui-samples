@@ -1,7 +1,6 @@
 
 ## 
 
- <NavigationPage.TitleView> see xamarin samples
  Shell URI navigation review with parameters
 
  Home
