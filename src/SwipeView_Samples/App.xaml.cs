@@ -15,7 +15,7 @@ namespace SwipeView_Samples
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            return new Window(new NavigationPage(new UI_SwipeView())) { Title = "SwipeView_Samples" };
+            return new Window(new NavigationPage(new UI_SwipeViewMenuView())) { Title = "SwipeView_Samples" };
         }
 
     }
