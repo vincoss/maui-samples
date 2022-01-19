@@ -2,6 +2,7 @@
 ## 
 
  Shell URI navigation review with parameters
+ create a sample with Shell.Flyout as a drawer actions menu
 
  Home
 Boards
