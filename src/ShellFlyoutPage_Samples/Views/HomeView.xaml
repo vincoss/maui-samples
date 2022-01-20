@@ -1,17 +1,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShellFlyoutPage_Samples.Views.HomeView"
-             Shell.NavBarIsVisible="true">
+             Shell.NavBarIsVisible="True">
 
-    <Shell.TitleView>
-        <Grid BackgroundColor="Orange" HorizontalOptions="StartAndExpand" Padding="0,0,0,0"  Margin="0">
-            <Label Text="Home Title" FontSize="Title"/>
-        </Grid>
-    </Shell.TitleView>
+<Shell.TitleView>
+    <Grid BackgroundColor="Orange" HorizontalOptions="StartAndExpand" Padding="0,0,0,0"  Margin="0">
+        <Label Text="Home Title" FontSize="Title"/>
+    </Grid>
+</Shell.TitleView>
 
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label Text="Home Body"/>
-        </VerticalStackLayout>
-    </ScrollView>
+
+
+<ScrollView>
+    <VerticalStackLayout>
+        <Label Text="Home Body"/>
+    </VerticalStackLayout>
+</ScrollView>
+
 </ContentPage>
