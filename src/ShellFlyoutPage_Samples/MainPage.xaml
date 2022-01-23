@@ -31,4 +31,10 @@
         <ShellContent ContentTemplate="{DataTemplate views:AboutView}" />
     </FlyoutItem>
 
+    <MenuItem Text="MenuItem1"  />
+
+    <TabBar>
+        <ShellContent Route="About" ContentTemplate="{DataTemplate views:AboutView}" />
+    </TabBar>
+
 </Shell>
