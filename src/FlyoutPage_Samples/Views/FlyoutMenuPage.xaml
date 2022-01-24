@@ -7,28 +7,23 @@
              Title="Personal Organiser">
 
     <StackLayout>
-        <ListView x:Name="listView" x:FieldModifier="public">
-            <ListView.ItemsSource>
+        
+        <CollectionView x:Name="listView" x:FieldModifier="public" SelectionMode="Single">
+            <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type local:FlyoutPageItem}">
                     <local:FlyoutPageItem Title="Contacts" TargetType="{x:Type views:ContactsPage}" />
                     <local:FlyoutPageItem Title="TodoList" TargetType="{x:Type views:TodoListPage}" />
                     <local:FlyoutPageItem Title="Reminders" TargetType="{x:Type views:ReminderPage}" />
                 </x:Array>
-            </ListView.ItemsSource>
-            <ListView.ItemTemplate>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="5,10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding IconSource}" />
-                            <Label Grid.Column="1" Text="{Binding Title}" />
-                        </Grid>
+                        <Label Grid.Column="1" Text="{Binding Title}" />
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
     </StackLayout>
 </ContentPage>

@@ -10,17 +10,17 @@ namespace FlyoutPage_Samples
         {
             InitializeComponent();
 
-            flyoutPage.listView.ItemSelected += OnItemSelected;
-
-            //if (Device.RuntimePlatform == Device.UWP)
-            //{
-            //    FlyoutLayoutBehavior = FlyoutLayoutBehavior.Popover;
-            //}
+            flyoutPage.listView.SelectionChanged += ListView_SelectionChanged;
         }
 
-        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var item = e.SelectedItem as FlyoutPageItem;
+            if(e.CurrentSelection == null || e.CurrentSelection.Count <= 0)
+            {
+                return;
+            }
+
+            var item = e.CurrentSelection[0] as FlyoutPageItem;
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
