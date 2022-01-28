@@ -1,0 +1,17 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frame_Samples.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Basic Samples" FontSize="Title"/>
+            <Frame>
+                <Label Text="Example" />
+            </Frame>
+            <Frame BorderColor="Orange" CornerRadius="10" HasShadow="True">
+                <Label Text="Example" />
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

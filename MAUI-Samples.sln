@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_ClassLibrary", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{545AD066-51AF-4A3B-B76D-C25D88C5C256}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame_Samples", "src\Frame_Samples\Frame_Samples.csproj", "{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -200,6 +202,12 @@ Global
 		{545AD066-51AF-4A3B-B76D-C25D88C5C256}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545AD066-51AF-4A3B-B76D-C25D88C5C256}.Release|Any CPU.Build.0 = Release|Any CPU
 		{545AD066-51AF-4A3B-B76D-C25D88C5C256}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
