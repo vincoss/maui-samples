@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame_Samples", "src\Frame_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{70F14E0C-D3F5-4882-AD4C-575937E2C61B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagingCenter_Samples", "src\MessagingCenter_Samples\MessagingCenter_Samples.csproj", "{F363394E-D81F-4229-81A8-AA552C986FDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -208,6 +210,12 @@ Global
 		{70F14E0C-D3F5-4882-AD4C-575937E2C61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70F14E0C-D3F5-4882-AD4C-575937E2C61B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70F14E0C-D3F5-4882-AD4C-575937E2C61B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F363394E-D81F-4229-81A8-AA552C986FDB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
