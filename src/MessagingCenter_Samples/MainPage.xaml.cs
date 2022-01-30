@@ -1,4 +1,6 @@
 ﻿using MauiSharedLibrary.ViewModels;
+using MessagingCenter_Samples.Views;
+using System.Windows.Input;
 
 namespace MessagingCenter_Samples
 {
@@ -7,6 +9,19 @@ namespace MessagingCenter_Samples
         public MainPage()
         {
             InitializeComponent();
+
+            var model = new MainPageViewModel();
+            BindingContext = model;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
     }
 
@@ -14,12 +29,26 @@ namespace MessagingCenter_Samples
     {
         public MainPageViewModel()
         {
-          /*
-            // Parent sender and receiver
-            // child receiver and sender
+            CreateCommand = new Command(OnCreateCommand);
 
+            MessagingCenter.Subscribe<CreateProductViewModel>(this, nameof(Message), (m) =>
+            {
+            });
+        }
 
-          */
+        private void OnCreateCommand()
+        {
+            MessagingCenter.Send<MainPageViewModel, string>(this, "Message", Message);
+            App.Current.MainPage.Navigation.PushModalAsync(new CreateProductView());
+        }
+
+        public ICommand CreateCommand { get; private set; }
+
+        private string _message;
+        public string Message
+        {
+            get { return _message; }
+            set { SetProperty(ref _message, value); }
         }
     }
 }
