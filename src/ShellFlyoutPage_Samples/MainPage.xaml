@@ -31,10 +31,14 @@
         <ShellContent ContentTemplate="{DataTemplate views:AboutView}" />
     </FlyoutItem>
 
-    <MenuItem Text="MenuItem1"  />
+    <MenuItem Text="Settings" Clicked="MenuItem_Clicked"   />
 
     <TabBar>
         <ShellContent Route="About" ContentTemplate="{DataTemplate views:AboutView}" />
     </TabBar>
+
+    <Shell.FlyoutFooter>
+        <Label Text="This is a footer"/>
+    </Shell.FlyoutFooter>
 
 </Shell>

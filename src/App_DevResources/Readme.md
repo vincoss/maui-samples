@@ -1,11 +1,7 @@
 
 ## 
 
- Shell URI navigation review with parameters
- create a sample with Shell.Flyout as a drawer actions menu
  CollectionView grouping sample groups (Popular, Group A, Group B)
-  Frame sample
-    https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/frame
 
 
  Home
