@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlyoutPage_Samples.Views.FlyoutPageBasicMenuView"
+             xmlns:local="using:FlyoutPage_Samples"
+             xmlns:views="clr-namespace:FlyoutPage_Samples.Views;assembly=FlyoutPage_Samples"
+             Padding="0,40,0,0"
+             Title="Menu">
+
+    <VerticalStackLayout>
+        <Button Text="Detail"/>
+        <Button Text="Export"/>
+        <Button Text="Share"/>
+    </VerticalStackLayout>
+    
+</ContentPage>

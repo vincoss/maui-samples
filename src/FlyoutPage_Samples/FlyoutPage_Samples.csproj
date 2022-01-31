@@ -54,6 +54,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\FlyoutPageBasicDetailView.xaml.cs">
+	    <DependentUpon>FlyoutPageBasicDetailView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\FlyoutPageBasicMenuView.xaml.cs">
+	    <DependentUpon>FlyoutPageBasicMenuView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\FlyoutPageBasicView.xaml.cs">
+	    <DependentUpon>FlyoutPageBasicView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ContactsPage.xaml.cs">
 	    <DependentUpon>ContactsPage.xaml</DependentUpon>
 	  </Compile>
@@ -69,6 +78,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\FlyoutPageBasicDetailView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FlyoutPageBasicMenuView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FlyoutPageBasicView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ContactsPage.xaml">
 	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
