@@ -1,9 +1,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MessagingCenter_Samples.Views.CreateProductView">
+             x:Class="MessagingCenter_Samples.Views.CreateProductView"
+             Title="CreateProductView">
 
     <VerticalStackLayout>
         <Label Text="Create View"/>
+        <Entry Text="{Binding Message}"/>
         <Button Text="Cancel" Command="{Binding CancelCommand}"/>
     </VerticalStackLayout>
     

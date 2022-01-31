@@ -13,16 +13,6 @@ namespace MessagingCenter_Samples
             var model = new MainPageViewModel();
             BindingContext = model;
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-        }
     }
 
     public class MainPageViewModel : BaseViewModel
@@ -33,14 +23,16 @@ namespace MessagingCenter_Samples
 
             MessagingCenter.Subscribe<CreateProductViewModel, string>(this, nameof(Message), async (obj, item) =>
             {
-               
+                Message = item;
             });
         }
 
         private void OnCreateCommand()
         {
-            MessagingCenter.Send(this, "Message", Message);
             App.Current.MainPage.Navigation.PushModalAsync(new CreateProductView());
+
+            // NOTE: Must push after navigation to ensure that view model subscribled to the message.
+            MessagingCenter.Send(this, nameof(Message), Message);
         }
 
         public ICommand CreateCommand { get; private set; }
