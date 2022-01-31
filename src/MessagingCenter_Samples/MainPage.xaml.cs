@@ -31,14 +31,15 @@ namespace MessagingCenter_Samples
         {
             CreateCommand = new Command(OnCreateCommand);
 
-            MessagingCenter.Subscribe<CreateProductViewModel>(this, nameof(Message), (m) =>
+            MessagingCenter.Subscribe<CreateProductViewModel, string>(this, nameof(Message), async (obj, item) =>
             {
+               
             });
         }
 
         private void OnCreateCommand()
         {
-            MessagingCenter.Send<MainPageViewModel, string>(this, "Message", Message);
+            MessagingCenter.Send(this, "Message", Message);
             App.Current.MainPage.Navigation.PushModalAsync(new CreateProductView());
         }
 

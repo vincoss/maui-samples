@@ -20,14 +20,15 @@ namespace MessagingCenter_Samples.Views
         {
             CancelCommand = new Command(OnCancelCommand);
 
-            MessagingCenter.Subscribe<MainPageViewModel>(this, "Message", (m) =>
+            MessagingCenter.Subscribe<MainPageViewModel, string>(this, "Message", async (obj, item) =>
             {
+
             });
         }
 
         private void OnCancelCommand()
         {
-            MessagingCenter.Send<CreateProductViewModel, string>(this, "Message", "Update");
+            MessagingCenter.Send(this, "Message", "Update");
             App.Current.MainPage.Navigation.PopModalAsync();
         }
 
