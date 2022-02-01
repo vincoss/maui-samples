@@ -21,11 +21,11 @@ namespace CollectionView_Samples
             ListOfPages.ItemsSource = pages;
         }
 
-        async void ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListOfPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
+            if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
             {
-                var info = (PageInfo)e.SelectedItem;
+                var info = (PageInfo)e.CurrentSelection[0];
                 var page = (Page)Activator.CreateInstance(info.Type);
 
                 await this.Navigation.PushAsync(page);

@@ -4,7 +4,7 @@
  CollectionView grouping sample groups (Popular, Group A, Group B)
 
 
- Home
+Home
 Boards
 Folders
 My Cards

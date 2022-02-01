@@ -4,14 +4,14 @@
              Title="CollectionView_Samples">
 
     <StackLayout>
-        <Label Text="Pages"/>
-        <ListView x:Name="ListOfPages" ItemSelected="ItemSelected" SeparatorColor="Red" SeparatorVisibility="Default">
-            <ListView.ItemTemplate>
+        <Label Text="Samples" FontSize="Title" BackgroundColor="#DCDCDC"/>
+        <CollectionView x:Name="ListOfPages" SelectionChanged="ListOfPages_SelectionChanged" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding}" TextColor="#696969" />
+                    <Label Text="{Binding}" TextColor="SteelBlue" TextDecorations="Underline" Padding="5" />
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
     
 </ContentPage>
