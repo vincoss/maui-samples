@@ -2,7 +2,9 @@
 ## 
 
  CollectionView grouping sample groups (Popular, Group A, Group B)
-
+ collection view
+collection view grouping
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
 
 Home
 Boards
@@ -40,9 +42,7 @@ Share
             RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
             >
  <VerticalStackLayout Spacing="8">
-collection view
-collection view grouping
-https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
+
 
 CarouselView_Samples
 
