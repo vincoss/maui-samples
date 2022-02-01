@@ -6,6 +6,16 @@
 collection view grouping
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
 
+Font icon, single only
+
+
+  <Grid
+            ColumnDefinitions="*"
+            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
+            >
+ <VerticalStackLayout Spacing="8">
+
+# navigation sample
 Home
 Boards
 Folders
@@ -37,11 +47,7 @@ Close
 Clone
 Share
 
-    <Grid
-            ColumnDefinitions="*"
-            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
-            >
- <VerticalStackLayout Spacing="8">
+  
 
 
 CarouselView_Samples
