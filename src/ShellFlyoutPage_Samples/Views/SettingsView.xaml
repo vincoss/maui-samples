@@ -12,6 +12,7 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="SettingsView" FontSize="Title"/>
+            <Button Text="Back" Clicked="Button_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
