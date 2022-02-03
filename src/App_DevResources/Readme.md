@@ -1,6 +1,8 @@
 
 ## 
 
+Shell sample navigation, routing, multiple level deep, and back
+    check also Modal Shell.PresentationMode="ModalAnimated"
  CollectionView grouping sample groups (Popular, Group A, Group B)
 
 
