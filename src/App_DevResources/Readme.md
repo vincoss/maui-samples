@@ -4,9 +4,21 @@
 Shell sample navigation, routing, multiple level deep, and back
     check also Modal Shell.PresentationMode="ModalAnimated"
  CollectionView grouping sample groups (Popular, Group A, Group B)
+ collection view
+collection view grouping
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
+
+Font icon, single only
 
 
- Home
+  <Grid
+            ColumnDefinitions="*"
+            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
+            >
+ <VerticalStackLayout Spacing="8">
+
+# navigation sample
+Home
 Boards
 Folders
 My Cards
@@ -37,14 +49,8 @@ Close
 Clone
 Share
 
-    <Grid
-            ColumnDefinitions="*"
-            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
-            >
- <VerticalStackLayout Spacing="8">
-collection view
-collection view grouping
-https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
+  
+
 
 CarouselView_Samples
 
