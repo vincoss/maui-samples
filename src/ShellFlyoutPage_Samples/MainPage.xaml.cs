@@ -12,6 +12,8 @@ namespace ShellFlyoutPage_Samples
             InitializeComponent();
 
             Routing.RegisterRoute("settings", typeof(SettingsView));
+            Routing.RegisterRoute("settingsOne", typeof(SettingsOneView));
+            Routing.RegisterRoute("settingsTwo", typeof(SettingsTwoView));
 
             this.Navigating += MainPage_Navigating;
             this.Navigated += MainPage_Navigated;

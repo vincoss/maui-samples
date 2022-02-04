@@ -23,11 +23,11 @@
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    <FlyoutItem Title="Home" Shell.NavBarHasShadow="True">
+    <FlyoutItem Route="home" Title="Home" Shell.NavBarHasShadow="True">
         <ShellContent ContentTemplate="{DataTemplate views:HomeView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="About">
+    <FlyoutItem Route="about" Title="About">
         <ShellContent ContentTemplate="{DataTemplate views:AboutView}" />
     </FlyoutItem>
 
@@ -38,7 +38,7 @@
     </TabBar>
 
     <Shell.FlyoutFooter>
-        <Label Text="This is a footer"/>
+        <Label Text="This is a footer" FontSize="Title" BackgroundColor="#dcdcdc"/>
     </Shell.FlyoutFooter>
 
 </Shell>

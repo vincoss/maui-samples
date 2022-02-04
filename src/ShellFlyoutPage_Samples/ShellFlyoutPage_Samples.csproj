@@ -43,6 +43,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\SettingsTwoView.xaml.cs">
+	    <DependentUpon>SettingsTwoView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SettingsOneView.xaml.cs">
+	    <DependentUpon>SettingsOneView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\SettingsView.xaml.cs">
 	    <DependentUpon>SettingsView.xaml</DependentUpon>
 	  </Compile>
@@ -64,6 +70,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\SettingsTwoView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsOneView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsView.xaml">
 	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>

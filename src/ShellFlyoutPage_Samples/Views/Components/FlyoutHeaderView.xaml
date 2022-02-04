@@ -1,15 +1,14 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShellFlyoutPage_Samples.Views.Components.FlyoutHeaderView"
-             HeightRequest="200">
+             HeightRequest="200"
+             BackgroundColor="#dcdcdc">
 
-    <Grid BackgroundColor="SteelBlue">
-        <Label Text="Title"
-               TextColor="BlueViolet"
-               FontAttributes="Bold"
-               FontSize="Title"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center" />
-    </Grid>
-    
-</ContentPage>
+    <Label Text="App Title"
+            TextColor="Black"
+            FontAttributes="Bold"
+            FontSize="Title"
+            HorizontalOptions="Start"
+            VerticalOptions="Center" />
+
+</Grid>

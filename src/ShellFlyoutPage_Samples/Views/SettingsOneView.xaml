@@ -1,19 +1,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShellFlyoutPage_Samples.Views.SettingsView"
+             x:Class="ShellFlyoutPage_Samples.Views.SettingsOneView"
              Shell.PresentationMode="ModalAnimated"
              Shell.NavBarHasShadow="true"
-             Title="SettingsView">
+             Title="SettingsOneView">
 
     <Shell.TitleView>
-        <Label Text="SettingsView" FontSize="Header"/>
+        <Label Text="SettingsOneView" FontSize="Header"/>
     </Shell.TitleView>
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="SettingsView" FontSize="Title" Padding="5" BackgroundColor="#dcdcdc"/>
+            <Label Text="SettingsOneView" FontSize="Title" Padding="5" BackgroundColor="#dcdcdc"/>
             <Button Text="Back" Clicked="Button_Clicked"/>
-            <Button Text="Next - One" Clicked="Button_Clicked_1"/>
+            <Button Text="Next - Two" Clicked="Button_Clicked_1"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

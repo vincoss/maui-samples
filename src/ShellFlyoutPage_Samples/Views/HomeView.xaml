@@ -3,18 +3,16 @@
              x:Class="ShellFlyoutPage_Samples.Views.HomeView"
              Shell.NavBarIsVisible="True">
 
-<Shell.TitleView>
-    <Grid BackgroundColor="Orange" HorizontalOptions="StartAndExpand" Padding="0,0,0,0"  Margin="0">
-        <Label Text="Home Title" FontSize="Title"/>
-    </Grid>
-</Shell.TitleView>
+    <Shell.TitleView>
+        <Grid BackgroundColor="Orange" HorizontalOptions="StartAndExpand" Padding="0,0,0,0"  Margin="0">
+            <Label Text="Home Title" FontSize="Title"/>
+        </Grid>
+    </Shell.TitleView>
 
-
-
-<ScrollView>
-    <VerticalStackLayout>
-        <Label Text="Home Body"/>
-    </VerticalStackLayout>
-</ScrollView>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Home Body"/>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
