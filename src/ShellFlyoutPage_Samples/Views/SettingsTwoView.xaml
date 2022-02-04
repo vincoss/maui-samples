@@ -13,6 +13,7 @@
         <VerticalStackLayout>
             <Label Text="SettingsTwoView" FontSize="Title" Padding="5" BackgroundColor="#dcdcdc"/>
             <Button Text="Back" Clicked="Button_Clicked"/>
+            <Button Text="Back - Settings" Clicked="Button_Clicked_1"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,11 +1,9 @@
 
 ## 
 
-Shell sample navigation, routing, multiple level deep, and back
-    check also Modal Shell.PresentationMode="ModalAnimated"
- CollectionView grouping sample groups (Popular, Group A, Group B)
- collection view
-collection view grouping
+
+collection view
+CollectionView grouping sample groups (Popular, Group A, Group B)
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
 
 Font icon, single only
