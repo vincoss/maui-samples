@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ItemsPicker_Samples.Views.PickerListView"
+             xmlns:xa="clr-namespace:ItemsPicker_Samples.Xaml;assembly=ItemsPicker_Samples"
+             xmlns:vm="clr-namespace:ItemsPicker_Samples.ViewModels;assembly=ItemsPicker_Samples"
+             Title="{Binding Title}">
+
+    <StackLayout Margin="5">
+        <SearchBar x:Name="searchBar" 
+                   HorizontalOptions="FillAndExpand"
+                   Placeholder="Search"
+                   PlaceholderColor="{StaticResource placeholderGray}"
+                   xa:SearchBarAttached.TextChangedCommand="{Binding SearchCommand}"/>
+
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" 
+                     Command="{Binding RefreshCommand}"
+                     RefreshColor="{StaticResource refreshColor}">
+
+            <CollectionView x:Name="collectionViewItems"
+                            HorizontalOptions="FillAndExpand"
+                            EmptyView="No Items"
+                            ItemsSource="{Binding ItemsSource}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:SelectListItem">
+                        <!--
+                        NOTE: The BoxView is used with Tag gesture since the checkbox does not trigger command to be raised.
+                        -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <RadioButton Grid.Column="0" IsChecked="{Binding IsSelected}"/>
+                            <StackLayout Grid.Column="1" >
+                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <BoxView HeightRequest=".5" Color="Black" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+
+                            <BoxView Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference this}}"/>
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </RefreshView>
+
+    </StackLayout>
+    
+</ContentPage>

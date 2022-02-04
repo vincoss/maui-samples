@@ -9,24 +9,8 @@ using System.Threading.Tasks;
 
 namespace MauiSharedLibrary.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BasePropertyChanged : INotifyPropertyChanged
     {
-        public virtual void Initialize() { }
-
-        bool isBusy = false;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
-        }
-
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -51,5 +35,24 @@ namespace MauiSharedLibrary.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+    }
+
+    public class BaseViewModel : BasePropertyChanged
+    {
+        public virtual void Initialize() { }
+
+        bool isBusy = false;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { SetProperty(ref isBusy, value); }
+        }
+
+        string title = string.Empty;
+        public string Title
+        {
+            get { return title; }
+            set { SetProperty(ref title, value); }
+        }
     }
 }
