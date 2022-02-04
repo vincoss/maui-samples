@@ -1,11 +1,12 @@
 
 ## 
 
+Font icons sample, cancel, done (text)
+    best practices
 
 modal view action bar
     cancel(back), title, done
     use font text
-    best practices
 
 picker view sample
 	single
@@ -16,7 +17,7 @@ collection view
 CollectionView grouping sample groups (Popular, Group A, Group B)
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
 
-Font icon, single only
+
 
 
   <Grid

@@ -1,0 +1,12 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FontIcons_Samples.MainPage"
+             xmlns:co="clr-namespace:FontIcons_Samples;assembly=FontIcons_Samples"
+             Title="Font Icons Samples">
+
+    <VerticalStackLayout>
+        <Label Text="{x:Static co:FontAwesomeConstants.Edit}" 
+               FontFamily="{StaticResource Fontello}" 
+               FontSize="Large" TextColor="Red" />
+    </VerticalStackLayout>
+</ContentPage>

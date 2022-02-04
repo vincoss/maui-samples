@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingCenter_Samples", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsPicker_Samples", "src\ItemsPicker_Samples\ItemsPicker_Samples.csproj", "{133DAE44-2A75-4BC1-A79D-D06D9A17A158}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -224,6 +226,12 @@ Global
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.Build.0 = Release|Any CPU
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
