@@ -1,78 +1,4 @@
 
-## 
-
-
-modal view action bar
-    cancel(back), title, done
-    use font text
-    best practices
-
-picker view sample
-	single
-	multiple
-	see xamarin samples
-
-collection view
-CollectionView grouping sample groups (Popular, Group A, Group B)
-https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
-
-Font icon, single only
-
-
-  <Grid
-            ColumnDefinitions="*"
-            RowDefinitions="{OnIdiom Phone='100,*', Default='100,*,0'}"
-            >
- <VerticalStackLayout Spacing="8">
-
-# navigation sample
-Home
-Boards
-Folders
-My Cards
-Settings
-Help
-About
-
-## Icons
-Home
-Folder
-Board
-My Card
-Settings
-Help
-About
-
-Search
-Done, check
-Times
-Ellipsis Horizontal
-Ellipsis Vertical
-+ Add
-Edit
-Delete
-Template Board
-Angle Left
-Close
-Clone
-Share
-
-  
-
-
-CarouselView_Samples
-
-## Tasks
-search for todo
-
-```
-entry and color picker
-	name and color
-	color incremental change
-multiple entry (on next add new entry with ...)
-	empty must remove the entry
-```
-
 ## Installation
 
 https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
@@ -116,5 +42,3 @@ Original archive folder: C:\Users\user-name\AppData\Local\Xamarin\Mono for Andro
 a.	This erros might with path lenght, but the error message is not right.
 b.	Go to Tools->Options->Xamarin->Android Setting
 c.	try to change the Archives path
-
-
