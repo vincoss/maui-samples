@@ -17,6 +17,7 @@ namespace CollectionView_Samples
         {
             var pages = new List<PageInfo>();
             pages.Add(new PageInfo { Type = typeof(CollectionViewAddView) });
+            pages.Add(new PageInfo { Type = typeof(VerticalCollectionViewGroupingView) });
 
             ListOfPages.ItemsSource = pages;
         }

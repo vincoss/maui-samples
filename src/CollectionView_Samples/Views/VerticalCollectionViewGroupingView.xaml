@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionView_Samples.Views.VerticalCollectionViewGroupingView"
+             x:Name="self"
+             Title="CollectionView - Grouping">
+
+    <VerticalStackLayout>
+        <Label Text="Grouping - Hide empty groups" FontSize="Title" BackgroundColor="Orange"/>
+
+        <CollectionView x:Name="ItemsListView"
+                        HorizontalOptions="FillAndExpand"
+                        EmptyView="No cards to display"
+                        ItemsSource="{Binding ItemsSource}"
+                        IsGrouped="true">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout BackgroundColor="LightGray">
+                        <BoxView HeightRequest=".5" HorizontalOptions="FillAndExpand" Color="Green"/>
+                        <Label Text="{Binding Name}" Margin="10,0,0,0"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                        <BoxView HeightRequest=".5" HorizontalOptions="FillAndExpand" Color="Green"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+</ContentPage>

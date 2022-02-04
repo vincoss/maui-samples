@@ -56,5 +56,17 @@
 	<ItemGroup>
 		<ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\VerticalCollectionViewGroupingView.xaml.cs">
+	    <DependentUpon>VerticalCollectionViewGroupingView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\VerticalCollectionViewGroupingView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	
 </Project>

@@ -5,10 +5,6 @@
              x:Name="cpCollectionViewAddView"
              Title="CollectionView with Add form">
 
-    <NavigationPage.TitleView>
-        <Label Text="Items"/>
-    </NavigationPage.TitleView>
-
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

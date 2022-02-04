@@ -109,7 +109,8 @@ namespace CollectionView_Samples.Views
 
     public class NextEntryBehavior : Behavior<Entry>
     {
-        public static readonly BindableProperty NextEntryProperty = BindableProperty.Create(nameof(NextEntry), typeof(Entry), typeof(Entry), defaultBindingMode: BindingMode.OneTime, defaultValue: null);
+        public static readonly BindableProperty NextEntryProperty = 
+            BindableProperty.Create(nameof(NextEntry), typeof(Entry), typeof(Entry), defaultBindingMode: BindingMode.OneTime, defaultValue: null);
 
         public Entry NextEntry
         {
