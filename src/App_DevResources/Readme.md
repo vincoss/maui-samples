@@ -1,6 +1,8 @@
 
 ## 
 
+SearchBar icon colour change, add also sample
+
 Font icons sample, cancel, done (text)
     best practices
 
