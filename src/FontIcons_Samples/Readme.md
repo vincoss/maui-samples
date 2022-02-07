@@ -9,3 +9,6 @@ https://fontawesome.com/
 https://friconix.com/
 https://www.iconfinder.com/buy-icons
 https://romannurik.github.io/AndroidAssetStudio/index.html
+
+https://material.io/
+https://fonts.google.com/icons?selected=Material+Icons

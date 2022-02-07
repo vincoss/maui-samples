@@ -2,7 +2,6 @@
 ## 
 
 
-Shell.TitleView background colour
 
 Font icons sample, cancel, done (text)
     best practices

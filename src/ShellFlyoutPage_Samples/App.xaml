@@ -7,7 +7,15 @@
     <Application.Resources>
         <ResourceDictionary>
 
-          
+            <Style x:Key="BaseStyle" TargetType="Element">
+
+                <Setter Property="Shell.BackgroundColor" Value="Pink" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="Red"/>
+
+            </Style>
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" /> 
+
+
 
         </ResourceDictionary>
     </Application.Resources>

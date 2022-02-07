@@ -10,6 +10,7 @@
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("MaterialIconsSharp-Regular.otf", "MaterialDesign");
                 });
 
             return builder.Build();
