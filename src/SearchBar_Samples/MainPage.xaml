@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SearchBar_Samples.MainPage"
+             xmlns:local="clr-namespace:SearchBar_Samples.Xaml;assembly=SearchBar_Samples"
+             Title="SearchBar - sample">
+
+    <VerticalStackLayout>
+        <SearchBar x:Name="searchBar"
+                   HorizontalOptions="FillAndExpand"
+                   Placeholder="Search"
+                   PlaceholderColor="Green"
+                   CancelButtonColor="Orange"
+                   TextColor="Orange"
+                   FontSize="Title"
+                   FontAttributes="Italic"
+                   BackgroundColor="#dcdcdc"
+                   local:SearchBarAttached.TextChangedCommand="{Binding PerformSearchCommand}"/>
+
+        <CollectionView x:Name="searchResults"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  ItemsSource="{Binding SearchResults}"
+                  EmptyView="No items to display">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+</ContentPage>

@@ -65,9 +65,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingCenter_Samples", "src\MessagingCenter_Samples\MessagingCenter_Samples.csproj", "{F363394E-D81F-4229-81A8-AA552C986FDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsPicker_Samples", "src\ItemsPicker_Samples\ItemsPicker_Samples.csproj", "{133DAE44-2A75-4BC1-A79D-D06D9A17A158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemsPicker_Samples", "src\ItemsPicker_Samples\ItemsPicker_Samples.csproj", "{133DAE44-2A75-4BC1-A79D-D06D9A17A158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchBar_Samples", "src\SearchBar_Samples\SearchBar_Samples.csproj", "{705F5544-5410-4981-BB80-FF2B31EA4AA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -232,6 +234,12 @@ Global
 		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

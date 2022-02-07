@@ -1,8 +1,7 @@
 
 ## 
 
-SearchBar icon colour change, add also sample
-	show clear icon
+
 Shell.TitleView background colour
 
 Font icons sample, cancel, done (text)
