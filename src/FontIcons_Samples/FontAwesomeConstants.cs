@@ -5,14 +5,13 @@ namespace FontIcons_Samples
 {
     public static class FontAwesomeConstants
     {
-        public const string ExternalLink = "\uF08E";
-        public const string Save = "\uE800";
-        public const string Cancel = "\uE80B";
-        public const string Edit = "\uE82A";
-        public const string Delete = "\uE801";
-        public const string Ok = "\uE808";
+        public const string Home = "\uf015";
 
-
-        public const string Home = "\ue88a";
+        public const string ExternalLink = "\uf35d";
+        public const string Save = "\uf0c7";
+        public const string Cancel = "\uf05e";
+        public const string Edit = "\uf304";
+        public const string Delete = "\uf2ed";
+        public const string Ok = "\uf00c";
     }
 }

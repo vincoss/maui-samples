@@ -7,20 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <!--
-                https://fontello.com/
-            -->
-            <OnPlatform x:Key="Fontello" x:TypeArguments="x:String">
-                <On Platform="Android" Value="fontello.ttf#fontello" />
-                <On Platform="iOS" Value="udar-icons" />
-                <On Platform="UWP" Value="/Assets/Fonts/fontello.ttf#fontello" />
-            </OnPlatform>
-
-            <OnPlatform x:Key="MaterialIcon" x:TypeArguments="x:String">
-                <On Platform="Android" Value="MaterialIconsSharp-Regular.otf#MaterialIcon" />
-                <On Platform="iOS" Value="udar-icons" />
-                <On Platform="UWP" Value="/Assets/Fonts/MaterialIconsSharp-Regular.otf#MaterialIcon" />
-            </OnPlatform>
+         
 
         </ResourceDictionary>
     </Application.Resources>
