@@ -9,6 +9,9 @@ https://fontawesome.com/
 https://friconix.com/
 https://www.iconfinder.com/buy-icons
 https://romannurik.github.io/AndroidAssetStudio/index.html
+https://github.com/FortAwesome/Font-Awesome
+https://fontello.com/
+https://icomoon.io/
 
 https://material.io/
 https://material.io/resources/icons/?style=baseline
