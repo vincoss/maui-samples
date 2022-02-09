@@ -2,12 +2,15 @@
 ## 
 
 
+
+
 modal view action bar
     cancel(back), title, done
     use font text
 	button no shadow or label with effect
 	test each platform
 
+shell item selected item
 
 picker view sample
 	single
