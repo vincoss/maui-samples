@@ -34,6 +34,8 @@ picker view sample
 	multiple
 	see xamarin samples
 
+SwipeView or FlyOut full screen on Right side as a menu
+
 collection view
 CollectionView grouping sample groups (Popular, Group A, Group B)
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
