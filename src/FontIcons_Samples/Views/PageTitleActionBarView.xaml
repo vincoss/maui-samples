@@ -1,0 +1,33 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FontIcons_Samples.Views.PageTitleActionBarView"
+             xmlns:co="clr-namespace:FontIcons_Samples;assembly=FontIcons_Samples"
+             Title="Font Icons Samples">
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"  Text="{x:Static co:MaterialDesignConstants.Cancel}" 
+                FontFamily="MaterialDesign" 
+                FontSize="Title" TextColor="Red" BackgroundColor="Transparent" WidthRequest="50" Margin="5" BorderWidth="0" VerticalOptions="Center" BorderColor="Transparent"
+                      />
+            <Label Grid.Column="1"  Text="Create product"  FontSize="Title" VerticalOptions="Center"/>
+            <Label x:Name="lblDone" Grid.Column="2"  Text="{x:Static co:MaterialDesignConstants.Ok}"
+                FontFamily="MaterialDesign" 
+                FontSize="Title" TextColor="Green" BackgroundColor="Transparent" WidthRequest="50" Margin="5" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <ScrollView>
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

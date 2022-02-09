@@ -4,58 +4,14 @@
              xmlns:co="clr-namespace:FontIcons_Samples;assembly=FontIcons_Samples"
              Title="Font Icons Samples">
 
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label Text="Material Design - Fonts" FontSize="Title" BackgroundColor="Orange"/>
-            <Label Text="{x:Static co:MaterialDesignConstants.Home}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.ExternalLink}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.Save}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.Cancel}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.Edit}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.Delete}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:MaterialDesignConstants.Ok}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-
-            <Label Text="{x:Static co:MaterialDesignConstants.Home}" 
-               FontFamily="MaterialDesign" 
-               FontSize="Header" TextColor="#E53935" />
-
-            <Label Text="Font Awesome - Fonts" FontSize="Title" BackgroundColor="Orange"/>
-            <Label Text="{x:Static co:FontAwesomeConstants.Home}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.ExternalLink}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.Save}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.Cancel}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.Edit}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.Delete}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-            <Label Text="{x:Static co:FontAwesomeConstants.Ok}" 
-               FontFamily="FontAwesome" 
-               FontSize="Header" TextColor="#E53935" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+    <StackLayout>
+        <Label Text="Samples" FontSize="Title" BackgroundColor="#DCDCDC"/>
+        <CollectionView x:Name="ListOfPages" SelectionChanged="ListOfPages_SelectionChanged" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" TextColor="SteelBlue" TextDecorations="Underline" Padding="5" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

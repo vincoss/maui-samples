@@ -2,13 +2,12 @@
 ## 
 
 
-
-Font icons sample, cancel, done (text)
-    best practices
-
 modal view action bar
     cancel(back), title, done
     use font text
+	button no shadow or label with effect
+	test each platform
+
 
 picker view sample
 	single
