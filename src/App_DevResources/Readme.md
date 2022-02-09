@@ -10,7 +10,24 @@ modal view action bar
 	button no shadow or label with effect
 	test each platform
 
-shell item selected item
+Shell
+<Shell.ItemTemplate>
+        <DataTemplate>
+            <GridLayout ColumnDefinitions="0.12*,0.88*" Padding="5">
+                <Label GridLayout.Column="0" 
+                       Text="{x:Static co:MaterialDesignIconConstants.Home}" 
+                       FontFamily="MaterialDesign" 
+                       FontSize="Title" 
+                       />
+                <Label GridLayout.Column="1"
+                       Text="{Binding Title}"
+                       VerticalTextAlignment="Center" />
+            </GridLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    shell item selected item
+        backgroundColour change
+        icon colour change
 
 picker view sample
 	single
