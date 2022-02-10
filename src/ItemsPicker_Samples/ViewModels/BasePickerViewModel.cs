@@ -8,19 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace ItemsPicker_Samples.ViewModels
 {
     public abstract class BasePickerViewModel : BaseViewModel
     {
+        private string _search;
+
         public BasePickerViewModel()
         {
             CancelCommand = new Command(OnCancelCommand);
             OkCommand = new Command(OnOkCommand, OnCanOkCommand);
             ItemTapCommand = new Command<SelectListItem>(OnItemTapCommand);
 
+            IsSingleSelection = true;
             ItemsSource = new ObservableCollection<SelectListItem>();
-
-
         }
 
         #region Command methods
@@ -120,7 +122,7 @@ namespace ItemsPicker_Samples.ViewModels
             set { SetProperty(ref _isSingleSelection, value); }
         }
 
-        public ObservableRangeCollection<SelectListItem> ItemsSource { get; private set; }
+        public ObservableCollection<SelectListItem> ItemsSource { get; private set; }
     }
 
     public class SelectListItem : BasePropertyChanged

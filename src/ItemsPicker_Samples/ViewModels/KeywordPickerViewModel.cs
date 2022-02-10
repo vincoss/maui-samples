@@ -56,5 +56,30 @@ namespace ItemsPicker_Samples.ViewModels
             MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataGuidString>>(this, nameof(PickerData<KeyDataGuidString>.ItemsSource), null);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
+
+        private static string[] Keywords = new[]
+        {
+            "abstract",
+            "as",
+            "base",
+            "bool",
+            "break",
+            "byte",
+            "case",
+            "catch",
+            "char",
+            "checked",
+            "class",
+            "const",
+            "continue",
+            "decimal",
+            "default",
+            "delegate",
+            "do",
+            "double",
+            "else",
+            "enum",
+        };
+
     }
 }

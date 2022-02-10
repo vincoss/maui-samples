@@ -7,10 +7,11 @@
         <Label Text="Items picker sample" FontSize="Title" BackgroundColor="Orange"/>
         
         <!-- Single -->
+        <Label Text="Single item picker" FontSize="Large" BackgroundColor="Green"/>
         <VerticalStackLayout>
             <VerticalStackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SelectFolderCommand}" 
-                                      CommandParameter="{Binding Board}"/>
+                <TapGestureRecognizer Command="{Binding SelectKeywordCommand}" 
+                                      CommandParameter="{Binding Keyword}"/>
             </VerticalStackLayout.GestureRecognizers>
             <Label Text="Keywords"/>
             <Label Text="{Binding Keywords}"/>

@@ -6,6 +6,7 @@
 
     <!--
         TODO: Would be nice to use button instead of label, but android has shadow and thats needs to be removed
+        Possible to use 'Visual State Manager'
     -->
     
     <VerticalStackLayout>

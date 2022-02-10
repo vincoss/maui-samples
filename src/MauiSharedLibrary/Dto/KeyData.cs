@@ -8,6 +8,11 @@ namespace MauiSharedLibrary.Dto
 
     }
 
+    public class KeyDataIntString : KeyData<int, string>
+    {
+
+    }
+
     public class KeyData<K, V> : IEquatable<KeyData<K, V>>
     {
         public K Key { get; set; }

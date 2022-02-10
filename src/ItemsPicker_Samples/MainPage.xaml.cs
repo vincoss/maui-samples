@@ -1,4 +1,6 @@
-﻿using MauiSharedLibrary.Dto;
+﻿using ItemsPicker_Samples.ViewModels;
+using ItemsPicker_Samples.Views;
+using MauiSharedLibrary.Dto;
 using MauiSharedLibrary.ViewModels;
 using System.Windows.Input;
 
@@ -14,7 +16,7 @@ namespace ItemsPicker_Samples
 
     public class MainPageViewModel : BaseViewModel
     {
-        private async void OnSelectKeyworkCommand(BoardCreateDto args)
+        private async void OnSelectKeyworkCommand(KeyDataGuidString args)
         {
             if (args == null || IsBusy)
             {
@@ -22,14 +24,13 @@ namespace ItemsPicker_Samples
             }
 
             var message = new PickerData<KeyDataGuidString>();
+            message.ItemsSource = new[] { args };
 
-            if (Board.Folder != null)
-            {
-                message.ItemsSource = new[] { args.Folder };
-            }
+            var page = new PickerListView();
+            page.BindingContext = new KeywordPickerViewModel();
+            await App.Current.MainPage.Navigation.PushAsync(page);
 
-            await _navigator.ShellPushAsync($"{BoardConstants.FolderPickerRoute}");
-            _navigator.Send<BoardCreateViewModel, PickerData<KeyDataGuidString>>(this, nameof(message.ItemsSource), message);
+            MessagingCenter.Send(this, nameof(message.ItemsSource), message);
 
             // await _navigator.PushAsync(_navigator.GetView(nameof(PickerListViewModel)));
             //await _navigator.PushAsync<PickerListViewModel>(typeof(PickerListView), m =>
@@ -43,6 +44,8 @@ namespace ItemsPicker_Samples
         }
 
         public ICommand SelectFolderCommand { get; private set; }
+
+        public KeyDataGuidString Keyword { get; set; }
     }
 
     public class PickerData<T>
