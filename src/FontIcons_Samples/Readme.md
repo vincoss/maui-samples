@@ -3,6 +3,7 @@ Refactor into CollectionView with Grouping
 	Material Design
 	Font Awesome
 
+
 ## Resources
 https://docs.microsoft.com/en-us/shows/XamarinShow/Xamarin-Quick-Tips-Font-Icon-Embedding
 https://fontawesome.com/
@@ -12,6 +13,8 @@ https://romannurik.github.io/AndroidAssetStudio/index.html
 https://github.com/FortAwesome/Font-Awesome
 https://fontello.com/
 https://icomoon.io/
+https://fontastic.me/
+http://pictos.cc/
 
 https://material.io/
 https://material.io/resources/icons/?style=baseline

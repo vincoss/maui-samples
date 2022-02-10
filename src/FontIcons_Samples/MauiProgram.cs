@@ -1,4 +1,7 @@
-﻿namespace FontIcons_Samples
+﻿using Microsoft.Maui.Controls.Compatibility;
+
+
+namespace FontIcons_Samples
 {
     public static class MauiProgram
     {

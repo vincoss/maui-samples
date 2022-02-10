@@ -4,6 +4,10 @@
              xmlns:co="clr-namespace:FontIcons_Samples;assembly=FontIcons_Samples"
              Title="Font Icons Samples">
 
+    <!--
+        TODO: Would be nice to use button instead of label, but android has shadow and thats needs to be removed
+    -->
+    
     <VerticalStackLayout>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -12,18 +16,17 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0"  Text="{x:Static co:MaterialDesignConstants.Cancel}" 
-                FontFamily="MaterialDesign" 
-                FontSize="Title" TextColor="Red" BackgroundColor="Transparent" WidthRequest="50" Margin="5" BorderWidth="0" VerticalOptions="Center" BorderColor="Transparent"
-                      />
-            <Label Grid.Column="1"  Text="Create product"  FontSize="Title" VerticalOptions="Center"/>
-            <Label x:Name="lblDone" Grid.Column="2"  Text="{x:Static co:MaterialDesignConstants.Ok}"
-                FontFamily="MaterialDesign" 
-                FontSize="Title" TextColor="Green" BackgroundColor="Transparent" WidthRequest="50" Margin="5" VerticalOptions="Center">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
+            <Label x:Name="lblCancel" Grid.Column="0"  
+                   Text="{x:Static co:MaterialDesignConstants.Cancel}"
+                   FontFamily="MaterialDesign" 
+                   Margin="5"
+                   FontSize="Title" TextColor="Red" BackgroundColor="Transparent" VerticalOptions="Center"/>
+            <Label Grid.Column="1" Text="Create product" FontSize="Title" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="lblDone" Grid.Column="2"  
+                   Text="{x:Static co:MaterialDesignConstants.Ok}"
+                   FontFamily="MaterialDesign" 
+                   Margin="5"
+                   FontSize="Title" TextColor="Green" BackgroundColor="Transparent" VerticalOptions="Center"/>
         </Grid>
 
         <ScrollView>
