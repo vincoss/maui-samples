@@ -1,0 +1,39 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionView_Samples.Views.VerticalCollectionCheckboxView"
+             xmlns:vm="clr-namespace:CollectionView_Samples.ViewModels;assembly=CollectionView_Samples"
+             x:Name="self"
+             Title="CollectionView - Checkbox">
+
+    <VerticalStackLayout>
+        <Label Text="Checkbox - single|multiple selection" FontSize="Title" BackgroundColor="Orange"/>
+        <HorizontalStackLayout BackgroundColor="Yellow">
+            <Label Text="Is single selection:" Margin="5" HorizontalOptions="StartAndExpand"/>
+            <CheckBox IsChecked="{Binding IsSingleSelection}" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="collectionViewItems"
+                        HorizontalOptions="FillAndExpand"
+                        EmptyView="No Items"
+                        ItemsSource="{Binding ItemsSource}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:SelectListItem">
+                    <VerticalStackLayout>
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
+                        </VerticalStackLayout.GestureRecognizers>
+
+                        <HorizontalStackLayout>
+                            <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Value}" FontSize="Title"/>
+                        </HorizontalStackLayout>
+                        
+                        <BoxView HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand"/>
+
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+</ContentPage>

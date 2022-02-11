@@ -58,12 +58,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\VerticalCollectionCheckboxView.xaml.cs">
+	    <DependentUpon>VerticalCollectionCheckboxView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\VerticalCollectionViewGroupingView.xaml.cs">
 	    <DependentUpon>VerticalCollectionViewGroupingView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\VerticalCollectionCheckboxView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\VerticalCollectionViewGroupingView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
