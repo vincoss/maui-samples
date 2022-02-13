@@ -11,41 +11,47 @@ namespace ItemsPicker_Samples
         public MainPage()
         {
             InitializeComponent();
+
+            var model = new MainPageViewModel();
+            BindingContext = model;
         }
     }
 
     public class MainPageViewModel : BaseViewModel
     {
-        private async void OnSelectKeyworkCommand(KeyDataGuidString args)
+        public MainPageViewModel()
         {
-            if (args == null || IsBusy)
+            SelectKeywordCommand = new Command<KeyDataIntString>(OnSelectKeyworkCommand);
+        }
+
+        public override void Initialize()
+        {
+            // TODO: select values here 
+        }
+
+        private async void OnSelectKeyworkCommand(KeyDataIntString args)
+        {
+            if (IsBusy)
             {
                 return;
             }
 
-            var message = new PickerData<KeyDataGuidString>();
-            message.ItemsSource = new[] { args };
+            var message = new PickerData<KeyDataIntString>();
+            message.ItemsSource = args != null ? new[] { args } : Enumerable.Empty<KeyDataIntString>();
 
             var page = new PickerListView();
-            page.BindingContext = new KeywordPickerViewModel();
+            //var model = new KeywordPickerViewModel();
+            //page.BindingContext = model;
+            //model.Initialize();
+
             await App.Current.MainPage.Navigation.PushAsync(page);
 
             MessagingCenter.Send(this, nameof(message.ItemsSource), message);
-
-            // await _navigator.PushAsync(_navigator.GetView(nameof(PickerListViewModel)));
-            //await _navigator.PushAsync<PickerListViewModel>(typeof(PickerListView), m =>
-            //{
-            //    m.Title = AppResources.SelectCompany;
-            //    m.DataLoaderType = PickerType.Company;
-            //    m.IsSingleSelection = true;
-            //    m.GetSelection = CompanyGetSelection;
-            //    m.SetSelection = CompanySetSelection;
-            //});
         }
 
-        public ICommand SelectFolderCommand { get; private set; }
+        public ICommand SelectKeywordCommand { get; private set; }
 
-        public KeyDataGuidString Keyword { get; set; }
+        public KeyDataIntString Keyword { get; set; }
     }
 
     public class PickerData<T>
@@ -54,6 +60,4 @@ namespace ItemsPicker_Samples
 
         public IEnumerable<T> ItemsSource { get; set; } = Enumerable.Empty<T>();
     }
-
-
 }

@@ -64,9 +64,18 @@
 	  <Compile Update="Views\NavigationPageTitleView.xaml.cs">
 	    <DependentUpon>NavigationPageTitleView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\RadioButtonView.xaml.cs">
+	    <DependentUpon>RadioButtonView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\UserView.xaml.cs">
 	    <DependentUpon>UserView.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\RadioButtonView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 	
 </Project>

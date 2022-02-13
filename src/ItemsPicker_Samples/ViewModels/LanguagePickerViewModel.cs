@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItemsPicker_Samples.ViewModels
 {
-    internal class LanguagePickerViewModel
+    public class LanguagePickerViewModel
     {
     }
 }

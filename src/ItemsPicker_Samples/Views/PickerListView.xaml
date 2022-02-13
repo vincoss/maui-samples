@@ -9,12 +9,12 @@
         <SearchBar x:Name="searchBar" 
                    HorizontalOptions="FillAndExpand"
                    Placeholder="Search"
-                   PlaceholderColor="{StaticResource placeholderGray}"
+                   PlaceholderColor="Gray"
                    xa:SearchBarAttached.TextChangedCommand="{Binding SearchCommand}"/>
 
-        <RefreshView IsRefreshing="{Binding IsRefreshing}" 
+        <RefreshView IsRefreshing="{Binding IsBusy}" 
                      Command="{Binding RefreshCommand}"
-                     RefreshColor="{StaticResource refreshColor}">
+                     RefreshColor="Green">
 
             <CollectionView x:Name="collectionViewItems"
                             HorizontalOptions="FillAndExpand"
@@ -22,28 +22,19 @@
                             ItemsSource="{Binding ItemsSource}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="vm:SelectListItem">
-                        <!--
-                        NOTE: The BoxView is used with Tag gesture since the checkbox does not trigger command to be raised.
-                        -->
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+                        <VerticalStackLayout>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
+                            </VerticalStackLayout.GestureRecognizers>
 
-                            <RadioButton Grid.Column="0" IsChecked="{Binding IsSelected}"/>
-                            <StackLayout Grid.Column="1" >
-                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                <BoxView HeightRequest=".5" Color="Black" HorizontalOptions="FillAndExpand"/>
-                            </StackLayout>
+                            <HorizontalStackLayout>
+                                <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Value}" FontSize="Title"/>
+                            </HorizontalStackLayout>
 
-                            <BoxView Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <BoxView.GestureRecognizers>
-                                    <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference this}}"/>
-                                </BoxView.GestureRecognizers>
-                            </BoxView>
+                            <BoxView HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand"/>
 
-                        </Grid>
+                        </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

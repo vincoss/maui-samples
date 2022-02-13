@@ -1,4 +1,5 @@
-﻿using MauiSharedLibrary.Dto;
+﻿using ItemsPicker_Samples.Sevices;
+using MauiSharedLibrary.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,14 @@ namespace ItemsPicker_Samples.ViewModels
     {
         public KeywordPickerViewModel()
         {
-            Title = "Select Keyboard";
+            Title = "Select Keyword";
 
-            MessagingCenter.Subscribe<MainPageViewModel, PickerData<KeyDataGuidString>>(this, nameof(PickerData<KeyDataGuidString>.ItemsSource), async (obj, item) =>
+            MessagingCenter.Subscribe<MainPageViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
             {
-                var data = item;
+                var data = item.ItemsSource;
+                IsSingleSelection = item.IsSingleSelection;
 
                 Select(data);
-
             });
 
             /* 
@@ -41,45 +42,39 @@ namespace ItemsPicker_Samples.ViewModels
             {
                 IsBusy = true;
                 ItemsSource.Clear();
-                await LoadDaData();
-                Select(GetSelection());
+                LoadDaData();
+                //Select(GetSelection());
             }
             finally
             {
                 IsBusy = false;
-                IsRefreshing = false;
+              //  IsRefreshing = false;
             }
+        }
+
+        private void LoadDaData()
+        {
+            var items = TestData.Keywords;
+            var models = Map(items, false);
+           
+            foreach(var m in models)
+            {
+                ItemsSource.Add(m);
+            }
+
+            OnPropertyChanged(nameof(ItemsSource));
         }
 
         protected async override void OnOkCommand()
         {
-            MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataGuidString>>(this, nameof(PickerData<KeyDataGuidString>.ItemsSource), null);
+            var message = new PickerData<KeyDataIntString>();
+            message.ItemsSource = MapSelected(ItemsSource);
+
+            MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
 
-        private static string[] Keywords = new[]
-        {
-            "abstract",
-            "as",
-            "base",
-            "bool",
-            "break",
-            "byte",
-            "case",
-            "catch",
-            "char",
-            "checked",
-            "class",
-            "const",
-            "continue",
-            "decimal",
-            "default",
-            "delegate",
-            "do",
-            "double",
-            "else",
-            "enum",
-        };
+ 
 
     }
 }
