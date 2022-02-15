@@ -3,21 +3,19 @@
              x:Class="Mix_Samples.Views.RadioButtonView"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
-             Title="Component Sample">
+             Title="RadioButton Samples">
 
-    <VerticalStackLayout HorizontalOptions="FillAndExpand" BackgroundColor="AliceBlue">
+    <VerticalStackLayout HorizontalOptions="FillAndExpand" BackgroundColor="AliceBlue" Padding="10">
         <RadioButton Content="Default" />
-        <RadioButton Content="Alignment Issue" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
-        <RadioButton Content="Header Size" FontSize="Header" FontAutoScalingEnabled="True" HorizontalOptions="FillAndExpand" />
+        <RadioButton IsChecked="True" Content="Alignment Issue - Font Title" FontSize="Title" BackgroundColor="Pink" />
         <RadioButton>
             <RadioButton.Content>
                 <Label Text="Label Default Size"/>
             </RadioButton.Content>
         </RadioButton>
-        <RadioButton IsChecked="True" Content="Font 32" FontSize="32" FontAutoScalingEnabled="True" BackgroundColor="Gold" />
         <HorizontalStackLayout>
-            <RadioButton IsChecked="True" Margin="0" Padding="0" Content="{x:Null}" BorderColor="Orange" BorderWidth="3"/>
-            <Label Text="Radio and Label" FontSize="Title" Margin="0" Padding="0" HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="Red"/>
+            <RadioButton IsChecked="True" Margin="0" Padding="0" BorderColor="Red" BorderWidth="1"/>
+            <Label Text="Radio and Label" FontSize="Title" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
         </HorizontalStackLayout>
         <RadioButton FontSize="Title" VerticalOptions="CenterAndExpand">
             <RadioButton.Content>
