@@ -36,9 +36,9 @@ namespace CollectionView_Samples.Views
             {
                 IsBusy = true;
 
-                var a = new SelectListItem { Key = 1, Value = "Milk" };
-                var b = new SelectListItem { Key = 2, Value = "Bread", IsSelected = true };
-                var c = new SelectListItem { Key = 3, Value = "Butter" };
+                var a = new SelectListItem { Key = 1, Value = "Milk is good for you!" };
+                var b = new SelectListItem { Key = 2, Value = "Bread is good for you!", IsSelected = true };
+                var c = new SelectListItem { Key = 3, Value = "Butter is good for you!" };
 
                 ItemsSource.Add(a);
                 ItemsSource.Add(b);

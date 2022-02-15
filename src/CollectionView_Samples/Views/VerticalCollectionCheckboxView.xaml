@@ -16,43 +16,26 @@
                         HorizontalOptions="FillAndExpand"
                         EmptyView="No Items"
                         ItemsSource="{Binding ItemsSource}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:SelectListItem">
-                    <!--<VerticalStackLayout BackgroundColor="Orange">
-                        <VerticalStackLayout.GestureRecognizers>
-                            <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
-                        </VerticalStackLayout.GestureRecognizers>
-
-                        <HorizontalStackLayout HorizontalOptions="FillAndExpand" BackgroundColor="Yellow">
-                            <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
-                            <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
-                        </HorizontalStackLayout>
-                        
-                        <BoxView HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand"/>
-
-                    </VerticalStackLayout>-->
-                    <Grid BackgroundColor="White">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
                         </Grid.GestureRecognizers>
 
-                        
-                        <RadioButton Grid.Column="0" IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Center" BackgroundColor="Gold" VerticalOptions="Center"/>
-                        <Label Grid.Column="1" Text="{Binding Value}" FontSize="Header" HorizontalOptions="Start" VerticalOptions="Center"/>
-                        <!--<HorizontalStackLayout Grid.Row="0" BackgroundColor="Pink">
-                            <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start" BackgroundColor="Gold" VerticalOptions="Center"/>
-                            <Label Text="{Binding Value}" FontSize="Header" HorizontalOptions="Start" VerticalOptions="Center"/>
-                        </HorizontalStackLayout>-->
+                        <HorizontalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow">
+                            <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
 
-                        <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand"/>
+                        <BoxView Grid.Row="1"  HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand" />
 
                     </Grid>
                 </DataTemplate>
