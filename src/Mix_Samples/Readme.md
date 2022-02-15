@@ -1,7 +1,7 @@
 ﻿
-NavigationPageTitleView the 'NavigationPage.TitleView' not shown
 
 ## Todo
+NavigationPageTitleView the 'NavigationPage.TitleView' not shown
 RadioButtonView the text and radiobutton not centered on some platforms, its pain to do anything
 
 

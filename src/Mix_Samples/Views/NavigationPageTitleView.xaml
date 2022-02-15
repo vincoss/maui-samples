@@ -1,6 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mix_Samples.Views.NavigationPageTitleView">
+             x:Class="Mix_Samples.Views.NavigationPageTitleView"
+             Title="NavigationPageTitleView">
 
     <!--
     https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/navigation/hierarchical
@@ -16,9 +17,7 @@
 
     <ContentPage.Content>
         <VerticalStackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="TitleView Sample" />
         </VerticalStackLayout>
     </ContentPage.Content>
 

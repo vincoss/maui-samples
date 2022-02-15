@@ -15,7 +15,7 @@ namespace Mix_Samples
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            return    new Window(new NavigationPage(new RadioButtonView())) { Title = "MyApp" };
+            return    new Window(new NavigationPage(new MainPage())) { Title = "Mix_Samples" };
         }
     }
 }
