@@ -4,11 +4,10 @@
 
 
 
-modal view action bar
-    cancel(back), title, done
-    use font text
-	button no shadow or label with effect
-	test each platform
+picker view sample
+	single
+	multiple
+	see xamarin samples
 
 Shell
 <Shell.ItemTemplate>
@@ -29,10 +28,6 @@ Shell
         backgroundColour change
         icon colour change
 
-picker view sample
-	single
-	multiple
-	see xamarin samples
 
 SwipeView or FlyOut full screen on Right side as a menu
 
