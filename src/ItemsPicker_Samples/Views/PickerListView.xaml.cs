@@ -4,13 +4,19 @@ namespace ItemsPicker_Samples.Views
 {
     public partial class PickerListView : ContentPage
     {
+        private KeywordPickerViewModel _model = new KeywordPickerViewModel();
+
         public PickerListView()
         {
             InitializeComponent();
 
-            var model = new KeywordPickerViewModel();
-            this.BindingContext = model;
-            model.Initialize();
+            this.BindingContext = _model;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _model.Initialize();
         }
     }
 }
