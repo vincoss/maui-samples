@@ -27,36 +27,31 @@ namespace StartupConfigurationSample
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                })
-                .Host.ConfigureServices((b, services) =>
-                {
-                    services.AddHttpClient();
-                    services.AddSingleton<IBootstrap, Bootstrap>();
-                    services.AddSingleton<IDatabaseService, DatabaseService>();
-                    services.AddSingleton<IHttpService, HttpService>();
-
-                    var loggerFactory = new LoggerFactory();
-                    services.AddSingleton(loggerFactory);
-                    services.AddLogging();
-
-                    // Other sample
-                    //var httpClientHandler = new SocketsHttpHandler()
-                    //{
-                    //    PooledConnectionLifetime = TimeSpan.FromMinutes(1)
-                    //};
-                    //services.AddSingleton(httpClientHandler);
-
-                    //services.AddTransient<HttpClient>((p) =>
-                    //{
-                    //    var handler = p.GetService<SocketsHttpHandler>();
-                    //    return new HttpClient(handler, false);
-                    //});
-
-                })
-                .ConfigureLogging((hostingContext, logging) =>
-                {
-                    logging.ClearProviders();
                 });
+
+            var services = builder.Services;
+
+            services.AddHttpClient();
+            services.AddSingleton<IBootstrap, Bootstrap>();
+            services.AddSingleton<IDatabaseService, DatabaseService>();
+            services.AddSingleton<IHttpService, HttpService>();
+
+            var loggerFactory = new LoggerFactory();
+            services.AddSingleton(loggerFactory);
+            services.AddLogging();
+
+            // Other sample
+            //var httpClientHandler = new SocketsHttpHandler()
+            //{
+            //    PooledConnectionLifetime = TimeSpan.FromMinutes(1)
+            //};
+            //services.AddSingleton(httpClientHandler);
+
+            //services.AddTransient<HttpClient>((p) =>
+            //{
+            //    var handler = p.GetService<SocketsHttpHandler>();
+            //    return new HttpClient(handler, false);
+            //});
 
             return builder.Build();
         }

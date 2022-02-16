@@ -33,17 +33,16 @@ namespace Sqlite_Dapper_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                })
-                 .Host.ConfigureServices((d, services) =>
-                 {
-                     services.AddSingleton<IPath, DbPath>();
-                     services.AddSingleton<IBootstrap, Bootstrap>();
-                     services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
-                     services.AddSingleton<IDatabaseService, DatabaseService>();
-                     services.AddSingleton<IItemService, ItemService>();
+                });
 
-                     services.AddTransient<ProductListViewModel>();
-                 });
+            var services = builder.Services;
+
+            services.AddSingleton<IPath, DbPath>();
+            services.AddSingleton<IBootstrap, Bootstrap>();
+            services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
+            services.AddSingleton<IDatabaseService, DatabaseService>();
+            services.AddSingleton<IItemService, ItemService>();
+            services.AddTransient<ProductListViewModel>();
 
             return builder.Build();
         }

@@ -14,12 +14,12 @@
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <GridLayout ColumnDefinitions="0.2*,0.8*">
+            <Grid ColumnDefinitions="0.2*,0.8*">
                 <Label Text="X" Margin="5"/>
-                <Label GridLayout.Column="1"
+                <Label Grid.Column="1"
                        Text="{Binding Title}"
                        VerticalTextAlignment="Center" />
-            </GridLayout>
+            </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
 

@@ -33,14 +33,15 @@ namespace Sqlite_EF_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                })
-                .Host.ConfigureServices((b, services) =>
-                {
-                    services.AddSingleton<IPath, DbPath>();
-                    services.AddSingleton<IBootstrap, Bootstrap>();
-                    services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
-                    services.AddSingleton<IDatabaseService, DatabaseService>();
                 });
+
+            var services = builder.Services;
+
+            services.AddSingleton<IPath, DbPath>();
+            services.AddSingleton<IBootstrap, Bootstrap>();
+            services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
+            services.AddSingleton<IDatabaseService, DatabaseService>();
+
 
             return builder.Build();
         }

@@ -17,11 +17,11 @@ namespace ViewModelIoc_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                })
-                .Host.ConfigureServices((b, services) =>
-                {
-                    services.AddTransient<HomeViewModel>();
                 });
+
+            var services = builder.Services;
+
+            services.AddTransient<HomeViewModel>();
 
             return builder.Build();
         }
