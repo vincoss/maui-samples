@@ -99,6 +99,6 @@ https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
 ### Android paths
 ```
 C:\Program Files (x86)\Android\android-sdk\tools
-C:\Users\Ferdinand\AppData\Local\Android\Sdk\tools\bin
+C:\Users\{UserName}\AppData\Local\Android\Sdk\tools\bin
 ```
 
