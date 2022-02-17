@@ -65,11 +65,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontIcons_Samples", "src\Fo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchBar_Samples", "src\SearchBar_Samples\SearchBar_Samples.csproj", "{705F5544-5410-4981-BB80-FF2B31EA4AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{F34CBB06-4251-415C-8A75-24BF232E6FB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{F34CBB06-4251-415C-8A75-24BF232E6FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{70FD0322-B226-4290-BCEF-6FD8064F8B1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{70FD0322-B226-4290-BCEF-6FD8064F8B1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_ClassLibrary", "src\Default_ClassLibrary\Default_ClassLibrary.csproj", "{F9F0E752-2526-4203-A56D-0018D9E6647A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_ClassLibrary", "src\Default_ClassLibrary\Default_ClassLibrary.csproj", "{F9F0E752-2526-4203-A56D-0018D9E6647A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiGraphics_Samples", "src\MauiGraphics_Samples\MauiGraphics_Samples.csproj", "{FC91D681-40B4-498A-AB8F-F7CD2E843E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -240,6 +242,12 @@ Global
 		{F9F0E752-2526-4203-A56D-0018D9E6647A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9F0E752-2526-4203-A56D-0018D9E6647A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9F0E752-2526-4203-A56D-0018D9E6647A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC91D681-40B4-498A-AB8F-F7CD2E843E61}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
