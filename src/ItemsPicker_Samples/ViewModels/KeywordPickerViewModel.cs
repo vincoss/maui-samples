@@ -18,7 +18,6 @@ namespace ItemsPicker_Samples.ViewModels
             {
                 var data = item.ItemsSource;
                 IsSingleSelection = item.IsSingleSelection;
-
                 Select(data);
             });
 

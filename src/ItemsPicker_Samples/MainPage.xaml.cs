@@ -1,4 +1,5 @@
-﻿using ItemsPicker_Samples.ViewModels;
+﻿using ItemsPicker_Samples.Sevices;
+using ItemsPicker_Samples.ViewModels;
 using ItemsPicker_Samples.Views;
 using MauiSharedLibrary.Dto;
 using MauiSharedLibrary.ViewModels;
@@ -14,6 +15,7 @@ namespace ItemsPicker_Samples
 
             var model = new MainPageViewModel();
             BindingContext = model;
+            model.Initialize();
         }
     }
 
@@ -26,7 +28,7 @@ namespace ItemsPicker_Samples
 
         public override void Initialize()
         {
-            // TODO: select values here 
+            Keyword = TestData.Keywords.FirstOrDefault();
         }
 
         private async void OnSelectKeyworkCommand(KeyDataIntString args)
@@ -37,12 +39,13 @@ namespace ItemsPicker_Samples
             }
 
             var message = new PickerData<KeyDataIntString>();
+            message.IsSingleSelection = false;
             message.ItemsSource = args != null ? new[] { args } : Enumerable.Empty<KeyDataIntString>();
 
             var page = new PickerListView();
-            //var model = new KeywordPickerViewModel();
-            //page.BindingContext = model;
-            //model.Initialize();
+            var model = new KeywordPickerViewModel();
+            page.BindingContext = model;
+            model.Initialize();
 
             await App.Current.MainPage.Navigation.PushAsync(page);
 
@@ -51,7 +54,13 @@ namespace ItemsPicker_Samples
 
         public ICommand SelectKeywordCommand { get; private set; }
 
-        public KeyDataIntString Keyword { get; set; }
+        private KeyDataIntString _keyword;
+
+        public KeyDataIntString Keyword
+        {
+            get { return _keyword; }
+            set { SetProperty(ref _keyword, value); }
+        }
     }
 
     public class PickerData<T>

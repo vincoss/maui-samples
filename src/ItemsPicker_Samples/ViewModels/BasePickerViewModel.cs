@@ -60,8 +60,28 @@ namespace ItemsPicker_Samples.ViewModels
                 ClearSelection();
             }
             dto.IsSelected = !flag;
+
+            var comparer = new MyOrderingClass();
+
+            ItemsSource.Sort(comparer);
+
            // SetSelection(MapSelected(ItemsSource));
         }
+
+        public class MyOrderingClass : IComparer<SelectListItem>
+        {
+            public int Compare(SelectListItem x, SelectListItem y)
+            {
+                int result = y.IsSelected.CompareTo(x.IsSelected);
+                if (result != 0) return result;
+
+                result = x.Value.CompareTo(y.Value);
+                if (result != 0) return result;
+
+                return 0;
+            }
+        }
+
         private void ClearSelection()
         {
             foreach (var item in ItemsSource)
@@ -211,13 +231,22 @@ namespace ItemsPicker_Samples.ViewModels
             AddRange(enumerable);
         }
 
-        public void Sort(Comparison<T> comparison)
+        public void Sort(IComparer<T> comparison)
         {
             var sortableList = new List<T>(this);
             sortableList.Sort(comparison);
 
             for (int i = 0; i < sortableList.Count; i++)
             {
+                // NOTE: not move all items
+                var a = sortableList[i];
+                var b = this[i];
+
+                if(a.Equals(b))
+                {
+                    continue;
+                }
+
                 this.Move(this.IndexOf(sortableList[i]), i);
             }
         }

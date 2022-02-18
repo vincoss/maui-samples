@@ -37,7 +37,7 @@
 
                             <HorizontalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand">
                                 <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
-                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand"   MaxLines="2"/>
+                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" MaxLines="2"/>
                             </HorizontalStackLayout>
 
                             <BoxView Grid.Row="1"  HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand" />
