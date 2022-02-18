@@ -3,9 +3,9 @@
              x:Class="Button_Samples.MainPage"
              Title="Button_Samples">
 
-    <StackLayout>
+    <VerticalStackLayout>
         <!-- Square button-->
-        <StackLayout Orientation="Horizontal">
+        <HorizontalStackLayout>
 
             <Button Text="CA"
         x:Name="btn1" FontSize="Title"
@@ -13,13 +13,13 @@
         HorizontalOptions="Center"
                     />
             <!--HeightRequest="{Binding Width, Source={x:Reference btn1}}"/>-->
-            
+
             <!--<Button Text="SA"
         x:Name="btn2" FontSize="Title"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center"
         HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>-->
-        </StackLayout>
-    </StackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
     
 </ContentPage>
