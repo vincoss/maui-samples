@@ -3,6 +3,7 @@
              x:Class="ItemsPicker_Samples.Views.PickerListView"
              xmlns:xa="clr-namespace:ItemsPicker_Samples.Xaml;assembly=ItemsPicker_Samples"
              xmlns:vm="clr-namespace:ItemsPicker_Samples.ViewModels;assembly=ItemsPicker_Samples"
+             x:Name="self"
              Title="{Binding Title}">
 
     <StackLayout Margin="5">
@@ -34,9 +35,9 @@
                                 <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
                             </Grid.GestureRecognizers>
 
-                            <HorizontalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow">
+                            <HorizontalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand">
                                 <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
-                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand"   MaxLines="2"/>
                             </HorizontalStackLayout>
 
                             <BoxView Grid.Row="1"  HeightRequest=".5" Color="Gray" HorizontalOptions="FillAndExpand" />

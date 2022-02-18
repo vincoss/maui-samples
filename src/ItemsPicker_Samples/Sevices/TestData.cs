@@ -32,6 +32,7 @@ namespace ItemsPicker_Samples.Sevices
             new KeyDataIntString { Key = 18, Value =  "double" },
             new KeyDataIntString { Key = 19, Value =  "else" },
             new KeyDataIntString { Key = 20, Value =  "enum" },
+            new KeyDataIntString { Key = 21, Value =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
         };
     }
 }

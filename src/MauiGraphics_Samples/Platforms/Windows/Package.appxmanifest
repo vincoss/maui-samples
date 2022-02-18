@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="2C52EAFA-3C32-45AB-9181-ABE7E38CF181"
+    Name="2F698E84-438C-4395-A41C-DBFFD2561C03"
     Publisher="CN=User Name"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>Default_App</DisplayName>
+    <DisplayName>MauiGraphics_Samples</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
     <Logo>appiconStoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Default_App"
-        Description="Default_App"
+        DisplayName="MauiGraphics_Samples"
+        Description="MauiGraphics_Samples"
         BackgroundColor="transparent"
         Square150x150Logo="appiconMediumTile.png"
         Square44x44Logo="appiconLogo.png">
@@ -40,7 +40,7 @@
           Wide310x150Logo="appiconWideTile.png"
           Square71x71Logo="appiconSmallTile.png"
           Square310x310Logo="appiconLargeTile.png"
-          ShortName="Default_App">
+          ShortName="MauiGraphics_Samples">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
