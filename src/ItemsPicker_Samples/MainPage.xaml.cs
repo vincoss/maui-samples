@@ -1,8 +1,8 @@
 ﻿using ItemsPicker_Samples.Sevices;
 using ItemsPicker_Samples.ViewModels;
 using ItemsPicker_Samples.Views;
-using MauiSharedLibrary.Dto;
-using MauiSharedLibrary.ViewModels;
+using ShortMvvm.Dto;
+using ShortMvvm.ViewModels;
 using System.Windows.Input;
 
 namespace ItemsPicker_Samples
