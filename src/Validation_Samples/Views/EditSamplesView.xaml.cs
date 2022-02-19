@@ -1,10 +1,10 @@
-﻿using MauiSharedLibrary.ViewModels;
+﻿using ShortMvvm.ViewModels;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using Validation_Samples.Views.Components;
 using System;
 using System.Windows.Input;
-using MauiSharedLibrary.Validation;
+using ShortMvvm.Validation;
 using Validation_Samples.Validation;
 
 namespace Validation_Samples.Views

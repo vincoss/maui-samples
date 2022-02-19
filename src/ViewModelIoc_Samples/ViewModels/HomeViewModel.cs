@@ -1,4 +1,4 @@
-﻿using MauiSharedLibrary.ViewModels;
+﻿using ShortMvvm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

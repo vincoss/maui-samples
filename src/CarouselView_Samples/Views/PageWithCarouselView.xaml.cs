@@ -1,4 +1,4 @@
-﻿using MauiSharedLibrary.ViewModels;
+﻿using ShortMvvm.ViewModels;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System;

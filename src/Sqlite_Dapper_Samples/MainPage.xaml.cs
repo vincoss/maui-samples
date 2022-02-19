@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using MauiSharedLibrary.ViewModels;
+using ShortMvvm.ViewModels;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;

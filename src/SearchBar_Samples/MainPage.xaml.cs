@@ -1,5 +1,5 @@
-﻿using MauiSharedLibrary;
-using MauiSharedLibrary.ViewModels;
+﻿using ShortMvvm;
+using ShortMvvm.ViewModels;
 using System.Windows.Input;
 
 namespace SearchBar_Samples

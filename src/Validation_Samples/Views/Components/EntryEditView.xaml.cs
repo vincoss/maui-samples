@@ -1,6 +1,6 @@
 ﻿
-using MauiSharedLibrary.Validation;
-using MauiSharedLibrary.ViewModels;
+using ShortMvvm.Validation;
+using ShortMvvm.ViewModels;
 using Microsoft.Maui.Controls;
 using System.Windows.Input;
 

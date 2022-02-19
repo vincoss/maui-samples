@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MauiSharedLibrary.Validation;
+using ShortMvvm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -68,15 +68,6 @@ namespace ShortMvvm
 
             for (int i = 0; i < sortableList.Count; i++)
             {
-                // NOTE: not move all items
-                var a = sortableList[i];
-                var b = this[i];
-
-                if (a.Equals(b))
-                {
-                    continue;
-                }
-
                 this.Move(this.IndexOf(sortableList[i]), i);
             }
         }

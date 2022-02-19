@@ -1,4 +1,4 @@
-﻿using MauiSharedLibrary.ViewModels;
+﻿using ShortMvvm.ViewModels;
 using System.Windows.Input;
 
 namespace MessagingCenter_Samples.Views

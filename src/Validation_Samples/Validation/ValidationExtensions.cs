@@ -7,7 +7,7 @@ using System.Linq;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace MauiSharedLibrary.Validation
+namespace ShortMvvm.Validation
 {
     public static class ValidationExtensions
     {

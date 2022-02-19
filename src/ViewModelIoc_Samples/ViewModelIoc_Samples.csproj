@@ -57,7 +57,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MauiSharedLibrary\MauiSharedLibrary.csproj" />
+    <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
   </ItemGroup>
 
 </Project>
