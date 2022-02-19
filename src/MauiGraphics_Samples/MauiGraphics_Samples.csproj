@@ -52,27 +52,13 @@
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
-	  <PackageReference Include="Microsoft.Maui.Graphics.Controls">
-	    <Version>6.0.101-nightly.253</Version>
-	  </PackageReference>
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
-	  <PackageReference Include="Microsoft.Maui.Graphics.Controls">
-	    <Version>6.0.101-nightly.253</Version>
-	  </PackageReference>
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">
-	  <PackageReference Include="Microsoft.Maui.Graphics.Controls">
-	    <Version>6.0.101-nightly.253</Version>
-	  </PackageReference>
-	</ItemGroup>
-
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Graphics.Controls" Version="6.0.101-nightly.253" />
+  </ItemGroup>
 	
 </Project>
