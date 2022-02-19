@@ -73,6 +73,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiGraphics_Samples", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortMvvm", "src\ShortMvvm\ShortMvvm.csproj", "{14ED79BE-A29C-448A-879C-E81372B66F60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Label_Samples", "src\Label_Samples\Label_Samples.csproj", "{505AA483-0611-4B79-8C51-90209CA2F705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -248,6 +250,12 @@ Global
 		{14ED79BE-A29C-448A-879C-E81372B66F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14ED79BE-A29C-448A-879C-E81372B66F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14ED79BE-A29C-448A-879C-E81372B66F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

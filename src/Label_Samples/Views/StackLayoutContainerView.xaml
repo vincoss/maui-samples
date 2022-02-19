@@ -1,0 +1,106 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Label_Samples.StackLayoutContainerView"
+             Title="VerticalStackLayout container - Labels">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <!-- Text Decorations -->
+            <Label Text="Welcome to Maui!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="This is underlined text." TextDecorations="Underline"  />
+            <Label Text="This is text with strikethrough." TextDecorations="Strikethrough" />
+            <Label Text="This is underlined text with strikethrough." TextDecorations="Underline, Strikethrough" />
+            <!-- Colours -->
+            <Label TextColor="#77d065" FontSize = "20" Text="This is a green label." FontAttributes="Bold" />
+            <!-- Truncation and wrapping -->
+            <Label Text="This is long long long long long long long long long long long long long long long long long long long long long long long long." LineBreakMode="WordWrap"/>
+            <!-- Displaying a specific number of lines -->
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis nulla eu felis fringilla vulputate. Nullam porta eleifend lacinia. Donec at iaculis tellus."
+                   LineBreakMode="WordWrap"
+                   MaxLines="2" />
+            <!--Events-->
+            <Entry Placeholder="Enter line height" TextChanged="OnLineHeightChanged"/>
+            <Label x:Name="_lineHeightLabel" 
+                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis nulla eu felis fringilla vulputate. Nullam porta eleifend lacinia. Donec at iaculis tellus."
+                   LineBreakMode="WordWrap"
+                   MaxLines="2" />
+            <!-- Formatted text -->
+            <Label Text= "{Binding FirstName, StringFormat='Hello my name is {0} nice to meet you!!!'}" />
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Red Bold, " TextColor="Red" FontAttributes="Bold" />
+                        <Span Text="default, ">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text="italic small." FontAttributes="Italic" FontSize="Small" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="A simple line of text " />
+                        <Span Text="that is italic" FontAttributes="Italic" />
+                        <Span Text=" or " />
+                        <Span Text="that is bold" FontAttributes="Bold" />
+                        <Span Text=" or " />
+                        <Span Text="that is large" FontSize="Large" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Line Height -->
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis nulla eu felis fringilla vulputate. Nullam porta eleifend lacinia. Donec at iaculis tellus."
+                       LineBreakMode="WordWrap"
+                       LineHeight="1.8" />
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt sem. Phasellus mollis sit amet turpis in rutrum. Sed aliquam ac urna id scelerisque. "
+                  LineHeight="1.8"/>
+                        <Span Text="Nullam feugiat sodales elit, et maximus nibh vulputate id."
+                  LineHeight="1.8" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Hyperlinks -->
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Alternatively, click " />
+                        <Span Text="here"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="https://docs.microsoft.com/xamarin/" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text=" to view Xamarin documentation." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Creating a reusable hyperlink class -->
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Alternatively, click " />
+                        <!--<controls:HyperlinkSpan Text="here"
+                                         Url="https://docs.microsoft.com/appcenter/" />-->
+                        <Span Text=" to view AppCenter documentation." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!-- Creating a reusable hyperlink class -->
+            <Label Text="{Binding FormatedLabelString, StringFormat='{0}: here is the text'}"/>
+
+            <!-- ? Adding special characters to the texts  -->
+            <Label Text= "&lt;Hello people!!!&gt;" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
