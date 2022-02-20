@@ -23,12 +23,18 @@ namespace ItemsPicker_Samples
     {
         public MainPageViewModel()
         {
+            MessagingCenter.Subscribe<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
+            {
+                var data = item.ItemsSource; 
+                Keyword = data.FirstOrDefault();
+            });
+
             SelectKeywordCommand = new Command<KeyDataIntString>(OnSelectKeyworkCommand);
         }
 
         public override void Initialize()
         {
-            Keyword = TestData.Keywords.FirstOrDefault();
+            Keyword = TestData.Keywords.Skip(3).FirstOrDefault();
         }
 
         private async void OnSelectKeyworkCommand(KeyDataIntString args)
@@ -39,7 +45,7 @@ namespace ItemsPicker_Samples
             }
 
             var message = new PickerData<KeyDataIntString>();
-            message.IsSingleSelection = false;
+            message.IsSingleSelection = true;
             message.ItemsSource = args != null ? new[] { args } : Enumerable.Empty<KeyDataIntString>();
 
             var page = new PickerListView();
@@ -47,7 +53,7 @@ namespace ItemsPicker_Samples
             page.BindingContext = model;
             model.Initialize();
 
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current.MainPage.Navigation.PushModalAsync(page);
 
             MessagingCenter.Send(this, nameof(message.ItemsSource), message);
         }

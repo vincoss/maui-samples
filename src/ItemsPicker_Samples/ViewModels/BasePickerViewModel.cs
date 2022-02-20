@@ -16,6 +16,7 @@ namespace ItemsPicker_Samples.ViewModels
     public abstract class BasePickerViewModel : BaseViewModel
     {
         private string _search;
+
         public BasePickerViewModel()
         {
             CancelCommand = new Command(OnCancelCommand);
@@ -30,7 +31,7 @@ namespace ItemsPicker_Samples.ViewModels
 
         private async void OnCancelCommand()
         {
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopModalAsync();
         }
 
         protected bool OnCanOkCommand()
@@ -62,9 +63,8 @@ namespace ItemsPicker_Samples.ViewModels
             }
             dto.IsSelected = !flag;
 
-            var comparer = new MyOrderingClass();
-
-            ItemsSource.Sort(comparer);
+            // Sort
+            ItemsSource.Sort(new MyOrderingClass());
 
            // SetSelection(MapSelected(ItemsSource));
         }
@@ -97,6 +97,9 @@ namespace ItemsPicker_Samples.ViewModels
             {
                 item.IsSelected = items.Any(x => x.Key == item.Key);
             }
+
+            // Sort
+            ItemsSource.Sort(new MyOrderingClass());
         }
 
         protected IEnumerable<KeyDataIntString> MapSelected(IEnumerable<SelectListItem> items)

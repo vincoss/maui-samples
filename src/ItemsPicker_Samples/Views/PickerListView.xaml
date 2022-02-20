@@ -3,10 +3,14 @@
              x:Class="ItemsPicker_Samples.Views.PickerListView"
              xmlns:xa="clr-namespace:ItemsPicker_Samples.Xaml;assembly=ItemsPicker_Samples"
              xmlns:vm="clr-namespace:ItemsPicker_Samples.ViewModels;assembly=ItemsPicker_Samples"
+             xmlns:co="clr-namespace:ItemsPicker_Samples.Views.Components"
              x:Name="self"
              Title="{Binding Title}">
 
-    <StackLayout Margin="5">
+    <VerticalStackLayout Margin="5">
+
+        <co:EditMenuView/>
+
         <SearchBar x:Name="searchBar" 
                    HorizontalOptions="FillAndExpand"
                    Placeholder="Search"
@@ -21,12 +25,12 @@
                         HorizontalOptions="FillAndExpand"
                         EmptyView="No Items"
                         ItemsSource="{Binding ItemsSource}">
-                <!--<CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>-->
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="vm:SelectListItem">
-                        <Grid>
+                        <Grid HorizontalOptions="CenterAndExpand">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
@@ -49,6 +53,6 @@
 
         </RefreshView>
 
-    </StackLayout>
+    </VerticalStackLayout>
     
 </ContentPage>

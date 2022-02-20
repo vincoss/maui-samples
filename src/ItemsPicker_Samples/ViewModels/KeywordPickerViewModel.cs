@@ -23,8 +23,8 @@ namespace ItemsPicker_Samples.ViewModels
 
             /* 
              
-                must load all items
-                must pass current selected items
+                +must load all items
+                +must pass current selected items
                 must return selected items
                 must sort selected items to top
             */
@@ -42,12 +42,10 @@ namespace ItemsPicker_Samples.ViewModels
                 IsBusy = true;
                 ItemsSource.Clear();
                 LoadDaData();
-                //Select(GetSelection());
             }
             finally
             {
                 IsBusy = false;
-              //  IsRefreshing = false;
             }
         }
 
@@ -72,8 +70,5 @@ namespace ItemsPicker_Samples.ViewModels
             MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
-
- 
-
     }
 }
