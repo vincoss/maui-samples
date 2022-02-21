@@ -5,28 +5,18 @@
 
     <VerticalStackLayout>
         <Label Text="Items picker sample" FontSize="Title" BackgroundColor="Orange"/>
-        
-        <!-- Single -->
-        <Label Text="Single item picker" FontSize="Large"/>
-        <VerticalStackLayout>
-            <VerticalStackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SelectKeywordCommand}" 
-                                      CommandParameter="{Binding Keyword}"/>
-            </VerticalStackLayout.GestureRecognizers>
-            <Label Text="C# Keyword"/>
-            <Label Text="{Binding Keyword}"/>
-            <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"/>
-        </VerticalStackLayout>
+        <HorizontalStackLayout BackgroundColor="Yellow">
+            <Label Text="Is single selection:" Margin="5" HorizontalOptions="StartAndExpand"/>
+            <CheckBox IsChecked="{Binding IsSingleSelection}" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
 
-        <!-- Multiple -->
-        <Label Text="Single item picker" FontSize="Large"/>
         <VerticalStackLayout>
             <VerticalStackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SelectKeywordCommand}" 
-                                      CommandParameter="{Binding Keyword}"/>
+                <TapGestureRecognizer Command="{Binding SelectFrameworksCommand}" 
+                                      CommandParameter="{Binding Frameworks}"/>
             </VerticalStackLayout.GestureRecognizers>
-            <Label Text="C# Keyword"/>
-            <Label Text="{Binding Keyword}"/>
+            <Label Text="Frameworks"/>
+            <Label Text="{Binding Frameworks}" FontSize="Caption"/>
             <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"/>
         </VerticalStackLayout>
 
