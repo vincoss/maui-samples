@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ItemsPicker_Samples.ViewModels
 {
-    public class KeywordPickerViewModel : BasePickerViewModel
+    public class FrameworkPickerViewModel : BasePickerViewModel
     {
-        public KeywordPickerViewModel()
+        public FrameworkPickerViewModel() : base()
         {
-            Title = "Select Keyword";
+            Title = "Select frameworks";
 
             MessagingCenter.Subscribe<MainPageViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
             {
@@ -51,7 +51,14 @@ namespace ItemsPicker_Samples.ViewModels
 
         private void LoadDaData()
         {
-            var items = TestData.Platforms;
+            var query = TestData.Platforms.AsQueryable();
+
+            if (string.IsNullOrWhiteSpace(_search) == false)
+            {
+                query = query.Where(x => x.Value.StartsWith(_search, StringComparison.OrdinalIgnoreCase));
+            }
+
+            var items = query.ToList();
             var models = Map(items, false);
            
             foreach(var m in models)
@@ -67,7 +74,7 @@ namespace ItemsPicker_Samples.ViewModels
             var message = new PickerData<KeyDataIntString>();
             message.ItemsSource = MapSelected(ItemsSource);
 
-            MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
+            MessagingCenter.Send<FrameworkPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
     }

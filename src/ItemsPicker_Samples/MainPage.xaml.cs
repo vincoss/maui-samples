@@ -23,7 +23,7 @@ namespace ItemsPicker_Samples
     {
         public MainPageViewModel()
         {
-            MessagingCenter.Subscribe<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
+            MessagingCenter.Subscribe<FrameworkPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
             {
                 Frameworks = new SelectedItemsDisplay<KeyDataIntString>
                 {
@@ -57,7 +57,7 @@ namespace ItemsPicker_Samples
             message.ItemsSource = args != null ? args.ItemsSource : Enumerable.Empty<KeyDataIntString>();
 
             var page = new PickerListView();
-            var model = new KeywordPickerViewModel();
+            var model = new FrameworkPickerViewModel();
             page.BindingContext = model;
             model.Initialize();
 

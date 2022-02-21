@@ -3,11 +3,10 @@
              x:Class="ItemsPicker_Samples.MainPage"
              Title="Items Picker Sample">
 
-    <VerticalStackLayout>
-        <Label Text="Items picker sample" FontSize="Title" BackgroundColor="Orange"/>
-        <HorizontalStackLayout BackgroundColor="Yellow">
-            <Label Text="Is single selection:" Margin="5" HorizontalOptions="StartAndExpand"/>
-            <CheckBox IsChecked="{Binding IsSingleSelection}" HorizontalOptions="End"/>
+    <VerticalStackLayout Margin="5">
+        <HorizontalStackLayout>
+            <Label Text="Is single selection:" VerticalOptions="CenterAndExpand"/>
+            <CheckBox IsChecked="{Binding IsSingleSelection}"/>
         </HorizontalStackLayout>
 
         <VerticalStackLayout>
@@ -15,12 +14,11 @@
                 <TapGestureRecognizer Command="{Binding SelectFrameworksCommand}" 
                                       CommandParameter="{Binding Frameworks}"/>
             </VerticalStackLayout.GestureRecognizers>
-            <Label Text="Frameworks"/>
-            <Label Text="{Binding Frameworks}" FontSize="Caption"/>
-            <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"/>
+            <Label Text="Frameworks" FontSize="Subtitle"/>
+            <Label Text="{Binding Frameworks}" FontSize="Title"/>
+            <BoxView HeightRequest=".5" Color="#DCDCDC" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"/>
         </VerticalStackLayout>
 
     </VerticalStackLayout>
    
-    
 </ContentPage>

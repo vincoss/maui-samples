@@ -15,13 +15,15 @@ namespace ItemsPicker_Samples.ViewModels
 {
     public abstract class BasePickerViewModel : BaseViewModel
     {
-        private string _search;
+        protected string _search;
 
         public BasePickerViewModel()
         {
             CancelCommand = new Command(OnCancelCommand);
             OkCommand = new Command(OnOkCommand, OnCanOkCommand);
             ItemTapCommand = new Command<SelectListItem>(OnItemTapCommand);
+            SearchCommand = new Command<string>(OnSearchCommand);
+            RefreshCommand = new Command(OnRefreshCommand);
 
             IsSingleSelection = true;
             ItemsSource = new ObservableRangeCollection<SelectListItem>();
