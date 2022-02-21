@@ -51,7 +51,7 @@ namespace ItemsPicker_Samples.ViewModels
 
         private void LoadDaData()
         {
-            var items = TestData.Keywords;
+            var items = TestData.Platforms;
             var models = Map(items, false);
            
             foreach(var m in models)

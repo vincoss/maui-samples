@@ -40,7 +40,7 @@ namespace ItemsPicker_Samples
             {
                 ItemsSource = new[]
                 {
-                    TestData.Keywords.Skip(3).FirstOrDefault()
+                    TestData.Platforms.Skip(3).FirstOrDefault()
                 }
             };
         }
