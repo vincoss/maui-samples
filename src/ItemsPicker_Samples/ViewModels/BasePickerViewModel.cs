@@ -126,14 +126,14 @@ namespace ItemsPicker_Samples.ViewModels
                     }).ToArray();
         }
 
-        protected IEnumerable<SelectListItem> Map(IEnumerable<KeyDataIntString> items, bool check)
+        protected IEnumerable<SelectListItem> Map(IEnumerable<KeyDataIntString> items, Func<KeyDataIntString, bool> check)
         {
             return (from x in items
                     select new SelectListItem
                     {
                         Key = x.Key,
                         Value = x.Value,
-                        IsSelected = check,
+                        IsSelected = check(x),
                     }).ToArray();
         }
         #endregion

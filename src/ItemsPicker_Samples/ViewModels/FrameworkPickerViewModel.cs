@@ -40,7 +40,6 @@ namespace ItemsPicker_Samples.ViewModels
             try
             {
                 IsBusy = true;
-                ItemsSource.Clear();
                 LoadDaData();
             }
             finally
@@ -58,10 +57,16 @@ namespace ItemsPicker_Samples.ViewModels
                 query = query.Where(x => x.Value.StartsWith(_search, StringComparison.OrdinalIgnoreCase));
             }
 
+            Func<KeyDataIntString, bool> check = (x) =>
+            {
+                return ItemsSource.Any(o => o.Key == x.Key && o.IsSelected);
+            };
+
             var items = query.ToList();
-            var models = Map(items, false);
-           
-            foreach(var m in models)
+            var models = Map(items, check);
+
+            ItemsSource.Clear();
+            foreach (var m in models)
             {
                 ItemsSource.Add(m);
             }
