@@ -16,6 +16,7 @@ namespace ItemsPicker_Samples.ViewModels
     public abstract class BasePickerViewModel : BaseViewModel
     {
         protected string _search;
+        protected IList<int> _selectedIds = new List<int>();
 
         public BasePickerViewModel()
         {
@@ -64,6 +65,13 @@ namespace ItemsPicker_Samples.ViewModels
                 ClearSelection();
             }
             dto.IsSelected = !flag;
+
+            _selectedIds.Remove(dto.Key);
+
+            if(dto.IsSelected)
+            {
+                _selectedIds.Add(dto.Key);
+            }
 
             // Sort
             ItemsSource.Sort(new MyOrderingClass());
@@ -183,6 +191,15 @@ namespace ItemsPicker_Samples.ViewModels
         {
             get { return _key; }
             set { SetProperty(ref _key, value); }
+        }
+
+        public override string ToString()
+        {
+            if (string.IsNullOrWhiteSpace(Value))
+            {
+                return base.ToString();
+            }
+            return $"Key: {Key}, Value: {Value}, Selected: {IsSelected}";
         }
     }
 }

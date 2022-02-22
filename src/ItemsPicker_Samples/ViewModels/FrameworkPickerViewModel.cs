@@ -25,8 +25,10 @@ namespace ItemsPicker_Samples.ViewModels
              
                 +must load all items
                 +must pass current selected items
-                must return selected items
-                must sort selected items to top
+                +must return selected items
+                +must sort selected items to top
+                must keep selected items on search
+                must keep selected items on refresh?
             */
         }
 
@@ -59,11 +61,11 @@ namespace ItemsPicker_Samples.ViewModels
 
             Func<KeyDataIntString, bool> check = (x) =>
             {
-                return ItemsSource.Any(o => o.Key == x.Key && o.IsSelected);
+                return _selectedIds.Any(o => o == x.Key);
             };
 
             var items = query.ToList();
-            var models = Map(items, check);
+            var models = Map(items, check).OrderBy(x => x.IsSelected).ThenBy(x => x.Value).ToArray();
 
             ItemsSource.Clear();
             foreach (var m in models)
