@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ItemsPicker_Samples.ViewModels
 {
-    public class KeywordPickerViewModel : BasePickerViewModel
+    public class FrameworkPickerViewModel : BasePickerViewModel
     {
-        public KeywordPickerViewModel()
+        public FrameworkPickerViewModel() : base()
         {
-            Title = "Select Keyword";
+            Title = "Select frameworks";
 
             MessagingCenter.Subscribe<MainPageViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
             {
@@ -23,8 +23,8 @@ namespace ItemsPicker_Samples.ViewModels
 
             /* 
              
-                must load all items
-                must pass current selected items
+                +must load all items
+                +must pass current selected items
                 must return selected items
                 must sort selected items to top
             */
@@ -40,23 +40,33 @@ namespace ItemsPicker_Samples.ViewModels
             try
             {
                 IsBusy = true;
-                ItemsSource.Clear();
                 LoadDaData();
-                //Select(GetSelection());
             }
             finally
             {
                 IsBusy = false;
-              //  IsRefreshing = false;
             }
         }
 
         private void LoadDaData()
         {
-            var items = TestData.Keywords;
-            var models = Map(items, false);
-           
-            foreach(var m in models)
+            var query = TestData.Platforms.AsQueryable();
+
+            if (string.IsNullOrWhiteSpace(_search) == false)
+            {
+                query = query.Where(x => x.Value.StartsWith(_search, StringComparison.OrdinalIgnoreCase));
+            }
+
+            Func<KeyDataIntString, bool> check = (x) =>
+            {
+                return ItemsSource.Any(o => o.Key == x.Key && o.IsSelected);
+            };
+
+            var items = query.ToList();
+            var models = Map(items, check);
+
+            ItemsSource.Clear();
+            foreach (var m in models)
             {
                 ItemsSource.Add(m);
             }
@@ -69,11 +79,8 @@ namespace ItemsPicker_Samples.ViewModels
             var message = new PickerData<KeyDataIntString>();
             message.ItemsSource = MapSelected(ItemsSource);
 
-            MessagingCenter.Send<KeywordPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
+            MessagingCenter.Send<FrameworkPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), message);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
-
- 
-
     }
 }

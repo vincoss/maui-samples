@@ -15,12 +15,15 @@ namespace ItemsPicker_Samples.ViewModels
 {
     public abstract class BasePickerViewModel : BaseViewModel
     {
-        private string _search;
+        protected string _search;
+
         public BasePickerViewModel()
         {
             CancelCommand = new Command(OnCancelCommand);
             OkCommand = new Command(OnOkCommand, OnCanOkCommand);
             ItemTapCommand = new Command<SelectListItem>(OnItemTapCommand);
+            SearchCommand = new Command<string>(OnSearchCommand);
+            RefreshCommand = new Command(OnRefreshCommand);
 
             IsSingleSelection = true;
             ItemsSource = new ObservableRangeCollection<SelectListItem>();
@@ -30,7 +33,7 @@ namespace ItemsPicker_Samples.ViewModels
 
         private async void OnCancelCommand()
         {
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopModalAsync();
         }
 
         protected bool OnCanOkCommand()
@@ -62,9 +65,8 @@ namespace ItemsPicker_Samples.ViewModels
             }
             dto.IsSelected = !flag;
 
-            var comparer = new MyOrderingClass();
-
-            ItemsSource.Sort(comparer);
+            // Sort
+            ItemsSource.Sort(new MyOrderingClass());
 
            // SetSelection(MapSelected(ItemsSource));
         }
@@ -97,6 +99,9 @@ namespace ItemsPicker_Samples.ViewModels
             {
                 item.IsSelected = items.Any(x => x.Key == item.Key);
             }
+
+            // Sort
+            ItemsSource.Sort(new MyOrderingClass());
         }
 
         protected IEnumerable<KeyDataIntString> MapSelected(IEnumerable<SelectListItem> items)
@@ -121,14 +126,14 @@ namespace ItemsPicker_Samples.ViewModels
                     }).ToArray();
         }
 
-        protected IEnumerable<SelectListItem> Map(IEnumerable<KeyDataIntString> items, bool check)
+        protected IEnumerable<SelectListItem> Map(IEnumerable<KeyDataIntString> items, Func<KeyDataIntString, bool> check)
         {
             return (from x in items
                     select new SelectListItem
                     {
                         Key = x.Key,
                         Value = x.Value,
-                        IsSelected = check,
+                        IsSelected = check(x),
                     }).ToArray();
         }
         #endregion

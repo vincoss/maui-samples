@@ -23,15 +23,29 @@ namespace ItemsPicker_Samples
     {
         public MainPageViewModel()
         {
-            SelectKeywordCommand = new Command<KeyDataIntString>(OnSelectKeyworkCommand);
+            MessagingCenter.Subscribe<FrameworkPickerViewModel, PickerData<KeyDataIntString>>(this, nameof(PickerData<KeyDataIntString>.ItemsSource), async (obj, item) =>
+            {
+                Frameworks = new SelectedItemsDisplay<KeyDataIntString>
+                {
+                    ItemsSource = item.ItemsSource
+                };
+            });
+
+            SelectFrameworksCommand = new Command<SelectedItemsDisplay<KeyDataIntString>>(OnSelectFrameworksCommand);
         }
 
         public override void Initialize()
         {
-            Keyword = TestData.Keywords.FirstOrDefault();
+            Frameworks = new SelectedItemsDisplay<KeyDataIntString>
+            {
+                ItemsSource = new[]
+                {
+                    TestData.Platforms.Skip(3).FirstOrDefault()
+                }
+            };
         }
 
-        private async void OnSelectKeyworkCommand(KeyDataIntString args)
+        private async void OnSelectFrameworksCommand(SelectedItemsDisplay<KeyDataIntString> args)
         {
             if (IsBusy)
             {
@@ -39,27 +53,35 @@ namespace ItemsPicker_Samples
             }
 
             var message = new PickerData<KeyDataIntString>();
-            message.IsSingleSelection = false;
-            message.ItemsSource = args != null ? new[] { args } : Enumerable.Empty<KeyDataIntString>();
+            message.IsSingleSelection = IsSingleSelection;
+            message.ItemsSource = args != null ? args.ItemsSource : Enumerable.Empty<KeyDataIntString>();
 
             var page = new PickerListView();
-            var model = new KeywordPickerViewModel();
+            var model = new FrameworkPickerViewModel();
             page.BindingContext = model;
             model.Initialize();
 
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current.MainPage.Navigation.PushModalAsync(page);
 
             MessagingCenter.Send(this, nameof(message.ItemsSource), message);
         }
 
-        public ICommand SelectKeywordCommand { get; private set; }
+        public ICommand SelectFrameworksCommand { get; private set; }
 
-        private KeyDataIntString _keyword;
+        private SelectedItemsDisplay<KeyDataIntString> _frameworks;
 
-        public KeyDataIntString Keyword
+        public SelectedItemsDisplay<KeyDataIntString> Frameworks
         {
-            get { return _keyword; }
-            set { SetProperty(ref _keyword, value); }
+            get { return _frameworks; }
+            set { SetProperty(ref _frameworks, value); }
+        }
+
+        private bool _isSingleSelection;
+
+        public bool IsSingleSelection
+        {
+            get { return _isSingleSelection; }
+            set { SetProperty(ref _isSingleSelection, value); }
         }
     }
 
@@ -68,5 +90,16 @@ namespace ItemsPicker_Samples
         public bool IsSingleSelection { get; set; } = true;
 
         public IEnumerable<T> ItemsSource { get; set; } = Enumerable.Empty<T>();
+    }
+
+    public class SelectedItemsDisplay<T> 
+    {
+        public IEnumerable<T> ItemsSource { get; set; } = Enumerable.Empty<T>();
+
+        public override string ToString()
+        {
+            var separator = ',';
+            return String.Join(separator, ItemsSource).Trim(new[] { separator });
+        }
     }
 }

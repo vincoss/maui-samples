@@ -60,5 +60,17 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Compnents\MenuView.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Compnents\MenuView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	
 </Project>
