@@ -19,5 +19,15 @@ namespace ItemsPicker_Samples.Sevices
             new KeyDataIntString { Key = 5, Value =  "Linux" },
             new KeyDataIntString { Key = 21, Value =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
         };
+
+        public static IEnumerable<KeyDataIntString> Get(int size = 100)
+        {
+            if (size <= 0)
+            {
+                size = 100;
+            }
+
+            return Enumerable.Range(1, size).Select(i => new KeyDataIntString { Key = i, Value = $"{i}" }).ToArray();
+        }
     }
 }

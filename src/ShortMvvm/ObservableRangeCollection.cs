@@ -37,6 +37,7 @@ namespace ShortMvvm
                 return;
             }
 
+            int startIndex = Count;
             _suppressNotification = true;
 
             foreach (T item in enumerable)
@@ -45,7 +46,8 @@ namespace ShortMvvm
             }
             _suppressNotification = false;
 
-            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+          //  OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, new List<T>(enumerable), startIndex));
             OnPropertyChanged(new PropertyChangedEventArgs("Count"));
             OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
         }
@@ -66,10 +68,16 @@ namespace ShortMvvm
             var sortableList = new List<T>(this);
             sortableList.Sort(comparison);
 
+            _suppressNotification = true;
+
             for (int i = 0; i < sortableList.Count; i++)
             {
                 this.Move(this.IndexOf(sortableList[i]), i);
             }
+
+            _suppressNotification = false;
+
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
     }
 }

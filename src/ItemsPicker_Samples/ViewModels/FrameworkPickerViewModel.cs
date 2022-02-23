@@ -20,16 +20,6 @@ namespace ItemsPicker_Samples.ViewModels
                 IsSingleSelection = item.IsSingleSelection;
                 Select(data);
             });
-
-            /* 
-             
-                +must load all items
-                +must pass current selected items
-                +must return selected items
-                +must sort selected items to top
-                must keep selected items on search
-                must keep selected items on refresh?
-            */
         }
 
         public override void Initialize()
@@ -53,25 +43,22 @@ namespace ItemsPicker_Samples.ViewModels
         private void LoadDaData()
         {
             var query = TestData.Platforms.AsQueryable();
-
             if (string.IsNullOrWhiteSpace(_search) == false)
             {
                 query = query.Where(x => x.Value.StartsWith(_search, StringComparison.OrdinalIgnoreCase));
             }
 
+            // Keep selection between search and refresh
             Func<KeyDataIntString, bool> check = (x) =>
             {
                 return _selectedIds.Any(o => o == x.Key);
             };
 
             var items = query.ToList();
-            var models = Map(items, check).OrderBy(x => x.IsSelected).ThenBy(x => x.Value).ToArray();
+            var models = Map(items, check).OrderByDescending(x => x.IsSelected).ThenBy(x => x.Value).ToArray();
 
             ItemsSource.Clear();
-            foreach (var m in models)
-            {
-                ItemsSource.Add(m);
-            }
+            ItemsSource.AddRange(models);
 
             OnPropertyChanged(nameof(ItemsSource));
         }

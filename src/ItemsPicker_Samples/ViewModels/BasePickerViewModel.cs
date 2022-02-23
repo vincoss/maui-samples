@@ -16,7 +16,7 @@ namespace ItemsPicker_Samples.ViewModels
     public abstract class BasePickerViewModel : BaseViewModel
     {
         protected string _search;
-        protected IList<int> _selectedIds = new List<int>();
+        protected readonly IList<int> _selectedIds = new List<int>();
 
         public BasePickerViewModel()
         {
@@ -57,26 +57,19 @@ namespace ItemsPicker_Samples.ViewModels
             Initialize();
         }
 
-        private void OnItemTapCommand(SelectListItem dto)
+        private void OnItemTapCommand(SelectListItem args)
         {
-            var flag = dto.IsSelected;
+            var flag = args.IsSelected;
             if (IsSingleSelection)
             {
                 ClearSelection();
             }
-            dto.IsSelected = !flag;
+            args.IsSelected = !flag;
 
-            _selectedIds.Remove(dto.Key);
-
-            if(dto.IsSelected)
-            {
-                _selectedIds.Add(dto.Key);
-            }
+            CacheSelection(args);
 
             // Sort
             ItemsSource.Sort(new MyOrderingClass());
-
-           // SetSelection(MapSelected(ItemsSource));
         }
 
         public class MyOrderingClass : IComparer<SelectListItem>
@@ -106,10 +99,24 @@ namespace ItemsPicker_Samples.ViewModels
             foreach (var item in ItemsSource)
             {
                 item.IsSelected = items.Any(x => x.Key == item.Key);
+                CacheSelection(item);
             }
 
             // Sort
             ItemsSource.Sort(new MyOrderingClass());
+        }
+
+        /// <summary>
+        /// Keep selection bettween search and refresh.
+        /// </summary>
+        private void CacheSelection(SelectListItem item)
+        {
+            _selectedIds.Remove(item.Key); 
+            
+            if (item.IsSelected)
+            {
+                _selectedIds.Add(item.Key);
+            }
         }
 
         protected IEnumerable<KeyDataIntString> MapSelected(IEnumerable<SelectListItem> items)

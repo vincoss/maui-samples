@@ -40,7 +40,7 @@
                             </Grid.GestureRecognizers>
 
                             <HorizontalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand">
-                                <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
+                                <RadioButton IsChecked="{Binding IsSelected}" HorizontalOptions="Start" InputTransparent="True" />
                                 <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" MaxLines="2"/>
                             </HorizontalStackLayout>
 
