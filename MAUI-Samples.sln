@@ -77,6 +77,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Label_Samples", "src\Label_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{48D0786F-C099-4B7A-81C6-E0604ADBD545}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorVueJS_Samples", "src\BlazorVueJS_Samples\BlazorVueJS_Samples.csproj", "{EDDACCE9-A812-4309-A204-EE87591ED38C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -258,6 +260,12 @@ Global
 		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.Build.0 = Release|Any CPU
 		{505AA483-0611-4B79-8C51-90209CA2F705}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDDACCE9-A812-4309-A204-EE87591ED38C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -268,6 +276,7 @@ Global
 		{70FD0322-B226-4290-BCEF-6FD8064F8B1D} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{F9F0E752-2526-4203-A56D-0018D9E6647A} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{14ED79BE-A29C-448A-879C-E81372B66F60} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
+		{EDDACCE9-A812-4309-A204-EE87591ED38C} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}
