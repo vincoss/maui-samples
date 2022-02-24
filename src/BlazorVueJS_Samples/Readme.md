@@ -18,3 +18,4 @@ NotifyUnhandledException @ blazor.webview.js:1
 https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
 https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0
 https://v2.vuejs.org/v2/guide/
+https://www.jsdelivr.com/?query=vu
