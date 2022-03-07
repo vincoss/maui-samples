@@ -62,4 +62,11 @@
 		<Content Remove="Properties\launchSettings.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Update="wwwroot\assets\indexvuecomponent.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
 </Project>
