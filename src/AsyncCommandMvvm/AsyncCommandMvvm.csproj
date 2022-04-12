@@ -58,6 +58,8 @@
   
 	<ItemGroup>
 		<PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.4" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.1" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.2" />
 	</ItemGroup>
 	
 </Project>

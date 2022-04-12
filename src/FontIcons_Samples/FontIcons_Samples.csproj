@@ -63,5 +63,10 @@
 	  <None Remove="Resources\Fonts\MaterialIconsSharp-Regular.otf" />
 	  <None Remove="Resources\Raw\AboutAssets.txt" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.1" />
+	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.2" />
+	</ItemGroup>
 	
 </Project>
