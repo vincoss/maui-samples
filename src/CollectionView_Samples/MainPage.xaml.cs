@@ -1,6 +1,5 @@
 ﻿using CollectionView_Samples.Views;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
 using System;
 using System.Collections.Generic;
 

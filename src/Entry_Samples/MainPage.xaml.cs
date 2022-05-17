@@ -1,6 +1,5 @@
 ﻿using Entry_Samples.Views;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
 using System;
 
 namespace Entry_Samples

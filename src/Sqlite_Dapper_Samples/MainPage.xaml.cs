@@ -3,7 +3,7 @@ using ShortMvvm.ViewModels;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using Sqlite_Dapper_Samples.Entities.Model;
 using Sqlite_Dapper_Samples.Interfaces;
 using Sqlite_Dapper_Samples.Services;

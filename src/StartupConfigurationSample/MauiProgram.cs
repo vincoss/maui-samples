@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Essentials;
+
 using Microsoft.Maui.Hosting;
 using StartupConfigurationSample.Interfaces;
 using StartupConfigurationSample.Services;

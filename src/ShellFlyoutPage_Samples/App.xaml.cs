@@ -1,7 +1,7 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Microsoft.Maui.Essentials;
+
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace ShellFlyoutPage_Samples
