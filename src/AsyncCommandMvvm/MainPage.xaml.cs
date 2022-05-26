@@ -1,7 +1,7 @@
 ﻿using AsyncAwaitBestPractices;
 using AsyncCommandMvvm.ViewModels;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
 using System;
 
 namespace AsyncCommandMvvm

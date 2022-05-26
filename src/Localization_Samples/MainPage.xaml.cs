@@ -1,7 +1,7 @@
 ﻿using Localization_Samples.Localization;
 using Localization_Samples_Library;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using System;
 
 namespace Localization_Samples

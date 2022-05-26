@@ -1,6 +1,4 @@
 ﻿using AppCenter_ConfigurationSample.Services;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
 using System;
 
 namespace AppCenter_Samples

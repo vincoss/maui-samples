@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using StartupConfigurationSample.Interfaces;
 using System;
 

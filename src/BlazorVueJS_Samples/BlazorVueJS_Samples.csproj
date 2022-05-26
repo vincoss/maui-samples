@@ -63,6 +63,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.3.1" />
+	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Content Update="wwwroot\assets\indexvuecomponent.js">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

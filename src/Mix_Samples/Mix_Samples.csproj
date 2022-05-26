@@ -66,6 +66,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.3.1" />
+	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
 	</ItemGroup>
 

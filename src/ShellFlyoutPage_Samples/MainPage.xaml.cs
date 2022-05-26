@@ -1,5 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using ShellFlyoutPage_Samples.Views;
 using System;
 

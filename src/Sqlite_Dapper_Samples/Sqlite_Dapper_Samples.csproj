@@ -62,10 +62,12 @@
 		<PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
 		<PackageReference Include="FluentMigrator.Runner.Core" Version="3.3.2" />
 		<PackageReference Include="FluentMigrator.Runner.SQLite" Version="3.3.2" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.3.1" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.3" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.0.7" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.0.7" />
-		<PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.2" />
-		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.2" />
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.5" />
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.5" />
 
 	</ItemGroup>
 

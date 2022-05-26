@@ -1,5 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using System;
 
 namespace SwipeView_Samples.Views

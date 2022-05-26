@@ -1,5 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+
 using Mix_Samples.Views;
 using System;
 using System.Collections.Generic;
