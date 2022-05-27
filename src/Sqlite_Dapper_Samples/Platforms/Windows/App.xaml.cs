@@ -28,7 +28,7 @@ namespace Sqlite_Dapper_Samples.WinUI
         {
             base.OnLaunched(args);
 
-            Microsoft.Maui.Essentials.Platform.OnLaunched(args);
+            Platform.OnLaunched(args);
         }
     }
 }
