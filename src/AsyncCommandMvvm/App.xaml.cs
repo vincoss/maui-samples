@@ -1,9 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Application = Microsoft.Maui.Controls.Application;
-
-namespace AsyncCommandMvvm
+﻿namespace AsyncCommandMvvm
 {
     public partial class App : Application
     {
@@ -11,7 +6,7 @@ namespace AsyncCommandMvvm
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AppShell();
         }
     }
 }
