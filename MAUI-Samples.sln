@@ -37,8 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToastNotification_Samples",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePicker_Samples", "src\FilePicker_Samples\FilePicker_Samples.csproj", "{E574625B-6AB1-41BC-B8D5-76092A4B84ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCenter_Samples", "src\AppCenter_Samples\AppCenter_Samples.csproj", "{1E88AE89-04B6-40B7-8AAC-F65D976D854C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization_Samples_Library", "src\Localization_Samples_Library\Localization_Samples_Library.csproj", "{93DBEAD5-0CA3-4BA3-BD0A-1F9D4CE3FEDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix_Samples", "src\Mix_Samples\Mix_Samples.csproj", "{ECBD1243-C189-43B0-8086-89EEA602E771}"
@@ -75,11 +73,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorVueJS_Samples", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiBlazorApp_VueJS_Samples", "src\MauiBlazorApp_VueJS_Samples\MauiBlazorApp_VueJS_Samples.csproj", "{4D021220-8BCA-49F2-BEE0-F88EBB3EC680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{C8D0141E-B779-4DCC-8914-80DAD0142913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{C8D0141E-B779-4DCC-8914-80DAD0142913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{B81C65D2-8E4F-42BA-928A-80A318E26810}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{B81C65D2-8E4F-42BA-928A-80A318E26810}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_ClassLibrary", "src\Default_ClassLibrary\Default_ClassLibrary.csproj", "{12FC209E-65D4-40F7-B1D0-47F8FB716FC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_ClassLibrary", "src\Default_ClassLibrary\Default_ClassLibrary.csproj", "{12FC209E-65D4-40F7-B1D0-47F8FB716FC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCenter_Samples", "src\AppCenter_Samples\AppCenter_Samples.csproj", "{2E849ED0-E508-482E-BD34-E4A4C3DBA596}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -166,11 +166,6 @@ Global
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E574625B-6AB1-41BC-B8D5-76092A4B84ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E88AE89-04B6-40B7-8AAC-F65D976D854C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93DBEAD5-0CA3-4BA3-BD0A-1F9D4CE3FEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93DBEAD5-0CA3-4BA3-BD0A-1F9D4CE3FEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93DBEAD5-0CA3-4BA3-BD0A-1F9D4CE3FEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -274,6 +269,12 @@ Global
 		{12FC209E-65D4-40F7-B1D0-47F8FB716FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12FC209E-65D4-40F7-B1D0-47F8FB716FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12FC209E-65D4-40F7-B1D0-47F8FB716FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E849ED0-E508-482E-BD34-E4A4C3DBA596}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

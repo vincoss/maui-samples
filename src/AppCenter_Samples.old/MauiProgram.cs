@@ -1,4 +1,9 @@
-﻿namespace AppCenter_Samples
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
+
+namespace AppCenter_Samples
 {
     public static class MauiProgram
     {

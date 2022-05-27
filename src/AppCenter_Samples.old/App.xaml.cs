@@ -1,16 +1,20 @@
 ﻿using AppCenter_ConfigurationSample.Services;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using Application = Microsoft.Maui.Controls.Application;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
+using Microsoft.AppCenter;
 using System.Text;
-
 
 namespace AppCenter_Samples
 {
     public partial class App : Application
     {
         private readonly IUpdateService _updateService = new UpdateService();
+
         public App()
         {
             InitializeComponent();
