@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App_DevResources\App_DevResources.csproj", "{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{ABA97341-4B22-46C9-8137-34EF22D0F7C9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{7269261E-7158-4AAD-8049-B9DA85E2BA1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}"
@@ -79,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCenter_Samples", "src\Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncCommandMvvm", "src\AsyncCommandMvvm\AsyncCommandMvvm.csproj", "{2BE70A41-C61C-4DB7-9EFE-7B0040EDF433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{0499A145-06CA-40AF-B874-4A70872DBEF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{0499A145-06CA-40AF-B874-4A70872DBEF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,11 +95,6 @@ Global
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABA97341-4B22-46C9-8137-34EF22D0F7C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7269261E-7158-4AAD-8049-B9DA85E2BA1D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -277,6 +272,12 @@ Global
 		{0499A145-06CA-40AF-B874-4A70872DBEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0499A145-06CA-40AF-B874-4A70872DBEF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0499A145-06CA-40AF-B874-4A70872DBEF4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
