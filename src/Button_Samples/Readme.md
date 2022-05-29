@@ -1,7 +1,6 @@
 ﻿
 ## Tasks
-square button binding not right height returns -1
-    System.InvalidOperationException: 'Height cannot be less than zero.'
+migrate samples from Xamarin.Forms
 ButtonBottomRightView button not right
 
 

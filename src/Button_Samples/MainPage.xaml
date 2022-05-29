@@ -1,25 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Button_Samples.MainPage"
-             Title="Button_Samples">
+	         Title="Button_Samples">
 
+    <!-- Square button-->
     <VerticalStackLayout>
-        <!-- Square button-->
         <HorizontalStackLayout>
 
             <Button Text="CA"
         x:Name="btn1" FontSize="Title"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center"
-                    />
-            <!--HeightRequest="{Binding Width, Source={x:Reference btn1}}"/>-->
+            HeightRequest="{Binding Width, Source={x:Reference btn1}}"/>
 
-            <!--<Button Text="SA"
+            <Button Text="SA"
         x:Name="btn2" FontSize="Title"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center"
-        HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>-->
+        HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
-    
+
 </ContentPage>
