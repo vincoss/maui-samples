@@ -1,6 +1,4 @@
 ﻿using Entry_Samples.Views;
-using Microsoft.Maui.Controls;
-using System;
 
 namespace Entry_Samples
 {
@@ -35,6 +33,5 @@ namespace Entry_Samples
             var view = new EntryView();
             this.Navigation.PushAsync(view);
         }
-
     }
 }

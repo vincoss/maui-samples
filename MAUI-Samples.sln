@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App_DevResources\App_DevResources.csproj", "{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocation_Samples", "src\Geolocation_Samples\Geolocation_Samples.csproj", "{11353AA7-62BE-4152-9167-9F991596DB7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization_Samples", "src\Localization_Samples\Localization_Samples.csproj", "{E38B844E-90DA-4A97-8964-1382B638AC40}"
@@ -77,9 +75,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncCommandMvvm", "src\Asy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button_Samples", "src\Button_Samples\Button_Samples.csproj", "{0499A145-06CA-40AF-B874-4A70872DBEF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarouselView_Samples", "src\CarouselView_Samples\CarouselView_Samples.csproj", "{F1A1F7E1-7000-4DDF-BB16-8E1DCF19ADC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{1FE388E7-066A-4054-B6A1-51A26A760F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionView_Samples", "src\CollectionView_Samples\CollectionView_Samples.csproj", "{1FE388E7-066A-4054-B6A1-51A26A760F71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entry_Samples", "src\Entry_Samples\Entry_Samples.csproj", "{01D23872-41CA-40B5-A1E1-2489D142E037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,11 +95,6 @@ Global
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09E4651F-5EC4-4EB1-AF6E-7344150A11A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11353AA7-62BE-4152-9167-9F991596DB7A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -279,6 +274,12 @@ Global
 		{1FE388E7-066A-4054-B6A1-51A26A760F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FE388E7-066A-4054-B6A1-51A26A760F71}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FE388E7-066A-4054-B6A1-51A26A760F71}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D23872-41CA-40B5-A1E1-2489D142E037}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
