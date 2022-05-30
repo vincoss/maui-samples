@@ -1,7 +1,4 @@
 ﻿using CollectionView_Samples.Views;
-using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
 
 namespace CollectionView_Samples
 {
