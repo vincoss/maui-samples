@@ -1,0 +1,17 @@
+﻿@page "/vuehello"
+@inject IJSRuntime JS
+
+<div id="appvue">
+
+       <h1>{{ message }}</h1>
+
+</div>
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+     //  var module = await JS.InvokeAsync<IJSObjectReference>("import", "./assets/indexvue.js");
+       await JS.InvokeVoidAsync("newVueAppFunc");
+    }
+}
