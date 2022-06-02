@@ -1,10 +1,4 @@
-﻿using FlyoutPage_Samples.Views;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Application = Microsoft.Maui.Controls.Application;
-
-namespace FlyoutPage_Samples
+﻿namespace FlyoutPage_Samples
 {
     public partial class App : Application
     {

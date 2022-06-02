@@ -1,7 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using System;
-
-namespace FlyoutPage_Samples
+﻿namespace FlyoutPage_Samples
 {
     public partial class MainPage : FlyoutPage
     {
@@ -14,7 +11,7 @@ namespace FlyoutPage_Samples
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(e.CurrentSelection == null || e.CurrentSelection.Count <= 0)
+            if (e.CurrentSelection == null || e.CurrentSelection.Count <= 0)
             {
                 return;
             }
