@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontIcons_Samples", "src\Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_Vue_Samples", "src\BlazorApp_Vue_Samples\BlazorApp_Vue_Samples.csproj", "{B6561631-EB96-4B27-823A-A9D2E44F1A0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_React_Samples", "src\BlazorApp_React_Samples\BlazorApp_React_Samples.csproj", "{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -289,6 +291,12 @@ Global
 		{B6561631-EB96-4B27-823A-A9D2E44F1A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6561631-EB96-4B27-823A-A9D2E44F1A0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6561631-EB96-4B27-823A-A9D2E44F1A0C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -302,6 +310,7 @@ Global
 		{B81C65D2-8E4F-42BA-928A-80A318E26810} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{12FC209E-65D4-40F7-B1D0-47F8FB716FC5} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{B6561631-EB96-4B27-823A-A9D2E44F1A0C} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
+		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}

@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 	<title>BlazorApp_Vue_Samples</title>
 	<base href="/" />
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
 	<link href="css/app.css" rel="stylesheet" />
 	<link href="BlazorApp_Vue_Samples.styles.css" rel="stylesheet" />
+
+	<!--Vue.js-->
+	<script src="assets/vue.js"></script>
+	<!--<script src="assets/indexvue.js"></script>-->
+	<script>
+        window.appvue3 = function () {
+            var appvuenew = new Vue({
+                el: '#appvue3',
+                data: {
+                    message: 'Hello Vue!!!'
+                }
+            });
+        };
+	</script>
+
+	<!--<script crossorigin src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script crossorigin src="//unpkg.com/office-ui-fabric-react@7/dist/office-ui-fabric-react.js"></script>
+	<script>
+		window.RenderProgressBar = (count) => {
+			const Progress = () => React.createElement(
+				Fabric.ProgressIndicator,
+				{
+					'label': 'React Counter',
+					'description': count,
+					'percentComplete': (count % 10) * 0.1
+				},
+				null
+			);
+
+			ReactDOM.render(Progress(), document.getElementById('reactProgressBar'));
+		}
+	</script>-->
 </head>
 
 <body>

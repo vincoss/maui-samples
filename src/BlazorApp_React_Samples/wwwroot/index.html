@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<title>BlazorApp_React_Samples</title>
+	<base href="/" />
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+	<link href="css/app.css" rel="stylesheet" />
+	<link href="BlazorApp_React_Samples.styles.css" rel="stylesheet" />
+
+	<!-- React -->
+	<script src="assets/react.production.min.js"></script>
+	<script src="assets/react-dom.production.min.js"></script>
+	<script src="assets/office-ui-fabric-react.js"></script>
+	<script>
+		window.RenderProgressBar = (count) => {
+			const Progress = () => React.createElement(
+				Fabric.ProgressIndicator,
+				{
+					'label': 'React Counter',
+					'description': count,
+					'percentComplete': (count % 10) * 0.1
+				},
+				null
+			);
+
+			ReactDOM.render(Progress(), document.getElementById('reactProgressBar'));
+		}
+	</script>
+</head>
+
+<body>
+
+	<div class="status-bar-safe-area"></div>
+
+	<div id="app">Loading...</div>
+
+	<div id="blazor-error-ui">
+		An unhandled error has occurred.
+		<a href="" class="reload">Reload</a>
+		<a class="dismiss">🗙</a>
+	</div>
+
+	<script src="_framework/blazor.webview.js" autostart="false"></script>
+
+</body>
+
+</html>
