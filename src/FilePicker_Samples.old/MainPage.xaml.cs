@@ -1,4 +1,10 @@
-﻿namespace FilePicker_Samples
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Essentials;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace FilePicker_Samples
 {
     public partial class MainPage : ContentPage
     {
@@ -27,7 +33,7 @@
                 { DevicePlatform.macOS, allowedTypes },
                 { DevicePlatform.tvOS, allowedTypes },
                 { DevicePlatform.Tizen, allowedTypes },
-                { DevicePlatform.WinUI, allowedTypes },
+                { DevicePlatform.UWP, allowedTypes },
                 { DevicePlatform.watchOS, allowedTypes },
                 { DevicePlatform.Unknown, allowedTypes },
             });

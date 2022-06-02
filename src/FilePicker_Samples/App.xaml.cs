@@ -1,9 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Application = Microsoft.Maui.Controls.Application;
-
-namespace FilePicker_Samples
+﻿namespace FilePicker_Samples
 {
     public partial class App : Application
     {
@@ -11,7 +6,7 @@ namespace FilePicker_Samples
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AppShell();
         }
     }
 }
