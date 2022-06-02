@@ -1,6 +1,4 @@
-﻿
-
-using FontIcons_Samples.Views;
+﻿using FontIcons_Samples.Views;
 
 namespace FontIcons_Samples
 {

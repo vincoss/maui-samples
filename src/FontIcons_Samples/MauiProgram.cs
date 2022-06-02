@@ -1,7 +1,4 @@
-﻿using Microsoft.Maui.Controls.Compatibility;
-
-
-namespace FontIcons_Samples
+﻿namespace FontIcons_Samples
 {
     public static class MauiProgram
     {
@@ -13,6 +10,7 @@ namespace FontIcons_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("MaterialIconsSharp-Regular.otf", "MaterialDesign");
                     fonts.AddFont("Font-Awesome-5-Free-Solid-900.otf", "FontAwesome");
                 });

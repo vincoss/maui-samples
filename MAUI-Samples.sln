@@ -43,8 +43,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingCenter_Samples", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemsPicker_Samples", "src\ItemsPicker_Samples\ItemsPicker_Samples.csproj", "{133DAE44-2A75-4BC1-A79D-D06D9A17A158}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchBar_Samples", "src\SearchBar_Samples\SearchBar_Samples.csproj", "{705F5544-5410-4981-BB80-FF2B31EA4AA5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiGraphics_Samples", "src\MauiGraphics_Samples\MauiGraphics_Samples.csproj", "{FC91D681-40B4-498A-AB8F-F7CD2E843E61}"
@@ -79,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entry_Samples", "src\Entry_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePicker_Samples", "src\FilePicker_Samples\FilePicker_Samples.csproj", "{49ADDEF0-A6C1-4D6F-9EEE-653688FF6E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyoutPage_Samples", "src\FlyoutPage_Samples\FlyoutPage_Samples.csproj", "{43E62163-57DD-48B5-BB4C-1AD583490A5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyoutPage_Samples", "src\FlyoutPage_Samples\FlyoutPage_Samples.csproj", "{43E62163-57DD-48B5-BB4C-1AD583490A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{B3701883-3489-4BFF-B40D-B40A9303A168}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,12 +177,6 @@ Global
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.Build.0 = Release|Any CPU
 		{133DAE44-2A75-4BC1-A79D-D06D9A17A158}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA092C5E-D56B-4BA8-9E81-780F504DB3D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{705F5544-5410-4981-BB80-FF2B31EA4AA5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -281,6 +275,12 @@ Global
 		{43E62163-57DD-48B5-BB4C-1AD583490A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43E62163-57DD-48B5-BB4C-1AD583490A5E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43E62163-57DD-48B5-BB4C-1AD583490A5E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3701883-3489-4BFF-B40D-B40A9303A168}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
