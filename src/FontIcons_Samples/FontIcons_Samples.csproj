@@ -53,13 +53,4 @@
 	  <None Remove="Resources\Fonts\MaterialIconsSharp-Regular.otf" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Views\FontIconsView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageTitleActionBarView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 </Project>

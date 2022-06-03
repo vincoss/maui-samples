@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Default", "Default", "{392B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeView_Samples", "src\SwipeView_Samples\SwipeView_Samples.csproj", "{4D82C854-CE4F-4A64-A293-85AF904A6C54}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frame_Samples", "src\Frame_Samples\Frame_Samples.csproj", "{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingCenter_Samples", "src\MessagingCenter_Samples\MessagingCenter_Samples.csproj", "{F363394E-D81F-4229-81A8-AA552C986FDB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemsPicker_Samples", "src\ItemsPicker_Samples\ItemsPicker_Samples.csproj", "{133DAE44-2A75-4BC1-A79D-D06D9A17A158}"
@@ -81,9 +79,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyoutPage_Samples", "src\F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontIcons_Samples", "src\FontIcons_Samples\FontIcons_Samples.csproj", "{B3701883-3489-4BFF-B40D-B40A9303A168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_Vue_Samples", "src\BlazorApp_Vue_Samples\BlazorApp_Vue_Samples.csproj", "{B6561631-EB96-4B27-823A-A9D2E44F1A0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Vue_Samples", "src\BlazorApp_Vue_Samples\BlazorApp_Vue_Samples.csproj", "{B6561631-EB96-4B27-823A-A9D2E44F1A0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_React_Samples", "src\BlazorApp_React_Samples\BlazorApp_React_Samples.csproj", "{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_React_Samples", "src\BlazorApp_React_Samples\BlazorApp_React_Samples.csproj", "{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frame_Samples", "src\Frame_Samples\Frame_Samples.csproj", "{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,12 +163,6 @@ Global
 		{4D82C854-CE4F-4A64-A293-85AF904A6C54}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{4D82C854-CE4F-4A64-A293-85AF904A6C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D82C854-CE4F-4A64-A293-85AF904A6C54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97E3DA07-4E1A-43BD-ACD4-876B82DDA41F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F363394E-D81F-4229-81A8-AA552C986FDB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -297,6 +291,12 @@ Global
 		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C8DB14-9D2E-4F97-B013-3B5A42197D8D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
