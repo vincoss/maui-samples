@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-
-using System;
-
-namespace Geolocation_Samples
+﻿namespace Geolocation_Samples
 {
     public partial class MainPage : ContentPage
     {
