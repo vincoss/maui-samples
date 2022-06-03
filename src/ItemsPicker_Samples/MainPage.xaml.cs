@@ -92,7 +92,7 @@ namespace ItemsPicker_Samples
         public IEnumerable<T> ItemsSource { get; set; } = Enumerable.Empty<T>();
     }
 
-    public class SelectedItemsDisplay<T> 
+    public class SelectedItemsDisplay<T>
     {
         public IEnumerable<T> ItemsSource { get; set; } = Enumerable.Empty<T>();
 

@@ -1,5 +1,7 @@
 ﻿
 Single and multiple ite picker sample MVVM.
+WIndows not wokring 
+performance issue (sort on pick)
 
 ### Tasks
 radiobutton select does not raise tap event, InputTransparent not working
