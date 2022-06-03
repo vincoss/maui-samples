@@ -1,14 +1,5 @@
-﻿using Localization_Samples.Localization;
-using Localization_Samples_Library;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+﻿using Localization_Samples_Library;
 using System.Globalization;
-using System.Resources;
-using System.Threading;
-using Application = Microsoft.Maui.Controls.Application;
-
-[assembly: NeutralResourcesLanguage("en")]
 
 namespace Localization_Samples
 {
