@@ -1,5 +1,5 @@
-﻿using ShortMvvm.ViewModels;
-using MessagingCenter_Samples.Views;
+﻿using MessagingCenter_Samples.Views;
+using ShortMvvm.ViewModels;
 using System.Windows.Input;
 
 namespace MessagingCenter_Samples
