@@ -1,7 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-
-using ShellFlyoutPage_Samples.Views;
-using System;
+﻿using ShellFlyoutPage_Samples.Views;
 
 namespace ShellFlyoutPage_Samples
 {

@@ -1,5 +1,4 @@
 ﻿
-TODO: Has issues title and footer has some big padding on top and left
 TODO: Need deep linking sample
 
 ## Resources
