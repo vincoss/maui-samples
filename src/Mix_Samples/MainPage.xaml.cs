@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-
-using Mix_Samples.Views;
-using System;
-using System.Collections.Generic;
+﻿using Mix_Samples.Views;
 
 namespace Mix_Samples
 {
