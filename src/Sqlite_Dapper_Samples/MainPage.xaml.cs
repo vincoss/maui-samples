@@ -1,15 +1,8 @@
-﻿using Dapper;
-using ShortMvvm.ViewModels;
-using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui.Controls;
-
+﻿using ShortMvvm.ViewModels;
 using Sqlite_Dapper_Samples.Entities.Model;
 using Sqlite_Dapper_Samples.Interfaces;
 using Sqlite_Dapper_Samples.Services;
-using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 
 namespace Sqlite_Dapper_Samples

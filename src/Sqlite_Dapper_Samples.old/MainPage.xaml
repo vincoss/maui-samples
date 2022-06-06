@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sqlite_Dapper_Samples.MainPage"
+             Title="Sqlite_Dapper_Samples">
+
+    <StackLayout>
+        <Button Text="Refresh" Command="{Binding RefreshCommand}"/>
+        <Button Text="Add" Command="{Binding AddCommand}"/>
+
+        <Entry Text="{Binding DatabasePath}" Placeholder="Database Path" IsReadOnly="True"/>
+        <Entry Text="{Binding ProductName}" Placeholder="Item Name"/>
+
+        <CollectionView x:Name="scrolToItems" 
+                    SelectionMode="Single"
+                    ItemsSource="{Binding ItemsSource}"
+                    ItemsUpdatingScrollMode="KeepLastItemInView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" Padding="10"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>

@@ -1,12 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
-using Sqlite_Dapper_Samples.Interfaces;
+﻿using Sqlite_Dapper_Samples.Interfaces;
 using Sqlite_Dapper_Samples.Platforms;
 using Sqlite_Dapper_Samples.Services;
-
 
 //#if ANDROID
 //    using Sqlite_Dapper_Samples.Platforms.Android;
@@ -33,6 +27,7 @@ namespace Sqlite_Dapper_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
             var services = builder.Services;
