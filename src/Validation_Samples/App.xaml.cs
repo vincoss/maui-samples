@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Validation_Samples.Views;
-using Application = Microsoft.Maui.Controls.Application;
+﻿using Validation_Samples.Views;
 
 namespace Validation_Samples
 {
