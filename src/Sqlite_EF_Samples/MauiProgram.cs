@@ -1,25 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
-using Sqlite_EF_Samples.Platforms;
+﻿using Sqlite_EF_Samples.Platforms;
 using Sqlite_EF_Samples_Library.Interfaces;
 using Sqlite_EF_Samples_Library.Services;
-
-
-//#if ANDROID
-//using Sqlite_EF_Samples.Platforms.Android;
-//#endif
-//#if WINDOWS
-//    using Sqlite_EF_Samples.Platforms.Windows;
-//#endif
-//#if IOS
-//    using Sqlite_EF_Samples.Platforms.iOS;
-//#endif
-//#if MACCATALYST
-//   using Sqlite_EF_Samples.Platforms.MacCatalyst;
-//#endif
 
 namespace Sqlite_EF_Samples
 {
@@ -33,15 +14,15 @@ namespace Sqlite_EF_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            
             var services = builder.Services;
 
             services.AddSingleton<IPath, DbPath>();
             services.AddSingleton<IBootstrap, Bootstrap>();
             services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
             services.AddSingleton<IDatabaseService, DatabaseService>();
-
 
             return builder.Build();
         }

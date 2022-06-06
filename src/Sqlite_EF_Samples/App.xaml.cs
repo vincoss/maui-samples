@@ -1,31 +1,27 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using Sqlite_EF_Samples_Library.Interfaces;
-using System;
+﻿using Sqlite_EF_Samples_Library.Interfaces;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace Sqlite_EF_Samples
 {
     public partial class App : Application
     {
-		private readonly IBootstrap _bootstrap;
+        private readonly IBootstrap _bootstrap;
 
-		public App(IServiceProvider serviceProvider, IBootstrap bootstrap)
-		{
-			ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-			_bootstrap = bootstrap ?? throw new ArgumentNullException(nameof(_bootstrap));
+        public App(IServiceProvider serviceProvider, IBootstrap bootstrap)
+        {
+            ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+            _bootstrap = bootstrap ?? throw new ArgumentNullException(nameof(_bootstrap));
 
-			InitializeComponent();
+            InitializeComponent();
 
-			_bootstrap.Run();
-		}
+            _bootstrap.Run();
+        }
 
-		protected override Window CreateWindow(IActivationState activationState)
-		{
-			return new Window(new NavigationPage(new MainPage())) { Title = "Sqlite_Dapper_Samples" };
-		}
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return new Window(new NavigationPage(new MainPage())) { Title = "Sqlite_Dapper_Samples" };
+        }
 
-		public static IServiceProvider ServiceProvider { get; private set; }
-	}
+        public static IServiceProvider ServiceProvider { get; private set; }
+    }
 }

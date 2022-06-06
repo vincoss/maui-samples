@@ -1,6 +1,4 @@
 ﻿using Foundation;
-using Microsoft.Maui;
-using Microsoft.Maui.Hosting;
 
 namespace Sqlite_EF_Samples
 {

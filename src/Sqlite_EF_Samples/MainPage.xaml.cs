@@ -1,11 +1,7 @@
-﻿using Microsoft.Maui.Controls;
-
-using Sqlite_EF_Samples_Library.Entities;
-using System.Linq;
-using System;
+﻿using Sqlite_EF_Samples_Library.Entities;
 using Sqlite_EF_Samples_Library.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Sqlite_EF_Samples
 {
