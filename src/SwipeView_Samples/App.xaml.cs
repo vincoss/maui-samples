@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using SwipeView_Samples.Views;
-using Application = Microsoft.Maui.Controls.Application;
+﻿using SwipeView_Samples.Views;
 
 namespace SwipeView_Samples
 {
@@ -17,6 +13,5 @@ namespace SwipeView_Samples
         {
             return new Window(new NavigationPage(new UI_SwipeViewMenuView())) { Title = "SwipeView_Samples" };
         }
-
     }
 }
