@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App_DevResources\App_DevResources.csproj", "{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartupConfigurationSample", "src\StartupConfigurationSample\StartupConfigurationSample.csproj", "{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{06F259AE-566B-448F-8FB8-24A7B28247BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{ABA9CB14-EE74-4E8A-9486-694024FA590B}"
@@ -83,7 +81,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShellFlyoutPage_Samples", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_Dapper_Samples", "src\Sqlite_Dapper_Samples\Sqlite_Dapper_Samples.csproj", "{4A98E3B6-41B9-4DF7-9F36-4EF67AF5241F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqlite_EF_Samples", "src\Sqlite_EF_Samples\Sqlite_EF_Samples.csproj", "{1017A416-9620-4854-864A-FFDFE3C91BFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples", "src\Sqlite_EF_Samples\Sqlite_EF_Samples.csproj", "{1017A416-9620-4854-864A-FFDFE3C91BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupConfigurationSample", "src\StartupConfigurationSample\StartupConfigurationSample.csproj", "{86BF2A03-E16A-4345-8F03-D884EBC74F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,11 +99,6 @@ Global
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF4CACBE-BA21-49A6-87D4-9E304AA5A7E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -304,6 +299,12 @@ Global
 		{1017A416-9620-4854-864A-FFDFE3C91BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1017A416-9620-4854-864A-FFDFE3C91BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1017A416-9620-4854-864A-FFDFE3C91BFB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BF2A03-E16A-4345-8F03-D884EBC74F64}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

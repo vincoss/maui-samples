@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui.Controls;
-
-using StartupConfigurationSample.Interfaces;
-using System;
+﻿using StartupConfigurationSample.Interfaces;
 
 namespace StartupConfigurationSample
 {
