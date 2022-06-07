@@ -1,8 +1,7 @@
 ﻿@page "/vue2minimal"
 @inject IJSRuntime JS
 
-<h1>Vue sample</h1>
-
+<!-- NOTE: Must wrap into parent elment otherwise will crash. -->
 <div>
     <div id="appvue">
        <h1>{{ message }}</h1>
