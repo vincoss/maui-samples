@@ -1,6 +1,4 @@
 ﻿
-
-
 has issue
 
 TypeError: Cannot read properties of null (reading 'removeChild')
@@ -19,3 +17,13 @@ https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
 https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0
 https://v2.vuejs.org/v2/guide/
 https://www.jsdelivr.com/?query=vu
+
+
+## Issues
+```
+blazor blazor.webview.js:1 TypeError: Cannot read properties of null (reading 'removeChild')
+```
+Ensure that the VUE.js or other components are wrapped in parent element.
+<div>
+	Child elements in here
+</div>
