@@ -1,9 +1,5 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
-using System;
-using ToastNotification_Samples.Interface;
+﻿using ToastNotification_Samples.Interface;
 using ToastNotification_Samples.Platforms;
-
 
 namespace ToastNotification_Samples
 {

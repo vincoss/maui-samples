@@ -1,9 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
-
-namespace ToastNotification_Samples
+﻿namespace ToastNotification_Samples
 {
     public static class MauiProgram
     {
@@ -15,6 +10,7 @@ namespace ToastNotification_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
             return builder.Build();

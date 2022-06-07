@@ -2,7 +2,7 @@
 using Android.Widget;
 using System;
 using ToastNotification_Samples.Interface;
-
+using Application = Android.App.Application;
 
 namespace ToastNotification_Samples.Platforms
 {
