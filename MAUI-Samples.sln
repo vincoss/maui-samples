@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_DevResources", "src\App_DevResources\App_DevResources.csproj", "{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{06F259AE-566B-448F-8FB8-24A7B28247BB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{ABA9CB14-EE74-4E8A-9486-694024FA590B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToastNotification_Samples", "src\ToastNotification_Samples\ToastNotification_Samples.csproj", "{68B8E745-E191-4672-AFD0-82FBF276F54A}"
@@ -85,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeView_Samples", "src\Sw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation_Samples", "src\Validation_Samples\Validation_Samples.csproj", "{C02EF6A7-04E8-446D-AB58-B86682D37DD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelIoc_Samples", "src\ViewModelIoc_Samples\ViewModelIoc_Samples.csproj", "{55D548E1-9538-4A07-8E90-48B746945277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,11 +99,6 @@ Global
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EC4BB-0504-4AE2-9594-DBCD64D63205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06F259AE-566B-448F-8FB8-24A7B28247BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B8E745-E191-4672-AFD0-82FBF276F54A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -307,6 +302,12 @@ Global
 		{C02EF6A7-04E8-446D-AB58-B86682D37DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C02EF6A7-04E8-446D-AB58-B86682D37DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C02EF6A7-04E8-446D-AB58-B86682D37DD0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D548E1-9538-4A07-8E90-48B746945277}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
-using ViewModelIoc_Samples.ViewModels;
+﻿using ViewModelIoc_Samples.ViewModels;
 
 namespace ViewModelIoc_Samples
 {
@@ -17,6 +12,7 @@ namespace ViewModelIoc_Samples
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
             var services = builder.Services;
