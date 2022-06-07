@@ -1,0 +1,19 @@
+﻿@page "/vue2parameter"
+@inject IJSRuntime JS
+
+<!-- NOTE: Must wrap into parent elment otherwise will crash. -->
+<div>
+    <div id="appvue">
+       <h1>{{ message }}</h1>
+    </div>
+</div>
+
+@code {
+    private string _message = "Hello Maui to Vue";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //  var module = await JS.InvokeAsync<IJSObjectReference>("import", "./assets/indexvue.js");
+        await JS.InvokeVoidAsync("vue2Parameter", _message);
+    }
+}

@@ -9,4 +9,14 @@ window.vue2Mimimal = function ()
     });
 };
 
+window.vue2Parameter = function (message)
+{
+    var appvuenew = new Vue({
+        el: '#appvue',
+        data: {
+            message: message
+        }
+    });
+};
+
 
