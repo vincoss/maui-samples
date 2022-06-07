@@ -1,0 +1,19 @@
+﻿@page "/vue2minimal"
+@inject IJSRuntime JS
+
+<h1>Vue sample</h1>
+
+<div>
+    <div id="appvue">
+       <h1>{{ message }}</h1>
+    </div>
+</div>
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //  var module = await JS.InvokeAsync<IJSObjectReference>("import", "./assets/indexvue.js");
+        await JS.InvokeVoidAsync("vue2Mimimal");
+    }
+}

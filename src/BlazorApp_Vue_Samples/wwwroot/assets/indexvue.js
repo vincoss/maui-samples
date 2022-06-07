@@ -1,8 +1,8 @@
 ﻿
-
-window.appvue3 = function () {
+window.vue2Mimimal = function ()
+{
     var appvuenew = new Vue({
-        el: '#appvue3',
+        el: '#appvue',
         data: {
             message: 'Hello Vue!!!'
         }
