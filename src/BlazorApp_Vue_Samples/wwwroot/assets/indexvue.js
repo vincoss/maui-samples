@@ -19,4 +19,10 @@ window.vue2Parameter = function (message)
     });
 };
 
+window.vue2ComponentParameter = function (context)
+{
+    Vue.component('data-context-component', './assets/src/components/DataContextComponent.vue');
 
+    // activate Vue on the <div> that contains the component
+    new Vue({ el: '#components-demo' }) 
+};

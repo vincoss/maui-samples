@@ -1,0 +1,29 @@
+﻿@page "/vue2ComponentParameter"
+@inject IJSRuntime JS
+
+<!-- NOTE: Must wrap into parent elment otherwise will crash. -->
+<div>
+    <div id="components-demo">
+    <h3>Here is some content generated with Vue</h3>
+    <data-context-component></data-context-component>
+</div>
+</div>
+
+<h1>Counter</h1>
+<p role="status">Current count: @currentCount</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code 
+{
+   private int currentCount = 0;
+
+	private void IncrementCount()
+	{
+		currentCount++;
+	}
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+         await JS.InvokeVoidAsync("vue2ComponentParameter");
+    }
+}

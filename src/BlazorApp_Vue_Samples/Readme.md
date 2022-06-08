@@ -17,6 +17,8 @@ https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
 https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0
 https://v2.vuejs.org/v2/guide/
 https://www.jsdelivr.com/?query=vu
+https://vuejs.org/guide/essentials/component-basics.html#defining-a-component
+https://stackoverflow.com/questions/52612446/importing-a-package-in-es6-failed-to-resolve-module-specifier-vue
 
 
 ## Issues
