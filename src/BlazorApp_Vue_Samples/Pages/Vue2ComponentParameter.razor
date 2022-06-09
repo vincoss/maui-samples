@@ -3,8 +3,9 @@
 
 <!-- NOTE: Must wrap into parent elment otherwise will crash. -->
 <div>
-    <div id="components-demo">
+    <div id="vueappcontext">
     <h3>Here is some content generated with Vue</h3>
+    
     <data-context-component></data-context-component>
 </div>
 </div>
@@ -22,8 +23,8 @@
 		currentCount++;
 	}
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-         await JS.InvokeVoidAsync("vue2ComponentParameter");
+        await JS.InvokeAsync<IJSObjectReference>("import", "./assets/src/js/app.c12a1cd8.js");
     }
 }
