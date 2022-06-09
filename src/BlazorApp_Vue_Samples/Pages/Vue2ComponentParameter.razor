@@ -5,7 +5,7 @@
 <div>
     <div id="components-demo">
         <h3>Here is some content generated with Vue</h3>
-       <data-context-component></data-context-component>
+       <data-context-component :model="context"></data-context-component>
     </div>
 </div>
 
@@ -15,15 +15,61 @@
 
 @code 
 {
-   private int currentCount = 0;
+    private int currentCount = 0;
+    private DataContext dataContext = new DataContext();
 
-	private void IncrementCount()
-	{
-		currentCount++;
-	}
-
-     protected override async Task OnAfterRenderAsync(bool firstRender)
+    private void IncrementCount()
     {
-        await JS.InvokeVoidAsync("vue2ComponentParameter");
+        currentCount++;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        this.dataContext.data = new Data();
+        this.dataContext.definition = new Definition();
+
+        this.dataContext.data.value = "Data value";
+        this.dataContext.definition.value = "Definition value";
+
+        this.dataContext.save = this.onSave;
+        this.dataContext.validate = this.onValidate;
+
+        await JS.InvokeVoidAsync("vue2ComponentParameter", dataContext);
+
+    }
+
+    private void onValidate(Data data)
+    {
+        Console.WriteLine("parent.onValidate");
+    }
+
+    private void onSave(Data data)
+    {
+        Console.WriteLine("parent.onSave");
+    }
+
+    private void onDataEvent()
+    {
+        Console.WriteLine("onDataEvent");
+        this.dataContext.data.value = "Data value update";
+    }
+
+    public class DataContext
+    {
+        public Definition definition { get; set; } = new Definition();
+        public Data data { get; set; } = new Data();
+
+        public Action<Data> save;
+        public Action<Data> validate;
+    }
+
+    public class Definition
+    {
+        public string? value { get; set; } = null;
+    }
+
+    public class Data
+    {
+         public string? value { get; set; } = null;
     }
 }

@@ -25,9 +25,8 @@ window.vue2ComponentParameter = function (context)
 
     const app = new Vue(
         {
-            components:
-            {
-
+            data: {
+                context: context
             }
         });
     app.$mount("#components-demo");
