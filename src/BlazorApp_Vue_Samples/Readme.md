@@ -11,6 +11,9 @@ NotifyUnhandledException @ blazor.webview.js:1
 (anonymous) @ VM127:1
 (anonymous) @ VM127:1
 
+## CDN
+https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js
+https://cdn.jsdelivr.net/npm/vue
 
 ## Resources
 https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor

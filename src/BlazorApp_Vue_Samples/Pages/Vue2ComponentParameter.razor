@@ -3,11 +3,10 @@
 
 <!-- NOTE: Must wrap into parent elment otherwise will crash. -->
 <div>
-    <div id="vueappcontext">
-    <h3>Here is some content generated with Vue</h3>
-    
-    <data-context-component></data-context-component>
-</div>
+    <div id="components-demo">
+        <h3>Here is some content generated with Vue</h3>
+       <data-context-component></data-context-component>
+    </div>
 </div>
 
 <h1>Counter</h1>
@@ -25,6 +24,6 @@
 
      protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JS.InvokeAsync<IJSObjectReference>("import", "./assets/src/js/app.c12a1cd8.js");
+        await JS.InvokeVoidAsync("vue2ComponentParameter");
     }
 }
