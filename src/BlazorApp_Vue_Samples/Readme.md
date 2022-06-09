@@ -22,7 +22,7 @@ https://v2.vuejs.org/v2/guide/
 https://www.jsdelivr.com/?query=vu
 https://vuejs.org/guide/essentials/component-basics.html#defining-a-component
 https://stackoverflow.com/questions/52612446/importing-a-package-in-es6-failed-to-resolve-module-specifier-vue
-
+https://remibou.github.io/How-to-keep-js-object-reference-in-Blazor/
 
 ## Issues
 ```

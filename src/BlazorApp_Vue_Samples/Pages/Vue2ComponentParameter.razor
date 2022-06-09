@@ -34,21 +34,22 @@
         this.dataContext.save = this.onSave;
         this.dataContext.validate = this.onValidate;
 
+
         await JS.InvokeVoidAsync("vue2ComponentParameter", dataContext);
 
     }
 
-    private void onValidate(Data data)
+    public void onValidate(Data data)
     {
         Console.WriteLine("parent.onValidate");
     }
 
-    private void onSave(Data data)
+    public void onSave(Data data)
     {
         Console.WriteLine("parent.onSave");
     }
 
-    private void onDataEvent()
+    public void onDataEvent()
     {
         Console.WriteLine("onDataEvent");
         this.dataContext.data.value = "Data value update";
