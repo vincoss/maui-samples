@@ -22,6 +22,7 @@
 {
     private int currentCount = 0;
     private DataContext dataContext = new DataContext();
+    private IJSObjectReference? mapInstance;
 
     private void IncrementCount()
     {
@@ -43,11 +44,11 @@
 
             var json = System.Text.Json.JsonSerializer.Serialize(dataContext);
 
-            await JS.InvokeVoidAsync("vue2ComponentParameter", dataContext);
+            mapInstance = await JS.InvokeAsync<IJSObjectReference>("vue2ComponentParameter", dataContext);
         }
     }
 
-    private void onUpdateData()
+    private async void onUpdateData()
     {
         var ctx = new DataContext();
 
@@ -57,7 +58,12 @@
         data.value = $"Data value: {DateTime.Now}";
         definition.value = $"Definition value: {DateTime.Now}";
 
-        this.dataContext.data.value = data.value;
+        ctx.data = data;
+        ctx.definition = definition;
+
+        await JS.InvokeVoidAsync("setVueContext", mapInstance, ctx);
+
+      //  this.dataContext.data.value = data.value;
     }
 
     public void onValidate(Data data)

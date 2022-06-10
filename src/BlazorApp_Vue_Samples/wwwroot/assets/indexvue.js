@@ -26,9 +26,43 @@ window.vue2ComponentParameter = function (context)
 
     const app = new Vue(
         {
-            data: {
-                context: context
+            data()
+            {
+                return {
+                    context: context
+                }
+                    },
+            //data: {
+            //    context: context
+            //},
+            methods: {
+                setContext: function (event)
+                {
+                    console.log("vue2ComponentParameter.setVueContext");
+                    console.log(event);
+                    this.context.data = event.data;
+                }
             }
         });
     app.$mount("#components-demo");
+
+    return app;
 };
+
+window.setVueContext = function (vue, context)
+{
+    console.log("setVueContext");
+    console.log(vue);
+    console.log(context);
+
+    vue.setContext(context);
+};
+
+export function setVueContexte(vue, context)
+{
+    console.log("setVueContext");
+    console.log(vue);
+    console.log(context);
+
+    vue.setContext(context);
+}
