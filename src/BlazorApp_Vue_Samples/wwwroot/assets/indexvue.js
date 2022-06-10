@@ -21,7 +21,8 @@ window.vue2Parameter = function (message)
 
 window.vue2ComponentParameter = function (context)
 {
-    console.log("vue2ComponentParameter: " + context);
+    console.log("vue2ComponentParameter");
+    console.log(context);
 
     const app = new Vue(
         {

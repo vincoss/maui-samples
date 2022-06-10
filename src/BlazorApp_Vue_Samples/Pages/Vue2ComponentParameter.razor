@@ -1,5 +1,6 @@
 ﻿@page "/vue2ComponentParameter"
 @inject IJSRuntime JS
+@inject JsConsole JSLogger
 
 <!-- NOTE: Must wrap into parent elment otherwise will crash. -->
 <div>
@@ -8,6 +9,10 @@
        <data-context-component :model="context"></data-context-component>
     </div>
 </div>
+
+<p>@dataContext.data.value</p>
+<button class="btn btn-primary" @onclick="onUpdateData">Update Data</button>
+
 
 <h1>Counter</h1>
 <p role="status">Current count: @currentCount</p>
@@ -25,18 +30,34 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        this.dataContext.data = new Data();
-        this.dataContext.definition = new Definition();
+        if (firstRender)
+        {
+            this.dataContext.data = new Data();
+            this.dataContext.definition = new Definition();
 
-        this.dataContext.data.value = "Data value";
-        this.dataContext.definition.value = "Definition value";
+            this.dataContext.data.value = "Data value";
+            this.dataContext.definition.value = "Definition value";
 
-        this.dataContext.save = this.onSave;
-        this.dataContext.validate = this.onValidate;
+            this.dataContext.save = this.onSave;
+            this.dataContext.validate = this.onValidate;
 
+            var json = System.Text.Json.JsonSerializer.Serialize(dataContext);
 
-        await JS.InvokeVoidAsync("vue2ComponentParameter", dataContext);
+            await JS.InvokeVoidAsync("vue2ComponentParameter", dataContext);
+        }
+    }
 
+    private void onUpdateData()
+    {
+        var ctx = new DataContext();
+
+        var data = new Data();
+        var definition = new Definition();
+
+        data.value = $"Data value: {DateTime.Now}";
+        definition.value = $"Definition value: {DateTime.Now}";
+
+        this.dataContext.data.value = data.value;
     }
 
     public void onValidate(Data data)
@@ -52,7 +73,7 @@
     public void onDataEvent()
     {
         Console.WriteLine("onDataEvent");
-        this.dataContext.data.value = "Data value update";
+        this.dataContext.data.value = "Data value update from child";
     }
 
     public class DataContext

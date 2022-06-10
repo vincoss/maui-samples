@@ -6397,7 +6397,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/DataContextComponent.vue?vue&type=template&id=463d419c&
+;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/DataContextComponent.vue?vue&type=template&id=215b4adc&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',[_vm._v("DataContextComponent")]),_c('button',{on:{"click":_vm.onValidate}},[_vm._v("Validate")]),_c('button',{on:{"click":_vm.onSave}},[_vm._v("Save")]),_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.message),expression:"message"}],attrs:{"placeholder":"add multiple lines","readonly":""},domProps:{"value":(_vm.message)},on:{"input":function($event){if($event.target.composing){ return; }_vm.message=$event.target.value}}})])}
 var staticRenderFns = []
 
@@ -6437,6 +6437,7 @@ var es_promise = __webpack_require__(8674);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
 var es_array_slice = __webpack_require__(7042);
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
+
 
 
 
@@ -7037,6 +7038,7 @@ var es_object_keys = __webpack_require__(7941);
 
 
 
+
 /**
   * vue-class-component v7.2.6
   * (c) 2015-present Evan You
@@ -7365,6 +7367,7 @@ var es_regexp_exec = __webpack_require__(4916);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__(5306);
 ;// CONCATENATED MODULE: ./node_modules/vue-property-decorator/lib/decorators/Emit.js
+
 
 
 
@@ -7741,6 +7744,8 @@ var DataContextComponent = /*#__PURE__*/function (_Vue) {
 __decorate([Prop()], DataContextComponent.prototype, "model", void 0);
 
 __decorate([Watch("model", {
+  immediate: true
+}), Watch("model.data", {
   immediate: true
 }), Watch("model.data.value", {
   immediate: true

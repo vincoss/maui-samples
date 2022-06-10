@@ -1,4 +1,5 @@
 ﻿using BlazorApp_Vue_Samples.Data;
+using BlazorApp_Vue_Samples.Services;
 using Microsoft.AspNetCore.Components.WebView.Maui;
 
 namespace BlazorApp_Vue_Samples
@@ -21,6 +22,7 @@ namespace BlazorApp_Vue_Samples
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddSingleton<JsConsole>();
 
             return builder.Build();
         }
