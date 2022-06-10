@@ -24,6 +24,8 @@ window.vue2ComponentParameter = function (context)
     console.log("vue2ComponentParameter");
     console.log(context);
 
+    // TODO: possible to have watch on context change tand then call function in here
+
     const app = new Vue(
         {
             data()
