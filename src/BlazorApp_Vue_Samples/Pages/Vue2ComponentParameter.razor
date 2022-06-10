@@ -63,7 +63,7 @@
 
         await JS.InvokeVoidAsync("setVueContext", mapInstance, ctx);
 
-      //  this.dataContext.data.value = data.value;
+        //  this.dataContext.data.value = data.value;
     }
 
     public void onValidate(Data data)
@@ -80,6 +80,12 @@
     {
         Console.WriteLine("onDataEvent");
         this.dataContext.data.value = "Data value update from child";
+    }
+
+    [JSInvokable]
+    public static Task testSave()
+    {
+        return Task.CompletedTask;
     }
 
     public class DataContext

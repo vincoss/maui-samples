@@ -41,7 +41,13 @@ window.vue2ComponentParameter = function (context)
                     console.log("vue2ComponentParameter.setVueContext");
                     console.log(event);
                     this.context.data = event.data;
-                }
+                    
+                    DotNet.invokeMethodAsync('BlazorApp_Vue_Samples', 'testSave')
+                        .then(data =>
+                        {
+                            console.log("done");
+                        });
+                },
             }
         });
     app.$mount("#components-demo");
