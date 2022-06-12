@@ -1,25 +1,5 @@
 ﻿
-window.vue2Mimimal = function ()
-{
-    var appvuenew = new Vue({
-        el: '#appvue',
-        data: {
-            message: 'Hello Vue!!!'
-        }
-    });
-};
-
-window.vue2Parameter = function (message)
-{
-    var appvuenew = new Vue({
-        el: '#appvue',
-        data: {
-            message: message
-        }
-    });
-};
-
-window.vue2ComponentParameter = function (context)
+export function vue2ComponentParameter(context)
 {
     console.log("vue2ComponentParameter");
     console.log(context);
@@ -33,17 +13,14 @@ window.vue2ComponentParameter = function (context)
                 return {
                     context: context
                 }
-                    },
-            //data: {
-            //    context: context
-            //},
+            },
             methods: {
                 setContext: function (event)
                 {
                     console.log("vue2ComponentParameter.setVueContext");
                     console.log(event);
                     this.context.data = event.data;
-                    
+
                 },
                 onSave: function (data)
                 {
@@ -69,7 +46,7 @@ window.vue2ComponentParameter = function (context)
     return app;
 };
 
-window.setVueContext = function (vue, context)
+export function setVueContext(vue, context)
 {
     console.log("setVueContext");
     console.log(vue);
@@ -77,12 +54,3 @@ window.setVueContext = function (vue, context)
 
     vue.setContext(context);
 };
-
-export function setVueContexte(vue, context)
-{
-    console.log("setVueContext");
-    console.log(vue);
-    console.log(context);
-
-    vue.setContext(context);
-}

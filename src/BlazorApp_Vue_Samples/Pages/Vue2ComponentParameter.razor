@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<p>@dataContext.data.value</p>
+<p>@dataContext.Data.Value</p>
 <button class="btn btn-primary" @onclick="onUpdateData">Update Data</button>
 
 
@@ -33,14 +33,14 @@
     {
         if (firstRender)
         {
-            this.dataContext.data = new Data();
-            this.dataContext.definition = new Definition();
+            this.dataContext.Data = new Data();
+            this.dataContext.Definition = new Definition();
 
-            this.dataContext.data.value = "Data value";
-            this.dataContext.definition.value = "Definition value";
+            this.dataContext.Data.Value = "Data value";
+            this.dataContext.Definition.Value = "Definition value";
 
-            this.dataContext.save = this.onSave;
-            this.dataContext.validate = this.onValidate;
+            //this.dataContext.Save = OnSave;
+            //this.dataContext.Validate = OnValidate;
 
             var json = System.Text.Json.JsonSerializer.Serialize(dataContext);
 
@@ -55,55 +55,51 @@
         var data = new Data();
         var definition = new Definition();
 
-        data.value = $"Data value: {DateTime.Now}";
-        definition.value = $"Definition value: {DateTime.Now}";
+        data.Value = $"Data value: {DateTime.Now}";
+        definition.Value = $"Definition value: {DateTime.Now}";
 
-        ctx.data = data;
-        ctx.definition = definition;
+        ctx.Data = data;
+        ctx.Definition = definition;
 
         await JS.InvokeVoidAsync("setVueContext", mapInstance, ctx);
 
         //  this.dataContext.data.value = data.value;
     }
 
-    public void onValidate(Data data)
-    {
-        Console.WriteLine("parent.onValidate");
-    }
-
-    public void onSave(Data data)
-    {
-        Console.WriteLine("parent.onSave");
-    }
-
     public void onDataEvent()
     {
         Console.WriteLine("onDataEvent");
-        this.dataContext.data.value = "Data value update from child";
+        this.dataContext.Data.Value = "Data value update from child";
     }
 
     [JSInvokable]
-    public static Task testSave()
+    public static Task OnSave(Data data)
+    {
+        return Task.CompletedTask;
+    }
+
+    [JSInvokable]
+    public static Task OnValidate(Data data)
     {
         return Task.CompletedTask;
     }
 
     public class DataContext
     {
-        public Definition definition { get; set; } = new Definition();
-        public Data data { get; set; } = new Data();
+        public Definition Definition { get; set; } = new Definition();
+        public Data Data { get; set; } = new Data();
 
-        public Action<Data> save;
-        public Action<Data> validate;
+        public Action<Data> Save;
+        public Action<Data> Validate;
     }
 
     public class Definition
     {
-        public string? value { get; set; } = null;
+        public string? Value { get; set; } = null;
     }
 
     public class Data
     {
-         public string? value { get; set; } = null;
+         public string? Value { get; set; } = null;
     }
 }
