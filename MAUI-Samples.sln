@@ -79,7 +79,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelIoc_Samples", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToastNotification_Samples", "src\ToastNotification_Samples\ToastNotification_Samples.csproj", "{9C5BA258-104D-4085-B053-004B10C5E185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_WindowDimensions", "src\BlazorApp_WindowDimensions\BlazorApp_WindowDimensions.csproj", "{FEA991D1-9974-4BE5-AF4F-C78A09372A2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_WindowDimensions", "src\BlazorApp_WindowDimensions\BlazorApp_WindowDimensions.csproj", "{FEA991D1-9974-4BE5-AF4F-C78A09372A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_GameCanvas_Samples", "src\BlazorApp_GameCanvas_Samples\BlazorApp_GameCanvas_Samples.csproj", "{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLoopLib", "src\GameLoopLib\GameLoopLib.csproj", "{B934BE31-ECE4-4C12-B4D9-C9B9433D2181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -293,6 +297,16 @@ Global
 		{FEA991D1-9974-4BE5-AF4F-C78A09372A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEA991D1-9974-4BE5-AF4F-C78A09372A2E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEA991D1-9974-4BE5-AF4F-C78A09372A2E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B934BE31-ECE4-4C12-B4D9-C9B9433D2181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B934BE31-ECE4-4C12-B4D9-C9B9433D2181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B934BE31-ECE4-4C12-B4D9-C9B9433D2181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B934BE31-ECE4-4C12-B4D9-C9B9433D2181}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +320,8 @@ Global
 		{B6561631-EB96-4B27-823A-A9D2E44F1A0C} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{6B3AC884-02E3-461A-8E7B-0CBD4AB6CA8C} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{FEA991D1-9974-4BE5-AF4F-C78A09372A2E} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
+		{DC01CA0B-A1FD-48CC-B0AA-1513AEC7D108} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
+		{B934BE31-ECE4-4C12-B4D9-C9B9433D2181} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}
