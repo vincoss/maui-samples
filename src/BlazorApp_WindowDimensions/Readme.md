@@ -1,0 +1,3 @@
+﻿
+See
+DeviceDisplay.MainDisplayInfoChanged += OnDisplayInfoChangedEventArgs;

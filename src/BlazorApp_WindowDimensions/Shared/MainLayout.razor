@@ -28,7 +28,6 @@
         {
             // Render here
         }
-
         var args = new object[] { mainDiv };
         var result = await JS.InvokeAsync<BoundingClientRect>("getBoundingClientRect", args);
         await this.JS.InvokeVoidAsync("console.log", result);
