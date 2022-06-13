@@ -1,19 +1,19 @@
 ﻿using Microsoft.JSInterop;
 
+
 namespace BlazorApp_Vue_Samples.Services
 {
-    // TODO: throws null reference
     public class JsConsole
     {
-        private readonly IJSRuntime JsRuntime;
-        public JsConsole(IJSRuntime jSRuntime)
+        private readonly IJSRuntime _jsRuntime;
+        public JsConsole(IJSRuntime jsRuntime)
         {
-            this.JsRuntime = jSRuntime;
+            this._jsRuntime = jsRuntime ?? throw new ArgumentNullException(nameof(JSRuntime));
         }
 
         public async Task WriteLine(string message)
         {
-            await this.JsRuntime.InvokeVoidAsync("console.log", message);
+            await this._jsRuntime.InvokeVoidAsync("console.log", message);
         }
     }
 }

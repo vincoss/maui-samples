@@ -31,6 +31,8 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+       await JSLogger.WriteLine($"{this.GetType()}: {firstRender}");
+
         if (firstRender)
         {
             this.dataContext.Data = new Data();

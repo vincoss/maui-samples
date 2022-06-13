@@ -22,7 +22,7 @@ namespace BlazorApp_Vue_Samples
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
-            builder.Services.AddSingleton<JsConsole>();
+            builder.Services.AddTransient<JsConsole>();
 
             return builder.Build();
         }
