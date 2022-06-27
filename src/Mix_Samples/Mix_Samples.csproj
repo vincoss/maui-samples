@@ -52,4 +52,16 @@
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\StringFormatView.xaml.cs">
+	    <DependentUpon>StringFormatView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\StringFormatView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

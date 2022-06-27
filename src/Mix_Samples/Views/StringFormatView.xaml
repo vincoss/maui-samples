@@ -1,0 +1,19 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mix_Samples.Views.StringFormatView"
+             Title="StringFormat samples">
+
+    <!--
+    https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/data-binding/string-formatting  
+    -->
+    
+    <VerticalStackLayout>
+        <Label Text="{Binding TotalRecords, StringFormat='Total records: {0}'}" />
+        <Label Text="{Binding TotalRecords, StringFormat='Total: {0:D}'}"/>
+        <Label Text="{Binding Birthday, StringFormat='{0:MMMM dd, yyyy}'}"/>
+        <Label Text="{Binding ModifiedDate, StringFormat='{0:D}'}"/>
+        <Label Text= "{Binding FirstName, StringFormat='Hello my name is {0} nice to meet you!'}" />
+        <Label Text="{Binding Value, StringFormat='The value is {0:F4}'}"/>
+    </VerticalStackLayout>
+    
+</ContentPage>
