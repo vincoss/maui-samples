@@ -51,5 +51,17 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\BindableLayoutView.xaml.cs">
+	    <DependentUpon>BindableLayoutView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\BindableLayoutView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	
 </Project>
