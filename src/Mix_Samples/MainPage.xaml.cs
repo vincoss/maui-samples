@@ -16,6 +16,7 @@ namespace Mix_Samples
             pages.Add(new PageInfo { Type = typeof(RadioButtonView) });
             pages.Add(new PageInfo { Type = typeof(UserView) });
             pages.Add(new PageInfo { Type = typeof(StringFormatView) });
+            pages.Add(new PageInfo { Type = typeof(ActivityIndicatorView) });
 
             ListOfPages.ItemsSource = pages;
         }
