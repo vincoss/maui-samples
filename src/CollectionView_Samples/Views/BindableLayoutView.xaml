@@ -9,7 +9,8 @@
         <VerticalStackLayout 
             HorizontalOptions="StartAndExpand"
             Spacing="10"
-            BindableLayout.ItemsSource="{Binding Items}">
+            BindableLayout.ItemsSource="{Binding Items}"
+            BindableLayout.EmptyView="No items">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <Label Text="{Binding}" Margin="10,0,0,0"/>
