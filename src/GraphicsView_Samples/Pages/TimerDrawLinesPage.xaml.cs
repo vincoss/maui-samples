@@ -54,6 +54,7 @@ public class TimerDrawLinesPageDrawable : IDrawable
 
         canvas.StrokeSize = 1;
         canvas.StrokeColor = Color.FromRgba(255, 255, 255, 100);
+
         for (int i = 0; i < 1000; i++)
         {
             canvas.DrawLine(

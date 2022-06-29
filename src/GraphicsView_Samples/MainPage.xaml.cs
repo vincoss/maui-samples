@@ -14,6 +14,7 @@ namespace GraphicsView_Samples
         protected override void OnAppearing()
         {
             var pages = new List<PageInfo>();
+            pages.Add(new PageInfo { Type = typeof(DrawGraphicalObjectsPage) });
             pages.Add(new PageInfo { Type = typeof(TimerDrawLinesPage) });
 
             ListOfPages.ItemsSource = pages;
