@@ -65,19 +65,19 @@
 
     public void Update()
     {
-        //if(_parentRectangle == null)
-        //{
-        //    return;
-        //}
+        if(_parentRectangle == null)
+        {
+            return;
+        }
 
-        //if(y >= _parentRectangle.Height)
-        //{
-        //    y = 0;
-        //}
-        //if(x >= _parentRectangle.Width)
-        //{
-        //    x = 0;
-        //}
+        if(y >= _parentRectangle.Height)
+        {
+            y = 0;
+        }
+        if(x >= _parentRectangle.Width)
+        {
+            x = 0;
+        }
 
         x++;
         y++;

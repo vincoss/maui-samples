@@ -23,28 +23,49 @@ namespace GameLoopLib.Engine
 
         private void Loop()
         {
-            const int ticksPerSecond = 25;
-            const int skipTicks = 1000 / ticksPerSecond;
-            const int maxFrameSkip = 5;
-
-            var nextGameTick = Environment.TickCount;
-
-            while (IsRunning)
+            var MS_PER_UPDATE = 100;
+            var previous = Environment.TickCount;
+            var lag = 0;
+            while (true)
             {
-                int loops = 0;
+                var current = Environment.TickCount;
+                var elapsed = current - previous;
+                previous = current;
+                lag += elapsed;
 
-                while (Environment.TickCount > nextGameTick && loops < maxFrameSkip)
+                ///processInput();
+
+                while (lag >= MS_PER_UPDATE)
                 {
                     OnUpdateGame();
-
-                    nextGameTick += skipTicks;
-                    loops++;
+                    lag -= MS_PER_UPDATE;
                 }
 
-                // Usage view_position = position + (speed * interpolation)
-                float interpolation = (Environment.TickCount + skipTicks - nextGameTick) / (float)skipTicks;
-                OnRenderGame(interpolation);
+                OnRenderGame(0.0F);
             }
+
+            //const int ticksPerSecond = 25;
+            //const int skipTicks = 1000 / ticksPerSecond;
+            //const int maxFrameSkip = 5;
+
+            //var nextGameTick = Environment.TickCount;
+
+            //while (IsRunning)
+            //{
+            //    int loops = 0;
+
+            //    while (Environment.TickCount > nextGameTick && loops < maxFrameSkip)
+            //    {
+            //        OnUpdateGame();
+
+            //        nextGameTick += skipTicks;
+            //        loops++;
+            //    }
+
+            //    // Usage view_position = position + (speed * interpolation)
+            //    float interpolation = (Environment.TickCount + skipTicks - nextGameTick) / (float)skipTicks;
+            //    OnRenderGame(interpolation);
+            //}
         }
 
         private void OnUpdateGame()
