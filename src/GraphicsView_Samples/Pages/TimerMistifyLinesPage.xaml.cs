@@ -2,16 +2,17 @@ using GraphicsView_Samples.Models;
 using System.Timers;
 using SystemTimer = System.Timers;
 
+
 namespace GraphicsView_Samples.Pages;
 
-public partial class TimerDrawBallsPage : ContentPage
+public partial class TimerMistifyLinesPage : ContentPage
 {
     private double _width = 0;
     private double _height = 0;
     private SystemTimer.Timer _timer;
-    private readonly BallField Field;
+    private readonly PolygonField Field;
 
-    public TimerDrawBallsPage()
+    public TimerMistifyLinesPage()
     {
         InitializeComponent();
 
@@ -20,8 +21,7 @@ public partial class TimerDrawBallsPage : ContentPage
         _timer.Elapsed += TimerElapsed;
         _timer.AutoReset = true;
 
-        Field = new BallField(100);
-        Field.Randomize(canvas.Width, canvas.Height);
+        Field = new PolygonField((float)canvas.Width, (float)canvas.Height, 50, 2);
         canvas.Drawable = Field;
     }
 
@@ -45,7 +45,7 @@ public partial class TimerDrawBallsPage : ContentPage
 
     private void TimerElapsed(Object source, ElapsedEventArgs e)
     {
-        Field.Advance(10, canvas.Width, canvas.Height);
+        Field.Advance((float)canvas.Width, (float)canvas.Height, 10, 10);
         canvas.Invalidate();
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GraphicsView_Samples.Pages.TimerMistifyLinesPage"
+             Title="TimerMistifyLinesPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GraphicsView Grid.Row="0" x:Name="canvas"/>
+
+        <HorizontalStackLayout Grid.Row="1" BackgroundColor="#dcdcdc">
+            <Button 
+                Text="Start"
+                SemanticProperties.Hint="Start the drawing"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" Margin="5"/>
+        </HorizontalStackLayout>
+    </Grid>
+    
+</ContentPage>
