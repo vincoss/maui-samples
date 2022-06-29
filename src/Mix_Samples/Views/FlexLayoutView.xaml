@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mix_Samples.Views.FlexLayoutView"
+             Title="StringFormat samples">
+
+    <!--
+    https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/flex-layout
+    -->
+
+    <ScrollView>
+        <FlexLayout Wrap="Wrap" AlignContent="Start" AlignItems="Start" Direction="Row" 
+                                JustifyContent="Start">
+
+            <Button Text="A" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="B" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="C" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="D" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="E" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="F" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="G" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="H" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="I" HeightRequest="80" WidthRequest="80"/>
+            <Button Text="J" HeightRequest="80" WidthRequest="80"/>
+
+        </FlexLayout>
+    </ScrollView>
+
+</ContentPage>

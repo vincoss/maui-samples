@@ -56,6 +56,9 @@
 	  <Compile Update="Views\ActivityIndicatorView.xaml.cs">
 	    <DependentUpon>ActivityIndicatorView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\FlexLayoutView.xaml.cs">
+	    <DependentUpon>FlexLayoutView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\StringFormatView.xaml.cs">
 	    <DependentUpon>StringFormatView.xaml</DependentUpon>
 	  </Compile>
@@ -63,6 +66,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\ActivityIndicatorView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FlexLayoutView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\StringFormatView.xaml">
