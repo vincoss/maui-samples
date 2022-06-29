@@ -5,6 +5,8 @@ namespace GraphicsView_Samples.Pages;
 
 public partial class TimerDrawLinesPage : ContentPage
 {
+    private double _width = 0;
+    private double _height = 0;
     private SystemTimer.Timer _timer;
 
     public TimerDrawLinesPage()
@@ -19,8 +21,15 @@ public partial class TimerDrawLinesPage : ContentPage
 
     protected override void OnSizeAllocated(double width, double height)
     {
-        base.OnSizeAllocated(width, height); 
-        canvas.Invalidate();
+        base.OnSizeAllocated(width, height); //must be called
+
+        if (this._width != width || this._height != height)
+        {
+            this._width = width;
+            this._height = height;
+
+            canvas.Invalidate();
+        }
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
