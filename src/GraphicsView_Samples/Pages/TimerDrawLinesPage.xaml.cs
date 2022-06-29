@@ -15,13 +15,12 @@ public partial class TimerDrawLinesPage : ContentPage
         _timer.Interval = 20;
         _timer.Elapsed += TimerElapsed;
         _timer.AutoReset = true;
-
-         
     }
 
     protected override void OnSizeAllocated(double width, double height)
     {
-        base.OnSizeAllocated(width, height);
+        base.OnSizeAllocated(width, height); 
+        canvas.Invalidate();
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
