@@ -16,6 +16,7 @@ namespace GraphicsView_Samples
             var pages = new List<PageInfo>();
             pages.Add(new PageInfo { Type = typeof(DrawGraphicalObjectsPage) });
             pages.Add(new PageInfo { Type = typeof(TimerDrawLinesPage) });
+            pages.Add(new PageInfo { Type = typeof(TimerDrawBallsPage) });
 
             ListOfPages.ItemsSource = pages;
         }

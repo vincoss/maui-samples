@@ -52,6 +52,9 @@
 	  <MauiXaml Update="Pages\DrawGraphicalObjectsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\TimerDrawBallsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\TimerDrawLinesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
