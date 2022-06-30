@@ -51,4 +51,8 @@
 	  <EmbeddedResource Include="Resources\Images\dotnet_bot_emb.svg" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Maui.Graphics" Version="6.0.403" />
+	</ItemGroup>
+
 </Project>
