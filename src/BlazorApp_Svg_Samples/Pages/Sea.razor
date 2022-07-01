@@ -32,11 +32,10 @@
 		@foreach (var item in seaService.Items)
 		{
 			 <svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth">
-
-					<text x="50%" y="50%" fill="@item.Color"
-                    dominant-baseline="middle" text-anchor="middle"
-					font-family="SeaLife" font-size="400%">@item.Text</text>
-				  </svg>
+				<text x="50%" y="50%" fill="@item.Color"
+                dominant-baseline="middle" text-anchor="middle"
+				font-family="SeaLife" font-size="400%">@item.Text</text>
+			</svg>
 		}
 	}
 
@@ -83,14 +82,14 @@
 		private readonly Timer _timer;
 		private readonly Action _draw;
 		private static Random _random = new Random();
-		private const int TotalItems = 50;
+		private const int TotalItems = 150;
 
 		public SeaService(Action draw)
 		{
 			_draw = draw ?? throw new ArgumentNullException(nameof(draw));
 
 			_timer = new Timer();
-			_timer.Interval = 30;
+			_timer.Interval = 50;
 			_timer.Elapsed += TimerElapsed;
 			_timer.AutoReset = true;
 		}
