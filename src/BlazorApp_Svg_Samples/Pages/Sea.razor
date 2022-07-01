@@ -1,28 +1,208 @@
 ﻿@page "/sea"
+@using System.Timers
+@inject IJSRuntime JS;
 
-<div @ref="mainDiv" style="width: 80vw; height: 80vh; margin-top:10px;" tabindex="0">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
-	    <rect width="100%" height="100%" fill="#dcdcdc" />
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" @ref="mainDiv" tabindex="0"style="height: 95vh;">
+	<rect width="100%" height="100%" fill="blue" fill-opacity="20%"/>
 
-        @foreach (var item in _items)
-        {
-           <svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth" xmlns="http://www.w3.org/2000/svg">
-               
-	          <rect width="100%" height="100%" fill="blue" />
-            
-              <text x="50%" y="50%" fill="red"
-                    dominant-baseline="middle" text-anchor="middle"
-                    font-size="200%" font-weight="bold">@item.Y</text>
-            </svg>
-        }
+   <svg x="77%" y="1%" height="100" width="100">
+		<svg viewBox="0, 0, 250, 200" preserveAspectRatio="xMidYMax meet">
+			<svg width="250" height="200" fill="red">
+				<rect width="100%" height="100%" fill="gold" />
+				<text x="50%" y="25%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">Count</text>
+				<text x="50%" y="65%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">@seaService.Items.Count</text>
+			</svg>
+		</svg>
+	</svg>
 
-    </svg>
-    <p>Item count: @_items.Count</p>
-</div>
+	@if(seaService != null)
+	{
+		@foreach (var item in seaService.Items)
+		{
+			<svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth">
+
+				<rect width="100%" height="100%" fill="red" />
+
+				<text x="50%" y="50%" fill="black"
+					dominant-baseline="middle" text-anchor="middle"
+					font-size="100%" font-weight="bold">@string.Format($"X:{item.X}, Y:{@item.Y}")</text>
+			</svg>
+		}
+	}
+
+</svg>
 
 @code {
-	
+
+	private ElementReference mainDiv;
+	private SeaService seaService;
+	private const int ItemWidth = 1;
+	private BoundingClientRect _parentRectangle = new BoundingClientRect();
+
 	protected override async Task OnInitializedAsync()
 	{
+		seaService = new SeaService(Draw);
+	}
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			await mainDiv.FocusAsync();
+			seaService.Start();
+		}
+
+		//  NOTE: Not sure about performace
+		var args = new object[] { mainDiv };
+		_parentRectangle = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", args);
+		seaService.MaxWidth = _parentRectangle.Width;
+		seaService.MaxHeight = _parentRectangle.Height;
+	}
+
+	private void Draw()
+	{
+		InvokeAsync(() =>
+		{
+			this.StateHasChanged();
+		});
+	}
+
+	public class SeaService
+	{
+		private readonly Timer _timer;
+		private readonly Action _draw;
+		private static Random _random = new Random();
+		private const int TotalItems = 100;
+
+		public SeaService(Action draw)
+		{
+			_draw = draw ?? throw new ArgumentNullException(nameof(draw));
+
+			_timer = new Timer();
+			_timer.Interval = 30;
+			_timer.Elapsed += TimerElapsed;
+			_timer.AutoReset = true;
+		}
+
+		private void TimerElapsed(Object source, ElapsedEventArgs e)
+		{
+			Console.WriteLine($"Tick {e.SignalTime}");
+
+			Update();
+			_draw();
+		}
+
+		private void Update()
+		{
+			if(Items.Count > TotalItems || Items.Count < TotalItems)
+			{
+				GenerateItems();
+			}
+			else
+			{
+				for(int i = 0; i < Items.Count; i++)
+				{
+					Items[i].Advance(10D, MaxWidth, MaxHeight);
+				}
+			}
+		}
+
+		public void Start()
+		{
+			_timer.Enabled = true;
+		}
+
+		public void GenerateItems()
+		{
+			for(int i = 0; i < TotalItems; i++)
+			{ 
+				var item = new Item();
+				item.X = _random.NextDouble() * MaxWidth;
+				item.Y = _random.NextDouble() * MaxHeight;
+				item.XVel = _random.NextDouble() - .5;
+				item.YVel = _random.NextDouble() - .5;
+				Items.Add(item);
+			}
+		}
+
+		public IList<Item> Items { get; private set; } = new List<Item>();
+		public double MaxHeight { get; set; }
+		public double MaxWidth { get; set; }
+
+		public class Item
+		{
+			public string? Text { get; set; }
+			public string? Color { get; set; }
+			public double Y { get; set; }
+			public double X { get; set; }
+			public double XVel { get; set; }
+			public double YVel { get; set; }
+
+			public double Radius { get; private set;} = 100;
+
+			public override string ToString()
+			{
+				return $"Text: {Text}, X: {X}, Y: {Y}";
+			}
+
+			public void Advance(double timeDelta, double width, double height)
+			{
+				MoveForward(timeDelta);
+				Bounce(width, height);
+			}
+
+			private void MoveForward(double timeDelta)
+			{
+				X += XVel * timeDelta;
+				Y += YVel * timeDelta;
+			}
+
+			private void Bounce(double width, double height)
+			{
+				double minX = Radius;
+				double minY = Radius;
+				double maxX = width - Radius;
+				double maxY = height - Radius;
+
+				if (X < minX)
+				{
+					double over = minX - X;
+					X = minX + over;
+					XVel = -XVel;
+				}
+				else if (X > maxX)
+				{
+					double over = X - maxX;
+					X = maxX - over;
+					XVel = -XVel;
+				}
+
+				if (Y < minY)
+				{
+					double over = minY - Y;
+					Y = minY + over;
+					YVel = -YVel;
+				}
+				else if (Y > maxY)
+				{
+					double over = Y - maxY;
+					Y = maxY - over;
+					YVel = -YVel;
+				}
+			}
+		}
+	}
+
+	public class BoundingClientRect
+	{
+		public double X { get; set; }
+		public double Y { get; set; }
+		public double Width { get; set; }
+		public double Height { get; set; }
+		public double Top { get; set; }
+		public double Right { get; set; }
+		public double Bottom { get; set; }
+		public double Left { get; set; }
 	}
 }
