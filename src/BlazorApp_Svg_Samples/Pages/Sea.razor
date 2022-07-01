@@ -4,6 +4,17 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      height="100%" width="100%" @ref="mainDiv" tabindex="0"style="height: 95vh;">
+
+	 <defs>
+		<style type="text/css">
+
+			@@font-face {
+			font-family: SeaLife;
+			src: url('./Fonts/Sea-Life.otf');
+			}
+		</style>
+	</defs>
+
 	<rect width="100%" height="100%" fill="blue" fill-opacity="20%"/>
 
    <svg x="77%" y="1%" height="100" width="100">
@@ -20,14 +31,12 @@
 	{
 		@foreach (var item in seaService.Items)
 		{
-			<svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth">
+			 <svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth">
 
-				<rect width="100%" height="100%" fill="red" />
-
-				<text x="50%" y="50%" fill="black"
-					dominant-baseline="middle" text-anchor="middle"
-					font-size="100%" font-weight="bold">@string.Format($"X:{item.X}, Y:{@item.Y}")</text>
-			</svg>
+					<text x="50%" y="50%" fill="red"
+                    dominant-baseline="middle" text-anchor="middle"
+					font-family="SeaLife" font-size="400%">@item.Text</text>
+				  </svg>
 		}
 	}
 
@@ -37,7 +46,7 @@
 
 	private ElementReference mainDiv;
 	private SeaService seaService;
-	private const int ItemWidth = 1;
+	private const int ItemWidth = 100;
 	private BoundingClientRect _parentRectangle = new BoundingClientRect();
 
 	protected override async Task OnInitializedAsync()
@@ -50,6 +59,7 @@
 		if (firstRender)
 		{
 			await mainDiv.FocusAsync();
+			seaService.GenerateItems();
 			seaService.Start();
 		}
 
@@ -73,7 +83,7 @@
 		private readonly Timer _timer;
 		private readonly Action _draw;
 		private static Random _random = new Random();
-		private const int TotalItems = 100;
+		private const int TotalItems = 50;
 
 		public SeaService(Action draw)
 		{
@@ -95,16 +105,9 @@
 
 		private void Update()
 		{
-			if(Items.Count > TotalItems || Items.Count < TotalItems)
+			for (int i = 0; i < Items.Count; i++)
 			{
-				GenerateItems();
-			}
-			else
-			{
-				for(int i = 0; i < Items.Count; i++)
-				{
-					Items[i].Advance(10D, MaxWidth, MaxHeight);
-				}
+				Items[i].Advance(10D, MaxWidth, MaxHeight);
 			}
 		}
 
@@ -118,6 +121,7 @@
 			for(int i = 0; i < TotalItems; i++)
 			{ 
 				var item = new Item();
+				item.Text = new string(new[] { Chars.ElementAt(_random.Next(0, Chars.Length)) });
 				item.X = _random.NextDouble() * MaxWidth;
 				item.Y = _random.NextDouble() * MaxHeight;
 				item.XVel = _random.NextDouble() - .5;
@@ -192,6 +196,8 @@
 				}
 			}
 		}
+
+		public static string Chars = "ABCDEFGHIJKLMNOPQRSTUVWYZ0123456789";
 	}
 
 	public class BoundingClientRect
