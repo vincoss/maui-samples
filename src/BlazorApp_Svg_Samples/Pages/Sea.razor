@@ -31,10 +31,15 @@
 	{
 		@foreach (var item in seaService.Items)
 		{
-			 <svg x="@item.X" y="@item.Y" height="@ItemWidth" width="@ItemWidth">
-				<text x="50%" y="50%" fill="@item.Color"
-                dominant-baseline="middle" text-anchor="middle"
-				font-family="SeaLife" font-size="400%">@item.Text</text>
+			<svg x="@item.X" y="@item.Y" width="20%">
+
+				<svg viewBox="0 0 250 250" preserveAspectRatio="xMidYMid meet">
+					<svg x="0" y="0" width="250" height="250">
+					<text x="50%" y="50%" fill="@item.Color"
+					dominant-baseline="middle" text-anchor="middle"
+					font-family="SeaLife" font-size="1000%">@item.Text</text>
+				</svg>
+			</svg>
 			</svg>
 		}
 	}
@@ -45,7 +50,7 @@
 
 	private ElementReference mainDiv;
 	private SeaService seaService;
-	private const int ItemWidth = 100;
+	private const int ItemWidth = 70;
 	private BoundingClientRect _parentRectangle = new BoundingClientRect();
 
 	protected override async Task OnInitializedAsync()
@@ -82,14 +87,14 @@
 		private readonly Timer _timer;
 		private readonly Action _draw;
 		private static Random _random = new Random();
-		private const int TotalItems = 150;
+		private const int TotalItems = 50;
 
 		public SeaService(Action draw)
 		{
 			_draw = draw ?? throw new ArgumentNullException(nameof(draw));
 
 			_timer = new Timer();
-			_timer.Interval = 50;
+			_timer.Interval = 20;
 			_timer.Elapsed += TimerElapsed;
 			_timer.AutoReset = true;
 		}
@@ -143,7 +148,7 @@
 			public double XVel { get; set; }
 			public double YVel { get; set; }
 
-			public double Radius { get; private set;} = 100;
+			public double Radius { get; private set;} = 70;
 
 			public override string ToString()
 			{
@@ -153,7 +158,7 @@
 			public void Advance(double timeDelta, double width, double height)
 			{
 				MoveForward(timeDelta);
-				Bounce(width, height);
+				Direction(width, height);
 			}
 
 			private void MoveForward(double timeDelta)
@@ -162,10 +167,10 @@
 				Y += YVel * timeDelta;
 			}
 
-			private void Bounce(double width, double height)
+			private void Direction(double width, double height)
 			{
-				double minX = Radius;
-				double minY = Radius;
+				double minX = 0;
+				double minY = 0;
 				double maxX = width - Radius;
 				double maxY = height - Radius;
 
