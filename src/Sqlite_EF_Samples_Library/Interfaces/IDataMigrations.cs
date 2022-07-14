@@ -9,5 +9,7 @@ namespace Sqlite_EF_Samples_Library.Interfaces
     public interface IDataMigrations
     {
         void Run();
+
+        bool IsMigrated();
     }
 }

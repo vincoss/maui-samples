@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using Sqlite_EF_Samples_Library.Interfaces;
+﻿using Sqlite_EF_Samples_Library.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Sqlite_EF_Samples_Library.Services
 {
@@ -23,10 +19,11 @@ namespace Sqlite_EF_Samples_Library.Services
         {
             get
             {
-                var p = _path.GetDatabasePath(DatabaseName);
-                var c = $"Data Source={p};Password=Pass@word1;";
+                var c = $"Data Source={DatabasePath};Password=Pass@word1;";
                 return c;
             }
         }
+
+        public string DatabasePath => _path.GetDatabasePath(DatabaseName);
     }
 }

@@ -10,5 +10,6 @@ namespace Sqlite_EF_Samples_Library.Interfaces
     {
         string DatabaseName { get; }
         string ConnectionString { get; }
+        string DatabasePath { get; }
     }
 }
