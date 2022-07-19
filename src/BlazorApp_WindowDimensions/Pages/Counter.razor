@@ -13,6 +13,16 @@
     {
         base.OnInitialized();
 
+        App.Current.MainPage.Loaded += (s, e) =>
+        {
+
+        };
+
+       App.Current.MainPage.Unloaded += (s, e) =>
+       {
+
+       };
+
         App.Current.MainPage.SizeChanged += (s, e) =>
         {
 
