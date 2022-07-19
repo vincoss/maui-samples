@@ -9,6 +9,26 @@
 @code {
     private int currentCount = 0;
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        App.Current.MainPage.SizeChanged += (s, e) =>
+        {
+
+        };
+
+        App.Current.MainPage.Appearing += (s, e) =>
+        {
+
+        };
+
+        App.Current.MainPage.Disappearing += (s, e) =>
+       {
+
+       };
+    }
+
     private void IncrementCount()
     {
         currentCount++;
