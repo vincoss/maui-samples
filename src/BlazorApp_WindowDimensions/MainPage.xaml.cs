@@ -5,6 +5,12 @@
         public MainPage()
         {
             InitializeComponent();
+
+            this.Appearing += MainPage_Appearing;
+        }
+
+        private void MainPage_Appearing(object sender, EventArgs e)
+        {
         }
     }
 }

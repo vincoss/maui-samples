@@ -15,27 +15,28 @@
 
         App.Current.MainPage.Loaded += (s, e) =>
         {
-
+            // Called multiple times
         };
 
        App.Current.MainPage.Unloaded += (s, e) =>
        {
-
+           // Never called
        };
 
         App.Current.MainPage.SizeChanged += (s, e) =>
         {
-
+            // Called on resize and orientation change
         };
 
         App.Current.MainPage.Appearing += (s, e) =>
         {
-
+            // Too lates for this must be MainPage
         };
 
         App.Current.MainPage.Disappearing += (s, e) =>
        {
 
+           // Too lates for this must be MainPage
        };
     }
 
