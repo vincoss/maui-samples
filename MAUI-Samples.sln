@@ -87,7 +87,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameLoopLib", "src\GameLoop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphicsView_Samples", "src\GraphicsView_Samples\GraphicsView_Samples.csproj", "{99D74E29-CB11-4906-87D3-C9288986A7AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_Svg_Samples", "src\BlazorApp_Svg_Samples\BlazorApp_Svg_Samples.csproj", "{618DCBEC-07DE-4129-930E-B0EBE8D6BB83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Svg_Samples", "src\BlazorApp_Svg_Samples\BlazorApp_Svg_Samples.csproj", "{618DCBEC-07DE-4129-930E-B0EBE8D6BB83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OidcSamples", "src\OidcSamples\OidcSamples.csproj", "{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -323,6 +325,12 @@ Global
 		{618DCBEC-07DE-4129-930E-B0EBE8D6BB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{618DCBEC-07DE-4129-930E-B0EBE8D6BB83}.Release|Any CPU.Build.0 = Release|Any CPU
 		{618DCBEC-07DE-4129-930E-B0EBE8D6BB83}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
