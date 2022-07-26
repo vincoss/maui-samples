@@ -10,7 +10,8 @@ namespace OidcSamples
 {
     public partial class MainPage : ContentPage
     {
-        public const string CallbackUri = "TODO:";
+        public const string DataScheme = "myapp";
+        public const string CallbackUri = "TODO";
         public static readonly string CallbackScheme = $"{CallbackUri}/swagger/oauth2-redirect.html";
         public static readonly string SignoutCallbackScheme = $"{CallbackUri}/signout-callback-oidc";
 

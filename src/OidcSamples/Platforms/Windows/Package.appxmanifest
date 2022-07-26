@@ -35,7 +35,7 @@
 			</uap:VisualElements>
 			<Extensions>
 				<uap:Extension Category="windows.protocol">
-					<uap:Protocol Name="https">
+					<uap:Protocol Name="myapp">
 						<uap:DisplayName>OIDC-samples</uap:DisplayName>
 					</uap:Protocol>
 				</uap:Extension>
