@@ -22,6 +22,12 @@ namespace OidcSamples.Services
             try
             {
                 var callbackUrl = string.IsNullOrEmpty(_callbackUrl) ? options.EndUrl : _callbackUrl;
+                WebAuthenticatorResult authResulta = await WebAuthenticator.Default.AuthenticateAsync(
+       new Uri(options.StartUrl),
+       new Uri(callbackUrl));
+
+                string accessToken = authResulta?.AccessToken;
+
                 WebAuthenticatorResult authResult =
                     // await WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(callbackUrl));
                     await WebAuthenticator.AuthenticateAsync(new WebAuthenticatorOptions
