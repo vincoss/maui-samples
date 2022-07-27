@@ -52,5 +52,11 @@
 	<ItemGroup>
 		<PackageReference Include="IdentityModel.OidcClient" Version="5.0.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\HomeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	
 </Project>
