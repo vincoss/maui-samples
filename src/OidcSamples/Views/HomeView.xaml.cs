@@ -6,9 +6,6 @@ namespace OidcSamples.Views;
 
 public partial class HomeView : ContentPage
 {
-    public static string authority = "";
-    public static string callback = "myapp://authenticated";
-
     public HomeView()
 	{
 		InitializeComponent();
@@ -19,8 +16,8 @@ public partial class HomeView : ContentPage
         try
         {
             WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(
-                new Uri(authority),
-                new Uri(callback));
+                new Uri(Constants.AuthorityUri),
+                new Uri(Constants.RedirectUri));
 
             string accessToken = authResult?.AccessToken;
 
@@ -52,13 +49,25 @@ public partial class HomeView : ContentPage
             };
         }
 
+        /*
+        TokenMethod = (grantType, code) =>
+        let
+        query = [
+        client_id = client_id,
+        client_secret = client_secret,
+        code = code,
+        grant_type = "authorization_code",
+        code_verifier = "1vu5QqcA1kVvL-TlxpnD8cmDB1AZi3nPc5NIcFzsk0Y",
+        redirect_uri = redirect_uri], 
+        */
         string ParseAuthenticatorResult(WebAuthenticatorResult result)
         {
             string code = result?.Properties["code"];
             string scope = result?.Properties["scope"];
             string state = result?.Properties["state"];
             //string sessionState = result?.Properties["session_state"];
-            return $"{Constants.RedirectUri}#code={code}&scope={scope}&state={state}";
+            return $"https://localhost:5010/connect/token?client_id=TODO:&code={code}&grant_type=authorization_code&state={state}&redirect_uri={Constants.RedirectUri}";
+            // return $"{Constants.RedirectUri}#code={code}&scope={scope}&state={state}";
         }
     }
     

@@ -14,3 +14,4 @@ https://www.davidbritch.com/2020/04/authentication-from-xamarinforms-app_8.html
 https://github.com/mallibone/XamarinIdentity101
 https://docs.microsoft.com/en-us/dotnet/maui/platform-integration/communication/authentication?tabs=android
 https://stackoverflow.com/questions/54145970/get-userinfo-from-access-token-forbidden
+https://github.com/davidbritch/xamarin-forms/tree/master/WebAuthenticatorDemo
