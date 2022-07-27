@@ -22,12 +22,22 @@ namespace OidcSamples.Services
             try
             {
                 var callbackUrl = string.IsNullOrEmpty(_callbackUrl) ? options.EndUrl : _callbackUrl;
-                WebAuthenticatorResult authResulta = await WebAuthenticator.Default.AuthenticateAsync(
-       new Uri(options.StartUrl),
-       new Uri(callbackUrl));
 
-                string accessToken = authResulta?.AccessToken;
+//#if (WINDOWS)
+//                // WINUI fix
+//                WebAuthenticatorResult authResultA =
+//               await OidcSamples.Platforms.WinWebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(callbackUrl)); // Add your callback URL 
 
+//               var authorizeResponseA = ToRawIdentityUrl(options.EndUrl, authResultA);
+//#endif
+//                // From MSDN
+//                WebAuthenticatorResult authResultB = await WebAuthenticator.Default.AuthenticateAsync(
+//       new Uri(options.StartUrl),
+//       new Uri(callbackUrl));
+
+                //string accessToken = authResultB?.AccessToken;
+
+                // Original
                 WebAuthenticatorResult authResult =
                     // await WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(callbackUrl));
                     await WebAuthenticator.AuthenticateAsync(new WebAuthenticatorOptions

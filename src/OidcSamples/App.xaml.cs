@@ -1,4 +1,6 @@
-﻿namespace OidcSamples
+﻿using OidcSamples.Views;
+
+namespace OidcSamples
 {
     public partial class App : Application
     {
@@ -6,7 +8,9 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = 
+                new HomeView();
+                //new AppShell();
         }
     }
 }

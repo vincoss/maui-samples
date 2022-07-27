@@ -10,10 +10,9 @@ namespace OidcSamples
 {
     public partial class MainPage : ContentPage
     {
-        public const string CallbackUri = "TODO:";
-        public static readonly string CallbackScheme = $"{CallbackUri}/swagger/oauth2-redirect.html";
-        public static readonly string SignoutCallbackScheme = $"{CallbackUri}/signout-callback-oidc";
-
+        public const string CallbackUri = "myapp";
+        public static readonly string CallbackScheme = $"{CallbackUri}:/authenticated";
+        public static readonly string SignoutCallbackScheme = $"{CallbackUri}:/signout-callback-oidc";
 
         public MainPage()
         {
@@ -31,15 +30,15 @@ namespace OidcSamples
     public class MainViewModel : INotifyPropertyChanged
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        private const string AuthorityUrl = "TODO:";
+        private const string AuthorityUrl = "";
         private Credentials? _credentials;
         private readonly OidcIdentityService _oidcIdentityService;
 
         public MainViewModel()
         {
             // const string scope = "openid profile offline_access";
-            const string scope = "openid profile";
-            _oidcIdentityService = new OidcIdentityService("TODO:", MainPage.CallbackScheme, MainPage.SignoutCallbackScheme, scope, AuthorityUrl);
+            const string scope = "";
+            _oidcIdentityService = new OidcIdentityService("", MainPage.CallbackScheme, MainPage.SignoutCallbackScheme, scope, AuthorityUrl);
             ExecuteLogin = new Command(Login);
             ExecuteRefresh = new Command(RefreshTokens);
             ExecuteLogout = new Command(Logout);
