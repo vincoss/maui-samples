@@ -47,15 +47,4 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Resources\Splash\splash.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiSplashScreen Include="Resources\Splash\splash.svg">
-	    <Color>#512BD4</Color>
-	    <BaseSize>128,128</BaseSize>
-	  </MauiSplashScreen>
-	</ItemGroup>
-
 </Project>
