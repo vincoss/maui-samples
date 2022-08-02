@@ -1,5 +1,6 @@
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
+using OidcSamples.Services;
 using System.Net.Http.Headers;
 
 namespace OidcSamples.Views;
@@ -15,11 +16,29 @@ public partial class HomeView : ContentPage
 	{
         try
         {
-            WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(
-                new Uri(Constants.AuthorityUri),
-                new Uri(Constants.RedirectUri));
+            var clientId = "TODO:";
+            var scrope = "scopename";
 
-            string accessToken = authResult?.AccessToken;
+            var url = $"https://localhost:5010?client_id={clientId}&response_type=code&redirect_uri=oidcsamples://authenticated&scope={scrope}";
+
+#if WINDOWS
+        WebAuthenticatorResult authResult = await OidcSamples.Platforms.WinWebAuthenticator.AuthenticateAsync(
+               new Uri(url),
+               new Uri(IdentityServerConstants.RedirectUri));
+
+       string accessToken = authResult?.AccessToken;
+
+       if(accessToken != null)
+       {
+       }
+            // Do something with the token
+#endif
+
+            //WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(
+            //    new Uri(IdentityServerConstants.AuthorityUri),
+            //    new Uri(IdentityServerConstants.RedirectUri));
+
+            //string accessToken = authResult?.AccessToken;
 
             // Do something with the token
         }
@@ -29,24 +48,27 @@ public partial class HomeView : ContentPage
         }
     }
 
-    public static class Constants
-    {
-        public static string AuthorityUri = "";
-        public static string RedirectUri = "myapp:/authenticated";
-        public static string ApiUri = "";
-        public static string ClientId = "";
-        public static string Scope = "";
-    }
-
     public class Browser : IdentityModel.OidcClient.Browser.IBrowser
     {
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
-            WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(Constants.RedirectUri));
-            return new BrowserResult()
+#if WINDOWS
+        WebAuthenticatorResult authResult = await OidcSamples.Platforms.WinWebAuthenticator.AuthenticateAsync(
+               new Uri(IdentityServerConstants.AuthorityUri),
+               new Uri(IdentityServerConstants.RedirectUri));
+
+        return new BrowserResult()
             {
                 Response = ParseAuthenticatorResult(authResult)
             };
+#endif
+
+            throw new InvalidOperationException();
+            //WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(IdentityServerConstants.RedirectUri));
+            //return new BrowserResult()
+            //{
+            //    Response = ParseAuthenticatorResult(authResult)
+            //};
         }
 
         /*
@@ -66,7 +88,7 @@ public partial class HomeView : ContentPage
             string scope = result?.Properties["scope"];
             string state = result?.Properties["state"];
             //string sessionState = result?.Properties["session_state"];
-            return $"https://localhost:5010/connect/token?client_id=TODO:&code={code}&grant_type=authorization_code&state={state}&redirect_uri={Constants.RedirectUri}";
+            return $"https://localhost:5010/connect/token?client_id=TODO:&code={code}&grant_type=authorization_code&state={state}&redirect_uri={IdentityServerConstants.RedirectUri}";
             // return $"{Constants.RedirectUri}#code={code}&scope={scope}&state={state}";
         }
     }
@@ -79,10 +101,10 @@ public partial class HomeView : ContentPage
     {
         var options = new OidcClientOptions
         {
-            Authority = Constants.AuthorityUri,
-            ClientId = Constants.ClientId,
-            Scope = Constants.Scope,
-            RedirectUri = Constants.RedirectUri,
+            Authority = IdentityServerConstants.AuthorityUri,
+            ClientId = IdentityServerConstants.ClientId,
+            Scope = IdentityServerConstants.Scope,
+            RedirectUri = IdentityServerConstants.RedirectUri,
           //  ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
             Browser = new Browser()
         };
