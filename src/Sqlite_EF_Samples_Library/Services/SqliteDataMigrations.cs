@@ -7,17 +7,21 @@ using Sqlite_EF_Samples_Library.Entities;
 using Sqlite_EF_Samples_Library.Entities.Model;
 using Sqlite_EF_Samples_Library.Interfaces;
 using System;
+using System.Data.Common;
 using System.IO;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Sqlite_EF_Samples_Library.Services
 {
     public class SqliteDataMigrations : IDataMigrations
     {
+        private readonly DbConnection _connection;
         private readonly IDatabaseService _databaseService;
 
-        public SqliteDataMigrations(IDatabaseService databaseService)
+        public SqliteDataMigrations(IDatabaseService databaseService, DbConnection dbConnection)
         {
             _databaseService = databaseService ?? throw new ArgumentNullException(nameof(databaseService));
+            _connection = dbConnection ?? throw new ArgumentNullException(nameof(dbConnection));
         }
 
         public bool IsMigrated()
@@ -36,14 +40,14 @@ namespace Sqlite_EF_Samples_Library.Services
             }
 
             EnsureDatabase(c);
-            RunMigrations(c);
+            RunMigrations();
         }
 
-        private void RunMigrations(string connectionString)
+        private void RunMigrations()
         {
             try
             {
-                using var db = new DatabaseContext(connectionString);
+                using var db = new DatabaseContext(_connection);
                 db.Database.Migrate();
             }
             catch (Exception ex)

@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Data.Sqlite;
 
 namespace Sqlite_EF_Samples_Library.Entities
 {
@@ -26,7 +26,9 @@ namespace Sqlite_EF_Samples_Library.Entities
             builder.UseSqlite(connectionString,
                         x => x.MigrationsAssembly(typeof(DatabaseContextFactory).Assembly.FullName));
 
-            return new DatabaseContext(connectionString);
+            var connection = new SqliteConnection(connectionString);
+
+            return new DatabaseContext(connection);
         }
     }
 }

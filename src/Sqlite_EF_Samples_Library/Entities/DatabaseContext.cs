@@ -1,23 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Sqlite_EF_Samples_Library.Entities.Configuration;
 using Sqlite_EF_Samples_Library.Entities.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Common;
 
 
 namespace Sqlite_EF_Samples_Library.Entities
 {
     public class DatabaseContext : DbContext
     {
-        private readonly string _connectionString;
+        private readonly DbConnection _connection;
 
-        public DatabaseContext(string connectionString)
+        public DatabaseContext(DbConnection dbConnection)
         {
-            _connectionString = connectionString;
+            _connection = dbConnection ?? throw new ArgumentNullException(nameof(dbConnection));
+
+            ChangeTracker.LazyLoadingEnabled = false;
+            ChangeTracker.AutoDetectChangesEnabled = false;
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
@@ -25,7 +24,7 @@ namespace Sqlite_EF_Samples_Library.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(_connectionString);
+            optionsBuilder.UseSqlite(_connection);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

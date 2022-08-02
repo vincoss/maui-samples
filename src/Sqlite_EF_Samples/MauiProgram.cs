@@ -1,6 +1,8 @@
-﻿using Sqlite_EF_Samples.Platforms;
+﻿using Microsoft.Data.Sqlite;
+using Sqlite_EF_Samples.Platforms;
 using Sqlite_EF_Samples_Library.Interfaces;
 using Sqlite_EF_Samples_Library.Services;
+using System.Data.Common;
 
 namespace Sqlite_EF_Samples
 {
@@ -23,6 +25,13 @@ namespace Sqlite_EF_Samples
             services.AddSingleton<IBootstrap, Bootstrap>();
             services.AddSingleton<IDataMigrations, SqliteDataMigrations>();
             services.AddSingleton<IDatabaseService, DatabaseService>();
+            services.AddSingleton((services) =>
+            {
+                var service = services.GetService<IDatabaseService>();
+                var connection = new SqliteConnection(service.ConnectionString);
+                connection.Open();
+                return (DbConnection)connection;
+            });
 
             return builder.Build();
         }

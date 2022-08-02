@@ -1,7 +1,7 @@
 ﻿using Sqlite_EF_Samples_Library.Entities;
 using Sqlite_EF_Samples_Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
-
+using System.Data.Common;
 
 namespace Sqlite_EF_Samples
 {
@@ -16,8 +16,8 @@ namespace Sqlite_EF_Samples
         {
             txtMessage.Text = "Loading...";
 
-            var databaseService = App.ServiceProvider.GetService<IDatabaseService>();
-            using var db = new DatabaseContext(databaseService.ConnectionString);
+            var connection = App.ServiceProvider.GetService<DbConnection>();
+            using var db = new DatabaseContext(connection);
             {
                 var count = await db.Items.CountAsync();
 
