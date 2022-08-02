@@ -56,8 +56,8 @@
 		<PackageReference Include="FluentMigrator.Runner.SQLite" Version="3.3.2" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.0" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.6" />
-		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.6" />
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.7" />
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.7" />
 
 	</ItemGroup>
 
