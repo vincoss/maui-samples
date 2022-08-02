@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setup_Samples", "src\Setup_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Splash_Samples", "src\Splash_Samples\Splash_Samples.csproj", "{CEB4296D-B8C0-487E-AFAF-15CEB626D020}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging_Startup_Samples", "src\Logging_Startup_Samples\Logging_Startup_Samples.csproj", "{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -347,6 +349,12 @@ Global
 		{CEB4296D-B8C0-487E-AFAF-15CEB626D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB4296D-B8C0-487E-AFAF-15CEB626D020}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEB4296D-B8C0-487E-AFAF-15CEB626D020}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
