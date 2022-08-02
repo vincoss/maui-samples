@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Setup_Samples.Pages.SetupPage"
+             Title="SetupPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <ActivityIndicator IsRunning="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           Color="Red" />
+        <Label Text="Setup" 
+               FontSize="Large"
+               HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20"/>
+
+        <Label Text="{Binding PercentLabel}" LineBreakMode="TailTruncation" HorizontalOptions="CenterAndExpand" />
+        <Label Text="{Binding MessageLabel}" LineBreakMode="TailTruncation" HorizontalOptions="CenterAndExpand" />
+
+    </VerticalStackLayout>
+    
+</ContentPage>

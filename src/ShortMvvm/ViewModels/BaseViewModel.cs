@@ -39,6 +39,11 @@ namespace ShortMvvm.ViewModels
 
     public class BaseViewModel : BasePropertyChanged
     {
+        public virtual Task InitializeAsync()
+        {
+            return Task.CompletedTask;
+        }
+
         public virtual void Initialize() { }
 
         bool isBusy = false;
