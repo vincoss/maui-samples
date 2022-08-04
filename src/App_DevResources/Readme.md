@@ -104,19 +104,3 @@ https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
 C:\Program Files (x86)\Android\android-sdk\tools
 C:\Users\{UserName}\AppData\Local\Android\Sdk\tools\bin
 ```
-
-## Temp
-find few games to review 5-6 year old (math)
-find how to use those fonts in blazor
-	create a sample
-	https://www.dafont.com/es/woodcutter-manero.d3980?page=1
-find blazor game
-Sample to create
-	required digit type sample
-	1,2,3 (digits)
-		must raise event on each digit and reach digits
-		this is array and user must fill it
-input
-	entry
-	underline
-	icon
