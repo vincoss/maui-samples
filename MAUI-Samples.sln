@@ -89,13 +89,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Svg_Samples", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OidcSamples", "src\OidcSamples\OidcSamples.csproj", "{41F69431-BED5-44C0-9AD7-14E5BCA10BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{00B38B3E-B14B-479F-AED7-1668C2A10476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{00B38B3E-B14B-479F-AED7-1668C2A10476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setup_Samples", "src\Setup_Samples\Setup_Samples.csproj", "{BD12468C-6470-4570-A69E-AE32DFB22FEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Setup_Samples", "src\Setup_Samples\Setup_Samples.csproj", "{BD12468C-6470-4570-A69E-AE32DFB22FEB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Splash_Samples", "src\Splash_Samples\Splash_Samples.csproj", "{CEB4296D-B8C0-487E-AFAF-15CEB626D020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging_Startup_Samples", "src\Logging_Startup_Samples\Logging_Startup_Samples.csproj", "{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging_Startup_Samples", "src\Logging_Startup_Samples\Logging_Startup_Samples.csproj", "{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth_Samples", "src\OAuth_Samples\OAuth_Samples.csproj", "{FC3ED072-9F37-441B-B43E-250F9CF55134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -355,6 +357,12 @@ Global
 		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{255AEA41-33C4-4D5D-8BED-A3A25BF461CD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3ED072-9F37-441B-B43E-250F9CF55134}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
