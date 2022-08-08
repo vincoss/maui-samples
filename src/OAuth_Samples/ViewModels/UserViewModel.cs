@@ -26,10 +26,12 @@ namespace OAuth_Samples.ViewModels
 
         private async void OnLoginCommand()
         {
-            await App.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+            var page = App.ServiceProvider.GetService<LoginPage>();
+            await App.Current.MainPage.Navigation.PushModalAsync(page);
         }
 
         public ICommand LoginCommand { get; private set; }
+        public ICommand LogoutCommand { get; private set; }
 
         private string _userName;
 
