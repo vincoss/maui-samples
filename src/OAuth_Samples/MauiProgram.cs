@@ -22,9 +22,9 @@ namespace OAuth_Samples
 
             builder.Services.AddSingleton(new AuthClient(new()
             {
-                Domain = "devidentity.plexer.com.au",//"localhost:5010",
-                ClientId = "plexer-api",
-                Scope = "plexerapi openid",
+                Domain = "",//"localhost:5010",
+                ClientId = "",
+                Scope = "",
 #if WINDOWS
 			RedirectUri = "http://localhost/callback"
 #else
