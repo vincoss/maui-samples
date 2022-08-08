@@ -1,0 +1,22 @@
+<VerticalStackLayout  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OAuth_Samples.Views.UserView"
+             VerticalOptions="CenterAndExpand">
+
+    <HorizontalStackLayout IsVisible="{Binding ShowUser}">
+        <Label Text="{Binding UserName}" FontAttributes="Bold" VerticalTextAlignment="Center"
+               LineBreakMode="TailTruncation"
+               Margin="0,0,10,0"/>
+    </HorizontalStackLayout>
+
+    <Label IsVisible="{Binding ShowLogin}"
+           Text="Login" 
+           FontAttributes="Bold" VerticalTextAlignment="Center"
+           LineBreakMode="TailTruncation" TextDecorations="Underline"
+           Margin="0,0,10,0">
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding LoginCommand}"/>
+        </Label.GestureRecognizers>
+    </Label>
+
+</VerticalStackLayout>
