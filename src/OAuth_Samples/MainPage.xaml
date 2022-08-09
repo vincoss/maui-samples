@@ -12,6 +12,8 @@
         </Grid.RowDefinitions>
 
         <v:UserView Grid.Row="0"/>
+
+        <Label Grid.Row="1" Text="Home"/>
     </Grid>
 
 </ContentPage>

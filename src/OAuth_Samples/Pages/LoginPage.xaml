@@ -4,6 +4,9 @@
              x:Class="OAuth_Samples.Pages.LoginPage"
              Title="LoginPage">
 
-    <WebView x:Name="WebViewInstance" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    <VerticalStackLayout>
+        <WebView x:Name="WebViewInstance" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <Label Text="Login Page"/>
+    </VerticalStackLayout>
 
 </ContentPage>

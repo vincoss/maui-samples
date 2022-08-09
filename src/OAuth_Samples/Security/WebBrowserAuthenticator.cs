@@ -10,9 +10,21 @@ namespace OAuth_Samples.Security
         {
             try
             {
-                WebAuthenticatorResult result = await WebAuthenticator.Default.AuthenticateAsync(
-                   new Uri(options.StartUrl),
-                   new Uri(options.EndUrl));
+                //WebAuthenticatorResult result = await WebAuthenticator.Default.AuthenticateAsync(
+                //   new Uri(options.StartUrl),
+                //   new Uri(options.EndUrl));
+
+                WebAuthenticatorResult result = null;
+
+#if WINDOWS
+                    result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
+                           new Uri(options.StartUrl),
+                           new Uri(options.EndUrl));
+#else
+                result = await WebAuthenticator.Default.AuthenticateAsync(
+                               new Uri(options.StartUrl),
+                               new Uri(options.EndUrl));
+#endif
 
                 var url = new RequestUrl(options.EndUrl)
                     .Create(new Parameters(result.Properties));
