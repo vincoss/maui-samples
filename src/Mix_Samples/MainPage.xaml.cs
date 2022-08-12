@@ -1,4 +1,5 @@
-﻿using Mix_Samples.Views;
+﻿using MauiApp1;
+using Mix_Samples.Views;
 
 namespace Mix_Samples
 {
@@ -18,6 +19,7 @@ namespace Mix_Samples
             pages.Add(new PageInfo { Type = typeof(StringFormatView) });
             pages.Add(new PageInfo { Type = typeof(ActivityIndicatorView) });
             pages.Add(new PageInfo { Type = typeof(FlexLayoutView) });
+            pages.Add(new PageInfo { Type = typeof(ListAllFilesInAppInstallPathView) });
 
             ListOfPages.ItemsSource = pages;
         }

@@ -71,6 +71,9 @@
 	  <MauiXaml Update="Views\FlexLayoutView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ListAllFilesInAppInstallPathView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StringFormatView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
