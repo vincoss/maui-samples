@@ -61,6 +61,15 @@ namespace Sqlite_EF_Samples_Library.Services
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open(); // Will create a database file
+
+                var sql = @"PRAGMA auto_vacuum=FULL;
+                            PRAGMA synchronous=normal;
+                            PRAGMA temp_store=memory;
+                            PRAGMA mmap_size=30000000000;
+                            PRAGMA page_size=32768;";
+
+                var cmd = new SqliteCommand(sql, connection);
+                cmd.ExecuteNonQuery();
             }
         }
 

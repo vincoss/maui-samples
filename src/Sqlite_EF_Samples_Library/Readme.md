@@ -17,3 +17,6 @@ dotnet ef migrations add InitialCreate
 
 ## Resources
 https://docs.microsoft.com/en-us/ef/core/cli/dotnet
+https://www.sqlite.org/pragma.html
+https://cj.rs/blog/sqlite-pragma-cheatsheet-for-performance-and-consistency/
+https://phiresky.github.io/blog/2020/sqlite-performance-tuning/
