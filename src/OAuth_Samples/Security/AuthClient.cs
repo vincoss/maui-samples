@@ -37,28 +37,52 @@ namespace OAuth_Samples.Security
 
         public async Task<LoginResult> LoginAsync()
         {
-            return await _oidcClient.LoginAsync();
+            try
+            {
+                return await _oidcClient.LoginAsync();
+            }
+            catch (Exception ex) // Will crash if disco is not available
+            {
+                // TODO: log here
+                return new LoginResult("Error", "Contact admin error");
+            }
         }
 
         public async Task<BrowserResult> LogoutAsync()
         {
-            var logoutParameters = new Dictionary<string, string>
+            try
             {
-                  {"client_id", _oidcClient.Options.ClientId },
-                  {"returnTo", _oidcClient.Options.RedirectUri }
-            };
+                var result = await _oidcClient.LogoutAsync();
 
-            var logoutRequest = new LogoutRequest();
-            var endSessionUrl = new RequestUrl($"{_oidcClient.Options.Authority}/v2/logout").Create(new Parameters(logoutParameters));
-            var browserOptions = new BrowserOptions(endSessionUrl, _oidcClient.Options.RedirectUri)
+                if (result != null)
+                {
+                }
+
+                return null;
+            }
+            catch (Exception ex) // Will crash if disco is not available
             {
-                Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
-                DisplayMode = logoutRequest.BrowserDisplayMode
+                // TODO: log here
+
+                return new BrowserResult
+                {
+                    ResultType = BrowserResultType.HttpError,
+                    ErrorDescription = "Contact admin error"
             };
+            }
+        }
+        public async Task<AuthLoginResult> RefreshToken(string refreshToken)
+        {
+            try
+            {
+                var refreshTokenResult = await _oidcClient.RefreshTokenAsync(refreshToken);
+                return refreshTokenResult.ToCredentials();
+            }
+            catch (Exception ex) // Will crash if disco is not available
+            {
 
-            var browserResult = await _oidcClient.Options.Browser.InvokeAsync(browserOptions);
-
-            return browserResult;
+                return new AuthLoginResult { Error = ex.ToString() };
+            }
         }
     }
 }
