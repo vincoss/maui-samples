@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
 
@@ -8,9 +9,13 @@ namespace GameLoopLib.Engine
     {
         public void Start()
         {
+            if (IsRunning)
+            {
+                return;
+            }
+
             IsRunning = true;
             var t = new Thread(Loop);
-            t.Priority = ThreadPriority.Lowest;
             t.Start();
         }
 
@@ -23,49 +28,40 @@ namespace GameLoopLib.Engine
 
         private void Loop()
         {
-            var MS_PER_UPDATE = 100;
-            var previous = Environment.TickCount;
-            var lag = 0;
-            while (true)
+            int fps = 60;
+            int fpsTicNum = 0;
+            int _framesRendered = 0;
+            long delayTicks = (1000 / fps) * TimeSpan.TicksPerMillisecond;
+            var previous = DateTime.Now.Ticks;
+            var seconds = previous;
+
+            while (IsRunning)
             {
-                var current = Environment.TickCount;
-                var elapsed = current - previous;
+                var current = DateTime.Now.Ticks;
+                var elapsedTicks = current - previous;
+                var elapsedSeconds = (current - seconds) / TimeSpan.TicksPerSecond;
                 previous = current;
-                lag += elapsed;
 
-                ///processInput();
-
-                while (lag >= MS_PER_UPDATE)
+                // Fps seconds
+                if (elapsedSeconds >= 1)
                 {
-                    OnUpdateGame();
-                    lag -= MS_PER_UPDATE;
+                    fpsTicNum = _framesRendered;
+                    _framesRendered = 0;
+                    seconds = current;
                 }
 
-                OnRenderGame(0.0F);
+                OnUpdateGame();
+                OnRenderGame(fpsTicNum);
+
+                _framesRendered++;
+                var delay = delayTicks - elapsedTicks;
+                var delayMilliseconds = (int)(delay / TimeSpan.TicksPerMillisecond);
+
+                if (delayMilliseconds > 0)
+                {
+                    Thread.Sleep(delayMilliseconds);
+                }
             }
-
-            //const int ticksPerSecond = 25;
-            //const int skipTicks = 1000 / ticksPerSecond;
-            //const int maxFrameSkip = 5;
-
-            //var nextGameTick = Environment.TickCount;
-
-            //while (IsRunning)
-            //{
-            //    int loops = 0;
-
-            //    while (Environment.TickCount > nextGameTick && loops < maxFrameSkip)
-            //    {
-            //        OnUpdateGame();
-
-            //        nextGameTick += skipTicks;
-            //        loops++;
-            //    }
-
-            //    // Usage view_position = position + (speed * interpolation)
-            //    float interpolation = (Environment.TickCount + skipTicks - nextGameTick) / (float)skipTicks;
-            //    OnRenderGame(interpolation);
-            //}
         }
 
         private void OnUpdateGame()
@@ -77,12 +73,12 @@ namespace GameLoopLib.Engine
             }
         }
 
-        private void OnRenderGame(float interpolation)
+        private void OnRenderGame(int fps)
         {
             var handler = this.RenderGame;
             if (handler != null)
             {
-                handler(this, new InterpolationEventArgs(interpolation));
+                handler(this, new InterpolationEventArgs(fps));
             }
         }
 

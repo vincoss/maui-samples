@@ -5,15 +5,15 @@ namespace GameLoopLib.Engine
 {
     public class InterpolationEventArgs : EventArgs
     {
-        public InterpolationEventArgs(float interpolation)
+        public InterpolationEventArgs(int fps)
         {
-            if (interpolation < 0)
+            if (fps < 0)
             {
                 throw new ArgumentOutOfRangeException("interpolation");
             }
-            this.Interpolation = interpolation;
+            this.Fps = fps;
         }
 
-        public float Interpolation { get; private set; }
+        public int Fps { get; private set; }
     }
 }
