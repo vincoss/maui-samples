@@ -1,5 +1,5 @@
 ﻿
-See
+See throws
 DeviceDisplay.MainDisplayInfoChanged += OnDisplayInfoChangedEventArgs;
 
 ## Resources
