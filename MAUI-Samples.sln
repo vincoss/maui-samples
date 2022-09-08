@@ -103,6 +103,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView_Samples", "src\WebV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{F8A11739-4FB4-46EC-BEF2-2AD70651C637}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MAUI-Cloud-Skills-Challenge", "MAUI-Cloud-Skills-Challenge", "{E05C1360-D708-4407-8EF2-62D94DEB41B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoneword", "src\Phoneword\Phoneword.csproj", "{61F04774-DB48-4D28-B6B0-1567FCEC418B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -377,6 +381,12 @@ Global
 		{F8A11739-4FB4-46EC-BEF2-2AD70651C637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A11739-4FB4-46EC-BEF2-2AD70651C637}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8A11739-4FB4-46EC-BEF2-2AD70651C637}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -394,6 +404,7 @@ Global
 		{618DCBEC-07DE-4129-930E-B0EBE8D6BB83} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{EBDEA15F-3D5F-4FDC-8CFC-37200F2B84D9} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
 		{F8A11739-4FB4-46EC-BEF2-2AD70651C637} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
+		{61F04774-DB48-4D28-B6B0-1567FCEC418B} = {E05C1360-D708-4407-8EF2-62D94DEB41B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}
