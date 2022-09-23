@@ -17,7 +17,7 @@
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.default_blazorapp</ApplicationId>
-        <ApplicationIdGuid>FD92EBDC-E1DC-472D-A38D-726DE66EBA15</ApplicationIdGuid>
+        <ApplicationIdGuid>A03D2826-948D-4B1C-84FC-174F532BA0B7</ApplicationIdGuid>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
