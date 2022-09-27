@@ -8,7 +8,7 @@ namespace Phoneword
         {
             InitializeComponent();
 
-            MainPage = new TipCalculatorGridView();
+            MainPage = new TipCalculatorView();
         }
     }
 }
