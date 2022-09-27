@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Phoneword.Views.TipCalculatorView"
              Title="TipCalculatorView">
+
+    <ContentPage.Resources>
+        <Color x:Key="PanelBackgroundColor">Blue</Color>
+    </ContentPage.Resources>
     
-    <VerticalStackLayout Padding="40" Spacing="10">
+    <VerticalStackLayout Padding="40" Spacing="10" BackgroundColor="{DynamicResource PanelBackgroundColor}">
 
         <HorizontalStackLayout Spacing="10">
             <Label Text="Bill" WidthRequest="100" VerticalOptions="Center" />

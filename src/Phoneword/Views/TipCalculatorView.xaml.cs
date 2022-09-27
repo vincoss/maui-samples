@@ -5,7 +5,11 @@ public partial class TipCalculatorView : ContentPage
 	public TipCalculatorView()
 	{
 		InitializeComponent();
-	}
+
+
+        this.Resources["PanelBackgroundColor"] = Colors.Green;
+
+    }
 
 	private void OnNormalTip(object sender, EventArgs e)
 	{
