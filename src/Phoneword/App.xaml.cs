@@ -8,7 +8,7 @@ namespace Phoneword
         {
             InitializeComponent();
 
-            MainPage = new OneView();
+            MainPage = new TipCalculatorView();
         }
     }
 }
