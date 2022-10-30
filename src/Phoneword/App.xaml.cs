@@ -1,4 +1,6 @@
-﻿namespace Phoneword
+﻿using Phoneword.Views;
+
+namespace Phoneword
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new TipCalculatorView();
         }
     }
 }

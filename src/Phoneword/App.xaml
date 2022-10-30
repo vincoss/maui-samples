@@ -5,6 +5,29 @@
              x:Class="Phoneword.App">
     <Application.Resources>
         <ResourceDictionary>
+
+
+            <Color x:Key="PageControlTextColor">Blue</Color>
+
+            <OnPlatform x:Key="textColor" x:TypeArguments="Color">
+                <On Platform="iOS" Value="Silver" />
+                <On Platform="Android" Value="Green" />
+                <On Platform="WinUI" Value="Yellow" />
+                <On Platform="MacCatalyst" Value="Pink" />
+            </OnPlatform>
+
+            <x:String x:Key="String">Hello</x:String>
+            <x:Char x:Key="Char">X</x:Char>
+            <x:Single x:Key="Single">31.4</x:Single>
+            <x:Double x:Key="Double">27.1</x:Double>
+            <x:Byte x:Key="Byte">8</x:Byte>
+            <x:Int16 x:Key="Int16">16</x:Int16>
+            <x:Int32 x:Key="Int32">32</x:Int32>
+            <x:Int64 x:Key="Int64">64</x:Int64>
+            <x:Decimal x:Key="Decimal">12345</x:Decimal>
+            <x:TimeSpan x:Key="TimeSpan">1.23:5959</x:TimeSpan>
+            <x:Boolean x:Key="Boolean">True</x:Boolean>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
