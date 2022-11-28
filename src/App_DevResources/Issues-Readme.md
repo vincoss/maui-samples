@@ -42,3 +42,10 @@ Original archive folder: C:\Users\user-name\AppData\Local\Xamarin\Mono for Andro
 a.	This erros might with path lenght, but the error message is not right.
 b.	Go to Tools->Options->Xamarin->Android Setting
 c.	try to change the Archives path
+
+## Issue 7 REQUEST_INSTALL_PACKAGES
+Publish to Android store
+App Status: Rejected
+Please remove the use of REQUEST_INSTALL_PACKAGES permission from your app.
+ remove <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.3" />
+ https://stackoverflow.com/questions/74180335/xamarin-permission-request-install-packages-which-dependency-brings-this-p
