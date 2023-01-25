@@ -1,5 +1,5 @@
 ﻿using Default_BlazorApp.Data;
-using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace Default_BlazorApp
 {
@@ -16,8 +16,10 @@ namespace Default_BlazorApp
                 });
 
             builder.Services.AddMauiBlazorWebView();
+
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
+		builder.Logging.AddDebug();
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
