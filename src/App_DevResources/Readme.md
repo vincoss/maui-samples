@@ -8,6 +8,8 @@ https://visualstudiomagazine.com/Home.aspx
 https://github.com/dotnet/Microsoft.Maui.Graphics.Controls
 https://github.com/dotnet/Comet
 https://github.com/jsuarezruiz/AlohaKit.Controls
+https://github.com/yiszza/Material.Components.Maui
+https://github.com/idexus/Sharp.UI
 
 
 ## 
