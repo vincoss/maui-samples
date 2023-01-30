@@ -107,7 +107,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_ClassLibrary", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowOpenClose_Samples", "src\WindowOpenClose_Samples\WindowOpenClose_Samples.csproj", "{6E6462E8-2F3C-4406-8154-0FC2D3E41952}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{6DB64773-D141-4B49-BFBC-AFFA51B2E909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{6DB64773-D141-4B49-BFBC-AFFA51B2E909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBarItems_Samples", "src\MenuBarItems_Samples\MenuBarItems_Samples.csproj", "{468038DF-E545-4B9D-93F8-C966FD1F6A55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -395,6 +397,12 @@ Global
 		{6DB64773-D141-4B49-BFBC-AFFA51B2E909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB64773-D141-4B49-BFBC-AFFA51B2E909}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DB64773-D141-4B49-BFBC-AFFA51B2E909}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MenuBarItems_Samples.MainPage">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Exit" />
+        </MenuBarItem>
+        <MenuBarItem Text="Locations">
+            <MenuFlyoutSubItem Text="Change Location">
+                <MenuFlyoutItem Text="Moscow, Russia"
+                                CommandParameter="Moscow" />
+                <MenuFlyoutItem Text="Beijing, China"
+                                CommandParameter="Beijing" />
+                <MenuFlyoutItem Text="New Delhi, India"
+                                CommandParameter="New Delhi"/>
+            </MenuFlyoutSubItem>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Add Location" />
+            <MenuFlyoutItem Text="Edit Location" />
+            <MenuFlyoutItem Text="Remove Location" />
+        </MenuBarItem>
+        <MenuBarItem Text="View">
+            <!--More items-->
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label Text="MenuBarItems - Samples"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
