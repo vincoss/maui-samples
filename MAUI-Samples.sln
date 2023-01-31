@@ -113,6 +113,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBarItems_Samples", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContexMenu_MenuFlyout_Samples", "src\ContexMenu_MenuFlyout_Samples\ContexMenu_MenuFlyout_Samples.csproj", "{4CE30F71-3079-47B7-944E-98156BCB7B72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestureRecognizers_Samples", "src\GestureRecognizers_Samples\GestureRecognizers_Samples.csproj", "{07827BEA-06F4-48E2-A9E5-EC544868B1C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -411,6 +413,12 @@ Global
 		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07827BEA-06F4-48E2-A9E5-EC544868B1C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
