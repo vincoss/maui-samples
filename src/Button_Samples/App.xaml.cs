@@ -11,7 +11,7 @@ namespace Button_Samples
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            return new Window(new NavigationPage(new ButtonBottomRightView())) { Title = "Button_Samples" };
+            return new Window(new NavigationPage(new MainPage())) { Title = "Button_Samples" };
         }
     }
 }
