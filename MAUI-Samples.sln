@@ -111,6 +111,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBarItems_Samples", "src\MenuBarItems_Samples\MenuBarItems_Samples.csproj", "{468038DF-E545-4B9D-93F8-C966FD1F6A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContexMenu_MenuFlyout_Samples", "src\ContexMenu_MenuFlyout_Samples\ContexMenu_MenuFlyout_Samples.csproj", "{4CE30F71-3079-47B7-944E-98156BCB7B72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -403,6 +405,12 @@ Global
 		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{468038DF-E545-4B9D-93F8-C966FD1F6A55}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE30F71-3079-47B7-944E-98156BCB7B72}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

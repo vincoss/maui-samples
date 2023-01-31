@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContexMenu_MenuFlyout_Samples.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label Text="Context menus samples"/>
+
+            <Editor>
+                <FlyoutBase.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Bold" />
+                        <MenuFlyoutItem Text="Italics" />
+                        <MenuFlyoutItem Text="Underline" />
+                    </MenuFlyout>
+                </FlyoutBase.ContextFlyout>
+            </Editor>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
