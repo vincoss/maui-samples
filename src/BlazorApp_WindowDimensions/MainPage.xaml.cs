@@ -12,5 +12,10 @@
         private void MainPage_Appearing(object sender, EventArgs e)
         {
         }
+
+        public void SetInfo(string info)
+        {
+            lblDisplayInfo.Text = info; 
+        }
     }
 }
