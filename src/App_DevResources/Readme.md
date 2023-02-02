@@ -1,6 +1,18 @@
 
 ## Resources
+https://github.com/dotnet/maui
+https://github.com/dotnet/maui-samples
+https://learn.microsoft.com/en-gb/dotnet/maui/?view=net-maui-7.0
+https://learn.microsoft.com/en-gb/samples/browse/?expanded=dotnet&products=dotnet-maui
+https://visualstudiomagazine.com/Home.aspx
+https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/
+https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/
 https://github.com/dotnet/Microsoft.Maui.Graphics.Controls
+https://github.com/dotnet/Comet
+https://github.com/jsuarezruiz/AlohaKit.Controls
+https://github.com/yiszza/Material.Components.Maui
+https://github.com/idexus/Sharp.UI
+
 
 ## 
 update samples with font icons, review whether those fonts are working

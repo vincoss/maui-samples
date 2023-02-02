@@ -20,6 +20,9 @@
         HorizontalOptions="Center"
         HeightRequest="{Binding Width, Source={x:Reference btn2}}"/>
         </HorizontalStackLayout>
+
+        <Button Text="Save With Tooltip" ToolTipProperties.Text="Click to save your comment" />
+
     </VerticalStackLayout>
 
 </ContentPage>

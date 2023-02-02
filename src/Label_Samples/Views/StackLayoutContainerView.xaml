@@ -99,6 +99,9 @@
 
             <!-- ? Adding special characters to the texts  -->
             <Label Text= "&lt;Hello people!!!&gt;" />
+            
+            <!-- Tooltip-->
+            <Label  Text="Label with tooltip" ToolTipProperties.Text="Hi there"/>
 
         </VerticalStackLayout>
     </ScrollView>
