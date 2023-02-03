@@ -26,6 +26,7 @@ picker view sample
 	see xamarin samples
 
 Shell
+
 <Shell.ItemTemplate>
         <DataTemplate>
             <GridLayout ColumnDefinitions="0.12*,0.88*" Padding="5">
