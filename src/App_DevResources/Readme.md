@@ -44,7 +44,6 @@ Shell
         backgroundColour change
         icon colour change
 
-
 SwipeView or FlyOut full screen on Right side as a menu
 
 collection view
