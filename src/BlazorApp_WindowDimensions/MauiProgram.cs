@@ -1,5 +1,6 @@
 ﻿using BlazorApp_WindowDimensions.Data;
 using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace BlazorApp_WindowDimensions
 {
@@ -18,6 +19,7 @@ namespace BlazorApp_WindowDimensions
             builder.Services.AddMauiBlazorWebView();
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
