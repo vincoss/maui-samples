@@ -1,5 +1,6 @@
 ﻿using BlazorApp_React_Samples.Data;
 using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace BlazorApp_React_Samples
 {
@@ -18,6 +19,7 @@ namespace BlazorApp_React_Samples
             builder.Services.AddMauiBlazorWebView();
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
