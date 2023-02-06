@@ -23,7 +23,7 @@ add a sample openiddict with identityserver
 picker view sample
 	single
 	multiple
-	see xamarin samples
+	see xamarin samples and migrate what is required
 
 Shell
 
@@ -82,10 +82,6 @@ Angle Left
 Close
 Clone
 Share
-
- 
-CarouselView_Samples
-
 
 ```
 entry and color picker
