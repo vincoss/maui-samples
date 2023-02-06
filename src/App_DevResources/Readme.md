@@ -91,8 +91,6 @@ CarouselView_Samples
 entry and color picker
 	name and color
 	color incremental change
-multiple entry (on next add new entry with ...)
-	empty must remove the entry
 ```
 
 ## Installation
