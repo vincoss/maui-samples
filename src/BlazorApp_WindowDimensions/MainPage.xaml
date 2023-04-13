@@ -5,10 +5,16 @@
              x:Class="BlazorApp_WindowDimensions.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <BlazorWebView HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    <VerticalStackLayout>
+
+        <Label Text="Display Info"/>
+        <Label x:Name="lblDisplayInfo"/>
+
+        <BlazorWebView HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </VerticalStackLayout>
 
 </ContentPage>

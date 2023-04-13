@@ -23,7 +23,7 @@ add a sample openiddict with identityserver
 picker view sample
 	single
 	multiple
-	see xamarin samples
+	see xamarin samples and migrate what is required
 
 Shell
 
@@ -44,7 +44,6 @@ Shell
     shell item selected item
         backgroundColour change
         icon colour change
-
 
 SwipeView or FlyOut full screen on Right side as a menu
 
@@ -84,16 +83,10 @@ Close
 Clone
 Share
 
- 
-CarouselView_Samples
-
-
 ```
 entry and color picker
 	name and color
 	color incremental change
-multiple entry (on next add new entry with ...)
-	empty must remove the entry
 ```
 
 ## Installation

@@ -33,5 +33,11 @@ namespace Entry_Samples
             var view = new EntryView();
             this.Navigation.PushAsync(view);
         }
+
+        private void buttonAutoEntry_Clicked(object sender, EventArgs e)
+        {
+            var view = new AutoEntryCreateView();
+            this.Navigation.PushAsync(view);
+        }
     }
 }
