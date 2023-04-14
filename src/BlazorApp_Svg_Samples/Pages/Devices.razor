@@ -68,7 +68,7 @@
 	private async Task EnsureDimensionsAsync()
 	{
 		// Get browser dimensions
-		var currentRectangle = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _mainDiv });
+		var currentRectangle = await JS.InvokeAsync<BoundingClientRect>("PageDOMgetBoundingClientRect", new object[] { _mainDiv });
 		if (DoubleEquals(this._displayRectangle.Width, currentRectangle.Width) == false || DoubleEquals(this._displayRectangle.Height, currentRectangle.Height) == false)
 		{
 			_displayRectangle = currentRectangle;
