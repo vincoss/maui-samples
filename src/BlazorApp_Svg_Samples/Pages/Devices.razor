@@ -43,32 +43,17 @@
 	{
 		if (firstRender)
 		{
-			this._firstRender = false;
+			await EnsureDimensionsAsync();
 			await _mainDiv.FocusAsync();
+			this._firstRender = false;
 		}
 
-		await EnsureDimensionsAsync();
-		Calculate();
+		Calculate(); // calculate object diff
 
 		if (_refresh)
 		{
-			Draw();
 			_refresh = false;
-		}
-	}
-
-	private async Task EnsureDimensionsAsync()
-	{
-		// Get Dimensions
-		var currentRectangle = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _mainDiv });
-		//if (this._displayRectangle.Width != currentRectangle.Width || this._displayRectangle.Height != currentRectangle.Height)
-		if (DoubleEquals(this._displayRectangle.Width, currentRectangle.Width) == false || DoubleEquals(this._displayRectangle.Height, currentRectangle.Height) == false)
-		{
-			_displayRectangle = currentRectangle;
-
-			// Always draw if dimensions change
-
-			_refresh = true; Draw();
+			Draw();
 		}
 	}
 
@@ -78,6 +63,19 @@
 		var scale = (min * _itemDefaultScale) / 100;
 		_itemWidth = _itemDefaultWidth * scale;
 		_itemHeight = _itemDefaultWidth * scale;
+	}
+
+	private async Task EnsureDimensionsAsync()
+	{
+		// Get browser dimensions
+		var currentRectangle = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _mainDiv });
+		if (DoubleEquals(this._displayRectangle.Width, currentRectangle.Width) == false || DoubleEquals(this._displayRectangle.Height, currentRectangle.Height) == false)
+		{
+			_displayRectangle = currentRectangle;
+			_refresh = true;
+			// Always draw if dimensions change
+			Draw();
+		}
 	}
 
 	private async void OnSizeChanged(object sender, EventArgs e)
@@ -103,7 +101,7 @@
 	{
 		if (acceptableDifference < 0)
 		{
-			throw new ArgumentOutOfRangeException("acceptableDifference");
+			throw new ArgumentOutOfRangeException(nameof(acceptableDifference));
 		}
 		double difference = Math.Abs(left * acceptableDifference);
 		return Math.Abs(left - right) <= difference;
