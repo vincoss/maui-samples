@@ -3,7 +3,11 @@
 </svg>
 
 @code {
+	//transform="matrix(6.25,0,0,6.25,600,0)"
 
-	public double Width = 100;
-	public double Height = 100;
+	[Parameter]
+	public double Width { get; set; } = 100;
+
+	[Parameter]
+	public double Height { get; set; } = 100;
 }
