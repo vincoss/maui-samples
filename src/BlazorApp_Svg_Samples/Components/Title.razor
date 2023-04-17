@@ -1,0 +1,22 @@
+﻿<svg viewBox="0 0 400 40" preserveAspectRatio="xMinYMin meet">
+	<svg width="400" height="40">
+		<rect width="100%" height="100%" fill="pink" />
+		<text dominant-baseline="hanging" text-anchor="start" font-size="40" font-weight="bold">TypQqjwaW 123456</text>
+	</svg>
+</svg>
+
+@code {
+	//transform="matrix(6.25,0,0,6.25,600,0)"
+
+	[Parameter]
+	public double Width { get; set; } = 400;
+
+	[Parameter]
+	public double Height { get; set; } = 40;
+
+	[Parameter]
+	public double X { get; set; } = 0;
+
+	[Parameter]
+	public double Y { get; set; } = 0;
+}
