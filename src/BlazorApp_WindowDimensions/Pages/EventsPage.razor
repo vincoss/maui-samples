@@ -1,10 +1,6 @@
-﻿@page "/counter"
+﻿@page "/events"
 
-<h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<h1>Events See code</h1>
 
 @code {
     private int currentCount = 0;
@@ -30,18 +26,12 @@
 
         App.Current.MainPage.Appearing += (s, e) =>
         {
-            // Too lates for this must be MainPage
+            // Too late for this must be MainPage
         };
 
         App.Current.MainPage.Disappearing += (s, e) =>
        {
-
-           // Too lates for this must be MainPage
+           // Too late for this must be MainPage
        };
-    }
-
-    private void IncrementCount()
-    {
-        currentCount++;
     }
 }
