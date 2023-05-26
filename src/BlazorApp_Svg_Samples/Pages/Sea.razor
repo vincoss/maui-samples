@@ -94,7 +94,7 @@
         private readonly Timer _timer;
         private readonly Action _draw;
         private static Random _random = new Random();
-        private const int TotalItems = 1;
+        private const int TotalItems = 20;
 
         public SeaService(Action draw)
         {
@@ -134,8 +134,8 @@
                 var item = new Item();
                 item.Text = new string(new[] { Chars.ElementAt(_random.Next(0, Chars.Length)) });
                 item.Color = string.Format("#{0:X6}", _random.Next(0x1000000));
-                item.X = 10;// _random.NextDouble() * MaxWidth;
-                item.Y = 10;// _random.NextDouble() * MaxHeight;
+                item.X = _random.NextDouble() * MaxWidth;
+                item.Y = _random.NextDouble() * MaxHeight;
                 item.XVel = _random.NextDouble() - .5;
                 item.YVel = _random.NextDouble() - .5;
                 Items.Add(item);

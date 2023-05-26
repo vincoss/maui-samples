@@ -1,0 +1,101 @@
+﻿@page "/rect-float"
+@using System.Timers
+@inject IJSRuntime JS;
+
+<PageTitle>Moving canvas sample SVG</PageTitle>
+
+<div @ref="mainDiv" style="width: 80vw; height: 80vh; margin-top:10px;" tabindex="0">
+    <p>@fps</p>
+    <svg width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+	    <rect width="100%" height="100%" fill="#dcdcdc" />
+	    <rect x="@x" y="@y" height="100" width="100" fill="red" />
+    </svg>
+</div>
+
+@code {
+    private IGameLoop _loop;
+    private ElementReference mainDiv;
+    private BoundingClientRect _parentRectangle;
+    private int x = 0;
+    private int y = 0;
+    private int fps = 0;
+
+    protected override Task OnInitializedAsync()
+    {
+        _loop = new GameLoop();
+        _loop.UpdateGame += OnUpdateGame;
+        _loop.RenderGame += OnRenderGame;
+        _loop.Start();
+
+        return base.OnInitializedAsync();
+    }
+
+    private void OnUpdateGame(object sender, EventArgs args)
+    {
+        Update();
+    }
+
+    private void OnRenderGame(object sender, InterpolationEventArgs args)
+    {
+        this.InvokeAsync(() =>
+        {
+            fps = args.Fps;
+            Draw();
+        });
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await mainDiv.FocusAsync();
+
+            var args = new object[] { mainDiv };
+            _parentRectangle = await JS.InvokeAsync<BoundingClientRect>("PageDOMgetBoundingClientRect", args);
+        }
+
+    }
+
+    private void TimerElapsed(Object source, ElapsedEventArgs e)
+    {
+        Console.WriteLine($"Tick {e.SignalTime}");
+
+        Update();
+        Draw();
+    }
+
+    private void Draw() => this.StateHasChanged();
+
+    public void Update()
+    {
+        if(_parentRectangle == null)
+        {
+            return;
+        }
+
+        if(y >= _parentRectangle.Height)
+        {
+            y = 0;
+        }
+        if(x >= _parentRectangle.Width)
+        {
+            x = 0;
+        }
+
+        x++;
+        y++;
+    }
+
+    public class BoundingClientRect
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double Top { get; set; }
+        public double Right { get; set; }
+        public double Bottom { get; set; }
+        public double Left { get; set; }
+    }
+
+}
