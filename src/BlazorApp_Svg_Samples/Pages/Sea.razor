@@ -3,217 +3,224 @@
 @inject IJSRuntime JS;
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     height="100%" width="100%" @ref="mainDiv" tabindex="0"style="height: 85vh;">
+     height="100%" width="100%" @ref="mainDiv" tabindex="0" style="height: 85vh;">
 
-	 <defs>
-		<style type="text/css">
+    <defs>
+        <style type="text/css">
 
-			@@font-face {
-			font-family: SeaLife;
-			src: url('./Fonts/Sea-Life.otf');
-			}
-		</style>
-	</defs>
+            @@font-face {
+                font-family: SeaLife;
+                src: url('./Fonts/Sea-Life.otf');
+            }
+        </style>
+    </defs>
 
-	<rect width="100%" height="100%" fill="blue" fill-opacity="20%"/>
+    <rect width="100%" height="100%" fill="blue" fill-opacity="20%" />
 
-   <svg x="77%" y="1%" height="100" width="100">
-		<svg viewBox="0, 0, 250, 200" preserveAspectRatio="xMidYMax meet">
-			<svg width="250" height="200" fill="red">
-				<rect width="100%" height="100%" fill="gold" />
-				<text x="50%" y="25%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">Count</text>
-				<text x="50%" y="65%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">@seaService.Items.Count</text>
-			</svg>
-		</svg>
-	</svg>
+    <svg x="10" y="10" height="100" width="100">
+        <svg viewBox="0, 0, 250, 200" preserveAspectRatio="xMidYMax meet">
+            <svg width="250" height="200" fill="red">
+                <rect width="100%" height="100%" fill="gold" />
+                <text x="50%" y="25%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">Count</text>
+                <text x="50%" y="65%" font-weight="bold" font-size="500%" dominant-baseline="central" text-anchor="middle">@seaService.Items.Count</text>
+            </svg>
+        </svg>
+    </svg>
 
-	@if(seaService != null)
-	{
-		@foreach (var item in seaService.Items)
-		{
-			<svg x="@item.X" y="@item.Y" width="20%">
+    @if (seaService != null)
+    {
+        @foreach (var item in seaService.Items)
+        {
+            <svg x="@item.X" y="@item.Y" width="20%" height="20%">
+                <rect width="100%" height="100%" fill="gray" fill-opacity="20%" />
 
-				<svg viewBox="0 0 250 250" preserveAspectRatio="xMidYMid meet">
-					<svg x="0" y="0" width="250" height="250">
-					<text x="50%" y="50%" fill="@item.Color"
-					dominant-baseline="middle" text-anchor="middle"
-					font-family="SeaLife" font-size="1000%">@item.Text</text>
-				</svg>
-			</svg>
-			</svg>
-		}
-	}
+                <svg viewBox="0 0 250 250" preserveAspectRatio="xMidYMid meet">
+                    <svg x="0" y="0" width="250" height="250">
+                        <text x="50%" y="50%" fill="@item.Color"
+                              dominant-baseline="middle" text-anchor="middle"
+                              font-family="SeaLife" font-size="1000%">@item.Text</text>
+                    </svg>
+                </svg>
+            </svg>
+        }
+    }
 
 </svg>
 
 @code {
 
-	private ElementReference mainDiv;
-	private SeaService seaService;
-	private const int ItemWidth = 70;
-	private BoundingClientRect _parentRectangle = new BoundingClientRect();
+    private ElementReference mainDiv;
+    private SeaService seaService;
+    private const int ItemWidth = 70;
+    private BoundingClientRect _parentRectangle = new BoundingClientRect();
 
-	protected override async Task OnInitializedAsync()
-	{
-		seaService = new SeaService(Draw);
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        seaService = new SeaService(Draw);
+    }
 
-	protected override async Task OnAfterRenderAsync(bool firstRender)
-	{
-		if (firstRender)
-		{
-			await mainDiv.FocusAsync();
-			seaService.GenerateItems();
-			seaService.Start();
-		}
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await GetSize();
+            await mainDiv.FocusAsync();
+            seaService.GenerateItems();
+            seaService.Start();
+        }
 
-		//  NOTE: Not sure about performace
-		var args = new object[] { mainDiv };
-		_parentRectangle = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", args);
-		seaService.MaxWidth = _parentRectangle.Width;
-		seaService.MaxHeight = _parentRectangle.Height;
-	}
+        await GetSize();
+    }
 
-	private void Draw()
-	{
-		InvokeAsync(() =>
-		{
-			this.StateHasChanged();
-		});
-	}
+    private async Task GetSize()
+    {
+        //  NOTE: Not sure about performace
+        var args = new object[] { mainDiv };
+        _parentRectangle = await JS.InvokeAsync<BoundingClientRect>("PageDOMgetBoundingClientRect", args);
+        seaService.MaxWidth = _parentRectangle.Width;
+        seaService.MaxHeight = _parentRectangle.Height;
+    }
 
-	public class SeaService
-	{
-		private readonly Timer _timer;
-		private readonly Action _draw;
-		private static Random _random = new Random();
-		private const int TotalItems = 50;
+    private void Draw()
+    {
+        InvokeAsync(() =>
+        {
+            this.StateHasChanged();
+        });
+    }
 
-		public SeaService(Action draw)
-		{
-			_draw = draw ?? throw new ArgumentNullException(nameof(draw));
+    public class SeaService
+    {
+        private readonly Timer _timer;
+        private readonly Action _draw;
+        private static Random _random = new Random();
+        private const int TotalItems = 1;
 
-			_timer = new Timer();
-			_timer.Interval = 20;
-			_timer.Elapsed += TimerElapsed;
-			_timer.AutoReset = true;
-		}
+        public SeaService(Action draw)
+        {
+            _draw = draw ?? throw new ArgumentNullException(nameof(draw));
 
-		private void TimerElapsed(Object source, ElapsedEventArgs e)
-		{
-			Console.WriteLine($"Tick {e.SignalTime}");
+            _timer = new Timer();
+            _timer.Interval = 20;
+            _timer.Elapsed += TimerElapsed;
+            _timer.AutoReset = true;
+        }
 
-			Update();
-			_draw();
-		}
+        private void TimerElapsed(Object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine($"Tick {e.SignalTime}");
 
-		private void Update()
-		{
-			for (int i = 0; i < Items.Count; i++)
-			{
-				Items[i].Advance(10D, MaxWidth, MaxHeight);
-			}
-		}
+            Update();
+            _draw();
+        }
 
-		public void Start()
-		{
-			_timer.Enabled = true;
-		}
+        private void Update()
+        {
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Items[i].Advance(10D, MaxWidth, MaxHeight);
+            }
+        }
 
-		public void GenerateItems()
-		{
-			for(int i = 0; i < TotalItems; i++)
-			{ 
-				var item = new Item();
-				item.Text = new string(new[] { Chars.ElementAt(_random.Next(0, Chars.Length)) });
-				item.Color = string.Format("#{0:X6}", _random.Next(0x1000000));
-				item.X = _random.NextDouble() * MaxWidth;
-				item.Y = _random.NextDouble() * MaxHeight;
-				item.XVel = _random.NextDouble() - .5;
-				item.YVel = _random.NextDouble() - .5;
-				Items.Add(item);
-			}
-		}
+        public void Start()
+        {
+            _timer.Enabled = true;
+        }
 
-		public IList<Item> Items { get; private set; } = new List<Item>();
-		public double MaxHeight { get; set; }
-		public double MaxWidth { get; set; }
+        public void GenerateItems()
+        {
+            for (int i = 0; i < TotalItems; i++)
+            {
+                var item = new Item();
+                item.Text = new string(new[] { Chars.ElementAt(_random.Next(0, Chars.Length)) });
+                item.Color = string.Format("#{0:X6}", _random.Next(0x1000000));
+                item.X = 10;// _random.NextDouble() * MaxWidth;
+                item.Y = 10;// _random.NextDouble() * MaxHeight;
+                item.XVel = _random.NextDouble() - .5;
+                item.YVel = _random.NextDouble() - .5;
+                Items.Add(item);
+            }
+        }
 
-		public class Item
-		{
-			public string? Text { get; set; }
-			public string? Color { get; set; }
-			public double Y { get; set; }
-			public double X { get; set; }
-			public double XVel { get; set; }
-			public double YVel { get; set; }
+        public IList<Item> Items { get; private set; } = new List<Item>();
+        public double MaxHeight { get; set; }
+        public double MaxWidth { get; set; }
 
-			public double Radius { get; private set;} = 70;
+        public class Item
+        {
+            public string? Text { get; set; }
+            public string? Color { get; set; }
+            public double Y { get; set; }
+            public double X { get; set; }
+            public double XVel { get; set; }
+            public double YVel { get; set; }
 
-			public override string ToString()
-			{
-				return $"Text: {Text}, X: {X}, Y: {Y}";
-			}
+            public double Radius { get; private set; } = 70;
 
-			public void Advance(double timeDelta, double width, double height)
-			{
-				MoveForward(timeDelta);
-				Direction(width, height);
-			}
+            public override string ToString()
+            {
+                return $"Text: {Text}, X: {X}, Y: {Y}";
+            }
 
-			private void MoveForward(double timeDelta)
-			{
-				X += XVel * timeDelta;
-				Y += YVel * timeDelta;
-			}
+            public void Advance(double timeDelta, double width, double height)
+            {
+                MoveForward(timeDelta);
+                Direction(width, height);
+            }
 
-			private void Direction(double width, double height)
-			{
-				double minX = 0;
-				double minY = 0;
-				double maxX = width - Radius;
-				double maxY = height - Radius;
+            private void MoveForward(double timeDelta)
+            {
+                X += XVel * timeDelta;
+                Y += YVel * timeDelta;
+            }
 
-				if (X < minX)
-				{
-					double over = minX - X;
-					X = minX + over;
-					XVel = -XVel;
-				}
-				else if (X > maxX)
-				{
-					double over = X - maxX;
-					X = maxX - over;
-					XVel = -XVel;
-				}
+            private void Direction(double width, double height)
+            {
+                double minX = 0;
+                double minY = 0;
+                double maxX = width - Radius;
+                double maxY = height - Radius;
 
-				if (Y < minY)
-				{
-					double over = minY - Y;
-					Y = minY + over;
-					YVel = -YVel;
-				}
-				else if (Y > maxY)
-				{
-					double over = Y - maxY;
-					Y = maxY - over;
-					YVel = -YVel;
-				}
-			}
-		}
+                if (X < minX)
+                {
+                    double over = minX - X;
+                    X = minX + over;
+                    XVel = -XVel;
+                }
+                else if (X > maxX)
+                {
+                    double over = X - maxX;
+                    X = maxX - over;
+                    XVel = -XVel;
+                }
 
-		public static string Chars = "ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwyz0123456789";
-	}
+                if (Y < minY)
+                {
+                    double over = minY - Y;
+                    Y = minY + over;
+                    YVel = -YVel;
+                }
+                else if (Y > maxY)
+                {
+                    double over = Y - maxY;
+                    Y = maxY - over;
+                    YVel = -YVel;
+                }
+            }
+        }
 
-	public class BoundingClientRect
-	{
-		public double X { get; set; }
-		public double Y { get; set; }
-		public double Width { get; set; }
-		public double Height { get; set; }
-		public double Top { get; set; }
-		public double Right { get; set; }
-		public double Bottom { get; set; }
-		public double Left { get; set; }
-	}
+        public static string Chars = "ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwyz0123456789";
+    }
+
+    public class BoundingClientRect
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double Top { get; set; }
+        public double Right { get; set; }
+        public double Bottom { get; set; }
+        public double Left { get; set; }
+    }
 }

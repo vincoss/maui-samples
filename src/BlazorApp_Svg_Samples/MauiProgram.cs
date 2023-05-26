@@ -1,5 +1,4 @@
-﻿using BlazorApp_Svg_Samples.Data;
-using Microsoft.AspNetCore.Components.WebView.Maui;
+﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace BlazorApp_Svg_Samples
@@ -22,8 +21,6 @@ namespace BlazorApp_Svg_Samples
 		builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
 #endif
-
-            builder.Services.AddSingleton<WeatherForecastService>();
 
 			return builder.Build();
         }
