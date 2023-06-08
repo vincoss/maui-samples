@@ -48,20 +48,12 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-
-
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\SetupPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
