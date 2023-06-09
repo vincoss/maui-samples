@@ -11,6 +11,12 @@
             this.Focused += MainPage_Focused;
             this.NavigatingFrom += MainPage_NavigatingFrom;
             this.NavigatedTo += MainPage_NavigatedTo;
+
+            DeviceDisplay.MainDisplayInfoChanged += DeviceDisplay_MainDisplayInfoChanged;
+        }
+
+        private void DeviceDisplay_MainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
+        {
         }
 
         private void MainPage_NavigatedTo(object sender, NavigatedToEventArgs e)
