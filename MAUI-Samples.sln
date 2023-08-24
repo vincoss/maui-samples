@@ -115,7 +115,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{E3563782-0BE6-45A7-8382-8B16240765C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_Events_Samples", "src\BlazorApp_Events_Samples\BlazorApp_Events_Samples.csproj", "{8CB4B276-2BA7-4670-9134-6A6B4D18A484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Events_Samples", "src\BlazorApp_Events_Samples\BlazorApp_Events_Samples.csproj", "{8CB4B276-2BA7-4670-9134-6A6B4D18A484}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
