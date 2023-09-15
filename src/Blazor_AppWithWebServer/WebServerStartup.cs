@@ -20,8 +20,11 @@ namespace Blazor_AppWithWebServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-           // MvcServiceCollectionExtensions
-          //  services.AddControllers();
+            //var args = new string[0];
+          //  var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
+
+            // MvcServiceCollectionExtensions
+            //  services.AddControllers();
 
             ConfigDependencies(services);
         }
