@@ -9,16 +9,49 @@ namespace WebView_Samples
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            var url = entryUrl.Text;
+            var pages = new List<PageInfo>();
+            pages.Add(new PageInfo { Type = typeof(BasicWebViewView) });
 
-            if(string.IsNullOrWhiteSpace(url))
+            ListOfPages.ItemsSource = pages;
+        }
+
+        private async void ListOfPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
             {
-                this.DisplayAlert("Alert", "Enter a valid URL.", "OK");
-                return;
+                var info = (PageInfo)e.CurrentSelection[0];
+                var page = (Page)Activator.CreateInstance(info.Type);
+
+                await this.Navigation.PushAsync(page);
             }
-            this.Navigation.PushAsync(new WebViewView(url));
+            ListOfPages.SelectedItem = null;
+        }
+
+        public class PageInfo
+        {
+            public Type Type { get; set; }
+            public string Name
+            {
+
+                get {
+                    if (Type != null)
+                    {
+                        return Type.Name;
+                    }
+                    return base.GetType().ToString();
+                }
+            }
+
+            public override string ToString()
+            {
+                if (string.IsNullOrWhiteSpace(Name))
+                {
+                    return base.ToString();
+                }
+                return Name;
+            }
         }
     }
 }
