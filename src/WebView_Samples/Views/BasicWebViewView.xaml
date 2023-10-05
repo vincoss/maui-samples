@@ -5,6 +5,22 @@
              NavigationPage.HasNavigationBar="False"
              Title="BasicWebViewView">
 
-    <WebView Source="https://learn.microsoft.com/dotnet/maui" />
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0">
+            <Label x:Name="labelLoading" Text="Loading..." IsVisible="false" />
+            <Button Text="Reload" Clicked="Button_Clicked" BackgroundColor="DeepPink"/>
+        </VerticalStackLayout>
+
+        <WebView Grid.Row="1" x:Name="webView"
+                 Source="https://learn.microsoft.com/dotnet/maui" 
+                 Navigating="webviewNavigating" Navigated="webView_Navigated"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    </Grid>
 
 </ContentPage>

@@ -1,8 +1,8 @@
 namespace MauiApp1;
 
-public partial class LocalHtmlWebViewView : ContentPage
+public partial class LocalHtmlSourceStringWebViewView : ContentPage
 {
-	public LocalHtmlWebViewView()
+	public LocalHtmlSourceStringWebViewView()
 	{
 		InitializeComponent();
 

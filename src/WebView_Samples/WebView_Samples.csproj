@@ -53,14 +53,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\NavigationWebViewView.xaml.cs">
+	    <DependentUpon>NavigationWebViewView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PermissionsAndroidWebViewView.xaml.cs">
 	    <DependentUpon>PermissionsAndroidWebViewView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\LocalHtmlFIleWebViewView.xaml.cs">
 	    <DependentUpon>LocalHtmlFileWebViewView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\LocalHtmlWebViewView.xaml.cs">
-	    <DependentUpon>LocalHtmlWebViewView.xaml</DependentUpon>
+	  <Compile Update="Views\LocalHtmlSourceStringWebViewView.xaml.cs">
+	    <DependentUpon>LocalHtmlSourceStringWebViewView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\BasicWebViewView.xaml.cs">
 	    <DependentUpon>BasicWebViewView.xaml</DependentUpon>
@@ -68,13 +71,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\NavigationWebViewView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PermissionsAndroidWebViewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LocalHtmlFileWebViewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\LocalHtmlWebViewView.xaml">
+	  <MauiXaml Update="Views\LocalHtmlSourceStringWebViewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\BasicWebViewView.xaml">

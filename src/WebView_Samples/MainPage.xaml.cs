@@ -13,7 +13,8 @@ namespace WebView_Samples
         {
             var pages = new List<PageInfo>();
             pages.Add(new PageInfo { Type = typeof(BasicWebViewView) });
-            pages.Add(new PageInfo { Type = typeof(LocalHtmlWebViewView) });
+            pages.Add(new PageInfo { Type = typeof(LocalHtmlSourceStringWebViewView) });
+            pages.Add(new PageInfo { Type = typeof(NavigationWebViewView) });
             pages.Add(new PageInfo { Type = typeof(LocalHtmlFileWebViewView) });
             pages.Add(new PageInfo { Type = typeof(PermissionsAndroidWebViewView) });
 
