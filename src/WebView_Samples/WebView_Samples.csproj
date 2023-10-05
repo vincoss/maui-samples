@@ -49,12 +49,34 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Raw\localfile.html" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\PermissionsAndroidWebViewView.xaml.cs">
+	    <DependentUpon>PermissionsAndroidWebViewView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\LocalHtmlFIleWebViewView.xaml.cs">
+	    <DependentUpon>LocalHtmlFileWebViewView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\LocalHtmlWebViewView.xaml.cs">
+	    <DependentUpon>LocalHtmlWebViewView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\BasicWebViewView.xaml.cs">
 	    <DependentUpon>BasicWebViewView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\PermissionsAndroidWebViewView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LocalHtmlFileWebViewView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LocalHtmlWebViewView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\BasicWebViewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
