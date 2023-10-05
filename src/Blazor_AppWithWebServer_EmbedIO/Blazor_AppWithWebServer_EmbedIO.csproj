@@ -50,11 +50,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EmbedIO" Version="3.5.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Server\" />
   </ItemGroup>
 
 </Project>
