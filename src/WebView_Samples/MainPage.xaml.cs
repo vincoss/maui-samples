@@ -17,6 +17,7 @@ namespace WebView_Samples
             pages.Add(new PageInfo { Type = typeof(NavigationWebViewView) });
             pages.Add(new PageInfo { Type = typeof(LocalHtmlFileWebViewView) });
             pages.Add(new PageInfo { Type = typeof(PermissionsAndroidWebViewView) });
+            pages.Add(new PageInfo { Type = typeof(EmbeddedResourceWebViewView) });
 
             ListOfPages.ItemsSource = pages;
         }

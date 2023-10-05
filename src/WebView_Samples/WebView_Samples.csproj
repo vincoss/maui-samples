@@ -49,44 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Raw\localfile.html" />
+	  <EmbeddedResource Include="Embedded\page001.html" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\NavigationWebViewView.xaml.cs">
-	    <DependentUpon>NavigationWebViewView.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\PermissionsAndroidWebViewView.xaml.cs">
-	    <DependentUpon>PermissionsAndroidWebViewView.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\LocalHtmlFIleWebViewView.xaml.cs">
-	    <DependentUpon>LocalHtmlFileWebViewView.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\LocalHtmlSourceStringWebViewView.xaml.cs">
-	    <DependentUpon>LocalHtmlSourceStringWebViewView.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\BasicWebViewView.xaml.cs">
-	    <DependentUpon>BasicWebViewView.xaml</DependentUpon>
-	  </Compile>
+	  <MauiAsset Update="Resources\Raw\site.css">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\NavigationWebViewView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PermissionsAndroidWebViewView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\LocalHtmlFileWebViewView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\LocalHtmlSourceStringWebViewView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\BasicWebViewView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 
 </Project>

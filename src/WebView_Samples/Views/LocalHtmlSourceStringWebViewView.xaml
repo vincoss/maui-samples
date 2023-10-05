@@ -28,6 +28,7 @@
             </WebView.Source>
         </WebView>
         <WebView HeightRequest="200" x:Name="webViewCode"/>
+        <WebView HeightRequest="200" Source="localfile.html"/>
     </VerticalStackLayout>
 
 </ContentPage>
