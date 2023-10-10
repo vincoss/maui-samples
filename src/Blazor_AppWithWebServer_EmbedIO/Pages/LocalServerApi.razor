@@ -1,0 +1,38 @@
+﻿@page "/"
+
+<h1>EmbedIO local web server</h1>
+
+<button class="btn btn-primary" @onclick="GetPeople">Get People</button>
+
+<div>
+    @message
+</div>
+
+@inject IHttpClientFactory ClientFactory
+
+@code {
+
+    private bool shouldRender;
+    private string message;   
+
+    protected override bool ShouldRender() => shouldRender;
+
+    private async void GetPeople()
+    {
+        var url = EmbedIO_ServerConsole.ServerHostingExtensions.GetUrl();
+        var request = new HttpRequestMessage(HttpMethod.Get, url);
+        request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            message = await response.Content.ReadAsStringAsync();
+         
+        }
+
+        shouldRender = true;
+    }
+}

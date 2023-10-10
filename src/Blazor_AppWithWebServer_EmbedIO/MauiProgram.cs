@@ -1,5 +1,6 @@
 ﻿using Blazor_AppWithWebServer.Data;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
 
 namespace Blazor_AppWithWebServer
 {
@@ -22,6 +23,7 @@ namespace Blazor_AppWithWebServer
     		builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddHttpClient();
             builder.Services.AddSingleton<WeatherForecastService>();
 
             return builder.Build();
