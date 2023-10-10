@@ -8,5 +8,12 @@
 
             MainPage = new MainPage();
         }
+
+        protected override async void OnStart()
+        {
+            base.OnStart();
+
+            EmbedIO_ServerConsole.ServerHostingExtensions.Run(new string[0]);
+        }
     }
 }

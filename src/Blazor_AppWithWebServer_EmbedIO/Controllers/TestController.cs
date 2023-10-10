@@ -14,7 +14,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
     // A very simple controller to handle People CRUD.
     // Notice how it Inherits from WebApiController and the methods have WebApiHandler attributes 
     // This is for sampling purposes only.
-    public sealed class PeopleController : WebApiController
+    public sealed class TestController : WebApiController
     {
         // Gets all records.
         // This will respond to 
