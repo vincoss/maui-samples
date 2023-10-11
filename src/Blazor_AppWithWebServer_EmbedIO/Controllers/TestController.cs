@@ -17,27 +17,31 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
     public sealed class TestController : WebApiController
     {
         [Route(HttpVerbs.Get, "/photo")]
-        public async Task TakePhoto()
+        public async Task<string> TakePhoto()
         {
+            string filePath = null;
+
             try
             {
-                await MainThread.InvokeOnMainThreadAsync(async () =>
+                filePath = await MainThread.InvokeOnMainThreadAsync<string>(async () =>
                 {
+                    string localFilePath = null;
+
                     try
                     {
                         if (MediaPicker.IsCaptureSupported == false)
                         {
-                            return;
+                            return localFilePath;
                         }
 
                         FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
 
                         // TODO: Not working on Windows
 
-                        if (photo != null)
+                        if (photo != null) // User might cancel take photo.
                         {
                             // save the file into local storage
-                            string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+                            localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
 
                             using Stream sourceStream = await photo.OpenReadAsync();
                             using FileStream localFileStream = File.OpenWrite(localFilePath);
@@ -49,12 +53,15 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
                     { 
                         // TODO:
                     }
+                    return localFilePath;
                 });
             }
             catch(Exception ex)
             {
                 // TODO:
             }
+
+            return filePath;
         }
 
         // Gets all records.

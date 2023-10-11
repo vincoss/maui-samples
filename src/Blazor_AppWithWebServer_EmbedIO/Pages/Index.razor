@@ -29,14 +29,10 @@
         var client = ClientFactory.CreateClient();
 
         var response = await client.SendAsync(request);
+
         var status = response.IsSuccessStatusCode;
 
-        if (status)
-        {
-
-
-        }
-
+        message = await response.Content.ReadAsStringAsync();
 
         //shouldRender = true;
 
