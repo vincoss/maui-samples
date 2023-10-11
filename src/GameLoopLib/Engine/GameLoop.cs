@@ -28,32 +28,32 @@ namespace GameLoopLib.Engine
 
         private void Loop()
         {
-            int fps = 60;
-            int fpsTicNum = 0;
-            int _framesRendered = 0;
-            long delayTicks = (1000 / fps) * TimeSpan.TicksPerMillisecond;
-            var previous = DateTime.Now.Ticks;
-            var seconds = previous;
+            const int desiredFps = 60;
+            int fps = 0;
+            int framesRendered = 0;
+            long delayTicks = (1000 / desiredFps) * TimeSpan.TicksPerMillisecond;
+            var previousTicks = DateTime.Now.Ticks;
+            var t2 = previousTicks;
 
             while (IsRunning)
             {
                 var current = DateTime.Now.Ticks;
-                var elapsedTicks = current - previous;
-                var elapsedSeconds = (current - seconds) / TimeSpan.TicksPerSecond;
-                previous = current;
+                var elapsedTicks = current - previousTicks;
+                var elapsedSeconds = (current - t2) / TimeSpan.TicksPerSecond;
+                previousTicks = current;
 
                 // Fps seconds
                 if (elapsedSeconds >= 1)
                 {
-                    fpsTicNum = _framesRendered;
-                    _framesRendered = 0;
-                    seconds = current;
+                    fps = framesRendered;
+                    framesRendered = 0;
+                    t2 = current;
                 }
 
                 OnUpdateGame();
-                OnRenderGame(fpsTicNum);
+                OnRenderGame(fps);
 
-                _framesRendered++;
+                framesRendered++;
                 var delay = delayTicks - elapsedTicks;
                 var delayMilliseconds = (int)(delay / TimeSpan.TicksPerMillisecond);
 
