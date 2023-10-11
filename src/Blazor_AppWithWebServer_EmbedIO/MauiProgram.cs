@@ -24,7 +24,7 @@ namespace Blazor_AppWithWebServer_EmbedIO
 #endif
 
             builder.Services.AddHttpClient();
-            builder.Services.AddSingleton<IServerLogs, ServerLogsService>();
+            builder.Services.AddSingleton<IEmbedServer, EmbedIOServerService>();
 
             return builder.Build();
         }

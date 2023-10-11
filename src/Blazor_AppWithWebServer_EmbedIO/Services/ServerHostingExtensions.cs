@@ -10,47 +10,59 @@ using System.Threading;
 
 namespace Blazor_AppWithWebServer_EmbedIO.Services
 {
-    public interface IServerLogs
+    public interface IEmbedServer
     {
-        IEnumerable<string> Get();
+        void Run(string[] args);
+
+        IEnumerable<string> GetLogs();
+
+        string GetBaseUrl();
+
+        string GetLocalIp();
     }
 
-    public class ServerLogsService : IServerLogs
+    public class EmbedIOServerService : IEmbedServer
     {
+        private bool _isRunning;
+        private IList<string> _logs = new List<string>();
 
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetLogs()
         {
-            throw new NotImplementedException();
+            return _logs;
         }
-    }
 
-
-    public static class ServerHostingExtensions
-    {
-        public static void Run(string[] args)
+        public void Run(string[] args)
         {
+            if(_isRunning)
+            {
+                return;
+            }
+
             Task.Factory.StartNew(async () =>
             {
-                var url = GetUrl();
+                var url = GetBaseUrl();
 
                 using (var server = new WebServer(HttpListenerMode.EmbedIO, url))
                 {
-                    Assembly assembly = typeof(ServerHostingExtensions).Assembly;
+                    Assembly assembly = typeof(EmbedIOServerService).Assembly;
                     server.WithWebApi("/api", m => m.WithController(() => new TestController()));
 
                     // Listen for state changes.
                     server.StateChanged += (s, e) =>
                     {
-                        Console.WriteLine(e.NewState);
+                        _logs.Insert(0, e.NewState.ToString());
+
+                        // TODO: delete old logs about 1000
                     };
 
                     await server.RunAsync().ConfigureAwait(false);
+
+                    _isRunning = true;
                 }
             });
         }
 
-
-        public static string GetUrl()
+        public string GetBaseUrl()
         {
             var _port = 5167;
             var ip = GetLocalIp();
@@ -58,7 +70,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
             return url;
         }
 
-        private static string GetLocalIp()
+        public string GetLocalIp()
         {
             string localIP;
             using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
@@ -70,4 +82,52 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
             return localIP;
         }
     }
+
+
+
+    //public static class ServerHostingExtensions
+    //{
+    //    public static void Run(string[] args)
+    //    {
+    //        Task.Factory.StartNew(async () =>
+    //        {
+    //            var url = GetUrl();
+
+    //            using (var server = new WebServer(HttpListenerMode.EmbedIO, url))
+    //            {
+    //                Assembly assembly = typeof(ServerHostingExtensions).Assembly;
+    //                server.WithWebApi("/api", m => m.WithController(() => new TestController()));
+
+    //                // Listen for state changes.
+    //                server.StateChanged += (s, e) =>
+    //                {
+    //                    Console.WriteLine(e.NewState);
+    //                };
+
+    //                await server.RunAsync().ConfigureAwait(false);
+    //            }
+    //        });
+    //    }
+
+
+    //    public static string GetUrl()
+    //    {
+    //        var _port = 5167;
+    //        var ip = GetLocalIp();
+    //        var url = $"http://{ip}:{_port}";
+    //        return url;
+    //    }
+
+    //    private static string GetLocalIp()
+    //    {
+    //        string localIP;
+    //        using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+    //        {
+    //            socket.Connect("8.8.8.8", 65530);
+    //            var endPoint = socket.LocalEndPoint as IPEndPoint;
+    //            localIP = endPoint.Address.ToString();
+    //        }
+    //        return localIP;
+    //    }
+    //}
 }

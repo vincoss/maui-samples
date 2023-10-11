@@ -11,6 +11,7 @@
 
 @page "/"
 @inject IHttpClientFactory ClientFactory
+@inject IEmbedServer EmbedServer;
 
 @code {
 
@@ -21,7 +22,7 @@
 
     private async void TakePhoto()
     {
-        var url = Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.GetUrl();
+        var url = EmbedServer.GetBaseUrl();
         var fullURL = $"{url}/api/photo";
         var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
         request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
@@ -45,7 +46,7 @@
 
     private async void GetPeople()
     {
-        var url = Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.GetUrl();
+        var url = EmbedServer.GetBaseUrl();
         var fullURL = $"{url}/api/people";
         var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
         request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");

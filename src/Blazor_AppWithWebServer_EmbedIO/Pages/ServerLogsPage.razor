@@ -14,7 +14,7 @@
 </div>
 
 @page "/serverlogs"
-@inject IServerLogs ServerLogsService;
+@inject IEmbedServer ServerLogsService;
 
 @code 
 {
@@ -22,7 +22,7 @@
 
     private void OnRefresh()
     {
-        logs = ServerLogsService.Get();
+        logs = ServerLogsService.GetLogs();
         this.StateHasChanged();
     }
 }

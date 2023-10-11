@@ -1,9 +1,15 @@
-﻿namespace Blazor_AppWithWebServer_EmbedIO
+﻿using Blazor_AppWithWebServer_EmbedIO.Services;
+
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     public partial class App : Application
     {
-        public App()
+        private readonly IServiceProvider _serviceProvider;
+
+        public App(IServiceProvider serviceProvider)
         {
+            _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+
             InitializeComponent();
 
             MainPage = new MainPage();
@@ -13,7 +19,10 @@
         {
             base.OnStart();
 
-            Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.Run(new string[0]);
+            var server = _serviceProvider.GetService<IEmbedServer>();
+            server.Run(new string[0]);
+
+            //Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.Run(new string[0]);
         }
     }
 }
