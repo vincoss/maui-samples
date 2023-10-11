@@ -4,7 +4,8 @@
 <button class="btn btn-primary" @onclick="TakePhoto">Take Photo</button>
 
 <div>
-    <input @bind="message" />
+    <label for="results">Results:</label><br />
+    <textarea id="results" @bind="message"></textarea>
 </div>
 
 @page "/"
@@ -32,7 +33,7 @@
 
         if (status)
         {
-         
+
 
         }
 
@@ -54,11 +55,7 @@
         var response = await client.SendAsync(request);
         var status = response.IsSuccessStatusCode;
 
-        if (status)
-        {
-            message = await response.Content.ReadAsStringAsync();
-
-        }
+        message = await response.Content.ReadAsStringAsync();
 
 
         //shouldRender = true;

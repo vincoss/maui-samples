@@ -25,49 +25,54 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
                 {
                     try
                     {
-                        if (MediaPicker.Default.IsCaptureSupported)
+                        if (MediaPicker.IsCaptureSupported == false)
                         {
-                            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+                            return;
+                        }
 
-                            if (photo != null)
-                            {
-                                // save the file into local storage
-                                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+                        FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
 
-                                using Stream sourceStream = await photo.OpenReadAsync();
-                                using FileStream localFileStream = File.OpenWrite(localFilePath);
+                        // TODO: Not working on Windows
 
-                                await sourceStream.CopyToAsync(localFileStream);
-                            }
+                        if (photo != null)
+                        {
+                            // save the file into local storage
+                            string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
+                            using Stream sourceStream = await photo.OpenReadAsync();
+                            using FileStream localFileStream = File.OpenWrite(localFilePath);
+
+                            await sourceStream.CopyToAsync(localFileStream);
                         }
                     }
                     catch(Exception ex) 
                     { 
+                        // TODO:
                     }
                 });
             }
             catch(Exception ex)
             {
-
+                // TODO:
             }
         }
 
         // Gets all records.
         // This will respond to 
-        //     GET http://localhost:9696/api/people
+        //     GET http://localhost:5167/api/people
         [Route(HttpVerbs.Get, "/people")]
         public Task<IEnumerable<Person>> GetAllPeople() => Person.GetDataAsync();
 
         // Gets the first record.
         // This will respond to 
-        //     GET http://localhost:9696/api/people/first
+        //     GET http://localhost:5167/api/people/first
         [Route(HttpVerbs.Get, "/people/first")]
         public async Task<Person> GetFirstPeople() => (await Person.GetDataAsync().ConfigureAwait(false)).First();
 
         // Gets a single record.
         // This will respond to 
-        //     GET http://localhost:9696/api/people/1
-        //     GET http://localhost:9696/api/people/{n}
+        //     GET http://localhost:5167/api/people/1
+        //     GET http://localhost:5167/api/people/{n}
         //
         // If the given ID is not found, this method will return false.
         // By default, WebApiModule will then respond with "404 Not Found".
@@ -97,33 +102,23 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
 
         public string Name { get; set; }
 
-        public int Age { get; set; }
-
-        public string EmailAddress { get; set; }
-
         internal static async Task<IEnumerable<Person>> GetDataAsync()
         {
-            // Imagine this is a database call :)
+            // Simulate database call
             await Task.Delay(0).ConfigureAwait(false);
 
             return new List<Person> {
                 new Person {
                     Id = 1,
-                    Name = "Mario Di Vece",
-                    Age = 31,
-                    EmailAddress = "mario@unosquare.com"
+                    Name = "Ferdinand",
                 },
                 new Person {
                     Id = 2,
-                    Name = "Geovanni Perez",
-                    Age = 32,
-                    EmailAddress = "geovanni.perez@unosquare.com"
+                    Name = "Adam"
                 },
                 new Person {
                     Id = 3,
-                    Name = "Luis Gonzalez",
-                    Age = 29,
-                    EmailAddress = "luis.gonzalez@unosquare.com"
+                    Name = "Hana"
                 }
             };
         }
