@@ -16,6 +16,42 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
     // This is for sampling purposes only.
     public sealed class TestController : WebApiController
     {
+        [Route(HttpVerbs.Get, "/photo")]
+        public async Task TakePhoto()
+        {
+            try
+            {
+                await MainThread.InvokeOnMainThreadAsync(async () =>
+                {
+                    try
+                    {
+                        if (MediaPicker.Default.IsCaptureSupported)
+                        {
+                            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+
+                            if (photo != null)
+                            {
+                                // save the file into local storage
+                                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
+                                using Stream sourceStream = await photo.OpenReadAsync();
+                                using FileStream localFileStream = File.OpenWrite(localFilePath);
+
+                                await sourceStream.CopyToAsync(localFileStream);
+                            }
+                        }
+                    }
+                    catch(Exception ex) 
+                    { 
+                    }
+                });
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
         // Gets all records.
         // This will respond to 
         //     GET http://localhost:9696/api/people
