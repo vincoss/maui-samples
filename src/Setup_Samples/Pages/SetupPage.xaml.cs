@@ -24,9 +24,12 @@ public partial class SetupPage : ContentPage
     public class SetupPageViewModel : BaseViewModel
 	{
         public override async Task InitializeAsync()
-        { 
+        {
+            // NOTE: not to await, just show the UI
             await Task.Factory.StartNew(async () =>
               {
+                  // Get services in here
+
                   // Sample progress
 
                   Action<double, string> progressAction = (v, m) =>

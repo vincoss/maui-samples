@@ -1,0 +1,68 @@
+﻿@page "/"
+
+<h1>EmbedIO local web server</h1>
+
+<button class="btn btn-primary" @onclick="GetPeople">Get People</button>
+<button class="btn btn-primary" @onclick="TakePhoto">Take Photo</button>
+
+<div>
+    <input @bind="message" />
+</div>
+
+@inject IHttpClientFactory ClientFactory
+
+@code {
+
+    private bool shouldRender;
+    private string message;   
+
+    protected override bool ShouldRender() => shouldRender;
+
+    private async void TakePhoto()
+    {
+        var url = EmbedIO_ServerConsole.ServerHostingExtensions.GetUrl();
+        var fullURL = $"{url}/api/photo";
+        var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
+        request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+        var status = response.IsSuccessStatusCode;
+
+        if (status)
+        {
+         
+
+        }
+
+
+        //shouldRender = true;
+
+        StateHasChanged();
+    }
+
+    private async void GetPeople()
+    {
+        var url = EmbedIO_ServerConsole.ServerHostingExtensions.GetUrl();
+        var fullURL = $"{url}/api/people";
+        var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
+        request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+        var status = response.IsSuccessStatusCode;
+
+        if (status)
+        {
+            message = await response.Content.ReadAsStringAsync();
+
+        }
+
+
+        //shouldRender = true;
+
+        StateHasChanged();
+    }
+}

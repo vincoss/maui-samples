@@ -50,9 +50,9 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.5" />
-		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.5" />
-		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.12" />
+		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.6" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.6" />
 	</ItemGroup>
 
 	<ItemGroup>
