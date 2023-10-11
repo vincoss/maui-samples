@@ -25,6 +25,7 @@ namespace Blazor_AppWithWebServer_EmbedIO
 
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton<IEmbedServer, EmbedIOServerService>();
+            builder.Services.AddSingleton<IHttpRequestProvider, HttpRequestProvider>();
 
             return builder.Build();
         }

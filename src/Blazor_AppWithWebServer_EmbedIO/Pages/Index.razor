@@ -11,6 +11,7 @@
 @page "/"
 @inject IHttpClientFactory ClientFactory
 @inject IEmbedServer EmbedServer;
+@inject IHttpRequestProvider HttpService;
 
 @code {
 
@@ -22,19 +23,23 @@
     private async void TakePhoto()
     {
         var url = EmbedServer.GetBaseUrl();
-        var fullURL = $"{url}/api/photo";
-        var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
-        request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
 
-        var client = ClientFactory.CreateClient();
+        var fullUrl = $"{url}/api/photo";
 
-        var response = await client.SendAsync(request);
+        message = await HttpService.GetAsync<string>(fullUrl);
 
-        var status = response.IsSuccessStatusCode;
+        // var request = new HttpRequestMessage(HttpMethod.Get, fullUrl);
+        // request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
 
-        message = await response.Content.ReadAsStringAsync();
+        // var client = ClientFactory.CreateClient();
 
-        //shouldRender = true;
+        // var response = await client.SendAsync(request);
+
+        // var status = response.IsSuccessStatusCode;
+
+        // message = await response.Content.ReadAsStringAsync();
+
+        // //shouldRender = true;
 
         StateHasChanged();
     }
@@ -42,19 +47,9 @@
     private async void GetPeople()
     {
         var url = EmbedServer.GetBaseUrl();
-        var fullURL = $"{url}/api/people";
-        var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
-        request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
+        var fullUrl = $"{url}/api/people";
 
-        var client = ClientFactory.CreateClient();
-
-        var response = await client.SendAsync(request);
-        var status = response.IsSuccessStatusCode;
-
-        message = await response.Content.ReadAsStringAsync();
-
-
-        //shouldRender = true;
+        message = await HttpService.GetAsync<string>(fullUrl);
 
         StateHasChanged();
     }
