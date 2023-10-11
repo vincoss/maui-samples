@@ -5,7 +5,7 @@
 <button class="btn btn-primary" @onclick="GetPeople">Get People</button>
 
 <div>
-    @message
+    <input @bind="message" />
 </div>
 
 @inject IHttpClientFactory ClientFactory
@@ -20,19 +20,24 @@
     private async void GetPeople()
     {
         var url = EmbedIO_ServerConsole.ServerHostingExtensions.GetUrl();
-        var request = new HttpRequestMessage(HttpMethod.Get, url);
+        var fullURL = $"{url}/api/people";
+        var request = new HttpRequestMessage(HttpMethod.Get, fullURL);
         request.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
 
         var client = ClientFactory.CreateClient();
 
         var response = await client.SendAsync(request);
+        var status = response.IsSuccessStatusCode;
 
-        if (response.IsSuccessStatusCode)
+        if (status)
         {
             message = await response.Content.ReadAsStringAsync();
-         
+
         }
 
-        shouldRender = true;
+
+        //shouldRender = true;
+
+        StateHasChanged();
     }
 }
