@@ -15,14 +15,12 @@ namespace Blazor_AppWithWebServer_EmbedIO
             MainPage = new MainPage();
         }
 
-        protected override async void OnStart()
+        protected override void OnStart()
         {
             base.OnStart();
 
             var server = _serviceProvider.GetService<IEmbedServer>();
             server.Run(new string[0]);
-
-            //Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.Run(new string[0]);
         }
     }
 }
