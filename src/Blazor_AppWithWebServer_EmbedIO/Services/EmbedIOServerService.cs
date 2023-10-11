@@ -1,6 +1,7 @@
 ﻿using Blazor_AppWithWebServer_EmbedIO.Controllers;
 using EmbedIO;
 using EmbedIO.WebApi;
+using Swan.Logging;
 using System;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -45,7 +46,6 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
 
                 using (var server = new WebServer(HttpListenerMode.EmbedIO, url))
                 {
-                    Assembly assembly = typeof(EmbedIOServerService).Assembly;
                     server.WithWebApi("/api", m => m.WithController(() => new TestController()));
 
                     // Listen for state changes.
@@ -56,16 +56,15 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
                         // TODO: delete old logs about 1000
                     };
 
-                    await server.RunAsync().ConfigureAwait(false);
-
                     _isRunning = true;
+                    await server.RunAsync().ConfigureAwait(false);
                 }
             });
         }
 
         public string GetBaseUrl()
         {
-            var _port = 5167;
+            var _port = 5167; // TODO: port configurable
             var ip = GetLocalIp();
             var url = $"http://{ip}:{_port}";
             return url;

@@ -1,4 +1,9 @@
 ﻿
+See TODO:
+Output server log to page
+add restart button on Server Logs Page
+
+
 ## Android
 [Application(UsesCleartextTraffic =true)]
 
