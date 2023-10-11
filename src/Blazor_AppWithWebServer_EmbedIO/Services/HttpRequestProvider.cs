@@ -56,6 +56,8 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
                 Content = content
             };
 
+            message.Headers.Add("User-Agent", "Blazor_AppWithWebServer_EmbedIO");
+
             using (var response = await httpClient.SendAsync(message, cancellationToken))
             {
                 await HandleResponse(response);
