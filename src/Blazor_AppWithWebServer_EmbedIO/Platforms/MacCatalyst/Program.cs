@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Blazor_AppWithWebServer
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     public class Program
     {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace Blazor_AppWithWebServer
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     public class WebServerStartup
     {

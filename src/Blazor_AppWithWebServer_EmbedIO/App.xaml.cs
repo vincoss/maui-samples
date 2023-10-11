@@ -1,4 +1,4 @@
-﻿namespace Blazor_AppWithWebServer
+﻿namespace Blazor_AppWithWebServer_EmbedIO
 {
     public partial class App : Application
     {
@@ -13,7 +13,7 @@
         {
             base.OnStart();
 
-            EmbedIO_ServerConsole.ServerHostingExtensions.Run(new string[0]);
+            Blazor_AppWithWebServer_EmbedIO.Services.ServerHostingExtensions.Run(new string[0]);
         }
     }
 }

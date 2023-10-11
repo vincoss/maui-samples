@@ -1,8 +1,8 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="Blazor_AppWithWebServer.WinUI.App"
+    x:Class="Blazor_AppWithWebServer_EmbedIO.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:Blazor_AppWithWebServer.WinUI">
+    xmlns:local="using:Blazor_AppWithWebServer_EmbedIO.WinUI">
 
 </maui:MauiWinUIApplication>

@@ -8,8 +8,23 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Threading;
 
-namespace EmbedIO_ServerConsole
+namespace Blazor_AppWithWebServer_EmbedIO.Services
 {
+    public interface IServerLogs
+    {
+        IEnumerable<string> Get();
+    }
+
+    public class ServerLogsService : IServerLogs
+    {
+
+        public IEnumerable<string> Get()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
     public static class ServerHostingExtensions
     {
         public static void Run(string[] args)
@@ -37,20 +52,10 @@ namespace EmbedIO_ServerConsole
 
         public static string GetUrl()
         {
+            var _port = 5167;
             var ip = GetLocalIp();
-
-            int _port = 5167;
-            string _ip = "http://localhost:";
-
-            var platform = DeviceInfo.Platform;
-
-            //if (platform == DevicePlatform.Android)
-            //{
-                _ip = _ip.Replace("localhost", ip.ToString());
-            //}
-
-            string Url = $"{_ip}{_port}";
-            return Url;
+            var url = $"http://{ip}:{_port}";
+            return url;
         }
 
         private static string GetLocalIp()

@@ -1,4 +1,4 @@
-﻿namespace Blazor_AppWithWebServer
+﻿namespace Blazor_AppWithWebServer_EmbedIO
 {
     public partial class MainPage : ContentPage
     {

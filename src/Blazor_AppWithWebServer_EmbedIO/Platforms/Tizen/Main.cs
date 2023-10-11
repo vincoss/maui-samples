@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Blazor_AppWithWebServer
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     internal class Program : MauiApplication
     {

@@ -1,8 +1,8 @@
-﻿using Blazor_AppWithWebServer.Data;
+﻿using Blazor_AppWithWebServer_EmbedIO.Services;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 
-namespace Blazor_AppWithWebServer
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     public static class MauiProgram
     {
@@ -24,7 +24,7 @@ namespace Blazor_AppWithWebServer
 #endif
 
             builder.Services.AddHttpClient();
-            builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddSingleton<IServerLogs, ServerLogsService>();
 
             return builder.Build();
         }

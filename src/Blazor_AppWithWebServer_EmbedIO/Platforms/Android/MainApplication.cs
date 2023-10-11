@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Blazor_AppWithWebServer
+namespace Blazor_AppWithWebServer_EmbedIO
 {
     [Application(UsesCleartextTraffic =true)]
     public class MainApplication : MauiApplication

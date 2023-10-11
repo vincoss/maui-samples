@@ -1,0 +1,28 @@
+﻿<h1>Server Logs</h1>
+
+<button class="btn btn-primary" @onclick="OnRefresh">Refresh</button>
+
+<div>
+    <ul>
+        @foreach (var item in logs)
+        {
+            <li>
+                @item
+            </li>
+        }
+    </ul>
+</div>
+
+@page "/serverlogs"
+@inject IServerLogs ServerLogsService;
+
+@code 
+{
+    private IEnumerable<string> logs;
+
+    private void OnRefresh()
+    {
+        logs = ServerLogsService.Get();
+        this.StateHasChanged();
+    }
+}
