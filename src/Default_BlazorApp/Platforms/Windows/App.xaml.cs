@@ -21,4 +21,5 @@ namespace Default_BlazorApp.WinUI
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
+
 }
