@@ -113,9 +113,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Events_Samples", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_AppWithWebServer_EmbedIO", "src\Blazor_AppWithWebServer_EmbedIO\Blazor_AppWithWebServer_EmbedIO.csproj", "{452D243A-6F04-4F0C-B9BA-32D116AEA6C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbedIO_ServerConsole", "src\EmbedIO_ServerConsole\EmbedIO_ServerConsole.csproj", "{5831A2EC-AFCA-4054-96C1-652B2C5F61E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmbedIO_ServerConsole", "src\EmbedIO_ServerConsole\EmbedIO_ServerConsole.csproj", "{5831A2EC-AFCA-4054-96C1-652B2C5F61E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{F2B442A1-D414-42CD-AB37-7DC9631A90FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{F2B442A1-D414-42CD-AB37-7DC9631A90FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanning_Samples", "src\BarcodeScanning_Samples\BarcodeScanning_Samples.csproj", "{B063B7CC-9285-4156-A76A-C49EEAF58C7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -431,6 +433,12 @@ Global
 		{F2B442A1-D414-42CD-AB37-7DC9631A90FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B442A1-D414-42CD-AB37-7DC9631A90FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2B442A1-D414-42CD-AB37-7DC9631A90FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B063B7CC-9285-4156-A76A-C49EEAF58C7A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
