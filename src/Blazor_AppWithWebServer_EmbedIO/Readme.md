@@ -4,6 +4,7 @@ Output server log to page
 add restart button on Server Logs Page
 never ending task
 public port (configurable)
+the API URL is case sensitive
 
 ## Android
 [Application(UsesCleartextTraffic =true)]
