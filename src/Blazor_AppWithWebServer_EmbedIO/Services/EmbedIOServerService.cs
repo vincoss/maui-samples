@@ -46,6 +46,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
 
                 using (var server = new WebServer(HttpListenerMode.EmbedIO, url))
                 {
+                    server.WithCors();
                     server.WithWebApi("/api", m => m.WithController(() => new TestController()));
 
                     // Listen for state changes.
