@@ -8,6 +8,7 @@ the API URL is case sensitive
 
 ## Android
 [Application(UsesCleartextTraffic =true)]
+https://kinsta.com/knowledgebase/net-err_cleartext_not_permitted/
 
 ## Resources
 https://github.com/unosquare/embedio
