@@ -20,7 +20,7 @@ namespace Blazor_AppWithWebServer_EmbedIO
             base.OnStart();
 
             var server = _serviceProvider.GetService<IEmbedServer>();
-            server.Run(new string[0]);
+            server.Start();
         }
     }
 }

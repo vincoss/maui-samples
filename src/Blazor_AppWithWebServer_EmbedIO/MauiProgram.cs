@@ -1,6 +1,8 @@
 ﻿using Blazor_AppWithWebServer_EmbedIO.Services;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using Blazor_AppWithWebServer_EmbedIO.Controllers;
+
 
 namespace Blazor_AppWithWebServer_EmbedIO
 {
@@ -24,10 +26,21 @@ namespace Blazor_AppWithWebServer_EmbedIO
 #endif
 
             builder.Services.AddHttpClient();
-            builder.Services.AddSingleton<IEmbedServer, EmbedIOServerService>();
             builder.Services.AddSingleton<IHttpRequestProvider, HttpRequestProvider>();
+            RegisterServerServices(builder.Services);
 
             return builder.Build();
+        }
+
+        private static void RegisterServerServices(IServiceCollection services)
+        {
+            services.AddSingleton<IPath, PathService>();
+            services.AddSingleton<IEmbedServer, EmbedIOServerService>();
+
+            var serverOptions = new ServerOptions();
+            services.AddSingleton(serverOptions);
+
+            services.AddTransient<TestController>();
         }
     }
 }
