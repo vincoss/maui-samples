@@ -168,7 +168,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
         private string[] GetAllWwwRootEmbeddedFiles()
         {
             var assembly = typeof(EmbedIOServerService).Assembly;
-            string folderName = string.Format("{0}.wwwroot", assembly.GetName().Name);
+            string folderName = string.Format("{0}.EmbeddedWebsite", assembly.GetName().Name);
             return assembly.GetManifestResourceNames()
                            .Where(r => r.StartsWith(folderName))
                            .ToArray();
@@ -188,7 +188,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
                 const string cssKey = "css.";
                 const string jsKey = "js.";
 
-                var fileName = item.Replace($"{assembly.GetName().Name}.wwwroot.", "");
+                var fileName = item.Replace($"{assembly.GetName().Name}.EmbeddedWebsite.", "");
                 var isCss = fileName.StartsWith(cssKey, StringComparison.OrdinalIgnoreCase);
                 var isJs = fileName.StartsWith(jsKey, StringComparison.OrdinalIgnoreCase);
 

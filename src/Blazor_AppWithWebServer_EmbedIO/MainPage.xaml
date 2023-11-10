@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Blazor_AppWithWebServer_EmbedIO"
-             x:Class="Blazor_AppWithWebServer_EmbedIO.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             x:Class="Blazor_AppWithWebServer_EmbedIO.MainPage">
 
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    <VerticalStackLayout>
+        <Label Text="EmbedIO Web Server" FontSize="Title"/>
+
+        <Button Text="Blazor Sample" Clicked="BlazorButton_Clicked"/>
+        <Button Text="WebView Sample" Clicked="WebViewButton_Clicked"/>
+    </VerticalStackLayout>
 
 </ContentPage>

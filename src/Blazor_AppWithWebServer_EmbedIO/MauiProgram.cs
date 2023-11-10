@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using Blazor_AppWithWebServer_EmbedIO.Controllers;
+using static Blazor_AppWithWebServer_EmbedIO.Pages.WebViewPage;
 
 
 namespace Blazor_AppWithWebServer_EmbedIO
@@ -38,6 +39,7 @@ namespace Blazor_AppWithWebServer_EmbedIO
             services.AddSingleton<IStartup, StartupService>();
             services.AddSingleton<IPlatformApiService, PlatformApiService>();
             services.AddSingleton<IEmbedServer, EmbedIOServerService>();
+            services.AddTransient<WebViewPageViewModel>();
 
             var serverOptions = new ServerOptions();
             services.AddSingleton(serverOptions);
