@@ -38,6 +38,7 @@ namespace Blazor_AppWithWebServer_EmbedIO
             services.AddSingleton<IPath, PathService>();
             services.AddSingleton<IStartup, StartupService>();
             services.AddSingleton<IPlatformApiService, PlatformApiService>();
+            services.AddSingleton<IPlatformGeolocation, PlatformGeolocation>();
             services.AddSingleton<IEmbedServer, EmbedIOServerService>();
             services.AddTransient<WebViewPageViewModel>();
 

@@ -18,16 +18,24 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
     public class TestController : WebApiController
     {
         private readonly IPlatformApiService _platformApiService;
+        private readonly IPlatformGeolocation _platformGeolocation;
 
-        public TestController(IPlatformApiService platformApiService)
+        public TestController(IPlatformApiService platformApiService, IPlatformGeolocation platformGeolocation)
         {
             _platformApiService = platformApiService ?? throw new ArgumentNullException(nameof(platformApiService));
+            _platformGeolocation = platformGeolocation ?? throw new ArgumentNullException(nameof(platformGeolocation));
         }
 
         [Route(HttpVerbs.Get, "/photo")]
         public async Task<string> TakePhoto()
         {
             return await _platformApiService.TakePhotoAsync();
+        }
+
+        [Route(HttpVerbs.Get, "/location")]
+        public async Task<GeolocationDto> GetLocationAsync()
+        {
+            return await _platformGeolocation.Get();
         }
 
         // Gets all records.
