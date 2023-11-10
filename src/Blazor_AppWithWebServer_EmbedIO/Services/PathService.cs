@@ -9,6 +9,7 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
     public interface IPath
     {
         string AppRoot { get; }
+        string GetGalleryFolder();
 
         string GetWwwRootPath();
 
@@ -16,9 +17,14 @@ namespace Blazor_AppWithWebServer_EmbedIO.Services
 
     public class PathService : IPath
     {
+        private const string GalleryFolder = "Gallery";
         private const string WwwRootFolder = "wwwroot";
 
         public string AppRoot => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        public string GetGalleryFolder()
+        {
+            return Path.Combine(AppRoot, GalleryFolder);
+        }
 
         public string GetWwwRootPath()
         {

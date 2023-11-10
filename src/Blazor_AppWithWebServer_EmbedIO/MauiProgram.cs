@@ -35,6 +35,8 @@ namespace Blazor_AppWithWebServer_EmbedIO
         private static void RegisterServerServices(IServiceCollection services)
         {
             services.AddSingleton<IPath, PathService>();
+            services.AddSingleton<IStartup, StartupService>();
+            services.AddSingleton<IPlatformApiService, PlatformApiService>();
             services.AddSingleton<IEmbedServer, EmbedIOServerService>();
 
             var serverOptions = new ServerOptions();

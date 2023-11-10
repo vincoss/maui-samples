@@ -52,6 +52,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="EmbeddedWebsite\css\app.b2d625b8.css" />
+    <None Remove="EmbeddedWebsite\favicon.ico" />
+    <None Remove="EmbeddedWebsite\index.html" />
+    <None Remove="EmbeddedWebsite\js\app.20744a1b.js" />
+    <None Remove="EmbeddedWebsite\js\chunk-vendors.e58e1a12.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedWebsite\css\app.b2d625b8.css" />
+    <EmbeddedResource Include="EmbeddedWebsite\favicon.ico" />
+    <EmbeddedResource Include="EmbeddedWebsite\index.html" />
+    <EmbeddedResource Include="EmbeddedWebsite\js\app.20744a1b.js" />
+    <EmbeddedResource Include="EmbeddedWebsite\js\chunk-vendors.e58e1a12.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EmbedIO" Version="3.5.2" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />

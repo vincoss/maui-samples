@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazor_AppWithWebServer_EmbedIO.Services;
 using EmbedIO;
 using EmbedIO.Routing;
 using EmbedIO.Utilities;
@@ -14,54 +15,19 @@ namespace Blazor_AppWithWebServer_EmbedIO.Controllers
     // A very simple controller to handle People CRUD.
     // Notice how it Inherits from WebApiController and the methods have WebApiHandler attributes 
     // This is for sampling purposes only.
-    public sealed class TestController : WebApiController
+    public class TestController : WebApiController
     {
+        private readonly IPlatformApiService _platformApiService;
+
+        public TestController(IPlatformApiService platformApiService)
+        {
+            _platformApiService = platformApiService ?? throw new ArgumentNullException(nameof(platformApiService));
+        }
+
         [Route(HttpVerbs.Get, "/photo")]
         public async Task<string> TakePhoto()
         {
-            string filePath = null;
-
-            try
-            {
-                filePath = await MainThread.InvokeOnMainThreadAsync<string>(async () =>
-                {
-                    string localFilePath = null;
-
-                    try
-                    {
-                        if (MediaPicker.IsCaptureSupported == false)
-                        {
-                            return localFilePath;
-                        }
-
-                        FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
-
-                        // TODO: Not working on Windows
-
-                        if (photo != null) // User might cancel take photo.
-                        {
-                            // save the file into local storage
-                            localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-
-                            using Stream sourceStream = await photo.OpenReadAsync();
-                            using FileStream localFileStream = File.OpenWrite(localFilePath);
-
-                            await sourceStream.CopyToAsync(localFileStream);
-                        }
-                    }
-                    catch(Exception ex) 
-                    { 
-                        // TODO:
-                    }
-                    return localFilePath;
-                });
-            }
-            catch(Exception ex)
-            {
-                // TODO:
-            }
-
-            return filePath;
+            return await _platformApiService.TakePhotoAsync();
         }
 
         // Gets all records.
