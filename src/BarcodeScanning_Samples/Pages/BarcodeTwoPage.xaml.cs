@@ -22,7 +22,10 @@ public partial class BarcodeTwoPage : ContentPage
     {
         foreach (var barcode in e.Results)
         {
-            barcodeResult.Text = barcode.Value;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                barcodeResult.Text = barcode.Value;
+            } );
             Console.WriteLine($"Barcodes: {barcode.Format} -> {barcode.Value}");
         }
     }
