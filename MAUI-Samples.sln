@@ -107,8 +107,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestureRecognizers_Samples"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeviceFeatures_Samples", "src\DeviceFeatures_Samples\DeviceFeatures_Samples.csproj", "{E5454405-A5A8-4637-A44D-775748BD4B9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_Events_Samples", "src\BlazorApp_Events_Samples\BlazorApp_Events_Samples.csproj", "{8CB4B276-2BA7-4670-9134-6A6B4D18A484}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_AppWithWebServer_EmbedIO", "src\Blazor_AppWithWebServer_EmbedIO\Blazor_AppWithWebServer_EmbedIO.csproj", "{452D243A-6F04-4F0C-B9BA-32D116AEA6C7}"
@@ -117,11 +115,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmbedIO_ServerConsole", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcodeScanning_Samples", "src\BarcodeScanning_Samples\BarcodeScanning_Samples.csproj", "{B063B7CC-9285-4156-A76A-C49EEAF58C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{0F3485BB-C48C-482B-ABC4-D3F96C43BAC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\Default_BlazorApp\Default_BlazorApp.csproj", "{0F3485BB-C48C-482B-ABC4-D3F96C43BAC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_BlazorAppNet8", "src\Default_BlazorAppNet8\Default_BlazorAppNet8.csproj", "{99152423-52D4-483B-83F8-95CC02146123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorAppNet8", "src\Default_BlazorAppNet8\Default_BlazorAppNet8.csproj", "{99152423-52D4-483B-83F8-95CC02146123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanning_Samples_Maui", "src\BarcodeScanning_Samples_Maui\BarcodeScanning_Samples_Maui.csproj", "{E1C55D6C-6449-401D-A759-EF0C393AE052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcodeScanning_Samples_Maui", "src\BarcodeScanning_Samples_Maui\BarcodeScanning_Samples_Maui.csproj", "{E1C55D6C-6449-401D-A759-EF0C393AE052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -409,12 +407,6 @@ Global
 		{E5454405-A5A8-4637-A44D-775748BD4B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5454405-A5A8-4637-A44D-775748BD4B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5454405-A5A8-4637-A44D-775748BD4B9E}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{8CB4B276-2BA7-4670-9134-6A6B4D18A484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CB4B276-2BA7-4670-9134-6A6B4D18A484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CB4B276-2BA7-4670-9134-6A6B4D18A484}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -469,7 +461,6 @@ Global
 		{618DCBEC-07DE-4129-930E-B0EBE8D6BB83} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{EBDEA15F-3D5F-4FDC-8CFC-37200F2B84D9} = {ABA9CB14-EE74-4E8A-9486-694024FA590B}
 		{F90B4029-A8BA-4163-9499-637D5F79374D} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
-		{F857A17A-1BB5-4A3B-AE7F-5326FF995A7C} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{8CB4B276-2BA7-4670-9134-6A6B4D18A484} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{452D243A-6F04-4F0C-B9BA-32D116AEA6C7} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
 		{5831A2EC-AFCA-4054-96C1-652B2C5F61E4} = {48D0786F-C099-4B7A-81C6-E0604ADBD545}
