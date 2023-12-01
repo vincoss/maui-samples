@@ -119,9 +119,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorApp", "src\De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_BlazorAppNet8", "src\Default_BlazorAppNet8\Default_BlazorAppNet8.csproj", "{99152423-52D4-483B-83F8-95CC02146123}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcodeScanning_Samples_Maui", "src\BarcodeScanning_Samples_Maui\BarcodeScanning_Samples_Maui.csproj", "{E1C55D6C-6449-401D-A759-EF0C393AE052}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_App", "src\Default_App\Default_App.csproj", "{A13A5505-794F-46F9-AEDD-83F9FAEE11CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Default_App", "src\Default_App\Default_App.csproj", "{A13A5505-794F-46F9-AEDD-83F9FAEE11CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -443,12 +441,6 @@ Global
 		{99152423-52D4-483B-83F8-95CC02146123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99152423-52D4-483B-83F8-95CC02146123}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99152423-52D4-483B-83F8-95CC02146123}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1C55D6C-6449-401D-A759-EF0C393AE052}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{A13A5505-794F-46F9-AEDD-83F9FAEE11CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A13A5505-794F-46F9-AEDD-83F9FAEE11CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A13A5505-794F-46F9-AEDD-83F9FAEE11CC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
