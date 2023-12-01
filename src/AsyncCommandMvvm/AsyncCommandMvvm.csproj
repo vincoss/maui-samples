@@ -49,7 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.6" />
+		<PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="7.0.0" />
 	</ItemGroup>
 	
 </Project>
