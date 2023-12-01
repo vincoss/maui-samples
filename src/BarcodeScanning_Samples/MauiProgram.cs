@@ -1,5 +1,7 @@
 ﻿using Camera.MAUI;
+//using BarcodeScanner.Mobile.Maui;
 using Microsoft.Extensions.Logging;
+using ZXing.Net.Maui.Controls;
 
 
 namespace BarcodeScanning_Samples
@@ -12,10 +14,15 @@ namespace BarcodeScanning_Samples
             builder
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                }).ConfigureMauiHandlers(handlers =>
+                {
+                    // Add the handlers
+                    //handlers.AddBarcodeScannerHandler();
                 });
 
 #if DEBUG

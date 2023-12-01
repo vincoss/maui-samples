@@ -5,19 +5,9 @@
              x:Class="BarcodeScanning_Samples.MainPage"
              Title="QR and Barcode scaner">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Label Grid.Row="0" x:Name="barcodeResult" FontSize="20"/>
-
-        <cv:CameraView Grid.Row="1" x:Name="cameraView" 
-                       CamerasLoaded="cameraView_CamerasLoaded" 
-                       BarCodeDetectionEnabled="True"
-                       BarcodeDetected="cameraView_BarcodeDetected"/>
-
-    </Grid>
+    <VerticalStackLayout>
+        <Button Text="Barcode One" Clicked="OneButton_Clicked"/>
+        <Button Text="Barcode Two" Clicked="TwoButton_Clicked"/>
+    </VerticalStackLayout>
 
 </ContentPage>
