@@ -18,10 +18,6 @@ https://github.com/CommunityToolkit/Maui.Markup
 
 
 ## 
-update samples with font icons, review whether those fonts are working
-    maui app
-    maui blazor app
-    last time there was an issue with blazor
 add a sample openiddict with identityserver
 
 collection view

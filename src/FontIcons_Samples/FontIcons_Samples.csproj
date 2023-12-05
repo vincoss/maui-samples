@@ -52,6 +52,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Font-Awesome-5-Free-Solid-900.otf" />
 	  <None Remove="Resources\Fonts\MaterialIconsSharp-Regular.otf" />
+	  <None Remove="Resources\Fonts\Sea-Life.otf" />
 	</ItemGroup>
 
 </Project>
