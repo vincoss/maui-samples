@@ -23,62 +23,16 @@ update samples with font icons, review whether those fonts are working
     maui blazor app
     last time there was an issue with blazor
 add a sample openiddict with identityserver
-picker view sample
-	single
-	multiple
-	see xamarin samples and migrate what is required
-
-
-SwipeView or FlyOut full screen on Right side as a menu
 
 collection view
 CollectionView grouping sample groups (Popular, Group A, Group B)
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/grouping
 
-# navigation sample
-Home
-Boards
-Folders
-My Cards
-Settings
-Help
-About
-
-## Icons
-Home
-Folder
-Board
-My Card
-Settings
-Help
-About
-
-Search
-Done, check
-Times
-Ellipsis Horizontal
-Ellipsis Vertical
-+ Add
-Edit
-Delete
-Template Board
-Angle Left
-Close
-Clone
-Share
 
 ```
 entry and color picker
 	name and color
 	color incremental change
-```
-
-## Installation
-
-https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
-
-### Android paths
-```
-C:\Program Files (x86)\Android\android-sdk\tools
-C:\Users\{UserName}\AppData\Local\Android\Sdk\tools\bin
+https://johnnys.news/2022/08/say-hello-to-Maui-ColorPicker
+https://github.com/nor0x/Maui.ColorPicker
 ```

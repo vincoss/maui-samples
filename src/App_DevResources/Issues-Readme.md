@@ -3,6 +3,12 @@
 
 https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
 
+### Android paths
+```
+C:\Program Files (x86)\Android\android-sdk\tools
+C:\Users\{UserName}\AppData\Local\Android\Sdk\tools\bin
+```
+
 ## Issues
 
 1.	If the maui-check throws lots of errors then go to 'C:\Program Files\dotnet' and remove old preview nuget feeds and packages.
