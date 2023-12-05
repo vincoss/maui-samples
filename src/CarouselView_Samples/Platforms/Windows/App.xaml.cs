@@ -21,4 +21,5 @@ namespace CarouselView_Samples.WinUI
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
+
 }
