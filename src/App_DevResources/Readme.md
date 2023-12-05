@@ -6,12 +6,15 @@ https://learn.microsoft.com/en-gb/dotnet/maui/?view=net-maui-7.0
 https://learn.microsoft.com/en-gb/samples/browse/?expanded=dotnet&products=dotnet-maui
 https://visualstudiomagazine.com/Home.aspx
 https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/
+https://github.com/CommunityToolkit/Maui
 https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/
 https://github.com/dotnet/Microsoft.Maui.Graphics.Controls
 https://github.com/dotnet/Comet
 https://github.com/jsuarezruiz/AlohaKit.Controls
 https://github.com/yiszza/Material.Components.Maui
 https://github.com/idexus/Sharp.UI
+https://github.com/adospace/reactorui-maui
+https://github.com/CommunityToolkit/Maui.Markup
 
 
 ## 
@@ -25,25 +28,6 @@ picker view sample
 	multiple
 	see xamarin samples and migrate what is required
 
-Shell
-
-<Shell.ItemTemplate>
-        <DataTemplate>
-            <GridLayout ColumnDefinitions="0.12*,0.88*" Padding="5">
-                <Label GridLayout.Column="0" 
-                       Text="{x:Static co:MaterialDesignIconConstants.Home}" 
-                       FontFamily="MaterialDesign" 
-                       FontSize="Title" 
-                       />
-                <Label GridLayout.Column="1"
-                       Text="{Binding Title}"
-                       VerticalTextAlignment="Center" />
-            </GridLayout>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-    shell item selected item
-        backgroundColour change
-        icon colour change
 
 SwipeView or FlyOut full screen on Right side as a menu
 
