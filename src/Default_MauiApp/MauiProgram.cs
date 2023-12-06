@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Default_BlazorApp
+namespace Default_MauiApp
 {
     public static class MauiProgram
     {
@@ -12,12 +12,10 @@ namespace Default_BlazorApp
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddMauiBlazorWebView();
-
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 
