@@ -33,13 +33,13 @@ namespace GameLoopLib.Engine
             int framesRendered = 0;
             long delayTicks = (1000 / desiredFps) * TimeSpan.TicksPerMillisecond;
             var previousTicks = DateTime.Now.Ticks;
-            var t2 = previousTicks;
+            var seconds = previousTicks;
 
             while (IsRunning)
             {
                 var current = DateTime.Now.Ticks;
                 var elapsedTicks = current - previousTicks;
-                var elapsedSeconds = (current - t2) / TimeSpan.TicksPerSecond;
+                var elapsedSeconds = (current - seconds) / TimeSpan.TicksPerSecond;
                 previousTicks = current;
 
                 // Fps seconds
@@ -47,7 +47,7 @@ namespace GameLoopLib.Engine
                 {
                     fps = framesRendered;
                     framesRendered = 0;
-                    t2 = current;
+                    seconds = current;
                 }
 
                 OnUpdateGame();

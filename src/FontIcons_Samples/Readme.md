@@ -5,6 +5,7 @@ Refactor into CollectionView with Grouping
 
 
 ## Resources
+https://learn.microsoft.com/en-us/dotnet/maui/user-interface/fonts?view=net-maui-8.0
 https://docs.microsoft.com/en-us/shows/XamarinShow/Xamarin-Quick-Tips-Font-Icon-Embedding
 https://fontawesome.com/
 https://friconix.com/

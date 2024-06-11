@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mix_Samples.Pages.ConsentPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="ConsentPage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text="App Account" VerticalOptions="StartAndExpand"  HorizontalOptions="CenterAndExpand" FontSize="Subtitle"
+          LineHeight="4"/>
+
+        <Label Grid.Row="1" Text="App account policies updated" VerticalOptions="StartAndExpand"  HorizontalOptions="CenterAndExpand" 
+          FontSize="Title" HorizontalTextAlignment="Center"
+          LineBreakMode="WordWrap"/>
+
+        <Label Grid.Row="2" VerticalOptions="EndAndExpand"  HorizontalOptions="FillAndExpand" Margin="0,0,0,30">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="By downloading and using our app, you confirm you have read our " />
+                    <Span Text="Privacy Collection Statement"
+      TextColor="Blue"
+      TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                              CommandParameter="https://learn.microsoft.com/en-us/dotnet/maui" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span Text=" and acknowledge YOUR company will collect, use and disclose your personal information in accordance with that Statement and as otherwise detailed in our " />
+                    <Span Text="Privacy Policy"
+      TextColor="Blue"
+      TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                              CommandParameter="https://learn.microsoft.com/en-us/dotnet/maui" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span Text=" and, to the extent it is necessary, that you give your voluntary express consent to YOUR company collecting, using, storing, disclosing and disposing of your personal information in this manner." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button Grid.Row="3" Text="AGREE" VerticalOptions="End"  HorizontalOptions="FillAndExpand" />
+
+
+    </Grid>
+
+</ContentPage>
