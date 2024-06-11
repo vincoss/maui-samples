@@ -18,6 +18,11 @@ namespace BarcodeScanning_Samples
         {
             this.Navigation.PushAsync(new BarcodeTwoPage());
         }
+
+        private void ThreeButton_Clicked(object sender, EventArgs e)
+        {
+            this.Navigation.PushAsync(new BarcodeThreePage());
+        }
     }
 
 }

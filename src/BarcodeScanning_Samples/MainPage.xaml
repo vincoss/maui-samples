@@ -8,6 +8,7 @@
     <VerticalStackLayout>
         <Button Text="Barcode One" Clicked="OneButton_Clicked"/>
         <Button Text="Barcode Two" Clicked="TwoButton_Clicked"/>
+        <Button Text="Barcode Three" Clicked="ThreeButton_Clicked"/>
     </VerticalStackLayout>
 
 </ContentPage>
