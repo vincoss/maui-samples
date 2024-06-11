@@ -1,4 +1,5 @@
 using BarcodeScanning;
+using ZXing.Net.Maui;
 
 
 namespace BarcodeScanning_Samples.Pages
@@ -6,23 +7,9 @@ namespace BarcodeScanning_Samples.Pages
 
     public partial class BarcodeThreePage : ContentPage
     {
-        private readonly BarcodeDrawable _drawable = new();
-        private readonly List<string> qualitys = new();
-
         public BarcodeThreePage()
         {
             InitializeComponent();
-
-            BackButton.Text = "<";
-
-            qualitys.Add("Low");
-            qualitys.Add("Medium");
-            qualitys.Add("High");
-            qualitys.Add("Highest");
-
-            Quality.ItemsSource = qualitys;
-            if (DeviceInfo.Platform != DevicePlatform.MacCatalyst)
-                Quality.Title = "Quality";
         }
 
         protected override async void OnAppearing()
@@ -31,7 +18,6 @@ namespace BarcodeScanning_Samples.Pages
             base.OnAppearing();
 
             Barcode.CameraEnabled = true;
-            Graphics.Drawable = _drawable;
         }
 
         protected override void OnDisappearing()
@@ -47,71 +33,9 @@ namespace BarcodeScanning_Samples.Pages
 
         private void CameraView_OnDetectionFinished(object sender, OnDetectionFinishedEventArg e)
         {
-            _drawable.barcodeResults = e.BarcodeResults;
-            Graphics.Invalidate();
-        }
-
-        private async void BackButton_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("..");
-        }
-
-        private void CameraButton_Clicked(object sender, EventArgs e)
-        {
-            if (Barcode.CameraFacing == CameraFacing.Back)
-                Barcode.CameraFacing = CameraFacing.Front;
-            else
-                Barcode.CameraFacing = CameraFacing.Back;
-        }
-
-        private void TorchButton_Clicked(object sender, EventArgs e)
-        {
-            if (Barcode.TorchOn)
-                Barcode.TorchOn = false;
-            else
-                Barcode.TorchOn = true;
-        }
-
-        private void VibrateButton_Clicked(object sender, EventArgs e)
-        {
-            if (Barcode.VibrationOnDetected)
-                Barcode.VibrationOnDetected = false;
-            else
-                Barcode.VibrationOnDetected = true;
-        }
-
-        private void PauseButton_Clicked(object sender, EventArgs e)
-        {
-            if (Barcode.PauseScanning)
-                Barcode.PauseScanning = false;
-            else
-                Barcode.PauseScanning = true;
-        }
-
-        private void Quality_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var picker = (Picker)sender;
-            if (picker.SelectedIndex > -1 && picker.SelectedIndex < 5)
-                Barcode.CaptureQuality = (CaptureQuality)picker.SelectedIndex;
-        }
-
-        private class BarcodeDrawable : IDrawable
-        {
-            public BarcodeResult[]? barcodeResults;
-            public void Draw(ICanvas canvas, RectF dirtyRect)
+            if (e.BarcodeResults.Length > 0)
             {
-                if (barcodeResults is not null && barcodeResults.Length > 0)
-                {
-                    canvas.StrokeSize = 15;
-                    canvas.StrokeColor = Colors.Red;
-                    var scale = 1 / canvas.DisplayScale;
-                    canvas.Scale(scale, scale);
-
-                    foreach (var barcode in barcodeResults)
-                    {
-                        canvas.DrawRectangle(barcode.PreviewBoundingBox);
-                    }
-                }
+                barcodeResult.Text = e.BarcodeResults[0].RawValue;
             }
         }
     }

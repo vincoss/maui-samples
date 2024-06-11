@@ -9,32 +9,26 @@
     https://github.com/afriscic/BarcodeScanning.Native.Maui
     -->
 
-    <AbsoluteLayout>
-        <barcode:CameraView AbsoluteLayout.LayoutFlags="All"
-                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" x:Name="barcodeResult" FontSize="20"/>
+
+        <barcode:CameraView Grid.Row="1" 
                             OnDetectionFinished="CameraView_OnDetectionFinished"
                             CaptureQuality="High"
                             ForceInverted="True"
                             TapToFocusEnabled="True"
                             BarcodeSymbologies="All"
+                            ViewfinderMode="True"
                             AimMode="True"
                             x:Name="Barcode"/>
 
-        <GraphicsView AbsoluteLayout.LayoutFlags="All"
-                      AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      x:Name="Graphics"
-                      InputTransparent="True"/>
+    </Grid>
 
-        <Grid ColumnDefinitions="*, *, *, *, *, *" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.1">
-            <Picker x:Name="Quality" Grid.Column="3" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="45" SelectedIndexChanged="Quality_SelectedIndexChanged"/>
 
-            <Button x:Name="BackButton" Grid.Column="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="BackButton_Clicked"/>
-            <Button Text="C" Grid.Column="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="CameraButton_Clicked"/>
-            <Button Text="T" Grid.Column="2" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="TorchButton_Clicked"/>
-            <Button Text="Q" Grid.Column="3" WidthRequest="50" HeightRequest="50" CornerRadius="25" InputTransparent="True"/>
-            <Button Text="V" Grid.Column="4" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="VibrateButton_Clicked"/>
-            <Button Text="P" Grid.Column="5" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="PauseButton_Clicked"/>
-        </Grid>
-    </AbsoluteLayout>
-
+    
 </ContentPage>
