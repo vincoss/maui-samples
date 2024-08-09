@@ -1,4 +1,4 @@
-
+﻿
 ## Installation
 
 https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation
@@ -55,3 +55,9 @@ App Status: Rejected
 Please remove the use of REQUEST_INSTALL_PACKAGES permission from your app.
  remove <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.5.3" />
  https://stackoverflow.com/questions/74180335/xamarin-permission-request-install-packages-which-dependency-brings-this-p
+
+ ## iOS
+ One or more errors occurred while starting the following Agents: IDB 17.11.0.86
+
+1. Remove the /Users/USERNAME/Library/Caches/Xamarin/XMA/SDKs/dotnet folder on the MacOS
+2. .vs remove folder

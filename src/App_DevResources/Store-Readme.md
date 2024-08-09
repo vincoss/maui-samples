@@ -17,7 +17,7 @@ https://learn.microsoft.com/en-us/dotnet/maui/windows/deployment/publish-cli?vie
 NOTE: Ensure that CMD path is in app folder not in the solution folder
 
 `
-dotnet publish -f net8.0-windows10.0.19041.0 -c Release
+dotnet publish -f net8.0-windows10.0.19041.0 -c Release --self-contained
 `
 # iOS
 https://appstoreconnect.apple.com/apps/
