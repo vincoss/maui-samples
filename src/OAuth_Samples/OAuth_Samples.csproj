@@ -50,7 +50,7 @@
 
 
 	<ItemGroup>
-	  <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
+	  <PackageReference Include="IdentityModel.OidcClient" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -60,6 +60,14 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.92" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
 	</ItemGroup>
 
 </Project>

@@ -50,12 +50,22 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation" Version="11.8.1" />
+		<PackageReference Include="FluentValidation" Version="11.10.0" />
 	</ItemGroup>
 
 
 	<ItemGroup>
 		<ProjectReference Include="..\ShortMvvm\ShortMvvm.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.92" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
 	</ItemGroup>
 
 </Project>
