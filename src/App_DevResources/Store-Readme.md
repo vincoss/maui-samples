@@ -6,6 +6,7 @@ https://play.google.com/console/u/0/developers/
 ## Publish the app command line
 `
 dotnet publish -c Release -f:net8.0-android
+dotnet publish -c Release -f:net9.0-android
 `
 Upload the .aap package to the store
 
@@ -18,6 +19,7 @@ NOTE: Ensure that CMD path is in app folder not in the solution folder
 
 `
 dotnet publish -f net8.0-windows10.0.19041.0 -c Release --self-contained
+dotnet publish -f net9.0-windows10.0.19041.0 -c Release --self-contained
 `
 # iOS
 https://appstoreconnect.apple.com/apps/
