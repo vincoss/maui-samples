@@ -33,9 +33,9 @@ namespace BarcodeScanning_Samples.Pages
 
         private void CameraView_OnDetectionFinished(object sender, OnDetectionFinishedEventArg e)
         {
-            if (e.BarcodeResults.Length > 0)
+            if (e.BarcodeResults.Count > 0)
             {
-                barcodeResult.Text = e.BarcodeResults[0].RawValue;
+                barcodeResult.Text = e.BarcodeResults.FirstOrDefault()?.RawValue;
             }
         }
     }
