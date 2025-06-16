@@ -50,9 +50,9 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="8.0.10" />
-		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.10" />
-		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.6" />
+		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.11" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.11" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -60,11 +60,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.92" />
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="9.0.80" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="9.0.80" />
 	</ItemGroup>
 
 </Project>
