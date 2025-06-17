@@ -41,7 +41,7 @@ public partial class PageOne : ContentPage
     private async Task OnAuthenticate(string scheme)
     {
         var returnUrl = GetReturnUrlQuery();
-        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={returnUrl}";
+        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl=/{_callbackUrl}?{returnUrl}";
 
 #if WINDOWS
 
