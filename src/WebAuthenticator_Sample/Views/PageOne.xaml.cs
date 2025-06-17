@@ -1,28 +1,47 @@
+
 using System.Threading.Tasks;
+using System.Web;
+
 
 namespace WebAuthenticator_Sample.Views;
 
 public partial class PageOne : ContentPage
 {
-    string _authenticationUrl = "https://localhost:7254/Identity/Account/Login";
-    const string _callbackUrl = "com.companyname.webauthenticator.sample://callback";
+    private const string _authenticationUrl = "https://localhost:7254/Identity/Account/Login";
+    private const string _callbackUrl = "com.companyname.webauthenticator.sample://callback";
+    private string AuthToken { get; set; }
 
     public PageOne()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-       await OnAuthenticate("");
+        await OnAuthenticate(null);
     }
 
-    public string AuthToken { get; set; }
 
-    async Task OnAuthenticate(string scheme)
+    private static string GetReturnUrlQuery()
     {
-        var localAuthenticationUrl = _authenticationUrl;
-            //$"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={_callbackUrl}";
+        var uriBuilder = new UriBuilder(_authenticationUrl);
+        var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+
+        query.Add("redirect_uri", _callbackUrl);
+        query.Add("state", Guid.NewGuid().ToString());
+
+        return query.ToString();
+    }
+
+    /// <summary>
+    /// scheme: Apple
+    /// </summary>
+    /// <param name="scheme"></param>
+    /// <returns></returns>
+    private async Task OnAuthenticate(string scheme)
+    {
+        var returnUrl = GetReturnUrlQuery();
+        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={returnUrl}";
 
 #if WINDOWS
 
@@ -39,7 +58,7 @@ public partial class PageOne : ContentPage
              catch(Exception ex)
              {
              }
-#else
+#endif
         try
         {
             WebAuthenticatorResult r = null;
@@ -78,13 +97,11 @@ public partial class PageOne : ContentPage
 
             AuthToken = string.Empty;
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             Console.WriteLine($"Failed: {ex.Message}");
 
             AuthToken = string.Empty;
         }
-#endif
     }
-
 }

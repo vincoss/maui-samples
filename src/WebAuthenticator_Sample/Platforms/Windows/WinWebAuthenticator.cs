@@ -1,4 +1,5 @@
-﻿using Microsoft.Windows.AppLifecycle;
+﻿using Microsoft.Maui.ApplicationModel;
+using Microsoft.Windows.AppLifecycle;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Management;
@@ -11,25 +12,6 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Windows.ApplicationModel.Activation;
 
-
-public static class LoggerExtensions
-{
-    public static IDictionary<string, string?> ToDictionary(this NameValueCollection items)
-    {
-        var dict = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-
-        if (items != null)
-        {
-            foreach (var key in items.AllKeys)
-            {
-                if (string.IsNullOrWhiteSpace(key)) continue;
-                dict.Add(key.Trim(), items[key]?.Trim());
-            }
-        }
-
-        return dict;
-    }
-}
 
 namespace OAuth_Samples
 {
@@ -53,11 +35,11 @@ namespace OAuth_Samples
         /// <returns>Returns a result parsed out from the callback url.</returns>
         /// <remarks>Prior to calling this, a call to <see cref="CheckOAuthRedirectionActivation(bool)"/> must be made during application startup.</remarks>
         /// <seealso cref="CheckOAuthRedirectionActivation(bool)"/>
-        public static Task<WebAuthenticatorResult> AuthenticateAsync(Uri authorizeUri, Uri callbackUri) => Instance.Authenticate(authorizeUri, callbackUri, CancellationToken.None);
+        public static Task<WebAuthenticatorResult> AuthenticateAsync(Uri authorizeUri, Uri callbackUri) => _instance.Authenticate(authorizeUri, callbackUri, CancellationToken.None);
 
-        private Dictionary<string, TaskCompletionSource<Uri>> tasks = new Dictionary<string, TaskCompletionSource<Uri>>();
+        private Dictionary<string, TaskCompletionSource<Uri>> _tasks = new Dictionary<string, TaskCompletionSource<Uri>>();
 
-        private static readonly WinWebAuthenticator Instance = new WinWebAuthenticator();
+        private static readonly WinWebAuthenticator _instance = new WinWebAuthenticator();
 
         static WinWebAuthenticator()
         {
@@ -65,9 +47,20 @@ namespace OAuth_Samples
 
         private WinWebAuthenticator()
         {
-            Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Activated += CurrentAppInstance_Activated;
+            AppInstance.GetCurrent().Activated += CurrentAppInstance_Activated;
         }
 
+        /// <summary>
+        /// <Extensions>
+        ///  <uap:Extension Category = "windows.protocol" >
+        ///    < uap:Protocol Name = "com.companyname.webauthenticator.sample" >
+        ///      < uap:DisplayName>WebAuthenticator_Sample</uap:DisplayName>
+        ///    </uap:Protocol>
+        ///  </uap:Extension>
+        ///</Extensions>
+        /// </summary>
+        /// <param name="scheme"></param>
+        /// <returns></returns>
         private static bool IsUriProtocolDeclared(string scheme)
         {
             if (global::Windows.ApplicationModel.Package.Current is null)
@@ -86,7 +79,7 @@ namespace OAuth_Samples
             return flag;
         }
 
-        private static System.Collections.Specialized.NameValueCollection? GetState(Microsoft.Windows.AppLifecycle.AppActivationArguments activatedEventArgs)
+        private static IDictionary<string, string> GetState(AppActivationArguments activatedEventArgs)
         {
             if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol &&
                 activatedEventArgs.Data is IProtocolActivatedEventArgs protocolArgs)
@@ -96,105 +89,25 @@ namespace OAuth_Samples
             return null;
         }
 
-
-        private static NameValueCollection? GetState(IProtocolActivatedEventArgs protocolArgs)
+        private static IDictionary<string, string> GetState(IProtocolActivatedEventArgs protocolArgs)
         {
-            var strValue = Preferences.Get(WebAuthenticatorResult.WinWebAuthenticatorStateKey, null);
-            if (strValue != null)
+            var preferenceString = Preferences.Get(WebAuthenticatorResult.WinWebAuthenticatorStateKey, null);
+            if (string.IsNullOrWhiteSpace(preferenceString) == false)
             {
-                var json = WebAuthenticatorResult.FixJsonValues(strValue);
-                var dict = JsonSerializer.Deserialize<IDictionary<string, string>>(json);
-
-                var vals1 = new NameValueCollection();
-
-                if (dict != null)
-                {
-                    foreach (var kvp in dict)
-                    {
-                        vals1.Add(kvp.Key, kvp.Value);
-                    }
-                }
-
-                return vals1;
+                var dict = GetQueryParameters(new Uri(preferenceString));
+                return dict;
             }
 
-            NameValueCollection? vals = null;
-            try
+            var dictQuery = GetQueryParameters(new Uri(protocolArgs.Uri.Query));
+
+            if (dictQuery.Keys.Count > 0)
             {
-                vals = System.Web.HttpUtility.ParseQueryString(protocolArgs.Uri.Query);
+                Preferences.Set(WebAuthenticatorResult.WinWebAuthenticatorStateKey, protocolArgs.Uri.Query);
             }
-            catch { }
-            try
-            {
-                if (vals is null || !(vals["state"] is string))
-                {
-                    var fragment = protocolArgs.Uri.Fragment;
-                    if (fragment.StartsWith("#"))
-                    {
-                        fragment = fragment.Substring(1);
-                    }
-                    vals = System.Web.HttpUtility.ParseQueryString(fragment);
-                }
-            }
-            catch { }
-            if (vals != null && vals["state"] is string state)
-            {
-                try
-                {
-                    var dictVals = vals.ToDictionary();
-                    var str = dictVals["state"].ToString();
-                    var json = WebAuthenticatorResult.FixJsonValues(str);
-                    var dict = JsonSerializer.Deserialize<IDictionary<string, string>>(json);
 
-                    // Keep state
-                    Preferences.Set(WebAuthenticatorResult.WinWebAuthenticatorStateKey, json);
-
-                    var vals2 = new NameValueCollection();
-
-                    if (dict != null)
-                    {
-                        foreach (var kvp in dict)
-                        {
-                            vals2.Add(kvp.Key, kvp.Value);
-                        }
-                    }
-
-                    //if (string.IsNullOrWhiteSpace(state) == false)
-                    //{
-                    //    var pairs = state.Replace("{", "").Replace("}", "").Split(',');
-
-                    //    if (pairs.Any())
-                    //    {
-                    //        foreach (var pair in pairs)
-                    //        {
-                    //            var p2 = pair.Split(new[] { ':' });
-                    //            if (p2.Any() && p2.Count() > 1)
-                    //            {
-                    //                var key = p2[0];
-                    //                var value = p2[1]?.ToString();
-                    //                vals2.Add(key, value);
-                    //            }
-                    //        }
-                    //    }
-                    //}
-
-                    return vals2;
-
-                    //var jsonObject = System.Text.Json.Nodes.JsonObject.Parse(state) as JsonObject;
-                    //if (jsonObject is not null)
-                    //{
-                    //    NameValueCollection vals2 = new NameValueCollection(jsonObject.Count);
-                    //    if (jsonObject.ContainsKey("appInstanceId") && jsonObject["appInstanceId"] is JsonValue jvalue && jvalue.TryGetValue<string>(out string? value))
-                    //        vals2.Add("appInstanceId", value);
-                    //    if (jsonObject.ContainsKey("signinId") && jsonObject["signinId"] is JsonValue jvalue2 && jvalue2.TryGetValue<string>(out string? value2))
-                    //        vals2.Add("signinId", value2);
-                    //    return vals2;
-                    //}
-                }
-                catch { }
-            }
-            return null;
+            return dictQuery;
         }
+        
         private static bool _oauthCheckWasPerformed;
 
         /// <summary>
@@ -229,13 +142,16 @@ namespace OAuth_Samples
         public static bool CheckOAuthRedirectionActivation(AppActivationArguments? activatedEventArgs, bool skipShutDownOnActivation = false)
         {
             _oauthCheckWasPerformed = true;
-            if (activatedEventArgs is null)
-                return false;
-            if (activatedEventArgs.Kind != Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol)
-                return false;
-            var state = GetState(activatedEventArgs);
-            var dic = LoggerExtensions.ToDictionary(state);
 
+            if (activatedEventArgs is null)
+            {
+                return false;
+            }
+            if (activatedEventArgs.Kind != Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol)
+            {
+                return false;
+            }
+            var dic = GetState(activatedEventArgs);
 
             if (dic.ContainsKey(WebAuthenticatorResult.AppInstanceIdKey))
             {
@@ -248,7 +164,6 @@ namespace OAuth_Samples
                     instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
 
                     var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
-                    //  int pid2 = Preferences.Get(WebAuthenticatorResult.WinWebAuthenticatorProcessIdKey, 0);
 
                     if (!skipShutDownOnActivation)
                     {
@@ -294,74 +209,91 @@ namespace OAuth_Samples
 
         private void ResumeSignin(Uri callbackUri, string signinId)
         {
-            if (signinId != null && tasks.ContainsKey(signinId))
+            if (signinId != null && _tasks.ContainsKey(signinId))
             {
-                var task = tasks[signinId];
-                tasks.Remove(signinId);
+                var task = _tasks[signinId];
+                _tasks.Remove(signinId);
                 task.TrySetResult(callbackUri);
             }
             else
             {
-                var task = tasks.FirstOrDefault();
-                tasks.Remove(signinId);
+                var task = _tasks.FirstOrDefault();
+                _tasks.Remove(signinId);
                 task.Value.TrySetResult(callbackUri);
             }
         }
 
+        public static Uri AppendQueryParameters(Uri uri, IDictionary<string, string> parameters)
+        {
+            if (uri == null) throw new ArgumentNullException(nameof(uri));
+
+            if (parameters == null || parameters.Count <= 0)
+            {
+                return uri;
+            }
+
+            const string returnUrl = "returnUrl";
+            var uriBuilder = new UriBuilder(uri);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
+
+            if (returnUrlQuery.HasKeys() == false)
+            {
+                return uri;
+            }
+
+            foreach (var pair in parameters)
+            {
+                returnUrlQuery[pair.Key] = pair.Value;
+            }
+
+            query[returnUrl] = returnUrlQuery.ToString();
+            uriBuilder.Query = query.ToString();
+            var updateUri = uriBuilder.Uri;
+
+            return updateUri;
+        }
+
+        public static IDictionary<string, string> GetQueryParameters(Uri uri)
+        {
+            var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            const string returnUrl = "returnUrl";
+            var uriBuilder = new UriBuilder(uri);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
+
+            foreach (var key in returnUrlQuery.AllKeys)
+            {
+                parameters.Add(key, returnUrlQuery[key]);
+            }
+
+            return parameters;
+        }
+
         private async Task<WebAuthenticatorResult> Authenticate(Uri authorizeUri, Uri callbackUri, CancellationToken cancellationToken)
         {
-            if (!_oauthCheckWasPerformed)
+            if (_oauthCheckWasPerformed == false)
             {
                 throw new InvalidOperationException("OAuth redirection check on app activation was not detected. Please make sure a call to WebAuthenticator.CheckOAuthRedirectionActivation was made during App creation.");
             }
 
-            if (!Helpers.IsAppPackaged)
+            if (Helpers.IsAppPackaged == false)
             {
                 throw new InvalidOperationException("The WebAuthenticator requires a packaged app with an AppxManifest");
             }
 
-            if (!IsUriProtocolDeclared(callbackUri.Scheme))
+            if (IsUriProtocolDeclared(callbackUri.Scheme) == false)
             {
                 throw new InvalidOperationException($"The URI Scheme {callbackUri.Scheme} is not declared in AppxManifest.xml");
             }
 
             var taskId = Guid.NewGuid().ToString();
 
-            var stateJson = new JsonObject
-            {
-                { WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key },
-                { WebAuthenticatorResult.SigninIdKey, taskId },
-                { WebAuthenticatorResult.StateKey, Guid.NewGuid().ToString() }
-            };
-
-            var uriBuilder = new UriBuilder(callbackUri);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            query.Add(WebAuthenticatorResult.StateKey, stateJson.ToJsonString());
-            query.Add("redirect_uri", callbackUri.ToString());
-
-            uriBuilder.Query = query.ToString();
-            var newUrl = uriBuilder.ToString();
-            authorizeUri = new Uri($"{authorizeUri}?returnUrl={newUrl}");
-
-            //var g = Guid.NewGuid();
-            //var taskId = g.ToString();
-            //UriBuilder b = new UriBuilder(authorizeUri);
-
-            //var query = System.Web.HttpUtility.ParseQueryString(authorizeUri.Query);
-            //var stateJson = new JsonObject
-            //{
-            //    { WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key },
-            //    { WebAuthenticatorResult.SigninIdKey, taskId }
-            //};
-            //if (query[WebAuthenticatorResult.StateKey] is string oldstate && !string.IsNullOrEmpty(oldstate))
-            //{
-            //    stateJson[WebAuthenticatorResult.StateKey] = oldstate;
-            //}
-
-            //var strJson = stateJson.ToJsonString();
-            //query[WebAuthenticatorResult.StateKey] = strJson;
-            //b.Query = query.ToString();
-            //authorizeUri = b.Uri;
+            var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            parameters.Add(WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key);
+            parameters.Add(WebAuthenticatorResult.SigninIdKey, taskId);
+            authorizeUri = AppendQueryParameters(authorizeUri, parameters);
 
             var tcs = new TaskCompletionSource<Uri>();
             if (cancellationToken.CanBeCanceled)
@@ -369,27 +301,20 @@ namespace OAuth_Samples
                 cancellationToken.Register(() =>
                 {
                     tcs.TrySetCanceled();
-                    if (tasks.ContainsKey(taskId))
-                        tasks.Remove(taskId);
+                    if (_tasks.ContainsKey(taskId))
+                        _tasks.Remove(taskId);
                 });
+
                 if (cancellationToken.IsCancellationRequested)
                 {
                     cancellationToken.ThrowIfCancellationRequested();
                 }
             }
 
-            //var process = new System.Diagnostics.Process();
-            //process.StartInfo.FileName = "rundll32.exe";
-            //process.StartInfo.Arguments = $"url.dll,FileProtocolHandler {authorizeUri}";
-            //process.StartInfo.UseShellExecute = true;
-            //process.Start();
-
-            //Preferences.Set(WebAuthenticatorResult.WinWebAuthenticatorProcessIdKey, process.Id);
-
             var promptOptions = new Windows.System.LauncherOptions();
             var success = await Windows.System.Launcher.LaunchUriAsync(authorizeUri, promptOptions);
 
-            tasks.Add(taskId, tcs);
+            _tasks.Add(taskId, tcs);
             var uri = await tcs.Task.ConfigureAwait(false);
             return new WebAuthenticatorResult(uri);
         }
@@ -565,57 +490,14 @@ namespace OAuth_Samples
         /// <param name="callbackUrl">Callback url</param>
         public WebAuthenticatorResult(Uri callbackUrl)
         {
-            var str = string.Empty;
-
-            if (!string.IsNullOrEmpty(callbackUrl.Fragment))
-            {
-                str = callbackUrl.Fragment.Substring(1);
-            }
-            else if (!string.IsNullOrEmpty(callbackUrl.Query))
-            {
-                str = callbackUrl.Query;
-            }
-
-            var query = System.Web.HttpUtility.ParseQueryString(str);
-            var dictVals = query.ToDictionary();
-
-            foreach (var pair in dictVals)
-            {
-                if (string.Equals(StateKey, pair.Key, StringComparison.OrdinalIgnoreCase))
-                {
-                    var dict = ParseValues(dictVals, StateKey);
-                    var propStr = JsonSerializer.Serialize(dict); ;
-                    Properties[pair.Key] = propStr;
-                }
-                else
-                {
-                    Properties[pair.Key] = query[pair.Key] ?? null;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WebAuthenticatorResult"/> class.
-        /// </summary>
-        /// <param name="values">Values from the authentication callback url</param>
-        public WebAuthenticatorResult(Dictionary<string, string> values)
-        {
-            foreach (var pair in values)
-            {
-                var value = pair.Value?.Trim();
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    value = null;
-                }
-
-                Properties[pair.Key?.Trim()] = value;
-            }
+            var dictVals = WinWebAuthenticator.GetQueryParameters(callbackUrl);
+            Properties = dictVals;
         }
 
         /// <summary>
         /// The dictionary of key/value pairs parsed form the callback URI's querystring.
         /// </summary>
-        public Dictionary<string, string> Properties { get; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public IDictionary<string, string> Properties { get; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         /// <summary>
         /// Gets the value for the <c>access_token</c> key.
