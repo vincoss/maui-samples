@@ -7,7 +7,7 @@ namespace WebAuthenticator_Sample.Views;
 
 public partial class PageOne : ContentPage
 {
-    private const string _authenticationUrl = "https://localhost:7254/Identity/Account/Login";
+    private const string _authenticationUrl = "https://10.0.0.76:7254/Identity/Account/Login";
     private const string _callbackUrl = "com.companyname.webauthenticator.sample://callback";
     private string AuthToken { get; set; }
 
@@ -81,7 +81,7 @@ public partial class PageOne : ContentPage
         {
             WebAuthenticatorResult r = null;
 
-            if (scheme.Equals("Apple", StringComparison.Ordinal)
+            if (string.IsNullOrWhiteSpace(scheme) == false && scheme.Equals("Apple", StringComparison.Ordinal)
                 && DeviceInfo.Platform == DevicePlatform.iOS
                 && DeviceInfo.Version.Major >= 13)
             {
