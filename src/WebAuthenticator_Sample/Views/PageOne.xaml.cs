@@ -41,12 +41,28 @@ public partial class PageOne : ContentPage
     private async Task OnAuthenticate(string scheme)
     {
         var returnUrl = GetReturnUrlQuery();
-        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl=/{_callbackUrl}?{returnUrl}";
+        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={_callbackUrl}";
+
 
 #if WINDOWS
 
              try
              {
+
+            // var auth = WebAuthenticator.Default;
+             
+            //var options = new WebAuthenticatorOptions();
+            //options.CallbackUrl = new Uri(_callbackUrl);
+            //options.Url = new Uri(_authenticationUrl);
+
+            //WebAuthenticatorResult resulta = null;
+
+            // resulta =  await auth.AuthenticateAsync(options);
+
+            // if(resulta != null)
+            // {
+            // }
+
               OAuth_Samples.WebAuthenticatorResult result = null;
                     result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
                            new Uri(localAuthenticationUrl),
@@ -58,6 +74,8 @@ public partial class PageOne : ContentPage
              catch(Exception ex)
              {
              }
+
+             return;
 #endif
         try
         {

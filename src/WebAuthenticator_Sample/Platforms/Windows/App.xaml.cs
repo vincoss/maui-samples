@@ -24,7 +24,8 @@ namespace WebAuthenticator_Sample.WinUI
             var thisInstance = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent();
             if (string.IsNullOrEmpty(thisInstance.Key))
             {
-                Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
+                Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("com.companyname.webauthenticator.sample://callback");
+                    //Guid.NewGuid().ToString());
             }
         }
 

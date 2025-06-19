@@ -39,6 +39,9 @@ namespace OAuth_Samples
 
         private Dictionary<string, TaskCompletionSource<Uri>> _tasks = new Dictionary<string, TaskCompletionSource<Uri>>();
 
+        private static string _taskId = Guid.NewGuid().ToString();
+
+
         private static readonly WinWebAuthenticator _instance = new WinWebAuthenticator();
 
         static WinWebAuthenticator()
@@ -94,11 +97,11 @@ namespace OAuth_Samples
             var preferenceString = Preferences.Get(WebAuthenticatorResult.WinWebAuthenticatorStateKey, null);
             if (string.IsNullOrWhiteSpace(preferenceString) == false)
             {
-                var dict = GetQueryParameters(new Uri(preferenceString));
+                var dict = GetQueryParameters(preferenceString);
                 return dict;
             }
 
-            var dictQuery = GetQueryParameters(new Uri(protocolArgs.Uri.Query));
+            var dictQuery = GetQueryParameters(protocolArgs.Uri.Query);
 
             if (dictQuery.Keys.Count > 0)
             {
@@ -151,45 +154,76 @@ namespace OAuth_Samples
             {
                 return false;
             }
-            var dic = GetState(activatedEventArgs);
 
-            if (dic.ContainsKey(WebAuthenticatorResult.AppInstanceIdKey))
+            //var id = dic[WebAuthenticatorResult.AppInstanceIdKey];
+            var id = @"com.companyname.webauthenticator.sample://callback";
+            var instance = Microsoft.Windows.AppLifecycle.AppInstance.GetInstances().Where(i => i.Key == id).FirstOrDefault();
+
+            if (instance is not null && !instance.IsCurrent)
             {
-                var id = dic[WebAuthenticatorResult.AppInstanceIdKey];
-                var instance = Microsoft.Windows.AppLifecycle.AppInstance.GetInstances().Where(i => i.Key == id).FirstOrDefault();
+                // Redirect to correct instance and close this one
+                instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
 
-                if (instance is not null && !instance.IsCurrent)
+                var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
+
+                if (!skipShutDownOnActivation)
                 {
-                    // Redirect to correct instance and close this one
-                    instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
+                    //if (pid2 > 0)
+                    //{
+                    //    KillProcessAndChildren(pid2);
+                    //}
 
-                    var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
-
-                    if (!skipShutDownOnActivation)
-                    {
-                        //if (pid2 > 0)
-                        //{
-                        //    KillProcessAndChildren(pid2);
-                        //}
-
-                        KillProcessAndChildren(pid1);
+                    KillProcessAndChildren(pid1);
 
 
-                        //System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    //System.Diagnostics.Process.GetCurrentProcess().Kill();
 
-                    }
-                    return true;
                 }
+                return true;
             }
-            else
-            {
-                var thisInstance = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent();
-                if (string.IsNullOrEmpty(thisInstance.Key))
-                {
-                    Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
-                }
-            }
+
             return false;
+
+            //var dic = GetState(activatedEventArgs);
+
+            //if (dic.ContainsKey(WebAuthenticatorResult.AppInstanceIdKey))
+            //{
+            //    //var id = dic[WebAuthenticatorResult.AppInstanceIdKey];
+            //    var id = @"com.companyname.webauthenticator.sample://callback";
+            //    var instance = Microsoft.Windows.AppLifecycle.AppInstance.GetInstances().Where(i => i.Key == id).FirstOrDefault();
+
+            //    if (instance is not null && !instance.IsCurrent)
+            //    {
+            //        // Redirect to correct instance and close this one
+            //        instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
+
+            //        var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
+
+            //        if (!skipShutDownOnActivation)
+            //        {
+            //            //if (pid2 > 0)
+            //            //{
+            //            //    KillProcessAndChildren(pid2);
+            //            //}
+
+            //            KillProcessAndChildren(pid1);
+
+
+            //            //System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+            //        }
+            //        return true;
+            //    }
+            //}
+            //else
+            //{
+            //    var thisInstance = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent();
+            //    if (string.IsNullOrEmpty(thisInstance.Key))
+            //    {
+            //        Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
+            //    }
+            //}
+            //return false;
         }
 
         private void CurrentAppInstance_Activated(object? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)
@@ -198,11 +232,12 @@ namespace OAuth_Samples
             {
                 if (e.Data is IProtocolActivatedEventArgs protocolArgs)
                 {
-                    var vals = GetState(protocolArgs);
-                    if (vals is not null && vals[WebAuthenticatorResult.SigninIdKey] is string signinId)
-                    {
-                        ResumeSignin(protocolArgs.Uri, signinId);
-                    }
+                    ResumeSignin(protocolArgs.Uri, _taskId);
+                    //var vals = GetState(protocolArgs);
+                    //if (vals is not null && vals[WebAuthenticatorResult.SigninIdKey] is string signinId)
+                    //{
+                    //    ResumeSignin(protocolArgs.Uri, signinId);
+                    //}
                 }
             }
         }
@@ -234,8 +269,9 @@ namespace OAuth_Samples
 
             const string returnUrl = "returnUrl";
             var uriBuilder = new UriBuilder(uri);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            var query =  HttpUtility.ParseQueryString(uriBuilder.Query);
             var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
+            var empty = HttpUtility.ParseQueryString("");
 
             if (returnUrlQuery.HasKeys() == false)
             {
@@ -244,31 +280,49 @@ namespace OAuth_Samples
 
             foreach (var pair in parameters)
             {
-                returnUrlQuery[pair.Key] = pair.Value;
+                empty[pair.Key] = pair.Value;
             }
 
-            query[returnUrl] = returnUrlQuery.ToString();
+            foreach(var key in returnUrlQuery.AllKeys)
+            {
+                empty[key] = returnUrlQuery[key];
+            }
+
+            query[returnUrl] = empty.ToString();
             uriBuilder.Query = query.ToString();
             var updateUri = uriBuilder.Uri;
 
-            return updateUri;
+            var decode = DecodeUrlString(updateUri.ToString());
+            var newUri = new Uri(decode);
+
+            return newUri;
         }
 
-        public static IDictionary<string, string> GetQueryParameters(Uri uri)
+        public static IDictionary<string, string> GetQueryParameters(string url)
         {
             var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-            const string returnUrl = "returnUrl";
-            var uriBuilder = new UriBuilder(uri);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
+            //const string returnUrl = "returnUrl";
+            //var uriBuilder = new UriBuilder(url);
+            var query = HttpUtility.ParseQueryString(url);
+            //var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
 
-            foreach (var key in returnUrlQuery.AllKeys)
+            foreach (var key in query.AllKeys)
             {
-                parameters.Add(key, returnUrlQuery[key]);
+                if (string.IsNullOrWhiteSpace(key)) continue;
+
+                parameters.Add(key, query[key]);
             }
 
             return parameters;
+        }
+
+        private static string DecodeUrlString(string url)
+        {
+            string newUrl;
+            while ((newUrl = Uri.UnescapeDataString(url)) != url)
+                url = newUrl;
+            return newUrl;
         }
 
         private async Task<WebAuthenticatorResult> Authenticate(Uri authorizeUri, Uri callbackUri, CancellationToken cancellationToken)
@@ -288,12 +342,14 @@ namespace OAuth_Samples
                 throw new InvalidOperationException($"The URI Scheme {callbackUri.Scheme} is not declared in AppxManifest.xml");
             }
 
-            var taskId = Guid.NewGuid().ToString();
 
-            var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            parameters.Add(WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key);
-            parameters.Add(WebAuthenticatorResult.SigninIdKey, taskId);
-            authorizeUri = AppendQueryParameters(authorizeUri, parameters);
+            Preferences.Remove(WebAuthenticatorResult.WinWebAuthenticatorStateKey);
+
+
+            //var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            //parameters.Add(WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key);
+            //parameters.Add(WebAuthenticatorResult.SigninIdKey, taskId);
+            //authorizeUri = AppendQueryParameters(authorizeUri, parameters);
 
             var tcs = new TaskCompletionSource<Uri>();
             if (cancellationToken.CanBeCanceled)
@@ -301,8 +357,8 @@ namespace OAuth_Samples
                 cancellationToken.Register(() =>
                 {
                     tcs.TrySetCanceled();
-                    if (_tasks.ContainsKey(taskId))
-                        _tasks.Remove(taskId);
+                    if (_tasks.ContainsKey(_taskId))
+                        _tasks.Remove(_taskId);
                 });
 
                 if (cancellationToken.IsCancellationRequested)
@@ -314,7 +370,7 @@ namespace OAuth_Samples
             var promptOptions = new Windows.System.LauncherOptions();
             var success = await Windows.System.Launcher.LaunchUriAsync(authorizeUri, promptOptions);
 
-            _tasks.Add(taskId, tcs);
+            _tasks.Add(_taskId, tcs);
             var uri = await tcs.Task.ConfigureAwait(false);
             return new WebAuthenticatorResult(uri);
         }
@@ -490,7 +546,7 @@ namespace OAuth_Samples
         /// <param name="callbackUrl">Callback url</param>
         public WebAuthenticatorResult(Uri callbackUrl)
         {
-            var dictVals = WinWebAuthenticator.GetQueryParameters(callbackUrl);
+            var dictVals = WinWebAuthenticator.GetQueryParameters(callbackUrl.ToString());
             Properties = dictVals;
         }
 
