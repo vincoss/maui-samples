@@ -45,6 +45,9 @@ namespace OAuth_Samples
         private static bool _authencationCheckWasPerformed;
 
 
+        TaskCompletionSource<WebAuthenticatorResult> tcsResponse = null;
+
+
         private static readonly WinWebAuthenticator _instance = new WinWebAuthenticator();
 
         static WinWebAuthenticator()
@@ -178,73 +181,6 @@ namespace OAuth_Samples
             }
         }
 
-        public static Uri AppendQueryParameters(Uri uri, IDictionary<string, string> parameters)
-        {
-            if (uri == null) throw new ArgumentNullException(nameof(uri));
-
-            if (parameters == null || parameters.Count <= 0)
-            {
-                return uri;
-            }
-
-            const string returnUrl = "returnUrl";
-            var uriBuilder = new UriBuilder(uri);
-            var query =  HttpUtility.ParseQueryString(uriBuilder.Query);
-            var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
-            var empty = HttpUtility.ParseQueryString("");
-
-            if (returnUrlQuery.HasKeys() == false)
-            {
-                return uri;
-            }
-
-            foreach (var pair in parameters)
-            {
-                empty[pair.Key] = pair.Value;
-            }
-
-            foreach(var key in returnUrlQuery.AllKeys)
-            {
-                empty[key] = returnUrlQuery[key];
-            }
-
-            query[returnUrl] = empty.ToString();
-            uriBuilder.Query = query.ToString();
-            var updateUri = uriBuilder.Uri;
-
-            var decode = DecodeUrlString(updateUri.ToString());
-            var newUri = new Uri(decode);
-
-            return newUri;
-        }
-
-        public static IDictionary<string, string> GetQueryParameters(string url)
-        {
-            var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-            //const string returnUrl = "returnUrl";
-            //var uriBuilder = new UriBuilder(url);
-            var query = HttpUtility.ParseQueryString(url);
-            //var returnUrlQuery = HttpUtility.ParseQueryString(query[returnUrl]);
-
-            foreach (var key in query.AllKeys)
-            {
-                if (string.IsNullOrWhiteSpace(key)) continue;
-
-                parameters.Add(key, query[key]);
-            }
-
-            return parameters;
-        }
-
-        private static string DecodeUrlString(string url)
-        {
-            string newUrl;
-            while ((newUrl = Uri.UnescapeDataString(url)) != url)
-                url = newUrl;
-            return newUrl;
-        }
-
         private async Task<WebAuthenticatorResult> Authenticate(Uri authorizeUri, Uri callbackUri, CancellationToken cancellationToken)
         {
             if (_authencationCheckWasPerformed == false)
@@ -262,7 +198,9 @@ namespace OAuth_Samples
                 throw new InvalidOperationException($"The URI Scheme {callbackUri.Scheme} is not declared in AppxManifest.xml");
             }
 
-            Preferences.Remove(WebAuthenticatorResult.WinWebAuthenticatorStateKey);
+            // Preferences.Remove(WebAuthenticatorResult.WinWebAuthenticatorStateKey);
+
+            tcsResponse = new TaskCompletionSource<WebAuthenticatorResult>();
 
             var tcs = new TaskCompletionSource<Uri>();
             if (cancellationToken.CanBeCanceled)
@@ -354,184 +292,5 @@ namespace OAuth_Samples
         }
 
         internal static bool IsApplicationDataSupported => IsAppPackaged;
-    }
-
-    /// <summary>
-    /// Web Authenticator result parsed from the callback Url.
-    /// </summary>
-    /// <seealso cref="WebAuthenticator"/>
-    public class WebAuthenticatorResult
-    {
-        public const string StateKey = "state";
-        public const string AppInstanceIdKey = "appInstanceId";
-        public const string SigninIdKey = "signinId";
-        public const string WinWebAuthenticatorStateKey = "WinWebAuthenticatorStateKey";
-        public const string WinWebAuthenticatorProcessIdKey = "WinWebAuthenticatorProcessIdKey";
-
-        public static string ToRawIdentityUrl(string redirectUrl, WebAuthenticatorResult result)
-        {
-            try
-            {
-                var queryDict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-                var parametersDict = result.Properties
-                                           .Where(x => x.Key.Equals(StateKey, StringComparison.OrdinalIgnoreCase) == false)
-                                           .Select(x => x);
-
-                foreach (var pair in parametersDict)
-                {
-                    queryDict.Add(pair.Key, pair.Value);
-                }
-
-                var builder = new UriBuilder(redirectUrl.Trim('/'));
-                var dicta = ParseValues(result.Properties, StateKey);
-
-                if (dicta.ContainsKey(StateKey))
-                {
-                    var state = dicta[StateKey];
-
-                    queryDict.Add(StateKey, state);
-
-                    var queryString = string.Join('&', queryDict.Select(q => $"{q.Key}={q.Value}"));
-                    builder.Query = queryString;
-                }
-
-                var url = builder.ToString();
-                return url;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                throw;
-            }
-        }
-
-        public static string FixJsonValues(string json)
-        {
-            if (json.IndexOf('"') >= 0)
-            {
-                return json;
-            }
-
-            var dic = new Dictionary<string, string?>();
-            var pairs = json.Trim().Trim('}', '{').Split(',');
-
-            foreach (var pair in pairs)
-            {
-                var values = pair.Split(':');
-                string? p = null;
-                string? v = null;
-
-                if (values.Length > 0)
-                {
-                    p = values[0];
-                }
-
-                if (values.Length > 1)
-                {
-                    v = values[1];
-                }
-
-                if (string.IsNullOrWhiteSpace(p) == false)
-                {
-                    dic.Add(p, v);
-                }
-            }
-
-            var str = System.Text.Json.JsonSerializer.Serialize(dic);
-            return str;
-        }
-
-        public static IDictionary<string, string> ParseValues(IDictionary<string, string> dictVals, string key)
-        {
-            if (dictVals == null)
-            {
-                dictVals = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            }
-
-            if (dictVals.ContainsKey(key) == false)
-            {
-                return dictVals;
-            }
-
-            var str = dictVals[key].ToString();
-            var json = FixJsonValues(str);
-            var dict = JsonSerializer.Deserialize<IDictionary<string, string>>(json);
-
-            return dict;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WebAuthenticatorResult"/> class.
-        /// </summary>
-        /// <param name="callbackUrl">Callback url</param>
-        public WebAuthenticatorResult(Uri callbackUrl)
-        {
-            var dictVals = WinWebAuthenticator.GetQueryParameters(callbackUrl.ToString());
-            Properties = dictVals;
-        }
-
-        /// <summary>
-        /// The dictionary of key/value pairs parsed form the callback URI's querystring.
-        /// </summary>
-        public IDictionary<string, string> Properties { get; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-        /// <summary>
-        /// Gets the value for the <c>access_token</c> key.
-        /// </summary>
-        /// <value>Access Token parsed from the callback URI <c>access_token</c> parameter.</value>
-        public string AccessToken => GetValue("access_token");
-
-        /// <summary>
-        /// Gets the value for the <c>refresh_token</c> key.
-        /// </summary>
-        /// <value>Refresh Token parsed from the callback URI <c>refresh_token</c> parameter.</value>
-        public string RefreshToken => GetValue("refresh_token");
-
-        /// <summary>
-        /// Gets the value for the <c>id_token</c> key.
-        /// </summary>
-        public string IdToken => GetValue("id_token");
-
-        /// <summary>
-        /// Gets the expiry date as calculated by the timestamp of when the result was created plus the value in seconds for the <c>expires_in</c> key.
-        /// </summary>
-        /// <value>Timestamp of the creation of the object instance plus the <c>expires_in</c> seconds parsed from the callback URI.</value>
-        public DateTimeOffset? RefreshTokenExpiresIn
-        {
-            get {
-                if (Properties.TryGetValue("refresh_token_expires_in", out var value))
-                {
-                    if (int.TryParse(value, out var i))
-                        return DateTimeOffset.UtcNow.AddSeconds(i);
-                }
-
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// The expiry date as calculated by the timestamp of when the result was created plus the value in seconds for the <c>expires_in</c> key.
-        /// </summary>
-        /// <value>Timestamp of the creation of the object instance plus the <c>expires_in</c> seconds parsed from the callback URI.</value>
-        public DateTimeOffset? ExpiresIn
-        {
-            get {
-                if (Properties.TryGetValue("expires_in", out var value))
-                {
-                    if (int.TryParse(value, out var i))
-                        return DateTimeOffset.UtcNow.AddSeconds(i);
-                }
-
-                return null;
-            }
-        }
-
-        private string GetValue(string key)
-        {
-            if (Properties.TryGetValue(key, out var value))
-                return value;
-            return null;
-        }
     }
 }

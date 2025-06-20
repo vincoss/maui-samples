@@ -48,13 +48,12 @@ public partial class PageOne : ContentPage
             // {
             // }
 
-              OAuth_Samples.WebAuthenticatorResult result = null;
-                    result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
+              var result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
                            new Uri(localAuthenticationUrl),
                            new Uri(WebAuthenticatorConstants.CallbackUrl));
 
                            
-                var url = OAuth_Samples.WebAuthenticatorResult.ToRawIdentityUrl(WebAuthenticatorConstants.CallbackUrl, result);
+                //var url = OAuth_Samples.WebAuthenticatorResult.ToRawIdentityUrl(WebAuthenticatorConstants.CallbackUrl, result);
              }
              catch(Exception ex)
              {
