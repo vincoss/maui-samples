@@ -2,8 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WebAuthenticator_Sample.Views.PageOne"
-             Title="PageOne">
-    <VerticalStackLayout>
+             Title="PageOne - Login">
+    
+    <VerticalStackLayout Spacing="10" Margin="5">
         <Button Text="Login" Clicked="Button_Clicked"/>
+        <Label FontAttributes="Bold" Text="CallbackUri"/>
+        <Entry x:Name="entryCallbackUri" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="Timestamp"/>
+        <Entry x:Name="entryTimestamp" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="AccessToken"/>
+        <Entry x:Name="entryAccessToken" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="RefreshToken"/>
+        <Entry x:Name="entryRefreshToken" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="IdToken"/>
+        <Entry x:Name="entryIdToken" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="RefreshTokenExpiresIn"/>
+        <Entry x:Name="entryRefreshTokenExpiresIn" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="ExpiresIn"/>
+        <Entry x:Name="entryExpiresIn" IsReadOnly="True"/>
+        <Label FontAttributes="Bold" Text="Error"/>
+        <Entry x:Name="entryError" IsReadOnly="True"/>
     </VerticalStackLayout>
+    
 </ContentPage>

@@ -23,7 +23,7 @@ namespace WebAuthenticator_Sample.WinUI
                 AppInstance.FindOrRegisterForKey(WebAuthenticatorConstants.CallbackUrl);
             }
 
-            if (OAuth_Samples.WinWebAuthenticator.CheckOAuthRedirectionActivation())
+            if (WinWebAuthenticator.CheckAuthenticationRedirectionActivation())
             {
                 return;
             }

@@ -1,30 +1,24 @@
-﻿using Microsoft.Maui.ApplicationModel;
-using Microsoft.Windows.AppLifecycle;
-using System.Collections.Specialized;
+﻿using Microsoft.Windows.AppLifecycle;
 using System.Diagnostics;
 using System.Management;
 using System.Runtime.InteropServices;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Web;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using WebAuthenticator_Sample;
 using Windows.ApplicationModel.Activation;
 using Windows.System;
 
 
-namespace OAuth_Samples
+namespace WebAuthenticator_Sample
 {
     /// https://learn.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation
     /// <summary>
-    /// Handles OAuth redirection to the system browser and re-activation.
+    /// Handles Authentication redirection to the system browser and re-activation.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Your app must be configured for OAuth. In you app package's <c>Package.appxmanifest</c> under Declarations, add a 
-    /// Protocol declaration and add the scheme you registered for your application's oauth redirect url under "Name".
+    /// Your app must be configured for Authentication. In you app package's <c>Package.appxmanifest</c> under Declarations, add a 
+    /// Protocol declaration and add the scheme you registered for your application's authentication redirect url under "Name".
     /// </para>
     /// </remarks>
     public sealed class WinWebAuthenticator
@@ -35,18 +29,13 @@ namespace OAuth_Samples
         /// <param name="authorizeUri">Url to navigate to, beginning the authentication flow.</param>
         /// <param name="callbackUri">Expected callback url that the navigation flow will eventually redirect to.</param>
         /// <returns>Returns a result parsed out from the callback url.</returns>
-        /// <remarks>Prior to calling this, a call to <see cref="CheckOAuthRedirectionActivation(bool)"/> must be made during application startup.</remarks>
-        /// <seealso cref="CheckOAuthRedirectionActivation(bool)"/>
+        /// <remarks>Prior to calling this, a call to <see cref="CheckAuthenticationRedirectionActivation(bool)"/> must be made during application startup.</remarks>
+        /// <seealso cref="CheckAuthenticationRedirectionActivation(bool)"/>
         public static Task<WebAuthenticatorResult> AuthenticateAsync(Uri authorizeUri, Uri callbackUri) => _instance.Authenticate(authorizeUri, callbackUri, CancellationToken.None);
 
-        private Dictionary<string, TaskCompletionSource<Uri>> _tasks = new Dictionary<string, TaskCompletionSource<Uri>>();
-
-        private static string _taskId = Guid.NewGuid().ToString();
-        private static bool _authencationCheckWasPerformed;
-
-
-        TaskCompletionSource<WebAuthenticatorResult> tcsResponse = null;
-
+        private static  bool _authencationCheckWasPerformed;
+        private TaskCompletionSource<WebAuthenticatorResult> _tcsResponse = null; 
+        private Uri _currentRedirectUri = null;
 
         private static readonly WinWebAuthenticator _instance = new WinWebAuthenticator();
 
@@ -99,15 +88,15 @@ namespace OAuth_Samples
         /// prior to using <see cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
         /// </remarks>
         /// <seealso cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
-        public static bool CheckOAuthRedirectionActivation(bool skipShutDownOnActivation = false)
+        public static bool CheckAuthenticationRedirectionActivation(bool skipShutDownOnActivation = false)
         {
             var currentApp = AppInstance.GetCurrent();
             var activatedEventArgs = currentApp?.GetActivatedEventArgs();
-            return CheckOAuthRedirectionActivation(activatedEventArgs, skipShutDownOnActivation);
+            return CheckAuthenticationRedirectionActivation(activatedEventArgs, skipShutDownOnActivation);
         }
 
         /// <summary>
-        /// Performs an OAuth protocol activation check and redirects activation to the correct application instance.
+        /// Performs an Authentication protocol activation check and redirects activation to the correct application instance.
         /// </summary>
         /// <param name="activatedEventArgs">The activation arguments</param>
         /// <param name="skipShutDownOnActivation">If <c>true</c>, this application instance will not automatically be shut down. If set to
@@ -118,7 +107,7 @@ namespace OAuth_Samples
         /// prior to using <see cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
         /// </remarks>
         /// <seealso cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
-        public static bool CheckOAuthRedirectionActivation(AppActivationArguments? activatedEventArgs, bool skipShutDownOnActivation = false)
+        public static bool CheckAuthenticationRedirectionActivation(AppActivationArguments? activatedEventArgs, bool skipShutDownOnActivation = false)
         {
             _authencationCheckWasPerformed = true;
 
@@ -160,24 +149,58 @@ namespace OAuth_Samples
             {
                 if (e.Data is IProtocolActivatedEventArgs protocolArgs)
                 {
-                    ResumeSignin(protocolArgs.Uri, _taskId);
+                    OnResumeCallback(protocolArgs.Uri);
                 }
             }
         }
 
-        private void ResumeSignin(Uri callbackUri, string signinId)
+        private static bool CanHandleCallback(Uri expectedUrl, Uri callbackUrl)
         {
-            if (signinId != null && _tasks.ContainsKey(signinId))
+            if (!callbackUrl.Scheme.Equals(expectedUrl.Scheme, StringComparison.OrdinalIgnoreCase))
             {
-                var task = _tasks[signinId];
-                _tasks.Remove(signinId);
-                task.TrySetResult(callbackUri);
+                return false;
             }
-            else
+
+            if (!string.IsNullOrEmpty(expectedUrl.Host))
             {
-                var task = _tasks.FirstOrDefault();
-                _tasks.Remove(signinId);
-                task.Value.TrySetResult(callbackUri);
+                if (!callbackUrl.Host.Equals(expectedUrl.Host, StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool OnResumeCallback(Uri callbackUri)
+        {
+            // If we aren't waiting on a task, don't handle the url
+            if (_tcsResponse?.Task?.IsCompleted ?? true)
+            {
+                return false;
+            }
+
+            if (callbackUri == null)
+            {
+                _tcsResponse.TrySetCanceled();
+                return false;
+            }
+
+            try
+            {
+                // Only handle schemes we expect
+                if (CanHandleCallback(_currentRedirectUri, callbackUri) == false)
+                {
+                    _tcsResponse.TrySetException(new InvalidOperationException($"Invalid Redirect URI, detected `{callbackUri}` but expected a URI in the format of `{_currentRedirectUri}`"));
+                    return false;
+                }
+                _tcsResponse?.TrySetResult(new WebAuthenticatorResult(callbackUri));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _tcsResponse.TrySetException(ex);
+                return false;
             }
         }
 
@@ -185,7 +208,7 @@ namespace OAuth_Samples
         {
             if (_authencationCheckWasPerformed == false)
             {
-                throw new InvalidOperationException("OAuth redirection check on app activation was not detected. Please make sure a call to WebAuthenticator.CheckOAuthRedirectionActivation was made during App creation.");
+                throw new InvalidOperationException("Authentication redirection check on app activation was not detected. Please make sure a call to WebAuthenticator.CheckAuthenticationRedirectionActivation was made during App creation.");
             }
 
             if (Helpers.IsAppPackaged == false)
@@ -198,34 +221,19 @@ namespace OAuth_Samples
                 throw new InvalidOperationException($"The URI Scheme {callbackUri.Scheme} is not declared in AppxManifest.xml");
             }
 
-            // Preferences.Remove(WebAuthenticatorResult.WinWebAuthenticatorStateKey);
-
-            tcsResponse = new TaskCompletionSource<WebAuthenticatorResult>();
-
-            var tcs = new TaskCompletionSource<Uri>();
-            if (cancellationToken.CanBeCanceled)
+            // Cancel any previous task that's still pending
+            if (_tcsResponse?.Task != null && !_tcsResponse.Task.IsCompleted)
             {
-                cancellationToken.Register(() =>
-                {
-                    tcs.TrySetCanceled();
-                    if (_tasks.ContainsKey(_taskId))
-                    {
-                        _tasks.Remove(_taskId);
-                    }
-                });
-
-                if (cancellationToken.IsCancellationRequested)
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-                }
+                _tcsResponse.TrySetCanceled();
             }
+
+            _tcsResponse = new TaskCompletionSource<WebAuthenticatorResult>();
+            _currentRedirectUri = callbackUri;
 
             var promptOptions = new LauncherOptions();
             var success = await Windows.System.Launcher.LaunchUriAsync(authorizeUri, promptOptions);
 
-            _tasks.Add(_taskId, tcs);
-            var uri = await tcs.Task.ConfigureAwait(false);
-            return new WebAuthenticatorResult(uri);
+            return await _tcsResponse.Task;
         }
 
         /// <summary>

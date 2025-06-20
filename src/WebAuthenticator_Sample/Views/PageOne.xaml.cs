@@ -1,4 +1,5 @@
 
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -7,8 +8,6 @@ namespace WebAuthenticator_Sample.Views;
 
 public partial class PageOne : ContentPage
 {
-    private string AuthToken { get; set; }
-
     public PageOne()
     {
         InitializeComponent();
@@ -16,7 +15,9 @@ public partial class PageOne : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await OnAuthenticate(null);
+        var scheme = DeviceInfo.Platform == DevicePlatform.iOS ? "Apple" : null;
+
+        await OnAuthenticate(scheme);
     }
 
     /// <summary>
@@ -24,86 +25,69 @@ public partial class PageOne : ContentPage
     /// </summary>
     /// <param name="scheme"></param>
     /// <returns></returns>
-    private async Task OnAuthenticate(string scheme)
+    private async Task OnAuthenticate(string? scheme)
     {
         var localAuthenticationUrl = $"{WebAuthenticatorConstants.AuthenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={WebAuthenticatorConstants.CallbackUrl}";
-
+        WebAuthenticatorResult? result = null;
 
 #if WINDOWS
 
              try
              {
-
-            // var auth = WebAuthenticator.Default;
-             
-            //var options = new WebAuthenticatorOptions();
-            //options.CallbackUrl = new Uri(_callbackUrl);
-            //options.Url = new Uri(_authenticationUrl);
-
-            //WebAuthenticatorResult resulta = null;
-
-            // resulta =  await auth.AuthenticateAsync(options);
-
-            // if(resulta != null)
-            // {
-            // }
-
-              var result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
-                           new Uri(localAuthenticationUrl),
-                           new Uri(WebAuthenticatorConstants.CallbackUrl));
-
-                           
-                //var url = OAuth_Samples.WebAuthenticatorResult.ToRawIdentityUrl(WebAuthenticatorConstants.CallbackUrl, result);
+                result = await WinWebAuthenticator.AuthenticateAsync(
+                         new Uri(localAuthenticationUrl),
+                         new Uri(WebAuthenticatorConstants.CallbackUrl));
+             } 
+             catch (OperationCanceledException)
+             {
+                entryError.Text = "Login canceled.";
              }
              catch(Exception ex)
              {
+                entryError.Text = ex.ToString();
              }
-
-             return;
-#endif
+#else
         try
         {
-            WebAuthenticatorResult r = null;
-
-            if (string.IsNullOrWhiteSpace(scheme) == false && scheme.Equals("Apple", StringComparison.Ordinal)
+            if (string.IsNullOrWhiteSpace(scheme) == false && scheme.Equals("Apple", StringComparison.OrdinalIgnoreCase)
                 && DeviceInfo.Platform == DevicePlatform.iOS
                 && DeviceInfo.Version.Major >= 13)
             {
-                // Make sure to enable Apple Sign In in both the
-                // entitlements and the provisioning profile.
+                // Make sure to enable Apple Sign In in both the entitlements and the provisioning profile.
                 var options = new AppleSignInAuthenticator.Options
                 {
                     IncludeEmailScope = true,
                     IncludeFullNameScope = true,
                 };
-                r = await AppleSignInAuthenticator.AuthenticateAsync(options);
+                result = await AppleSignInAuthenticator.AuthenticateAsync(options);
             }
             else
             {
                 var authUrl = new Uri(localAuthenticationUrl);
                 var callbackUrl = new Uri(WebAuthenticatorConstants.CallbackUrl);
 
-                r = await WebAuthenticator.AuthenticateAsync(authUrl, callbackUrl);
+                result = await WebAuthenticator.AuthenticateAsync(authUrl, callbackUrl);
             }
-
-            AuthToken = string.Empty;
-            if (r.Properties.TryGetValue("name", out var name) && !string.IsNullOrEmpty(name))
-                AuthToken += $"Name: {name}{Environment.NewLine}";
-            if (r.Properties.TryGetValue("email", out var email) && !string.IsNullOrEmpty(email))
-                AuthToken += $"Email: {email}{Environment.NewLine}";
-            AuthToken += r?.AccessToken ?? r?.IdToken;
         }
         catch (OperationCanceledException)
         {
-            Console.WriteLine("Login canceled.");
-
-            AuthToken = string.Empty;
+            entryError.Text = "Login canceled.";
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            Console.WriteLine($"Failed: {ex.Message}");
+            entryError.Text = ex.ToString();
+        }
+#endif
 
-            AuthToken = string.Empty;
+        if(result != null)
+        {
+            entryCallbackUri.Text = result.CallbackUri.ToString();
+            entryTimestamp.Text = result.Timestamp.ToString();
+            entryAccessToken.Text = result.AccessToken;
+            entryRefreshToken.Text = result.RefreshToken.ToString();
+            entryIdToken.Text = result.IdToken.ToString();
+            entryRefreshTokenExpiresIn.Text = result.RefreshTokenExpiresIn.ToString();
+            entryExpiresIn.Text = result.ExpiresIn.ToString();
         }
     }
 }
