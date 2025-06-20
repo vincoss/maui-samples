@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.Windows.AppLifecycle;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -16,17 +17,18 @@ namespace WebAuthenticator_Sample.WinUI
         /// </summary>
         public App()
         {
+            var thisInstance = AppInstance.GetCurrent();
+            if (string.IsNullOrWhiteSpace(thisInstance.Key))
+            {
+                AppInstance.FindOrRegisterForKey(WebAuthenticatorConstants.CallbackUrl);
+            }
+
             if (OAuth_Samples.WinWebAuthenticator.CheckOAuthRedirectionActivation())
+            {
                 return;
+            }
 
             this.InitializeComponent();
-
-            var thisInstance = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent();
-            if (string.IsNullOrEmpty(thisInstance.Key))
-            {
-                Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("com.companyname.webauthenticator.sample://callback");
-                    //Guid.NewGuid().ToString());
-            }
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();

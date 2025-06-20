@@ -10,7 +10,9 @@ using System.Web;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using WebAuthenticator_Sample;
 using Windows.ApplicationModel.Activation;
+using Windows.System;
 
 
 namespace OAuth_Samples
@@ -40,6 +42,7 @@ namespace OAuth_Samples
         private Dictionary<string, TaskCompletionSource<Uri>> _tasks = new Dictionary<string, TaskCompletionSource<Uri>>();
 
         private static string _taskId = Guid.NewGuid().ToString();
+        private static bool _authencationCheckWasPerformed;
 
 
         private static readonly WinWebAuthenticator _instance = new WinWebAuthenticator();
@@ -82,39 +85,8 @@ namespace OAuth_Samples
             return flag;
         }
 
-        private static IDictionary<string, string> GetState(AppActivationArguments activatedEventArgs)
-        {
-            if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol &&
-                activatedEventArgs.Data is IProtocolActivatedEventArgs protocolArgs)
-            {
-                return GetState(protocolArgs);
-            }
-            return null;
-        }
-
-        private static IDictionary<string, string> GetState(IProtocolActivatedEventArgs protocolArgs)
-        {
-            var preferenceString = Preferences.Get(WebAuthenticatorResult.WinWebAuthenticatorStateKey, null);
-            if (string.IsNullOrWhiteSpace(preferenceString) == false)
-            {
-                var dict = GetQueryParameters(preferenceString);
-                return dict;
-            }
-
-            var dictQuery = GetQueryParameters(protocolArgs.Uri.Query);
-
-            if (dictQuery.Keys.Count > 0)
-            {
-                Preferences.Set(WebAuthenticatorResult.WinWebAuthenticatorStateKey, protocolArgs.Uri.Query);
-            }
-
-            return dictQuery;
-        }
-        
-        private static bool _oauthCheckWasPerformed;
-
         /// <summary>
-        /// Performs an OAuth protocol activation check and redirects activation to the correct application instance.
+        /// Performs an Authentication & protocol activation check and redirects activation to the correct application instance.
         /// </summary>
         /// <param name="skipShutDownOnActivation">If <c>true</c>, this application instance will not automatically be shut down. If set to
         /// <c>true</c> ensure you handle instance exit, or you'll end up with multiple instances running.</param>
@@ -126,7 +98,8 @@ namespace OAuth_Samples
         /// <seealso cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
         public static bool CheckOAuthRedirectionActivation(bool skipShutDownOnActivation = false)
         {
-            var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent()?.GetActivatedEventArgs();
+            var currentApp = AppInstance.GetCurrent();
+            var activatedEventArgs = currentApp?.GetActivatedEventArgs();
             return CheckOAuthRedirectionActivation(activatedEventArgs, skipShutDownOnActivation);
         }
 
@@ -144,100 +117,47 @@ namespace OAuth_Samples
         /// <seealso cref="AuthenticateAsync(Uri, Uri, CancellationToken)"/>
         public static bool CheckOAuthRedirectionActivation(AppActivationArguments? activatedEventArgs, bool skipShutDownOnActivation = false)
         {
-            _oauthCheckWasPerformed = true;
+            _authencationCheckWasPerformed = true;
 
             if (activatedEventArgs is null)
             {
                 return false;
             }
-            if (activatedEventArgs.Kind != Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol)
+
+            if (activatedEventArgs.Kind != ExtendedActivationKind.Protocol)
             {
                 return false;
             }
 
-            //var id = dic[WebAuthenticatorResult.AppInstanceIdKey];
-            var id = @"com.companyname.webauthenticator.sample://callback";
-            var instance = Microsoft.Windows.AppLifecycle.AppInstance.GetInstances().Where(i => i.Key == id).FirstOrDefault();
+            var instance = AppInstance.GetInstances()
+                                      .Where(x => string.Equals(x.Key, WebAuthenticatorConstants.CallbackUrl, StringComparison.OrdinalIgnoreCase))
+                                      .FirstOrDefault();
 
-            if (instance is not null && !instance.IsCurrent)
+            if (instance != null && instance.IsCurrent == false)
             {
                 // Redirect to correct instance and close this one
                 instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
 
-                var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
+                var processId = Process.GetCurrentProcess().Id;
 
                 if (!skipShutDownOnActivation)
                 {
-                    //if (pid2 > 0)
-                    //{
-                    //    KillProcessAndChildren(pid2);
-                    //}
-
-                    KillProcessAndChildren(pid1);
-
-
-                    //System.Diagnostics.Process.GetCurrentProcess().Kill();
-
+                    KillProcessAndChildren(processId);
                 }
+
                 return true;
             }
 
             return false;
-
-            //var dic = GetState(activatedEventArgs);
-
-            //if (dic.ContainsKey(WebAuthenticatorResult.AppInstanceIdKey))
-            //{
-            //    //var id = dic[WebAuthenticatorResult.AppInstanceIdKey];
-            //    var id = @"com.companyname.webauthenticator.sample://callback";
-            //    var instance = Microsoft.Windows.AppLifecycle.AppInstance.GetInstances().Where(i => i.Key == id).FirstOrDefault();
-
-            //    if (instance is not null && !instance.IsCurrent)
-            //    {
-            //        // Redirect to correct instance and close this one
-            //        instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
-
-            //        var pid1 = System.Diagnostics.Process.GetCurrentProcess().Id;
-
-            //        if (!skipShutDownOnActivation)
-            //        {
-            //            //if (pid2 > 0)
-            //            //{
-            //            //    KillProcessAndChildren(pid2);
-            //            //}
-
-            //            KillProcessAndChildren(pid1);
-
-
-            //            //System.Diagnostics.Process.GetCurrentProcess().Kill();
-
-            //        }
-            //        return true;
-            //    }
-            //}
-            //else
-            //{
-            //    var thisInstance = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent();
-            //    if (string.IsNullOrEmpty(thisInstance.Key))
-            //    {
-            //        Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
-            //    }
-            //}
-            //return false;
         }
 
-        private void CurrentAppInstance_Activated(object? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)
+        private void CurrentAppInstance_Activated(object? sender, AppActivationArguments e)
         {
-            if (e.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol)
+            if (e.Kind == ExtendedActivationKind.Protocol)
             {
                 if (e.Data is IProtocolActivatedEventArgs protocolArgs)
                 {
                     ResumeSignin(protocolArgs.Uri, _taskId);
-                    //var vals = GetState(protocolArgs);
-                    //if (vals is not null && vals[WebAuthenticatorResult.SigninIdKey] is string signinId)
-                    //{
-                    //    ResumeSignin(protocolArgs.Uri, signinId);
-                    //}
                 }
             }
         }
@@ -327,7 +247,7 @@ namespace OAuth_Samples
 
         private async Task<WebAuthenticatorResult> Authenticate(Uri authorizeUri, Uri callbackUri, CancellationToken cancellationToken)
         {
-            if (_oauthCheckWasPerformed == false)
+            if (_authencationCheckWasPerformed == false)
             {
                 throw new InvalidOperationException("OAuth redirection check on app activation was not detected. Please make sure a call to WebAuthenticator.CheckOAuthRedirectionActivation was made during App creation.");
             }
@@ -342,14 +262,7 @@ namespace OAuth_Samples
                 throw new InvalidOperationException($"The URI Scheme {callbackUri.Scheme} is not declared in AppxManifest.xml");
             }
 
-
             Preferences.Remove(WebAuthenticatorResult.WinWebAuthenticatorStateKey);
-
-
-            //var parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            //parameters.Add(WebAuthenticatorResult.AppInstanceIdKey, Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().Key);
-            //parameters.Add(WebAuthenticatorResult.SigninIdKey, taskId);
-            //authorizeUri = AppendQueryParameters(authorizeUri, parameters);
 
             var tcs = new TaskCompletionSource<Uri>();
             if (cancellationToken.CanBeCanceled)
@@ -358,7 +271,9 @@ namespace OAuth_Samples
                 {
                     tcs.TrySetCanceled();
                     if (_tasks.ContainsKey(_taskId))
+                    {
                         _tasks.Remove(_taskId);
+                    }
                 });
 
                 if (cancellationToken.IsCancellationRequested)
@@ -367,7 +282,7 @@ namespace OAuth_Samples
                 }
             }
 
-            var promptOptions = new Windows.System.LauncherOptions();
+            var promptOptions = new LauncherOptions();
             var success = await Windows.System.Launcher.LaunchUriAsync(authorizeUri, promptOptions);
 
             _tasks.Add(_taskId, tcs);
@@ -386,17 +301,23 @@ namespace OAuth_Samples
             {
                 return;
             }
+
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ParentProcessID=" + pid);
             ManagementObjectCollection moc = searcher.Get();
 
             foreach (ManagementObject mo in moc)
             {
-                KillProcessAndChildren(Convert.ToInt32(mo["ProcessID"]));
+                var process = Convert.ToInt32(mo["ProcessID"]);
+                KillProcessAndChildren(process);
             }
+
             try
             {
                 Process proc = Process.GetProcessById(pid);
-                proc.Kill();
+                if (proc != null)
+                {
+                    proc.Kill();
+                }
             }
             catch (ArgumentException)
             {

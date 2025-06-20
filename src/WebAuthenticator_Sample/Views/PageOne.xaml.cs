@@ -7,8 +7,6 @@ namespace WebAuthenticator_Sample.Views;
 
 public partial class PageOne : ContentPage
 {
-    private const string _authenticationUrl = "https://10.0.0.76:7254/Identity/Account/Login";
-    private const string _callbackUrl = "com.companyname.webauthenticator.sample://callback";
     private string AuthToken { get; set; }
 
     public PageOne()
@@ -21,18 +19,6 @@ public partial class PageOne : ContentPage
         await OnAuthenticate(null);
     }
 
-
-    private static string GetReturnUrlQuery()
-    {
-        var uriBuilder = new UriBuilder(_authenticationUrl);
-        var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-
-        query.Add("redirect_uri", _callbackUrl);
-        query.Add("state", Guid.NewGuid().ToString());
-
-        return query.ToString();
-    }
-
     /// <summary>
     /// scheme: Apple
     /// </summary>
@@ -40,8 +26,7 @@ public partial class PageOne : ContentPage
     /// <returns></returns>
     private async Task OnAuthenticate(string scheme)
     {
-        var returnUrl = GetReturnUrlQuery();
-        var localAuthenticationUrl = $"{_authenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={_callbackUrl}";
+        var localAuthenticationUrl = $"{WebAuthenticatorConstants.AuthenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={WebAuthenticatorConstants.CallbackUrl}";
 
 
 #if WINDOWS
@@ -66,10 +51,10 @@ public partial class PageOne : ContentPage
               OAuth_Samples.WebAuthenticatorResult result = null;
                     result = await OAuth_Samples.WinWebAuthenticator.AuthenticateAsync(
                            new Uri(localAuthenticationUrl),
-                           new Uri(_callbackUrl));
+                           new Uri(WebAuthenticatorConstants.CallbackUrl));
 
                            
-                var url = OAuth_Samples.WebAuthenticatorResult.ToRawIdentityUrl(_callbackUrl, result);
+                var url = OAuth_Samples.WebAuthenticatorResult.ToRawIdentityUrl(WebAuthenticatorConstants.CallbackUrl, result);
              }
              catch(Exception ex)
              {
@@ -97,7 +82,7 @@ public partial class PageOne : ContentPage
             else
             {
                 var authUrl = new Uri(localAuthenticationUrl);
-                var callbackUrl = new Uri(_callbackUrl);
+                var callbackUrl = new Uri(WebAuthenticatorConstants.CallbackUrl);
 
                 r = await WebAuthenticator.AuthenticateAsync(authUrl, callbackUrl);
             }
