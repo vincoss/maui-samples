@@ -15,9 +15,7 @@ public partial class PageOne : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        var scheme = DeviceInfo.Platform == DevicePlatform.iOS ? "Apple" : null;
-
-        await OnAuthenticate(scheme);
+        await OnAuthenticate();
     }
 
     /// <summary>
@@ -25,7 +23,7 @@ public partial class PageOne : ContentPage
     /// </summary>
     /// <param name="scheme"></param>
     /// <returns></returns>
-    private async Task OnAuthenticate(string? scheme)
+    private async Task OnAuthenticate()
     {
         var localAuthenticationUrl = $"{WebAuthenticatorConstants.AuthenticationUrl.TrimEnd(new[] { '/' })}?returnUrl={WebAuthenticatorConstants.CallbackUrl}";
         WebAuthenticatorResult? result = null;
@@ -49,25 +47,10 @@ public partial class PageOne : ContentPage
 #else
         try
         {
-            if (string.IsNullOrWhiteSpace(scheme) == false && scheme.Equals("Apple", StringComparison.OrdinalIgnoreCase)
-                && DeviceInfo.Platform == DevicePlatform.iOS
-                && DeviceInfo.Version.Major >= 13)
-            {
-                // Make sure to enable Apple Sign In in both the entitlements and the provisioning profile.
-                var options = new AppleSignInAuthenticator.Options
-                {
-                    IncludeEmailScope = true,
-                    IncludeFullNameScope = true,
-                };
-                result = await AppleSignInAuthenticator.AuthenticateAsync(options);
-            }
-            else
-            {
-                var authUrl = new Uri(localAuthenticationUrl);
-                var callbackUrl = new Uri(WebAuthenticatorConstants.CallbackUrl);
+            var authUrl = new Uri(localAuthenticationUrl);
+            var callbackUrl = new Uri(WebAuthenticatorConstants.CallbackUrl);
 
-                result = await WebAuthenticator.AuthenticateAsync(authUrl, callbackUrl);
-            }
+            result = await WebAuthenticator.Default.AuthenticateAsync(authUrl, callbackUrl);
         }
         catch (OperationCanceledException)
         {
