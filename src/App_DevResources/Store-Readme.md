@@ -15,12 +15,14 @@ https://partner.microsoft.com/en-us/dashboard/apps-and-games/overview
 
 ## Publish app
 https://learn.microsoft.com/en-us/dotnet/maui/windows/deployment/publish-cli?view=net-maui-8.0
+
 NOTE: Ensure that CMD path is in app folder not in the solution folder
 
-`
+```
 dotnet publish -f net8.0-windows10.0.19041.0 -c Release --self-contained
+
 dotnet publish -f net9.0-windows10.0.19041.0 -c Release --self-contained
-`
+```
 # iOS
 https://appstoreconnect.apple.com/apps/
 
