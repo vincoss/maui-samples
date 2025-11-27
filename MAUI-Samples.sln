@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31512.422
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11222.16 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite_EF_Samples_Library", "src\Sqlite_EF_Samples_Library\Sqlite_EF_Samples_Library.csproj", "{760FCAA5-0FD6-41D3-AF4A-0F85F3496420}"
 EndProject
@@ -122,6 +122,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAuthenticator_Sample", "src\WebAuthenticator_Sample\WebAuthenticator_Sample.csproj", "{86C57E6E-B01A-4DD8-8EB0-5561483B8205}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiBlazorHybridApp", "src\Default_MauiBlazorHybridApp\Default_MauiBlazorHybridApp.csproj", "{B05DF060-CCA2-435F-8409-4FF1BA2D98E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiApp", "src\Default_MauiApp\Default_MauiApp.csproj", "{98863015-D353-4CC7-AC28-7E196DF3B815}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -452,6 +454,12 @@ Global
 		{B05DF060-CCA2-435F-8409-4FF1BA2D98E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B05DF060-CCA2-435F-8409-4FF1BA2D98E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05DF060-CCA2-435F-8409-4FF1BA2D98E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98863015-D353-4CC7-AC28-7E196DF3B815}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -472,6 +480,7 @@ Global
 		{99152423-52D4-483B-83F8-95CC02146123} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{A6DE2AAA-C9B4-4222-B1F7-509C70D6D40A} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 		{B05DF060-CCA2-435F-8409-4FF1BA2D98E3} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
+		{98863015-D353-4CC7-AC28-7E196DF3B815} = {392B80A3-648F-427A-8B4C-4FE12DE61D5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEA45087-F8A2-4D0B-B7E1-801FBC3E052E}
