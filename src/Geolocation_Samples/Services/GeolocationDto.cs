@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
 
 namespace Geolocation_Samples.Services
 {
@@ -18,9 +13,12 @@ namespace Geolocation_Samples.Services
         public double? Speed { get; set; }
         public double? Course { get; set; }
         public DateTimeOffset Timestamp { get; set; }
-        public string AcquireDuration { get; set; }
+        public string? AcquireDuration { get; set; }
         public bool IsMock { get; set; }
-        public string Error { get; set; }
+        public string? Error { get; set; }
+
+        /// <remarks>This functionality only applies to iOS. Other platforms will always report false.</remarks>
+        public bool ReducedAccuracy { get; set; }
 
         public override string ToString()
         {
@@ -36,6 +34,7 @@ namespace Geolocation_Samples.Services
             sb.AppendLine($"{nameof(Timestamp)}: {Timestamp}, ");
             sb.AppendLine($"{nameof(AcquireDuration)}: {AcquireDuration},");
             sb.AppendLine($"{nameof(IsMock)}: {IsMock},");
+            sb.AppendLine($"{nameof(ReducedAccuracy)}: {ReducedAccuracy}");
             sb.AppendLine($"{nameof(Error)}: {Error}");
 
             return sb.ToString();
