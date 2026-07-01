@@ -16,6 +16,8 @@ namespace CollectionView_Samples
             pages.Add(new PageInfo { Type = typeof(VerticalCollectionViewGroupingView) });
             pages.Add(new PageInfo { Type = typeof(VerticalCollectionCheckboxView) });
             pages.Add(new PageInfo { Type = typeof(BindableLayoutView) });
+            pages.Add(new PageInfo { Type = typeof(HeadersView) });
+            pages.Add(new PageInfo { Type = typeof(Headers2View) });
 
             ListOfPages.ItemsSource = pages;
         }

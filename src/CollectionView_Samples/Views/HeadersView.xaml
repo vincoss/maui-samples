@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionView_Samples.Views.HeadersView"
+             Title="HeadersView">
+
+    <CollectionView Header="{Binding .}" 
+                    ItemsSource="{Binding Items}"
+                    ItemsLayout="VerticalGrid, 3">
+        <CollectionView.HeaderTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="AA" FontSize="18" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="BB" FontSize="18" FontAttributes="Bold" />
+                    <Label Grid.Column="2" Text="CC" FontSize="18" FontAttributes="Bold" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.HeaderTemplate>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Column="0" IsChecked="{Binding IsSelected}" />
+                    <CheckBox Grid.Column="1" IsChecked="{Binding IsSelected}" />
+                    <HorizontalStackLayout Grid.Column="2" Margin="10">
+                        <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                        <Label Text="{Binding Description}" Margin="10,0,0,0" LineBreakMode="TailTruncation" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
