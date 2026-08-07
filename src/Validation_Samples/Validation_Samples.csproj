@@ -49,7 +49,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation" Version="12.1.0" />
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
 	</ItemGroup>
 
 
@@ -59,8 +59,8 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.11" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.10" />
 	</ItemGroup>
 
 </Project>
