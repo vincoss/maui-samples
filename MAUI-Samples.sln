@@ -123,6 +123,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiClassLibrary", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default_MauiBlazorHybridApp", "src\Default_MauiBlazorHybridApp\Default_MauiBlazorHybridApp.csproj", "{462B06B2-FC49-47BF-8B5A-D28DE71F4BF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHybridApp_CollectionView_Samples", "src\BlazorHybridApp_CollectionView_Samples\BlazorHybridApp_CollectionView_Samples.csproj", "{2AB953D7-7D84-45C3-82B1-706B6277400A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -454,6 +456,10 @@ Global
 		{462B06B2-FC49-47BF-8B5A-D28DE71F4BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{462B06B2-FC49-47BF-8B5A-D28DE71F4BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{462B06B2-FC49-47BF-8B5A-D28DE71F4BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB953D7-7D84-45C3-82B1-706B6277400A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB953D7-7D84-45C3-82B1-706B6277400A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB953D7-7D84-45C3-82B1-706B6277400A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB953D7-7D84-45C3-82B1-706B6277400A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
