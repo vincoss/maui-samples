@@ -13,7 +13,7 @@
 
     <Grid>
         <ActivityIndicator IsRunning="{Binding IsBusy}" 
-                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           HorizontalOptions="Fill" VerticalOptions="Fill" 
                            Color="Red">
             <ActivityIndicator.Triggers>
                 <DataTrigger TargetType="ActivityIndicator" Binding="{Binding IsBusy}" Value="True">

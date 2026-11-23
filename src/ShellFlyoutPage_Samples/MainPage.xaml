@@ -16,7 +16,7 @@
     <Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
-                <Label Text="X" Margin="5"/>
+                <Label Text="X" Margin="5" Grid.Column="0"/>
                 <Label Grid.Column="1"
                        Text="{Binding Title}"
                        VerticalTextAlignment="Center" />

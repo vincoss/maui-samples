@@ -28,5 +28,18 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Program requires GPS to track locations.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Program requires GPS to track locations.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Program requires GPS to track locations.</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>TemporaryFullAccuracyUsageDescription</key>
+		<string>Fill in a reason why your app needs full accuracy</string>
+	</dict>
+	
 </dict>
 </plist>

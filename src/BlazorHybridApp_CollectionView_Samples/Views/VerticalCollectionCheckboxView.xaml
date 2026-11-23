@@ -1,0 +1,46 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BlazorHybridApp_CollectionView_Samples.Views.VerticalCollectionCheckboxView"
+             xmlns:vm="clr-namespace:BlazorHybridApp_CollectionView_Samples.ViewModels;assembly=BlazorHybridApp_CollectionView_Samples"
+             x:Name="self"
+             Title="CollectionView - Checkbox">
+
+    <VerticalStackLayout>
+        <Label Text="Checkbox - single|multiple selection" FontSize="Title" BackgroundColor="Orange"/>
+        <HorizontalStackLayout BackgroundColor="Yellow">
+            <Label Text="Is single selection:" Margin="5" HorizontalOptions="Start"/>
+            <CheckBox IsChecked="{Binding IsSingleSelection}" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="collectionViewItems"
+                        HorizontalOptions="Fill"
+                        EmptyView="No Items"
+                        ItemsSource="{Binding ItemsSource}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:SelectListItem">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference self}}"/>
+                        </Grid.GestureRecognizers>
+
+                        <HorizontalStackLayout Grid.Row="0" HorizontalOptions="Fill" BackgroundColor="Yellow">
+                            <RadioButton IsChecked="{Binding IsSelected}" InputTransparent="True" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Value}" FontSize="Title" HorizontalOptions="Fill"/>
+                        </HorizontalStackLayout>
+
+                        <BoxView Grid.Row="1"  HeightRequest=".5" Color="Gray" HorizontalOptions="Fill" />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+</ContentPage>

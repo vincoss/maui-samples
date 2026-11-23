@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             x:Class="BarcodeScanning_Samples.MainPage"
+             Title="QR and Barcode scaner">
+
+    <VerticalStackLayout>
+        <Button Text="Barcode One" Clicked="OneButton_Clicked"/>
+        <Button Text="Barcode Two" Clicked="TwoButton_Clicked"/>
+        <Button Text="Barcode Three" Clicked="ThreeButton_Clicked"/>
+    </VerticalStackLayout>
+
+</ContentPage>

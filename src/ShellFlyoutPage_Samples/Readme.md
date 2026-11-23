@@ -2,6 +2,7 @@
 TODO: Need deep linking sample
 
 ## Resources
+https://learn.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/flyout
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/introduction
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/create
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/search

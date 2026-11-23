@@ -11,7 +11,8 @@ namespace ToastNotification_Samples.Platforms
             if (string.IsNullOrWhiteSpace(message)) throw new ArgumentNullException(nameof(message));
 
             var toast = Get(message);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
+            var applicationId = AppInfo.Current.PackageName;
+            ToastNotificationManager.CreateToastNotifier(applicationId).Show(toast);
         }
 
         public void LongAlert(string message)
@@ -19,7 +20,8 @@ namespace ToastNotification_Samples.Platforms
             if (string.IsNullOrWhiteSpace(message)) throw new ArgumentNullException(nameof(message));
 
             var toast = Get(message, DateTimeOffset.Now.AddSeconds(10));
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
+            var applicationId = AppInfo.Current.PackageName;
+            ToastNotificationManager.CreateToastNotifier(applicationId).Show(toast);
         }
 
         private ToastNotification Get(string message, DateTimeOffset? expire = null)

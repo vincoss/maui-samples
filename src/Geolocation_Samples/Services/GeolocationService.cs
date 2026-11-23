@@ -21,7 +21,7 @@ namespace Geolocation_Samples.Services
         private CompassData _compassData;
         private TimeSpan? _acquireDuration;
         private long _last = DateTime.UtcNow.Ticks;
-        private static long _intervalTicks = TimeSpan.FromSeconds(1).Ticks;
+        private static long _intervalTicks = TimeSpan.FromSeconds(5).Ticks;
 
         private void SetupCompass()
         {
@@ -132,6 +132,7 @@ namespace Geolocation_Samples.Services
             dto.Altitude = location.Altitude;
             dto.Accuracy = location.Accuracy;
             dto.VerticalAccuracy = location.VerticalAccuracy;
+            dto.ReducedAccuracy = location.ReducedAccuracy;
             dto.Speed = location.Speed;
             dto.Course = location.Course;
             dto.Timestamp = location.Timestamp;

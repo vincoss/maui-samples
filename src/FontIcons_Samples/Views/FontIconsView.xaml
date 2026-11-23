@@ -56,6 +56,10 @@
                FontFamily="FontAwesome" 
                FontSize="Header" TextColor="#E53935" />
 
+            <Label Text="SeaLife - Fonts" FontSize="Title" BackgroundColor="Orange"/>
+            <Label Text="A" FontFamily="SeaLife" 
+                   FontAttributes="Bold, Italic" FontSize="Header" TextColor="#E53935" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

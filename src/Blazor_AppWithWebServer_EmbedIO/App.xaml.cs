@@ -12,15 +12,24 @@ namespace Blazor_AppWithWebServer_EmbedIO
 
             InitializeComponent();
 
-            MainPage = new MainPage();
+            ServiceProvider = _serviceProvider;
         }
 
-        protected override void OnStart()
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            ContentPage page = new MainPage();
+
+            return new Window(new NavigationPage(page)) { Title = "EmbedIO Web Server" };
+        }
+
+        protected override async void OnStart()
         {
             base.OnStart();
 
-            var server = _serviceProvider.GetService<IEmbedServer>();
-            server.Run(new string[0]);
+            var startup = _serviceProvider.GetService<IStartup>();
+            await startup.RunAsync();
         }
+
+        public static IServiceProvider ServiceProvider { get; set; }
     }
 }

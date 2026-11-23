@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeScanning_Samples.Pages.BarcodeThreePage"
+             xmlns:barcode="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+             Title="BarcodeThreePage">
+
+    <!--
+    https://github.com/afriscic/BarcodeScanning.Native.Maui
+    -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" x:Name="barcodeResult" FontSize="20"/>
+
+        <barcode:CameraView Grid.Row="1" 
+                            OnDetectionFinished="CameraView_OnDetectionFinished"
+                            CaptureQuality="High"
+                            ForceInverted="True"
+                            TapToFocusEnabled="True"
+                            BarcodeSymbologies="All"
+                            ViewfinderMode="True"
+                            AimMode="True"
+                            x:Name="Barcode"/>
+
+    </Grid>
+
+
+    
+</ContentPage>

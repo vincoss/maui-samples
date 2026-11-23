@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BlazorHybridApp_CollectionView_Samples.Views.BindableLayoutView"
+             x:Name="cpBindableLayout"
+             Title="BindableLayout">
+
+    <ScrollView Grid.Row="1">
+        <VerticalStackLayout 
+            HorizontalOptions="Start"
+            Spacing="10"
+            BindableLayout.ItemsSource="{Binding Items}"
+            BindableLayout.EmptyView="No items">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference cpBindableLayout}}"/>
+                        </Grid.GestureRecognizers>
+                        <Label Text="{Binding}" Margin="10,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
